@@ -1,0 +1,83 @@
+object Form8: TForm8
+  Left = 482
+  Height = 311
+  Top = 386
+  Width = 449
+  Caption = 'Вопрос №3'
+  ClientHeight = 0
+  ClientWidth = 0
+  Font.CharSet = RUSSIAN_CHARSET
+  Font.Height = -21
+  Font.Name = 'Times New Roman'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.2.0'
+  object ScrollBar1: TScrollBar
+    Left = 52
+    Height = 24
+    Top = 104
+    Width = 320
+    PageSize = 0
+    TabOrder = 0
+    OnChange = ScrollBar1Change
+  end
+  object Label1: TLabel
+    Left = 36
+    Height = 22
+    Top = 184
+    Width = 45
+    Caption = '.. бит'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -20
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 32
+    Height = 23
+    Top = 152
+    Width = 98
+    Caption = 'Ваш ответ:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -21
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 32
+    Height = 36
+    Top = 32
+    Width = 386
+    Caption = 'Сколько бит в одном байте ?'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -32
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button1: TButton
+    Left = 112
+    Height = 53
+    Top = 224
+    Width = 216
+    Caption = 'Ok'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 1
+  end
+end

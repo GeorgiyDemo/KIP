@@ -1,0 +1,146 @@
+object Form13: TForm13
+  Left = 265
+  Height = 416
+  Top = 210
+  Width = 617
+  Caption = 'Практическая работа №5'
+  ClientHeight = 416
+  ClientWidth = 617
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Button1: TButton
+    Left = 24
+    Height = 80
+    Top = 304
+    Width = 156
+    Caption = 'Запуск проекта'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 179
+    Height = 23
+    Top = 136
+    Width = 64
+    TabOrder = 1
+  end
+  object Edit2: TEdit
+    Left = 179
+    Height = 23
+    Top = 184
+    Width = 64
+    TabOrder = 2
+  end
+  object Edit3: TEdit
+    Left = 179
+    Height = 23
+    Top = 232
+    Width = 64
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 27
+    Height = 17
+    Top = 142
+    Width = 129
+    Caption = 'Начальное значение:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 30
+    Height = 17
+    Top = 190
+    Width = 121
+    Caption = 'Конечное значение:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 115
+    Height = 17
+    Top = 238
+    Width = 31
+    Caption = 'Шаг:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object StringGrid1: TStringGrid
+    Left = 424
+    Height = 224
+    Top = 160
+    Width = 136
+    ColCount = 2
+    FixedCols = 0
+    GridLineWidth = 2
+    RowCount = 2
+    TabOrder = 4
+  end
+  object Label4: TLabel
+    Left = 112
+    Height = 42
+    Top = 8
+    Width = 392
+    Caption = 'Практическая работа №5'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -37
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 27
+    Height = 23
+    Top = 64
+    Width = 576
+    Caption = 'Табулирование функции с использованием компонента StringGrid'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -21
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 360
+    Height = 23
+    Top = 120
+    Width = 222
+    Caption = 'Выполнилось условие №'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -21
+    Font.Name = 'Times New Roman'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button2: TButton
+    Left = 216
+    Height = 80
+    Top = 304
+    Width = 158
+    Caption = 'Выход в главное меню'
+    OnClick = Button2Click
+    TabOrder = 5
+  end
+end
