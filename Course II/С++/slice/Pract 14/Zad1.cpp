@@ -10,8 +10,7 @@ int i, n, *a;
 void input(int *a, int n){
     srand((unsigned)time(0)); 
     for(int i=0; i<n; i++)
-        a[i] = (rand()%100)+1; 
-        //a[i] = (rand()%5)-1;
+        a[i] = (rand()%5)-1;
 }
 
 void outarr(int *a, int n){
