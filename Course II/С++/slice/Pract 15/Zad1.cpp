@@ -13,7 +13,7 @@ void initarray(int **a, int n, int m){
  srand((unsigned)time(0)); 
  for(i=0;i<n;i++)
     for(j=0;j<m;j++)
-        a[i][j] = (rand()%100)-50;
+        a[i][j] = (rand()%100);
 }
 
 void outarray(int **a, int n, int m){
@@ -49,14 +49,14 @@ void nomer1(int **a, int n, int m){
 void nomer2(int **a, int n, int m){
  int sum, str_bez = 0;
   bool flags;
-  for(int i = 0; i < n; i++){
-    flags = false;
-    for(int j = 0; j < n; j++){
-      if(a[i][j] < 0){
-        sum = 0;
-        for(int k = 0; k < n; k++){
-          flags = true;
-          sum += a[i][k];
+  for(int i=0;i<n;i++){
+    flags=false;
+    for(int j=0;j<m;j++){
+      if(a[i][j]<0){
+        sum=0;
+        for(int k=0;k<m;k++){
+          flags=true;
+          sum+=a[i][k];
         }
       }
       else
@@ -90,7 +90,7 @@ for(int i=0; i<n; i++)
   cout<<"\n\nМаксимальное число: "<<max<<"\nМинимальное число: "<<min<<'\n';
   cout<<"Строка с наибольшим элементом: "<<row+1<<"\nСтолбец с наименьшим элементом: "<<col+1<<'\n';
   cout<<"\nРезультат cкалярного произведения:\n";
-    for(i=0; i<n; i++){
+    for(i=0;i<n;i++){
         cout<<(resultarr[i]=a[row][i]*a[i][col])<<'\t';
     }
   cout<<"\n";
@@ -123,9 +123,10 @@ int main(){
           nomer2(a,n,m);
           break;
         }
-        case 3:  
+        case 3:{
           nomer3(a,n,m);
           break;
+        }
         default:  
           cout<<"Нет такого задания :с";  
       }  
