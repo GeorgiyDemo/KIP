@@ -5,7 +5,7 @@
 #include <stdio.h>
 using namespace std;
 
-const int number = 3;
+const int number = 7;
 
 struct AEROFLOT{
  char punct_naz[50],number[10],type[30];
