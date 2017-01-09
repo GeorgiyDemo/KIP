@@ -1,39 +1,49 @@
-#include <stdio.h>
-#include <math.h>
+#include <math.h> 
+#include <iostream> 
+#include <iomanip>
+#include <locale>
 
-int main(){
+#define pi 3.1415
+#define e 0.00001
+#define doublepi 9.8696
 
-  int n,m,st,k;
-  double x,y,eps,p,a,drob;
+using namespace std;
 
-  p = 1;
+int main (){    
+    setlocale(LC_ALL, "rus");
 
-  for (n=34, m=3, st=2; n>10; n-=4, m+=4, st++){
-    p=(1 + pow(sin(n), st))/m;
-  }
-
-  printf("P = %lf", p); //Выводим З
+    double x,c,sum,y;
+  int n,q; 
+  sum=0;
+  n=1;
   
-  do{
-    printf("\nEnter x "); scanf("%lf", &x);}
-  while (x*x>=1);
-
-  printf("\nEnter eps "); scanf("%lf", &eps);//Вводим эпсилу, че?
-  y = pow(1+x, -0.5);
+  initx:  
+      cout<<"x => ";cin>>x;
   
-  printf("Y = %lf", y);
-  k = 0;
-  a = 1;
-  p = 1;
+  if ((x*x)>(doublepi/4)){
+      cout<<"\nПовторите ввод\n";
+      goto initx;
+  } 
+  
+  c=sin(x)*sin(x); 
+  sum=c; 
+  y=log(cos(x));
+  
+  cout<<"Значение ln cos(x) = "<<setprecision(5)<<y; 
+  cout<<"N слагаемое S(x)"; 
+  
+  do{ 
+      cout<<"\n"<<n; 
+      c=c*(n*sin(x)*sin(x))/(n+1);
+      sum+=c; 
+      cout<<setw(12)<<setprecision(5)<<c; 
+      cout<<setw(12)<<setprecision(5)<<-0.5*sum; 
+      n++;
+  } 
+  while ((fabs(c)>=e)&&(n<1000)); 
+  cout<<"\n\nЗаданная точность достигается за "<<n-1<<" шага"; 
+  cout<<"\nСумма ряда: "<<setprecision(5)<<-0.5*sum; 
 
-  while (fabs(y-a) > eps){
-    k = k+1;
-    double drob=(double)(k+k-1)/(k+k);
-    
-    p = p*pow(-x, k)*drob;
-    a = a+p;
-    printf("\na[%d] = %lf, error: %lf", k, a, y-a);// Вывод чего-то
-    if (k>30) //если k>30, то стопаем
-        break;
-  }
+cout<<"\n";
+return 0;
 }

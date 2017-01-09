@@ -1,8 +1,7 @@
-#include <stdio.h>;
-#include <locale.h>;
-#include <iostream>;
-#include <cmath>;
-
+#include <stdio.h>
+#include <locale.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 const double pi = 3.141;
@@ -38,4 +37,7 @@ int main(){
           cout<<"???";
           break;
       }
+
+cout<<"\n";
+return 0;
 }
