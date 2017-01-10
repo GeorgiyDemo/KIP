@@ -1,6 +1,6 @@
-﻿#include <stdio.h>;
-#include <iostream>;
-#include <math.h>;
+﻿#include <stdio.h>
+#include <iostream>
+#include <math.h>
 using namespace std;
 int main(){
 

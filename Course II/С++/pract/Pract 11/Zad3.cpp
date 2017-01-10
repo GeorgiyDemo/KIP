@@ -1,5 +1,5 @@
-﻿#include <stdio.h>;
-#include <iostream>;
+﻿#include <stdio.h>
+#include <iostream>
 using namespace std;
 
 bool validation(int s1, int s2, int s3) {
