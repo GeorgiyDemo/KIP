@@ -1,7 +1,12 @@
 #include <iostream>
 #include <math.h>
+
 #include "practics.cpp"
-#include "array.cpp"
+#include "tasks/task14.cpp"
+#include "tasks/task15.cpp"
+#include "tasks/task16.cpp"
+#include "tasks/task17.cpp"
+#include "tasks/task18.cpp"
 
 using namespace std;
 
@@ -11,7 +16,7 @@ int main(){
     int k=0;
 
     cout<<"Практические C++ по ОП\n";
-    cout<<"Введите номер практической [11-14] => "; cin>>maink;
+    cout<<"Введите номер практической [11-18] => "; cin>>maink;
 
     switch (maink){
 
@@ -89,6 +94,41 @@ int main(){
             cout<<"\n3) Преобразовать массив таким образом, чтобы в первой его половине располагались элементы, стоявшие в нечетных позициях, а во второй половине – элементы, стоявшие в четных позициях.\n";
             
             n14();
+            break;
+        }
+
+        case 15:{
+            n15();
+            break;
+        }
+
+        case 16:{
+            n16();
+            break;
+        }
+
+        case 17:{
+            
+            cout<<"Введите задание [1-2] => "; cin>>k;
+            switch (k){
+                 case 1:{
+                    n17_1();
+                    break;
+                 }  
+                 case 2:{
+                    n17_2();
+                    break;
+                 } 
+                 default:{  
+                    cout<<"Такого задания нет!";
+                 }
+              }  
+            break;
+
+        }
+
+        case 18:{
+            n18();
             break;
         }
 
