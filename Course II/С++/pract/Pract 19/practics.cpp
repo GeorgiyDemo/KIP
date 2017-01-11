@@ -53,6 +53,7 @@ int n11_1(){
   c=log10((y-sqrt(log10(x)))*(x-(y/(x+pow(x,2)/4))));
   printf("Result: => %Lf",c);
 
+cout<<"\n";
 return 0;  
 }
 
@@ -71,6 +72,7 @@ int n11_2(){
 
   printf("Результат:\nСумма => %d\nРазность => %d\nПроизведение => %d\nЧастное => %fl",sum,raz,proiz,chast);
 
+cout<<"\n";
 return 0;
 }
 
@@ -86,6 +88,7 @@ int n11_3(){
   printf("\nРезультат: ");
     (trigger == 1) ? cout<<"True" : cout<<"False";
 
+cout<<"\n";
 return 0; 
 }
 
@@ -100,6 +103,7 @@ int n11_4(){
   trigger = tochka(x,y);
     (trigger == 1) ? cout<<"True" : cout<<"False";
 
+cout<<"\n";
 return 0;
 }
 
@@ -242,5 +246,6 @@ int n13_2(){
       cout << "Числа не имеют НОД" << endl;
     }
 
+cout<<"\n";
 return 0;
 }
