@@ -27,6 +27,8 @@ int main(){
     init_pair(2, COLOR_WHITE, COLOR_BLACK);
 
     //Красивое меню
+    attron(COLOR_PAIR(2));
+    printw("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
     attron(COLOR_PAIR(1));
     printw(" ---------------------------------------\n");
     printw("|");
@@ -39,6 +41,7 @@ int main(){
     refresh();
     scanw("%d",&maink);
     attron(COLOR_PAIR(2));
+    
     //Этот синтаксис case
     switch (maink){
 
@@ -151,8 +154,7 @@ int main(){
 
     }
 
-    //Красивое продолжение менюшки
-    //
+    //Красивый конец менюшки
     attron(COLOR_PAIR(1));
     printw("\n ---------------------------------------\n");
     printw("|");
@@ -161,8 +163,8 @@ int main(){
     attron(COLOR_PAIR(1));
     printw("|\n");
     printw(" ---------------------------------------\n");
-    //
-
+    attron(COLOR_PAIR(2));
+    printw(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
     getch();
     endwin();
 
