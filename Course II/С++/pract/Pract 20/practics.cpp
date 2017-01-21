@@ -147,7 +147,6 @@ return 0;
 
 int n12_2(){    
     setlocale(LC_ALL, "rus");
-
     double x,c,sum,y;
   int n,q; 
   sum=0;
@@ -157,14 +156,13 @@ int n12_2(){
       printw("x => "); scanw("%d",&x);
   
   if ((x*x)>(doublepi/4)){
-      cout<<"\nПовторите ввод\n";
+      printw("\nПовторите ввод\n");
       goto initx;
   } 
   
   c=sin(x)*sin(x); 
   sum=c; 
   y=log(cos(x));
-  
   cout<<"Значение ln cos(x) = "<<setprecision(5)<<y; 
   cout<<"N слагаемое S(x)"; 
   
