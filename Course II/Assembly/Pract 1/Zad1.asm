@@ -1,0 +1,5 @@
+IN
+WR 9
+RD @9
+SUB #1
+JS 00
