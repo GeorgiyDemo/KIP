@@ -1,9 +1,6 @@
 #include <iostream>
-#include <cstring>
-#include <iomanip>
-#include <stdlib.h>
-#include <stdio.h>
 #include <cmath>
+
 using namespace std;
 
 void RussianMostWanted(int a, int b, int c){
@@ -23,8 +20,10 @@ int main(){
     int five=0, seven=0, nine=0;
     double proc5=0, proc7=0, proc9=0;
 
-    for (i=0;i<max+1;i++){
+    cout<<"Текущий отрезок:\n\n[";
 
+    for (i=0;i<max+1;i++){
+        cout<<i<<", ";
     	if (i%5==0)
     		five++;
     	if (i%7==0)
@@ -33,6 +32,8 @@ int main(){
     		nine++;
 
     }
+
+    cout<<"]\n";
 
 proc5=(double)five/(double)max*100;
 proc7=(double)seven/(double)max*100;

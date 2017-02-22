@@ -1,9 +1,6 @@
 #include <iostream>
-#include <cstring>
-#include <iomanip>
-#include <stdlib.h>
-#include <stdio.h>
 #include <cmath>
+
 using namespace std;
 
 int main(){
@@ -20,8 +17,9 @@ int main(){
         cout<<i<<". "<<a<<" "<<"\n";
 
     }
+
     while (fabs(a)<e);
-    cout<<"Заданное условие достигается за "<<i<<" шаг(а) 🐱";
-cout<<"\n";
+
+cout<<"Заданное условие достигается за "<<i<<" шаг(а) 🐱\n";
 return 0;
 }
