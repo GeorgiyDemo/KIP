@@ -1,27 +1,29 @@
 #include <iostream>
-#include <cstring>
-#include <iomanip>
-#include <stdlib.h>
-#include <stdio.h>
-#include <cmath>
+
 using namespace std;
 
 int main(){
 
-	int i,x;
+	int i,x,a=11;
     float y;
 
-    for (i=1;i<31;i++){
-        x=i;
-        if (x>=16)
-            y=(x-11)*(x-11)-125;
-        
-        if (x<16)
-            y= (float) (x*x+72*x-6400)/168;
+    cout<<"Введите x => ";cin>>x;
 
-        cout<<i<<". "<<y<<"\n";
-    }
+        if ((a<=x) && (x<=30)){
+        	y=(2*x*x+7)/x;
+        	cout<<"Ветка №1\nРезультат: y="<<y<<"\n";
+        }
+        
+        
+        else if ((1<=x) && (x<=a)){
+        	y=((x+3)*(x+3))/x;
+        	cout<<"Ветка №2\nРезультат: y="<<y<<"\n";
+        }
+        
+        else
+        	cout<<"Не входит в данное множество\n";
 
 cout<<"\n";
 return 0;
+
 }
