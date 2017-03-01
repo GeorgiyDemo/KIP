@@ -1,43 +1,70 @@
 program StrangeKOT;
-const nmax=99999999;
-var a:array[1..nmax] of longint;
-    index1, num, one, two, i, n: integer;
+uses crt;
+var a: array of integer;
+    k, index1, num, one, two, n: integer;
 
-begin
-randomize;
-write('¬ведите кол-во элементов массива n => '); read(n);
-
-writeln('“екущий массив:');
-for i:=1 to n do
-begin
-    a[i]:=random(20);
-    write(a[i],' ');
-end;
-writeln;
-write('¬ведите число A => '); read(num);
-
-//“ут ищем элементы
-for i:=1 to n do
-  if (a[i]=num) then
+procedure initarray();
+  var i: integer;
   begin
-      writeln('Ёлемент B найден!');
-      index1:=i;
-      writeln('є',i,'. B=',a[i]);
-      break;
+    randomize;
+    write('¬ведите кол-во элементов массива n => '); read(n);
+    a := new integer[n+1];
+    for i:=1 to n do
+      a[i]:=random(20);
   end;
 
-for i:=n downto 0 do
-  if (a[i]=num) then
-    if (index1<>i) then
-    begin
-        writeln('Ёлемент C найден!');
-        writeln('є',i,'. C=',a[i]);
-        break;
-    end
-    else
-    begin
-      writeln('Ёлементы C и B совпадают :c');
-      break;
-    end;
+procedure outarray();
+  var i: integer;
+  begin
+    writeln('“екущий массив:');
+    for i:=1 to n do
+      write(a[i],' ');
+  readkey();
+  end;
 
+procedure finder(); //“ут ищем элементы
+  var i: integer;
+  begin
+  writeln;
+  write('¬ведите число A => '); read(num);
+  for i:=1 to n do
+    if (a[i]=num) then
+      begin
+        writeln('Ёлемент B найден!');
+        index1:=i;
+        writeln('є',i,'. B=',a[i]);
+        break;
+      end;
+
+  for i:=n downto 0 do
+    if (a[i]=num) then
+      if (index1<>i) then
+        begin
+          writeln('Ёлемент C найден!');
+          writeln('є',i,'. C=',a[i]);
+          break;
+        end
+      else
+        begin
+          writeln('Ёлементы C и B совпадают :c');
+          break;
+        end;
+    readkey();
+  end;
+
+begin
+  repeat
+  clrscr;
+  writeln('1. √енераци€ массива');
+  writeln('2. ¬ывод массива');
+  writeln('3. ѕоиск элементов в массиве');
+  writeln('0. ¬ыход из программы');
+  write('=> '); readln(k);
+  
+  case k of
+   1 : initarray();
+   2 : outarray();
+   3 : finder();
+  end;
+  until (k=0);
 end.
