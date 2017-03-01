@@ -3,16 +3,20 @@
 #include <ctime>
 using namespace std;
 
-int *a, one, two, sum, num, i, j, n, m;
+int *a, one, two, sum, num, i, j, n, m, k;
 
-void initarray(int *a, int n){
+void initarray(){
+
+	srand(time(0));
  	srand((unsigned)time(0));
+ 	cout<<"\nВведите n => "; cin>>n;
+	a = new int [n];
 	for(i=2;i<n;i++)
 	    a[i]=rand()%100;
 
 }
 
-void outarray(int *a, int n){
+void outarray(){
 
 	cout<<"[";
 	for(i=0;i<n;i++)
@@ -21,9 +25,9 @@ void outarray(int *a, int n){
 
 }
 
-void finder(int *a, int n, int num){
+void finder(){
 	int index1=0;
-
+	cout<<"Введите число A => "; cin>>num;
 	for(i=0;i<n;i++)
 	    if (a[i]==num){
 	    	cout<<"\n\nЭлемент B найден!\n";
@@ -46,16 +50,27 @@ void finder(int *a, int n, int num){
 
 int main(){
 
-	srand(time(0));
-    setlocale(LC_ALL,"rus");
+	setlocale(LC_ALL,"rus");
 
-    cout<<"\nВведите n => "; cin>>n;
-	a = new int [n];
-	initarray(a,n);
-	cout<<"Исходный массив:";
-	outarray(a,n);
-	cout<<"Введите число A => "; cin>>num;
-	finder(a,n,num);
+	do
+    {
+     cout<<"\n\n1. Генерация массива\n2. Вывод массива\n3. Поиск элементов массива\n0. Выход из программы\n=> ";
+     cin>>k;
+     switch (k)  
+      {  
+         case 1:  
+            initarray();
+          	break;
+         case 2:  
+            outarray();
+            break;
+         case 3:  
+            finder();
+            break;
+
+      }    
+
+    } while (k!=0);
 
 cout<<"\n";
 return 0;

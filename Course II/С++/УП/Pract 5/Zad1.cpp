@@ -2,9 +2,16 @@
 #include <iomanip>
 using namespace std;
 
-int *a, one, two, sum, i, j, n, m;
+int *a, i, j, n, m, k;
 
-void initarray(int *a, int n, int one, int two){
+void initarray(){
+    
+    int one, two;
+	cout<<"\nВведите n => "; cin>>n;
+	a = new int [n];
+
+    cout<<"Введите 1-й элемент массива => "; cin>>one;
+    cout<<"Введите 2-й элемент массива => "; cin>>two;
 
 	a[0]=one;
 	a[1]=two;
@@ -13,7 +20,7 @@ void initarray(int *a, int n, int one, int two){
 
 }
 
-void outarray(int *a, int n){
+void outarray(){
 
 	cout<<"\nПреобразованный массив:\n[";
 	for(i=0;i<n;i++)
@@ -26,14 +33,25 @@ int main(){
 
     setlocale(LC_ALL,"rus");
 
-    cout<<"\nВведите n => "; cin>>n;
-    cout<<"Введите 1-й элемент массива => "; cin>>one;
-    cout<<"Введите 2-й элемент массива => "; cin>>two;
+    do
+    {
+     cout<<"\n\n1. Генерация массива\n2. Вывод массива\n0. Выход из программы\n=> ";
+     cin>>k;
+     switch (k)  
+      {  
+         case 1:  
+            initarray();
+            break;
+          
+         case 2:  
+            outarray();
+            break;
 
-	a = new int [n];
-	initarray(a,n,one,two);
-	outarray(a,n);
+      }    
 
+    } while (k!=0);
+
+cout<<"\n";
 return 0;
 
 }

@@ -3,16 +3,20 @@
 #include <ctime>
 using namespace std;
 
-int *a, one, two, sum, i, j, n, m;
+int *a, one, two, sum, i, j, n, m, k;
 
-void initarray(int *a, int n){
+void initarray(){
+
+	srand(time(0));
  	srand((unsigned)time(0));
+ 	cout<<"\nВведите n => "; cin>>n;
+ 	a = new int [n];
 	for(i=2;i<n;i++)
 	    a[i]=rand()%100;
 
 }
 
-void outarray(int *a, int n){
+void outarray(){
 
 	cout<<"[";
 	for(i=0;i<n;i++)
@@ -21,7 +25,7 @@ void outarray(int *a, int n){
 
 }
 
-void changer(int *a, int n){
+void changer(){
 	for(i=2;i<n;i++)
 	    if ((a[i]%2==1) && (i%2==0))
 	    	a[i]=0;
@@ -30,19 +34,29 @@ void changer(int *a, int n){
 
 int main(){
 
-	srand(time(0));
     setlocale(LC_ALL,"rus");
 
-    cout<<"\nВведите n => "; cin>>n;
+    do
+    {
+     cout<<"\n\n1. Генерация массива\n2. Вывод массива\n3. Замена элементов массива\n0. Выход из программы\n=> ";
+     cin>>k;
+     switch (k)  
+      {  
+         case 1:  
+            initarray();
+          	break;
+         case 2:  
+            outarray();
+            break;
+         case 3:  
+            changer();
+            break;
 
-	a = new int [n];
-	initarray(a,n);
-	cout<<"Исходный массив:";
-	outarray(a,n);
-	changer(a,n);
-	cout<<"Измененный массив:";
-	outarray(a,n);
+      }    
 
+    } while (k!=0);
+
+cout<<"\n";
 return 0;
 
 }
