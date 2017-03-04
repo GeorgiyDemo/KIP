@@ -25,7 +25,6 @@ procedure initarray();
 procedure outarray();
   var i: integer;
   begin
-    writeln(n);
     writeln('Полученный массив:');
     write('[');
     for i:=1 to n do
