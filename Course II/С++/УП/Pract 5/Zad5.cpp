@@ -1,9 +1,8 @@
 #include <iostream>
-#include <iomanip>
 #include <ctime>
 using namespace std;
 
-int *a, one, two, sum, num, i, j, n, m, k;
+int *a, i, n, k, num;
 
 void initarray(){
 
@@ -11,7 +10,7 @@ void initarray(){
  	srand((unsigned)time(0));
  	cout<<"\nВведите n => "; cin>>n;
 	a = new int [n];
-	for(i=2;i<n;i++)
+	for(i=0;i<n;i++)
 	    a[i]=rand()%100;
 
 }

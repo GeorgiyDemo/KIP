@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-int *a, i, j, n, m, k;
+int *a, i, k, n;
 
 void initarray(){
     
