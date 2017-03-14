@@ -11,17 +11,18 @@ Sub Main()
     Range("A9:A16").Select
     ActiveSheet.Paste
 
-    Cells(1, 14).Value = "Îáùåå êîë-âî ïóòåâîê"
-    Cells(17, 1).Value = "Ìàêñ êîë-âî ïóòåâîê"
-    Cells(18, 1).Value = "Ìèí êîë-âî ïóòåâîê"
+    Cells(1, 14).Value = "Общее кол-во путевок"
+    Cells(17, 1).Value = "Макс кол-во путевок"
+    Cells(18, 1).Value = "Мин кол-во путевок"
 
     For i = 2 To 5
-        Cells(9, i).Value = i - 1 & " êâàðòàë"
+        Cells(9, i).Value = i - 1 & " квартал"
     Next i
     For i = 7 To 10
-        Cells(9, i).Value = i - 6 & " êâàðòàë"
+        Cells(9, i).Value = i - 6 & " квартал"
     Next i
 
+    'Сумма
     For i = 2 To 7
         For j = 2 To 14
             sum = sum + Cells(i, j).Value
@@ -30,6 +31,7 @@ Sub Main()
         sum = 0
     Next i
 
+    'Сумма по кварталам
     For i = 2 To 7
     RARfix = 2
     MOY_RAYON = 0
@@ -45,7 +47,8 @@ Sub Main()
             End If
         Next j
     Next i
-    
+
+    'Ето проценты, брат
     For i = 10 To 15
         For j = 2 To 5
 
@@ -62,6 +65,7 @@ Sub Main()
         Next j
     Next i
 
+    'Ето мин/макс
     MIN = Cells(2, 14).Value
     MAX = MIN
     For i = 2 To 7
