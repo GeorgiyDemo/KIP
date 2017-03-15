@@ -1,50 +1,63 @@
-program qwe1;
-uses crt;
-var n,m,j,i,k,max,min,mini,minj,maxi,maxj,buf:integer;
-a:array [1..20,1..20] of integer;
-begin
-randomize;
-write(' n= ');
-readln(n);
-write(' m= ');
-readln(m);
-writeln('Исходная матрица');
-writeln;
-for i:= 1 to n do
-begin
-for j:= 1 to m do
-begin
-a[i,j]:=random(20);
-write(a[i,j]:6);
-end;
-writeln;
-end;
-max:=a[1,1];
-min:=a[1,1];
-for i:= 1 to n do
-for j:= 1 to m do   begin
-	if a[i,j]>max then  begin
-	max:=a[i,j];
-  maxi:=i;
-  maxj:=j;
+﻿program KOT;  
+uses crt; 
+
+var n, m, k : integer; 
+    a:array [,] of integer;
+
+procedure initarray();
+
+  var i, j : integer;
+  begin
+    randomize;
+    write('Введите n =>'); 
+    readln(n); 
+    writeln;
+    a:=new integer[n+1,n+1];
+    for i:= 1 to a.GetLength(0)-1 do
+    begin    
+    for j:= 1 to a.GetLength(1)-1 do
+     a[i, j]:=i+j;
+     end;
+     
+     for i:= 1 to a.GetLength(0)-1  do
+    begin
+    a[i, n]:=n;
+    end;
+    
+    for j:= 1 to a.GetLength(1)-1 do
+    begin
+    a[n, j]:=n;
+    end;
+    
   end;
-  if a[i,j]<min then begin
-	min:=a[i,j];
-  mini:=i;
-  minj:=j;
+  
+  procedure outarray();
+  
+  var i, j: integer;
+  begin
+  writeln('Полученный массив:');
+  for i:= 1 to a.GetLength(0)-1 do 
+      begin 
+      writeln;
+        for j:= 1 to a.GetLength(1)-1 do 
+          write(a[i,j]:6); 
+       end;
+  readkey();
   end;
+  
+  begin
+    repeat
+      clrscr;
+      writeln('1. Ввод массива');
+      writeln('2. Вывод массива');
+      writeln('0. Выход из программы');
+      write('=> '); readln(k);
+  
+  case k of
+   1 : initarray();
+   2 : outarray();
   end;
-  writeln('max= ',max);
-  writeln('min= ',min);
-  writeln('Меняем');
-buf:=max;
-a[maxi,maxj]:=a[mini,minj];
-a[mini,minj]:=buf;
-for i:= 1 to n do
-begin
-writeln;
-for j:= 1 to m do
-write(a[i,j]:6);
-end;
-writeln;
-	end.
+  
+  until (k=0);
+ 
+end.
