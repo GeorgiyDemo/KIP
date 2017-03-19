@@ -5,7 +5,7 @@ using namespace std;
 
 int i, j, n, k, **a;
 
-void initarray(){
+void initarray() {
 
     cout<<"Введите n =>"; cin>>n;
 
@@ -26,7 +26,7 @@ void initarray(){
 	    
 }
 
-void outarray(){
+void outarray() {
 
 	cout<<"\nИсходная матрица:";
 	for(i=0;i<n;i++){
@@ -36,7 +36,7 @@ void outarray(){
     }
 }
 
-int main(){
+int main() {
 
     do
     {
