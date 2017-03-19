@@ -8,6 +8,7 @@ var n, m, k : integer;
 procedure initarray();
 
   var i, j : integer;
+  
   begin
     randomize;
     write('Введите кол-во строк =>'); 
@@ -31,20 +32,22 @@ procedure initarray();
   procedure outarray();
   
   var i, j: integer;
+  
   begin
   writeln('Полученный массив:');
-  for i:= 1 to a.GetLength(0)-1 do 
-      begin 
+  for i:= 1 to a.GetLength(0)-1 do
+    begin
       writeln;
-        for j:= 1 to a.GetLength(1)-1 do 
-          write(a[i,j]:6); 
-       end;
+      for j:= 1 to a.GetLength(1)-1 do
+        write(a[i,j]:6);
+    end;
   readkey();
   end;
   
   procedure counter();
   
   var i, j: integer;
+  
   begin
   for i:= 1 to a.GetLength(0)-1 do
     for j:= 1 to a.GetLength(1)-1 do
@@ -72,12 +75,10 @@ procedure initarray();
       writeln('0. Выход из программы');
       write('=> '); readln(k);
   
-  case k of
-   1 : initarray();
-   2 : outarray();
-   3 : counter()
-  end;
-  
-  until (k=0);
- 
-end.
+      case k of
+        1 : initarray();
+        2 : outarray();
+        3 : counter()
+      end;
+    until (k=0);
+  end.
