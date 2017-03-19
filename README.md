@@ -1,10 +1,13 @@
 <img src="cat.jpg" align="right" />
+
 # Demka's KIP repo
 
-##1 Курс
+## 1 Курс
+
 * [Информатика](https://github.com/GeorgiyDemo/KIP/tree/master/%D0%A1ourse%20I)  - Pascal/Lasarus
 
-##2 Курс
+## 2 Курс
+
 * Основы программирования:
   * [Практические по C++](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20II/%D0%A1%2B%2B/%D0%9E%D0%9F/pract)
   * [Практические по C++ (альтернативная реализация)](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20II/%D0%A1%2B%2B/%D0%9E%D0%9F/Project)
