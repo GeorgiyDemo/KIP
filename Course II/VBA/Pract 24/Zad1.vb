@@ -3,14 +3,14 @@ Private Sub CommandButton1_Click()
     Dim srednchet, sredchet As Double
 
     KOTlen = TextBox1.TextLength
-    n = KOTlen / 2
     'Читаем данные с TextBox
-    For i = 0 To n
-        a(i) = Split(TextBox1.Text, " ")(i)
+    n = Split(TextBox1.Text, " ")
+    For i = 0 To UBound(n)
+        a(i) = Val(n(i))
     Next i
 
     'Ищем первый нулевой элемент
-    For i = 0 To n
+    For i = 0 To UBound(n)
         If (a(i) = 0) Then
             index1 = i
             Exit For
@@ -18,7 +18,7 @@ Private Sub CommandButton1_Click()
     Next i
 
     'Ищем второй нулевой элемент
-    For i = 0 To n
+    For i = 0 To UBound(n)
         If (a(i) = 0) Then
             If (index1 <> i) Then
                 index2 = i
@@ -40,7 +40,7 @@ Private Sub CommandButton1_Click()
     KNchet = 0
     Schet = 0
     SNchet = 0
-     For i = 0 To n
+     For i = 0 To UBound(n)
         If ((a(i) Mod 2) = 0) Then
             Kchet = Kchet + 1
             Schet = Schet + a(i)
@@ -60,7 +60,7 @@ Private Sub CommandButton1_Click()
    k = 0
    j = 0
 
-   For i = 0 To n
+   For i = 0 To UBound(n)
         p = i Mod 2
         If (p = 0) Then
             b(j) = a(i)
@@ -71,7 +71,7 @@ Private Sub CommandButton1_Click()
     Next i
 
 
-     For i = 0 To n
+     For i = 0 To UBound(n)
         If (a(i) <> 0) Then
            b(k) = a(i)
            k = k + 1
@@ -80,7 +80,7 @@ Private Sub CommandButton1_Click()
 
     Label1.Caption = Label1.Caption + Chr(13) + "Отсортированный массив:" + Chr(13) + "["
 
-    For i = 0 To n
+    For i = 0 To UBound(n)
        Label1.Caption = Label1.Caption + CStr(b(i)) + " "
     Next i
     Label1.Caption = Label1.Caption + "]"
