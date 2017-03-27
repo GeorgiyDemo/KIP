@@ -2,7 +2,6 @@ Private Sub CommandButton1_Click()
     Dim a(100), b(100), i, j, k, n, p, index1, SNchet, Schet, KNchet, Kchet, index2, buf, mult As Integer
     Dim srednchet, sredchet As Double
 
-    KOTlen = TextBox1.TextLength
     'Читаем данные с TextBox
     n = Split(TextBox1.Text, " ")
     For i = 0 To UBound(n)
