@@ -1,8 +1,8 @@
 ;Кол-во четных чисел в первом массиве, во втором, в третьем
 ;Найти сред. арифметическое между тремя этими числами
-RD #100 
+RD #85
 WR R1 
-RD #3 
+RD #4
 WR R2 
 WR R3 
 CALL COUNTFUNC 
@@ -11,16 +11,16 @@ ADD R8
 WR R5 
 RD #100 
 WR R1 
-RD #3 
+RD #4
 WR R2 
 WR R3 
 CALL COUNTFUNC 
 RD R5 
 ADD R8 
 WR R5 
-RD #100 
+RD #110
 WR R1 
-RD #3 
+RD #4
 WR R2 
 WR R3 
 CALL COUNTFUNC 
