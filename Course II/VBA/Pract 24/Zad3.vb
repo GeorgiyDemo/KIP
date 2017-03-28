@@ -2,7 +2,7 @@ Private Sub CommandButton1_Click()
 
     Dim a(100, 100), n, i, j As Integer
 
-    n = CInt(TextBox1.Text) - 1
+    n = InputBox("Введите размерность массива:") - 1
     Label1.Caption = ""
 
 
