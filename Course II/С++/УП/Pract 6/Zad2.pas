@@ -15,20 +15,15 @@ procedure initarray();
     writeln;
     a:=new integer[n+1,n+1];
     for i:= 1 to a.GetLength(0)-1 do
-      begin
         for j:= 1 to a.GetLength(1)-1 do
           a[i,j]:=i+j;
-      end;
      
-    for i:= 1 to a.GetLength(0)-1  do
-      begin
-        a[i, n]:=n;
-      end;
+    for i:= 1 to a.GetLength(0)-1 do
+        for j:= 1 to a.GetLength(1)-1 do
+          if ((i+j>n) or (n=i+i-1)) then
+            a[i,j]:=n;
+          
     
-    for j:= 1 to a.GetLength(1)-1 do
-      begin
-        a[n, j]:=n;
-      end;  
   end;
   
   procedure outarray();
@@ -37,10 +32,10 @@ procedure initarray();
   
   begin
   writeln('Полученный массив:');
-  for i:= 1 to a.GetLength(0)-1 do
+  for i:= 1 to a.GetLength(0)-2 do
     begin
       writeln;
-        for j:= 1 to a.GetLength(1)-1 do 
+        for j:= 1 to a.GetLength(1)-2 do 
           write(a[i,j]:6); 
     end;
   readkey();

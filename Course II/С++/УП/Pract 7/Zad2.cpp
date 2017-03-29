@@ -15,23 +15,21 @@ void initarray() {
 
 	for(i=0;i<n;i++)
 	    for(j=0;j<n;j++)
-	    	a[i][j]=i+j;
+	    	a[i][j]=i+j+2;
 	
-	for(i=0;i<n;i++){
-		a[i][n-1]=n;
-    }
-
-	for(j=0;j<n;j++)
-		a[n-1][j]=n;
+	for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            if ((i+j>=n-1))
+                a[i][j]=n; 
 	    
 }
 
-void outarray() {
+void outarray(){
 
 	cout<<"\nИсходная матрица:";
-	for(i=0;i<n;i++){
+	for(i=0;i<n-1;i++){
 	    cout<<"\n";
-	    for(j=0;j<n;j++)
+	    for(j=0;j<n-1;j++)
 	        cout<<setw(5)<<a[i][j];
     }
 }
