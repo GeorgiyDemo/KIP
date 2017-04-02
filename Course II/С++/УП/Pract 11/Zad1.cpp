@@ -59,28 +59,29 @@ void insertsort(){
 }
 
 void quickSort(int arr[], int left, int right) {
+  
+    int buf;
     int i = left, j = right;
-    int tmp;
-    int pivot = arr[(left + right) / 2];
+    int pivot = arr[(left+right)/2];
  
-    while (i <= j){
+    while (i<=j){
         while (abs(arr[i]) < abs(pivot))
         i++;
         while (abs(arr[j]) > abs(pivot))
         j--;
-        if (i <= j) {
-            tmp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = tmp;
+        if (i<=j){
+        	buf=arr[i];
+            arr[i]=arr[j];
+            arr[j]=buf;
             i++;
             j--;
         }
     }
  
-    if (left < j)
-      quickSort(arr, left, j);
-    if (i < right)
-      quickSort(arr, i, right);
+    if (left<j)
+    	quickSort(arr,left,j);
+    if (i<right)
+    	quickSort(arr,i,right);
  
 }
 
@@ -121,7 +122,7 @@ int main(){
         break;
 
       case 6:  
-        quickSort(a, 0, n-1);
+        quickSort(a,0,n-1);
         break; 
 
     }    
