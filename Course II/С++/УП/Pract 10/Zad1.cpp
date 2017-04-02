@@ -47,15 +47,15 @@ void chosesort(){
 void insertsort(){
 
   int buf, item;
-    for (int i = 1; i < n; i++){
-        buf = a[i];
-        item = i-1;
-        while(item >= 0 && abs(a[item]) > abs(buf)){
-                    a[item + 1] = a[item];
-                    a[item] = buf;
-                    item--;
-        }
+  for (i=1;i<n;i++){
+    buf=a[i];
+    item=i-1;
+    while((item >= 0) && (abs(a[item]) > abs(buf))){
+      a[item+1]=a[item];
+      a[item]=buf;
+      item--;
     }
+  }
 }
 
 void outarray(){
