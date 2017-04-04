@@ -1,23 +1,20 @@
 #include <iostream>
-#include <ctime>
+#include <cmath>
+ 
 using namespace std;
 
-int n, x, sum;
-
-void counter(k,sum;){
-	while (k !=k) do{
-
-	}
-		
-	int x;
-	sum=sum+
+int x;
+ 
+int RSum(int N)
+{
+    if(N==0) return 0;
+    cout<<N<<"\n";
+    return pow(x,N)+RSum(pow(x,N)-1);
 }
 
-int main(){
-	sum=0;
-	cout<<"Введите n =>"; cin>>n;
-
-
-cout<<"\n";
-return 0;
+int main()
+{   
+	x=2;
+    RSum(2);
+    return 0;
 }
