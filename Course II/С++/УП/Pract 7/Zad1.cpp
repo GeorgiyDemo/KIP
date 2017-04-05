@@ -12,7 +12,7 @@ void initarray(){
     cout<<"Введите m =>"; cin>>m;
 
     a = new int *[n];
-    for(i=0;i<m;i++)
+    for(i=0;i<n;i++)
       a[i]=new int[m+1];
 
   for(i=0;i<n;i++)
