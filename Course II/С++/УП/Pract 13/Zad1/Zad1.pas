@@ -38,25 +38,26 @@ procedure initarray();
   var i:integer;
       FF1,FF2: Text;
   begin
-    Assign(FF1, 'mas1.txt'); Assign(FF2, 'mas2.txt');
+  
+    Assign(FF1, 'mas1.txt');
+    Assign(FF2, 'mas2.txt');
     Reset(FF1); Reset(FF2);
     i:=1;
     While Not(Eof(FF1)) Do
         Begin
           ReadLn(FF1, x[i]);
-          WriteLn(x[i]);
           Inc(i);
         End;
     i:=1;    
     While Not(Eof(FF2)) Do
         Begin
           ReadLn(FF2, y[i]);
-          WriteLn(y[i]);
           Inc(i);
         End;
     Close(FF1);
     Close(FF2);
   end;
+  
 begin
 
   writeln('1. Генерация массивов');

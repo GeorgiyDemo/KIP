@@ -1,19 +1,22 @@
 program meow2;
-uses crt; 
+uses crt;
+ 
+const n=3;
+const m=7;
 
 var a:array[1..1000,1..1000] of real;
-    sum:array[1..1000] of real;
-    i,n,k,k1,k2: byte;
+    sum: real;
+    i,j,ii,k,k1,k2: byte;
     bike: real;
   
 procedure initarray();
   
   procedure generate();
-  var i:integer;
+  var i,j:integer;
   begin
     randomize;
     for i:=1 to n do
-     for j:=1 t m do
+     for j:=1 to m do
       a[i,j]:=random*20-10;
   end;
   
@@ -29,27 +32,7 @@ procedure initarray();
   
   //ÏÎÔÈÊÑÈÒÜ______________________________________________
   procedure files();
-  var i:integer;
-      FF1,FF2: Text;
   begin
-    Assign(FF1, 'mas1.txt'); Assign(FF2, 'mas2.txt');
-    Reset(FF1); Reset(FF2);
-    i:=1;
-    While Not(Eof(FF1)) Do
-        Begin
-          ReadLn(FF1, x[i]);
-          WriteLn(x[i]);
-          Inc(i);
-        End;
-    i:=1;    
-    While Not(Eof(FF2)) Do
-        Begin
-          ReadLn(FF2, y[i]);
-          WriteLn(y[i]);
-          Inc(i);
-        End;
-    Close(FF1);
-    Close(FF2);
   end;
 begin
 
@@ -69,19 +52,21 @@ end;
 procedure outarray();
 
   procedure monitor_out;
-  var i:integer;
+  var i,j:integer;
   begin
     writeln('Èñõîäíàÿ ìàòğèöà:');
     for i:=1 to n do
+    begin
       writeln;
-      for i:=1 to n do
-        write(a[i,j]:10:2);
+      for j:=1 to m do
+        write(a[i,j]:10:5);
+    end;
   readkey();
   end;
   
   procedure file_out;
   var f: Text;
-      i:integer;
+      i,j:integer;
   begin
     assign(f, 'out.txt');
     rewrite(f);
@@ -102,13 +87,36 @@ begin
      end; 
 end;
 
-procedure v_input()
+procedure v_input();
 begin
   write('Ââåäèòå âåëè÷èíó => ');
   read(bike);
 end;
 
-procedure 
+procedure sum_kol();
+var i,j:integer;
+begin
+  k1:=0;
+    for i:= 1 to n do
+      begin
+      for j:= 1 to n do
+        sum:=a[j,i]+sum;
+      ii:=i;
+      if (sum>bike) then
+        begin
+          sum:=0;
+          k:=k+1;
+          writeln(i,'- ñòîëáåö');
+          writeln;
+          for j:= 1 to n do
+            begin
+              write(' ',a[j,ii],' ');
+              writeln;
+            end
+        end
+      end;
+  readkey();
+  end;
 
 
 begin
@@ -117,15 +125,15 @@ begin
     writeln('1. Ââîä ìàññèâîâ');
     writeln('2. Âûâîä ìàññèâîâ');
     writeln('3. Ââîä âåëè÷èíû');
-    writeln('4. Êîë-âî ñëó÷àåâ ğàâåíñòâà ïàğ');
+    writeln('4. Íîìåğà ñòîëáöîâ');
     writeln('0. Âûõîä èç ïğîãğàììû');
     write('=> '); readln(k);
   
      case k of
        1 : initarray();
        2 : outarray();
-       3 : sred();
-       4 : kol();
+       3 : v_input();
+       4 : sum_kol();
      end;
   
   until (k=0);
