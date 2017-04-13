@@ -34,28 +34,18 @@ procedure initarray();
       end;
   end;
   
-  procedure files();
-  var i:integer;
-      FF1,FF2: Text;
+  procedure files_in();
+  var i,j:integer; f1,f2:file of double;
   begin
-  
-    Assign(FF1, 'mas1.txt');
-    Assign(FF2, 'mas2.txt');
-    Reset(FF1); Reset(FF2);
-    i:=1;
-    While Not(Eof(FF1)) Do
-        Begin
-          ReadLn(FF1, x[i]);
-          Inc(i);
-        End;
-    i:=1;    
-    While Not(Eof(FF2)) Do
-        Begin
-          ReadLn(FF2, y[i]);
-          Inc(i);
-        End;
-    Close(FF1);
-    Close(FF2);
+    assign(f1, 'mas1.txt');
+    assign(f2, 'mas2.txt');
+    reset(f1); reset(f2);
+    for i:=1 to n do
+        read(f1,(x[i]));
+    close(f1);
+    for i:=1 to n do
+        read(f2,(y[i]));
+    close(f2);
   end;
   
 begin
@@ -68,7 +58,7 @@ begin
   case k of
        1 : generate();
        2 : enter();
-       3 : files();
+       3 : files_in();
   end;
   
 end;
@@ -89,14 +79,18 @@ procedure outarray();
   end;
   
   procedure file_out;
-  var a: Text;
-      i:integer;
+  var f1,f2: file of double; i:integer;
   begin
-    assign(a, 'out.txt');
-    rewrite(a);
-    for i:=1 to n-1 do
-    writeLn(a, x[i]);
-      Close(a);
+    assign(f1,'out1.txt');
+    assign(f2,'out2.txt');
+    rewrite(f1);
+    rewrite(f2);
+    for i:=1 to n do
+      write(f1, x[i]);
+    close(f1);
+    for i:=1 to n do
+      write(f2, y[i]);
+    close(f2);
   end;
   
 begin

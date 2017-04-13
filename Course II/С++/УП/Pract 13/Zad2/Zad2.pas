@@ -32,22 +32,8 @@ procedure initarray();
   end;
   
   procedure files_in();
+  var i,j:integer;
   begin
-    assign(f, 'mas1.txt');
-    reset(f);
-    for i:=1 to n do
-      for j:=1 to m do
-        read(f, (a[i,j]));
-        close(f);
-  end;
-  
-  procedure files_out();
-  var f: file of double; s:string; i:integer;
-  begin
-    assign(f,'out.txt');
-    rewrite(f)
-    for i:=1 to n do
-      for j:=1 to m do
     assign(f, 'mas1.txt');
     reset(f);
     for i:=1 to n do
@@ -68,7 +54,6 @@ begin
        1 : generate();
        2 : enter();
        3 : files_in();
-       4 : files_out();
   end;
   
 end;
@@ -89,15 +74,14 @@ procedure outarray();
   end;
   
   procedure file_out;
-  var f: Text;
-      i,j:integer;
+   var f: file of double; i,j:integer;
   begin
-    assign(f, 'out.txt');
+    assign(f,'out.txt');
     rewrite(f);
-    for i:=1 to n-1 do
-      for j:=1 to m-1 do
-        writeln(f, a[i,j]);
-    Close(f);
+    for i:=1 to n do
+      for j:=1 to m do
+          write(f, (a[i,j]));
+        close(f);
   end;
   
 begin
