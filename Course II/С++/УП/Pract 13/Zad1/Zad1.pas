@@ -119,7 +119,7 @@ var i:integer;
 begin
   k1:=0;
   for i:=1 to n do
-    if x[i]=y[i] then
+    if (x[i]=y[i]) then
       k1:=k1+1;
   writeln('Кол-во случаев равенства пар: ',k1);
   readkey();
