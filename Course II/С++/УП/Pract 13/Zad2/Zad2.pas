@@ -6,6 +6,7 @@ const m=7;
 
 var a:array[1..1000,1..1000] of real;
     sum: real;
+    f : file of double;
     i,j,ii,k,k1,k2: byte;
     bike: real;
   
@@ -30,21 +31,44 @@ procedure initarray();
       end;
   end;
   
-  //ÏÎÔÈÊÑÈÒÜ______________________________________________
-  procedure files();
+  procedure files_in();
   begin
+    assign(f, 'mas1.txt');
+    reset(f);
+    for i:=1 to n do
+      for j:=1 to m do
+        read(f, (a[i,j]));
+        close(f);
   end;
+  
+  procedure files_out();
+  var f: file of double; s:string; i:integer;
+  begin
+    assign(f,'out.txt');
+    rewrite(f)
+    for i:=1 to n do
+      for j:=1 to m do
+    assign(f, 'mas1.txt');
+    reset(f);
+    for i:=1 to n do
+      for j:=1 to m do
+        read(f, (a[i,j]));
+        close(f);
+  end;
+  
 begin
 
   writeln('1. Ãåíåğàöèÿ ìàññèâîâ');
   writeln('2. Ğó÷íîé ââîä ìàñèâà');
   writeln('3. ×òåíèå ìàññèâà èç ôàéëà');
+  
   write('=> '); readln(k);
   
   case k of
        1 : generate();
        2 : enter();
-       3 : files();
+       3 : files_in();
+       4 : files_out();
   end;
   
 end;
