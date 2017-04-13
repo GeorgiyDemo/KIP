@@ -1,6 +1,7 @@
 Option Explicit
 
-Dim A(100), n, i, j, buf, max, min, indexmin, knul, kp, ko, indexmax, sumB, prozB, sum(100) As Integer
+Dim A(100), c(100), n, i, ksort, j, b, buf, kol, max, min, indexmin, knul, kp, ko, sumD, kD, q, index1D, index2D, indexmax, sumB, kot, p, prozB, sum(100) As Integer
+Dim sred As Double
 
    Sub CommandButton1_Click()
 
@@ -12,12 +13,39 @@ Dim A(100), n, i, j, buf, max, min, indexmin, knul, kp, ko, indexmax, sumB, proz
             Label1.Caption = Label1.Caption + CStr(A(i)) + " "
     Next i
     Label1.Caption = Label1.Caption + "]"
+
     If (CheckBox1.Value = True) Then
         Call first
     End If
+
     If (CheckBox2.Value = True) Then
         Call second
     End If
+
+    If (CheckBox3.Value = True) Then
+        Call third
+    End If
+
+    If (CheckBox4.Value = True) Then
+        Call forth
+    End If
+
+    If (CheckBox5.Value = True) Then
+        Call fifth
+    End If
+
+    If (CheckBox6.Value = True) Then
+        Call sixth
+    End If
+
+    If (CheckBox7.Value = True) Then
+        Call seventh
+    End If
+
+    If (CheckBox8.Value = True) Then
+        Call sort
+    End If
+
     End Sub
 
     'Индексы максимальных и минимальных элементов
@@ -53,25 +81,48 @@ Dim A(100), n, i, j, buf, max, min, indexmin, knul, kp, ko, indexmax, sumB, proz
                 kp = kp + 1
             End If
         Next i
-    Label1.Caption = Label1.Caption + Chr(13) + "Кол-во положительных элементов: " + CStr(kp) + Chr(13) + "Кол-во нулевых элементов: " + CStr(knul) + Chr(13) + "Кол-во отрицательных элементов: " + CStr(ko)
+    Label1.Caption = Label1.Caption + Chr(13) + "Кол-во положительных элементов: " + CStr(kp) + Chr(13) + "Кол-во нулевых элементов: " + CStr(knul) + Chr(13) + "Кол-во отрицательных элементов: " + CStr(ko) + Chr(13)
     End Sub
     'Сумму элементов на четных местах и произведение на нечетных
-    Sub C()
+    Sub third()
         sumB = 0
         prozB = 1
-        For i = 0 To UBound(n)
+        For i = 0 To n
          If (i Mod 2 = 0) Then
             sumB = sumB + A(i)
         End If
         If (i Mod 2 = 1) Then
             prozB = prozB * A(i)
         End If
+        Next i
+    Label1.Caption = Label1.Caption + Chr(13) + "Сумма элементов на четных местах: " + CStr(sumB) + Chr(13) + "Произведение элементов на нечетных местах: " + CStr(prozB) + Chr(13)
     End Sub
     'Количество повторяющихся элементов и их индексы
+    Sub forth()
+        kol = 0
+        For i = 0 To n
+            For j = i + 1 To n
+                If (A(i) = A(j)) Then
+                    kol = kol + 1
+                End If
+            Next j
+        Next i
+        kol = kol * 2
+        Label1.Caption = Label1.Caption + Chr(13) + "Кол-во повторяющихся элементов: " + CStr(kol)
+        For i = 0 To n
+            For j = i + 1 To n
+                If (A(i) = A(j)) Then
+                    Label1.Caption = Label1.Caption + Chr(13) + "Повторяется элемент: " + CStr(A(i))
+                    Label1.Caption = Label1.Caption + " (i=" + CStr(i)
+                    Label1.Caption = Label1.Caption + "  j=" + CStr(j) + ")"
+                End If
+            Next j
+        Next i
+
+    End Sub
 
     'Среднее арифметическое элементов между первым и последним положительными элементами
-    Function D()
-        Private sumD, kD, index1D, index2D As Integer
+    Sub fifth()
         sumD = 0
         kD = 0
         'Ищем индекс 1 полож. элемента
@@ -93,6 +144,110 @@ Dim A(100), n, i, j, buf, max, min, indexmin, knul, kp, ko, indexmax, sumB, proz
             kD = kD + 1
             sumD = sumD + A(i)
         Next i
-    D = sumD / kD
-    End Function
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+    sred = sumD / kD
+    Label1.Caption = Label1.Caption + Chr(13) + "Среднее ариф. между первым и последним положительными элементами: " + CStr(sred) + Chr(13)
+    End Sub
+
+    'Элементы и их индексы, которые меньше числа введенного с клавиатуры
+    Sub sixth()
+        Label1.Caption = Label1.Caption + Chr(13) + "Элементы и индексы меньше числа, введенного с клавиатуры: "
+        'Ввод числа
+        kot = InputBox("Введите число:")
+        'Цикл
+        For i = 0 To n
+            If (A(i) < CInt(kot)) And (i < CInt(kot)) Then
+                Label1.Caption = Label1.Caption + CStr(A(i)) + " "
+            End If
+        Next i
+    Label1.Caption = Label1.Caption + Chr(13)
+    End Sub
+
+    'Сдвиг на p элементов вправо или влево
+    Sub seventh()
+    ' ksort = InputBox("Куда смещаемся??" + Chr(13) + "1. Налево" + Chr(13) + "2. Направо")
+    '    ksort = CInt(ksort)
+    '    Select Case ksort
+    '        Case 1
+    '           Call more
+    '       Case 2
+    '            Call less
+    '
+    '    End Select
+    '
+        Label1.Caption = Label1.Caption + Chr(13)
+        p = InputBox("На сколько смещаемся?")
+        If (p < 0) Then
+            For j = 1 To Abs(p)
+                b = A(1)
+                For i = 1 To n - 1
+                    A(i) = A(i + 1)
+                Next i
+                A(n) = b
+
+            Next j
+        End If
+        If (p >= 0) Then
+            For j = 1 To p
+                b = A(n)
+                For i = n To 2 Step -1
+                    A(i) = A(i - 1)
+                Next i
+            A(1) = b
+            Next j
+        End If
+
+    For i = 0 To UBound(A)
+        Label1.Caption = Label1.Caption + CStr(A(i)) + " "
+    Next i
+    Label1.Caption = Label1.Caption + Chr(13)
+
+    End Sub
+
+     Sub more()
+        'Занимаемся преобразованием массива по возрастанию
+        Label1.Caption = Label1.Caption + Chr(13) + "Сортировка массива по возрастанию: " + Chr(13) + "["
+          For i = 0 To n - 1
+              For j = i + 1 To n
+                   If A(j) < A(i) Then
+                      buf = A(i)
+                      A(i) = A(j)
+                      A(j) = buf
+                   End If
+                Next j
+          Next i
+        For i = 0 To n
+             Label1.Caption = Label1.Caption + CStr(A(i)) + " "
+        Next i
+        Label1.Caption = Label1.Caption + "]" + Chr(13)
+
+         End Sub
+     Sub less()
+        'Занимаемся преобразованием массива по убыванию
+        Label1.Caption = Label1.Caption + Chr(13) + "Сортировка массива по убыванию: " + Chr(13) + "["
+          For i = 0 To n - 1
+              For j = i + 1 To n
+                   If A(j) > A(i) Then
+                      buf = A(i)
+                      A(i) = A(j)
+                      A(j) = buf
+                   End If
+                Next j
+          Next i
+        For i = 0 To n
+             Label1.Caption = Label1.Caption + CStr(A(i)) + " "
+        Next i
+        Label1.Caption = Label1.Caption + "]" + Chr(13)
+        End Sub
+     Sub sort()
+     'Выбор массива по возрастанию/убыванию
+     ksort = InputBox("Как вы хотите отсортировать массив?" + Chr(13) + "1. По возрастанию" + Chr(13) + "2. По убыванию")
+     ksort = CInt(ksort)
+     Select Case ksort
+            Case 1
+               Call more
+            Case 2
+                Call less
+
+        End Select
+
+    End Sub
