@@ -5,10 +5,9 @@ const n=3;
 const m=7;
 
 var a:array[1..1000,1..1000] of real;
-    sum: real;
+    sum, bike: real;
     f : file of double;
-    i,j,ii,k,k1,k2: byte;
-    bike: real;
+    i, j, ii, k: byte;
   
 procedure initarray();
   
@@ -22,11 +21,12 @@ procedure initarray();
   end;
   
   procedure enter();
-  var i:integer;
+  var i,j:integer;
   begin
     for i:=1 to n do
+      for j:=1 to m do
       begin
-        write('Введите элемент №',i,',',j);
+        write('Введите элемент №',i,',',j,': ');
         read(a[i,j]);
       end;
   end;
@@ -44,9 +44,9 @@ procedure initarray();
   
 begin
 
-  writeln('1. Генерация массивов');
-  writeln('2. Ручной ввод масива');
-  writeln('3. Чтение массива из файла');
+  writeln('1. Генерация матрицы');
+  writeln('2. Ручной ввод матрицы');
+  writeln('3. Чтение матрицы из файла');
   
   write('=> '); readln(k);
   
@@ -104,24 +104,25 @@ end;
 procedure sum_kol();
 var i,j:integer;
 begin
-  k1:=0;
-    for i:= 1 to n do
+    sum:=0;
+    for i:= 1 to m do
       begin
       for j:= 1 to n do
         sum:=a[j,i]+sum;
       ii:=i;
       if (sum>bike) then
         begin
-          sum:=0;
           k:=k+1;
-          writeln(i,'- столбец');
+          writeln;
+          writeln(i,' - столбец');
           writeln;
           for j:= 1 to n do
             begin
               write(' ',a[j,ii],' ');
               writeln;
-            end
-        end
+            end;
+        end;
+      sum:=0;
       end;
   readkey();
   end;
@@ -130,8 +131,8 @@ begin
 begin
   repeat
     clrscr;
-    writeln('1. Ввод массивов');
-    writeln('2. Вывод массивов');
+    writeln('1. Ввод матрицы');
+    writeln('2. Вывод матрицы');
     writeln('3. Ввод величины');
     writeln('4. Номера столбцов');
     writeln('0. Выход из программы');
