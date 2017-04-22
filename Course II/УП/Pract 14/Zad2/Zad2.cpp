@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include <fstream>
 #include <cmath>
 
@@ -7,6 +8,7 @@ using namespace std;
 
 int i, j, n, m, k, k1, k2, mymax, sum;
 double **a;
+bool out;
 FILE *outfile;
 
 //Простая функция сравнения
@@ -77,6 +79,33 @@ void initarray(){
 
 }
 
+//Сортировка матрицы
+void sort(bool outer){
+
+  sum=0;
+  mymax=abs(a[0][0]);
+  for(i=0;i<n;i++)
+    for(j=0;j<m;j++){
+      if (fabs(a[i][j])>mymax)
+        mymax=fabs(a[i][j]);
+      if ((a[i][j]<0) && (i==j))
+          sum++;
+    }
+
+  if (sum==compare(n,m)){
+    out = true;
+    if (outer == true)
+      cout<<"Все элементы диагонали отрицательны, макс. элемент: "<<mymax;
+    for(i=0;i<n;i++)
+      for(j=0;j<m;j++)
+        a[i][j]= (double)a[i][j]/mymax;
+  }
+  else
+    out = false;
+    if (outer == true)
+      cout<<"Отрицательны не все элементы диагонали, завершаем работу";
+  }
+
 //Процедура вывода на экран
 void monitor_out(){
 
@@ -91,13 +120,20 @@ void monitor_out(){
 
 //Процедура вывода в файл
   void file_out(){
+
     outfile=fopen("out.txt","w+");
+    fprintf(outfile,"Исходная матрица:\n");
 
     for (i=0;i<n;i++){
       for (j=0;j<m;j++)
-          fprintf(outfile,"%4f",a[i][j]);
+          fprintf(outfile,"%15f",a[i][j]);
       fprintf(outfile,"\n");
     }
+    sort(false);
+    if (out == true)
+      fprintf(outfile,"\nВсе элементы диагонали отрицательны, макс. элемент: %d\n",mymax);
+    else
+      fprintf(outfile,"\nОтрицательны не все элементы диагонали, завершаем работу\n");
   fclose(outfile);
 
 }
@@ -105,7 +141,7 @@ void monitor_out(){
 //Меню выбора вывода
 void outarray(){
 
-  cout<<"\n\n1. Вывод матрицы на экран\n2. Вывод матрицы в файл\n=> ";
+  cout<<"\n\n1. Вывод матрицы на экран\n2. Вывод матрицы и результатов вычислений в файл\n=> ";
     cin>>k2;
     switch (k2)
     {
@@ -119,29 +155,6 @@ void outarray(){
     }
 
 }
-
-//Сортировка матрицы
-void sort(){
-
-  sum=0;
-  mymax=abs(a[0][0]);
-  for(i=0;i<n;i++)
-    for(j=0;j<m;j++){
-      if (fabs(a[i][j])>mymax)
-        mymax=fabs(a[i][j]);
-      if ((a[i][j]<0) && (i==j))
-          sum++;
-    }
-
-  if (sum==compare(n,m)){
-    cout<<"Все элементы диагонали отрицательны, макс. элемент: "<<mymax;
-    for(i=0;i<n;i++)
-      for(j=0;j<m;j++)
-        a[i][j]= (double)a[i][j]/mymax;
-  }
-  else
-    cout<<"Отрицательны не все элементы диагонали, завершаем работу";
-  }
 
 int main(){
 
@@ -160,7 +173,7 @@ int main(){
         break;
 
       case 3:
-        sort();
+        sort(true);
         break;
 
     }

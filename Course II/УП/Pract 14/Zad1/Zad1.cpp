@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int i, j, n, m, k, k1, k2, sum, **a;
+int i, j, n, m, sum, k, k1, k2, **a;
 FILE *outfile;
 
 //Генерация матрицы
@@ -81,15 +81,55 @@ void monitor_out(){
 
 }
 
-//Процедура вывода в файл
-  void file_out(){
+//Замена элементов
+void changer(bool out){
 
-    outfile=fopen("out.txt","w+");
-    for (i=0;i<n;i++){
-      for (j=0;j<m;j++)
-          fprintf(outfile,"%4d",a[i][j]);
-      fprintf(outfile,"\n");
-    }
+  for (i=0;i<n-1;i++)
+    for (j=i+1;j<n;j++)
+      if (a[i][j]<0){
+        if (out==true)
+          cout<<"Замена ["<<i<<"]["<<j<<"] "<<a[i][j]<<" на "<<abs(a[i][j])<<"\n";
+        a[i][j]=abs(a[i][j]);
+
+      }
+
+}
+
+//Нахождение суммы элементов на главной диагонали
+void summ(bool out){
+
+  sum=0;
+  for (i=0;i<n;i++)
+    for (j=0;j<m;j++)
+      if (i==j)
+          sum+=a[i][j];
+  if (out==true)
+    cout<<"Сумма элементов на главной диагонали:\n"<<sum;
+
+}
+
+//Процедура вывода в файл
+void file_out(){
+
+  outfile=fopen("out.txt","w+");
+  fprintf(outfile,"Исходная матрица:\n");
+  for (i=0;i<n;i++){
+    for (j=0;j<m;j++)
+      fprintf(outfile,"%4d",a[i][j]);
+    fprintf(outfile,"\n");
+  }
+  
+  changer(false);
+  fprintf(outfile,"\nПреобразованная матрица:\n");
+  for (i=0;i<n;i++){
+    for (j=0;j<m;j++)
+      fprintf(outfile,"%4d",a[i][j]);
+    fprintf(outfile,"\n");
+  }
+
+  summ(false);
+  fprintf(outfile,"\nСумма элементов на главной диагонали: %d\n",sum);
+
   fclose(outfile);
 
 }
@@ -97,7 +137,7 @@ void monitor_out(){
 //Меню выбора вывода
 void outarray(){
 
-  cout<<"\n\n1. Вывод матрицы на экран\n2. Вывод матрицы в файл\n=> ";
+  cout<<"\n\n1. Вывод матрицы на экран\n2. Вывод матрицы и результатов вычислений в файл\n=> ";
     cin>>k2;
     switch (k2)
     {
@@ -112,35 +152,11 @@ void outarray(){
 
 }
 
-//Нахождение суммы элементов на главной диагонали
-void summ(){
-
-  sum=0;
-  for (i=0;i<n;i++)
-    for (j=0;j<m;j++)
-      if (i==j)
-          sum+=a[i][j];
-  cout<<"Сумма элементов на главной диагонали:\n"<<sum;
-
-}
-
-//Замена элементов
-void changer(){
-
-  for (i=0;i<n-1;i++)
-    for (j=i+1;j<n;j++)
-      if (a[i][j]<0){
-        cout<<"Замена ["<<i<<"]["<<j<<"] "<<a[i][j]<<" на "<<abs(a[i][j])<<"\n";
-        a[i][j]=abs(a[i][j]);
-      }
-
-}
-
 int main(){
 
   do
   {
-    cout<<"\n\n1. Генерация матрицы\n2. Вывод матрицы\n3. Сумма элементов\n4. Замена отриц.элементов\n0. Выход из программы\n=> ";
+    cout<<"\n\n1. Ввод матрицы\n2. Вывод матрицы\n3. Сумма элементов\n4. Замена отриц.элементов\n0. Выход из программы\n=> ";
     cin>>k;
     switch (k)
     {
@@ -153,11 +169,11 @@ int main(){
         break;
 
       case 3:
-        summ();
+        summ(true);
         break;
 
       case 4:
-        changer();
+        changer(true);
         break;
 
     }
