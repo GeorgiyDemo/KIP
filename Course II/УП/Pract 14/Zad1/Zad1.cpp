@@ -22,7 +22,7 @@ void enter(){
 
   for(i=0;i<n;i++)
     for(j=0;j<m;j++){
-      cout<<"Введите элемент ["<<i<<"]["<<j<<"]";
+      cout<<"Введите элемент ["<<i<<"]["<<j<<"]: ";
       cin>>a[i][j];
     }
 
@@ -84,13 +84,13 @@ void monitor_out(){
 //Замена элементов
 void changer(bool out){
 
-  for (i=0;i<n-1;i++)
-    for (j=i+1;j<n;j++)
-      if (a[i][j]<0){
+  for (i=0;i<n;i++)
+    for (j=0;j<m;j++)
+      
+      if ((a[i][j]<0) && (i<j)){
+        a[i][j]=abs(a[i][j]);
         if (out==true)
           cout<<"Замена ["<<i<<"]["<<j<<"] "<<a[i][j]<<" на "<<abs(a[i][j])<<"\n";
-        a[i][j]=abs(a[i][j]);
-
       }
 
 }
