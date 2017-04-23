@@ -30,7 +30,7 @@ void enter(){
 
    for(i=0;i<n;i++)
     for(j=0;j<m;j++){
-        cout<<"Введите элемент ["<<i<<"]["<<j<<"]";
+        cout<<"Введите элемент ["<<i<<"]["<<j<<"]: ";
         cin>>a[i][j];
     }
 
@@ -82,7 +82,7 @@ void initarray(){
 void sort(bool outer){
 
   sum=0;
-  mymax=abs(a[0][0]);
+  mymax=fabs(a[0][0]);
   for(i=0;i<n;i++)
     for(j=0;j<m;j++){
       if (fabs(a[i][j])>mymax)
@@ -97,13 +97,14 @@ void sort(bool outer){
       cout<<"Все элементы диагонали отрицательны, макс. элемент: "<<mymax;
     for(i=0;i<n;i++)
       for(j=0;j<m;j++)
-        a[i][j]= (double)a[i][j]/mymax;
+        a[i][j]=(double)a[i][j]/mymax;
   }
-  else
+  else{
     out = false;
     if (outer == true)
       cout<<"Отрицательны не все элементы диагонали, завершаем работу";
   }
+}
 
 //Процедура вывода на экран
 void monitor_out(){
@@ -129,8 +130,15 @@ void monitor_out(){
       fprintf(outfile,"\n");
     }
     sort(false);
-    if (out == true)
+    if (out == true){
       fprintf(outfile,"\nВсе элементы диагонали отрицательны, макс. элемент: %d\n",mymax);
+      fprintf(outfile,"\nПреобразованная матрица:\n");
+      for (i=0;i<n;i++){
+        for (j=0;j<m;j++)
+          fprintf(outfile,"%15f",a[i][j]);
+        fprintf(outfile,"\n");
+      }
+    }
     else
       fprintf(outfile,"\nОтрицательны не все элементы диагонали, завершаем работу\n");
   fclose(outfile);
@@ -159,7 +167,7 @@ int main(){
 
   do
   {
-    cout<<"\n\n1. Генерация массива\n2. Вывод массива\n3. Сортировка\n0. Выход из программы\n=> ";
+    cout<<"\n\n1. Ввод матрицы\n2. Вывод матрицы\n3. Сортировка матрицы\n0. Выход из программы\n=> ";
     cin>>k;
     switch (k)
     {
