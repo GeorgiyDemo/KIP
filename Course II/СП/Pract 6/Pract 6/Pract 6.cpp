@@ -1,34 +1,41 @@
 #include "stdafx.h" 
-#include "iostream" 
+#include <iostream> 
 
 using namespace std;
 
-int main() {
-	setlocale(LC_ALL, "rus");
+char a = 70;
+char x = 70;
+char k;
 
-	//Задание 2 
-	char z = 1;
-	unsigned short x = 70;
+int main() {
+
+	setlocale(LC_ALL, "rus");
+	printf("Введите k =>");
+	scanf_s("%c", &k);
+
+	//Задание 2
 	_asm {
-		mov cl, z
-		mov bx, 2
-		shl bx, cl
-		mov ax, x
-		div bx
-		mov x, ax
+		mov al, a
+		mov cl, k
+		mov dl, 0
+		retur: cmp dl, cl
+			   je fin
+			   shr al, 1
+			   add dl, 1
+			   jmp retur
+			   fin : mov x, al
 	}
-	printf("Результаты выполнения задания 2:\n");
-	printf("x=%i", x);
 
 	//Задание 1 
-	char a = 70;
 	_asm {
 		mov dl, a
 		or dl, 85
 		mov a, dl
 	}
 	printf("\nРезультаты выполнения задания 1:\n");
-	printf("После изменения число: %i\n", a);
+	printf("Число а после изменения: %i\n", a);
+	printf("Результаты выполнения задания 2:\n");
+	printf("x=%i", x);
 
 	system("pause");
 }
