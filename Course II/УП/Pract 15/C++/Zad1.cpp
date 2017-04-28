@@ -104,32 +104,32 @@ void initarray(){
 
 void counter(){
 
-  cout << "Введите переменную b =>";
-  cin >> b;
+  cout<<"Введите переменную b =>";
+  cin>>b;
 
-  for (i = 0; i<m; i++)
-    for (j = 0; j<m; j++)
-      if (i == j)
-        s += a[i][j];
+  for (i=0;i<m;i++)
+    for (j=0;j<m;j++)
+      if (i==j)
+        s +=a[i][j];
 
-  cout << "\nМассив x на выходе:\n";
+  cout<<"\nМассив x на выходе:\n";
 
   for (i=0;i<m;i++){
-    if (i == 0)
-      p = 1;
+    if (i==0)
+      p=1;
     else
-      p = x[i - 1];
-    n = (s / (p*c[i]));
-    for (k = 0; k<m; k++){
-      v = (double)((a[k][i]+c[k])/(k*k+b));
-      q += v;
+      p=x[i-1];
+    n=(s/(p*c[i]));
+    for (k=0;k<m;k++){
+      v=(double)((a[k][i]+c[k])/(k*k+b));
+      q+=v;
     }
 
-    x[i] = n + q;
-    n = 0;
-    v = 0;
-    q = 0;
-    cout<<i<<". "<< x[i] << "\n";
+    x[i]=n+q;
+    n=0;
+    v=0;
+    q=0;
+    cout<<i<<". "<<x[i]<<"\n";
   }
 
   xarray=true;
