@@ -1,11 +1,12 @@
 ﻿program meow1;
 uses crt; 
 
-var a:array [1..100,1..100] of integer;
-    c:array [1..100] of integer;
-    x:array[1..100] of real;
-    k,t,i,j,s,m,b: integer;
-    p,q,n,v:real;
+var a : array [1..100,1..100] of integer;
+    c : array [1..100] of integer;
+    x : array[1..100] of real;
+    k, i, j, s, m, b : integer;
+    p, q, n, v : real;
+    xarray : boolean;
   
 procedure initarray();
   
@@ -25,8 +26,8 @@ procedure initarray();
   procedure enter();
   var i,j:integer;
   begin
-    writeln('Введите размерность массивов => '); read(m);
-    write('<Заполняем матрицу А>');
+    write('Введите размерность массивов => '); read(m);
+    writeln('<Заполняем матрицу А>');
     for i:=1 to m do
       for j:=1 to m do
       begin
@@ -34,30 +35,30 @@ procedure initarray();
         read(a[i,j]);
       end;
       
-    write('<Заполняем массив C>');
+    writeln('<Заполняем массив C>');
     for i:=1 to m do
        begin
         write('Введите элемент [',i,']: ');
         read(c[i]);
       end;
   end;
-  
-  //ПЕРЕПИЛИТЬ
-  ///////////////////////////////////////////////////////////////
+
 procedure files_in();
-//  var i,j:integer; f1,f2:file of double;
+ var i,j:integer; fA,fC:file of integer;
 begin
-//    assign(f1, 'mas1.txt');
-//    assign(f2, 'mas2.txt');
-//    reset(f1); reset(f2);
-//    for i:=1 to m do
-//        read(f1,(x[i]));
-//    close(f1);
-//    for i:=1 to m do
-//        read(f2,(y[i]));
-//    close(f2);
+    assign(fA, 'inputA.txt');
+    assign(fC, 'inputC.txt');
+    reset(fA); reset(fC);
+    for i:=1 to m do
+        read(fC,(c[i]));
+    close(fC);
+    
+    for i:=1 to m do
+      for j:=1 to m do
+        read(fA,(a[i,j]));
+    close(fA);
 end;
-  ///////////////////////////////////////////////////////////////
+
 begin
 
   writeln('1. Генерация массивов');
@@ -85,30 +86,38 @@ procedure outarray();
       for j:=1 to m do
         write(a[i,j]:4);
       end;
-    
+    writeln;
     writeln('Массив C:');
     for i:=1 to m do
       write(c[i]:4);
     readkey();
   end;
   
-  
-  /////////////////////////////////////ПЕРЕПИЛИТЬ///////////////////////////
   procedure file_out;
- // var f1,f2: file of double; i:integer;
-  begin
- //   assign(f1,'out1.txt');
- //   assign(f2,'out2.txt');
- //   rewrite(f1);
- //   rewrite(f2);
- //   for i:=1 to m do
- //     write(f1, x[i]);
- //   close(f1);
- //   for i:=1 to m do
- //     write(f2, y[i]);
- //   close(f2);
+  var outer: file of real; 
+      i,j:integer;
+ begin
+    assign(outer,'out.txt');
+    rewrite(outer);
+    
+    //Матрица А
+    for i:=1 to m do
+     for j:=1 to m do
+          write(outer, (a[i,j]));
+    
+    //Массив С
+    for i:=1 to m do
+      write(outer, (c[i]));
+    
+    //Массив x, если он сформирован 
+    if (xarray=true) then
+    begin
+     writeln(outer, 'Сформированный массив x:');
+      for i:=1 to m do
+        write(outer, (x[i]));
+    end;
+     close(outer);
   end;
- /////////////////////////////////////ПЕРЕПИЛИТЬ///////////////////////////
  
 begin
     writeln('1. Вывод массива на экран');
@@ -124,7 +133,7 @@ end;
 procedure counter();
   var i,j,k:integer;
   begin
-  write('Введите переменную b');
+  write('Введите переменную b =>');
   read(b);
   for i:=1 to m do
     for j:=1 to m do
@@ -134,7 +143,7 @@ procedure counter();
   writeln('Массив x на выходе:');
   for i:=1 to m do
   begin
-    if (i=0) then
+    if (i=1) then
       p:=1
     else
       p:=x[i-1];
@@ -151,10 +160,13 @@ procedure counter();
     q:=0;
     writeln(i,'. ',x[i]);
   end;
+  xarray:=true;
+  readkey();
 end;
 
 
 begin
+  xarray:=false;
   repeat
     clrscr;
     writeln('1. Ввод массивов');

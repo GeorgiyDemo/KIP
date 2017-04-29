@@ -119,7 +119,7 @@ void counter(){
       p=1;
     else
       p=x[i-1];
-    n=(s/(p*c[i]));
+    n=(double)s/(p*c[i]);
     for (k=0;k<m;k++){
       v=(double)((a[k][i]+c[k])/(k*k+b));
       q+=v;
