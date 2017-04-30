@@ -15,59 +15,67 @@ var TV:file of television;
     k:char;
 begin
 assign(TV,'TV.dat'); reset(TV);
-writeln('а) названия телепередач, которые идут в указанный день в указанный промежуток времени');
-writeln('б) на каком канале и в какое время будет транслироваться развлекательная передача «Поле чудес»');
-writeln('в) названия телепередач, транслирующихся в указанное время на разных каналах');
-writeln('г) название передачи, завершающей эфир в каждый день недели');
+writeln('Р°) РЅР°Р·РІР°РЅРёСЏ С‚РµР»РµРїРµСЂРµРґР°С‡, РєРѕС‚РѕСЂС‹Рµ РёРґСѓС‚ РІ СѓРєР°Р·Р°РЅРЅС‹Р№ РґРµРЅСЊ 
+РІ СѓРєР°Р·Р°РЅРЅС‹Р№ РїСЂРѕРјРµР¶СѓС‚РѕРє РІСЂРµРјРµРЅРё');
+writeln('Р±) РЅР° РєР°РєРѕРј РєР°РЅР°Р»Рµ Рё РІ РєР°РєРѕРµ РІСЂРµРјСЏ Р±СѓРґРµС‚ 
+С‚СЂР°РЅСЃР»РёСЂРѕРІР°С‚СЊСЃСЏ СЂР°Р·РІР»РµРєР°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРґР°С‡Р° В«РџРѕР»Рµ С‡СѓРґРµСЃВ»');
+writeln('РІ) РЅР°Р·РІР°РЅРёСЏ С‚РµР»РµРїРµСЂРµРґР°С‡, С‚СЂР°РЅСЃР»РёСЂСѓСЋС‰РёС…СЃСЏ РІ СѓРєР°Р·Р°РЅРЅРѕРµ 
+РІСЂРµРјСЏ РЅР° СЂР°Р·РЅС‹С… РєР°РЅР°Р»Р°С…');
+writeln('Рі) РЅР°Р·РІР°РЅРёРµ РїРµСЂРµРґР°С‡Рё, Р·Р°РІРµСЂС€Р°СЋС‰РµР№ СЌС„РёСЂ РІ РєР°Р¶РґС‹Р№ РґРµРЅСЊ 
+РЅРµРґРµР»Рё');
 write('=> '); read(k);
 
 case k of
-  'а': begin
-        write('Введите время начала => '); readln(TVtime1);
-        write('Введите время конца => '); readln(TVtime2);
-        write('Введите день передачи => '); readln(TVname);
+  'Р°': begin
+        write('Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° => '); readln(TVtime1);
+        write('Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РєРѕРЅС†Р° => '); readln(TVtime2);
+        write('Р’РІРµРґРёС‚Рµ РґРµРЅСЊ РїРµСЂРµРґР°С‡Рё => '); readln(TVname);
         writeln;
         kol:=0;
         i:=1;
         while not eof(TV) do
           begin
             read(TV,f[i]);
-            if ((f[i].dayname = TVname) and (f[i].timeHH >= TVtime1) and (f[i].timeHH <= TVtime2)) then
+            if ((f[i].dayname = TVname) and (f[i].timeHH >= 
+TVtime1) and (f[i].timeHH <= TVtime2)) then
               begin
                 kol:=kol+1;
-                writeln('Передача №',kol,' ',f[i].name);
+                writeln('РџРµСЂРµРґР°С‡Р° в„–',kol,' ',f[i].name);
               end;
             i:=i+1;
           end;
        end;
-'б': begin
+'Р±': begin
        i:=1;
         while not eof(TV) do
           begin
             read(TV,f[i]);
-            if (f[i].name = 'Поле чудес') then
-                writeln('Поле чудеc будет на канеле №',f[i].chan,' в ',f[i].timeHH,':',f[i].timeMM,', ',f[i].dayname);
+            if (f[i].name = 'РџРѕР»Рµ С‡СѓРґРµСЃ') then
+                writeln('РџРѕР»Рµ С‡СѓРґРµc Р±СѓРґРµС‚ РЅР° РєР°РЅРµР»Рµ 
+в„–',f[i].chan,' РІ ',f[i].timeHH,':',f[i].timeMM,', 
+',f[i].dayname);
             i:=i+1;
           end;
      end;
-'в': begin
-       write('Введите время (часы) => '); readln(TVtime1);
-       write('Введите время (минуты) => '); readln(TVtime2);
+'РІ': begin
+       write('Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ (С‡Р°СЃС‹) => '); readln(TVtime1);
+       write('Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ (РјРёРЅСѓС‚С‹) => '); readln(TVtime2);
        writeln;
        kol:=0;
        i:=1;
        while not eof(TV) do
          begin
            read(TV,f[i]);
-           if ((f[i].timeHH = TVtime1) and (f[i].timeMM = TVtime2)) then
+           if ((f[i].timeHH = TVtime1) and (f[i].timeMM = 
+TVtime2)) then
              begin
                kol:=kol+1;
-               writeln('Передача №',kol,' ',f[i].name);
+               writeln('РџРµСЂРµРґР°С‡Р° в„–',kol,' ',f[i].name);
              end;
            i:=i+1;
          end;
      end;
-'г': begin
+'Рі': begin
        writeln;
        i:=1;
        while not eof(TV) do
@@ -93,9 +101,10 @@ case k of
         end; 
         for i:=1 to high(week) do 
           for sc:=1 to high(f) do 
-           if ((f[sc].dayname = week[i].dayname) and (f[sc].timeHH > week[i].timeHH)) then 
+           if ((f[sc].dayname = week[i].dayname) and 
+(f[sc].timeHH > week[i].timeHH)) then 
              week[i]:=f[sc]; 
-        writeln('Завершающие эфир передачи:'); 
+        writeln('Р—Р°РІРµСЂС€Р°СЋС‰РёРµ СЌС„РёСЂ РїРµСЂРµРґР°С‡Рё:'); 
           for i:=1 to high(week) do 
             writeln(week[i].dayname,': <<',week[i].name,'>>');
      end;

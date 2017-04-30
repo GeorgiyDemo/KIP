@@ -4,10 +4,10 @@ var a:array[1..100,1..100] of integer;
     n,i,j,k,m:byte;
     index1,index2,max,buf:integer;
 begin
-  write('Введите размерность матрицы по n => ');Readln(n);
-  write('Введите размерность матрицы по m => ');Readln(m);
+  write('Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°С‚СЂРёС†С‹ РїРѕ n => ');Readln(n);
+  write('Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°С‚СЂРёС†С‹ РїРѕ m => ');Readln(m);
   
-  //Генерация
+  //Р“РµРЅРµСЂР°С†РёСЏ
   randomize;
   for i:=1 to n do begin
     writeln;
@@ -17,7 +17,7 @@ begin
     end;
   end;
   
-  //Находим максимальное
+  //РќР°С…РѕРґРёРј РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ
   max:=a[1,1];
   for i:=1 to n do begin
     for j:=1 to m do begin
@@ -30,9 +30,9 @@ begin
   end;
   writeln;
   writeln;
-  write('Mаксимальное значение: ',max);
+  write('MР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ: ',max);
   
-  //Сортировка
+  //РЎРѕСЂС‚РёСЂРѕРІРєР°
   for i:=1 to n do
   begin
     buf:=a[i, 1];
@@ -47,9 +47,9 @@ begin
   end;
   
   writeln;
-  writeln('Полученная матрица:');
+  writeln('РџРѕР»СѓС‡РµРЅРЅР°СЏ РјР°С‚СЂРёС†Р°:');
   
-  //Вывод
+  //Р’С‹РІРѕРґ
   for i:=1 to n do begin
     writeln;
     for j:=1 to m do begin

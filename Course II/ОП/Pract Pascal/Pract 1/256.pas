@@ -11,8 +11,8 @@ function check(var s1,s2,s3:real):string;
          
 begin
      clrscr;
-     write('Введите первую сторону: ');Readln(a);
-     write('Введите вторую сторону: ');Readln(b);
-     write('Введите третью сторону: ');Readln(c);
+     write('Р’РІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ СЃС‚РѕСЂРѕРЅСѓ: ');Readln(a);
+     write('Р’РІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ СЃС‚РѕСЂРѕРЅСѓ: ');Readln(b);
+     write('Р’РІРµРґРёС‚Рµ С‚СЂРµС‚СЊСЋ СЃС‚РѕСЂРѕРЅСѓ: ');Readln(c);
      writeln(check(a,b,c));
 end.

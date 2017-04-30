@@ -9,7 +9,7 @@ begin
   reset(f);
   readln(f,s);
   
-  writeln('»ÒıÓ‰Ì‡ˇ ÒÚÓÍ‡ ËÁ Ù‡ÈÎ‡ str.txt:');
+  writeln('–ò—Å—Ö–æ–¥–Ω–∞—è —Å—Ç—Ä–æ–∫–∞ –∏–∑ —Ñ–∞–π–ª–∞ str.txt:');
   writeln(s);
   
   valid:=0;
@@ -23,10 +23,12 @@ begin
         valid:=valid-1;
     end;
   writeln;
-  if (valid=0) then writeln('—ÍÓ·ÍË ‡ÒÒÚ‡‚ÎÂÌ˚ Ô‡‚ËÎ¸ÌÓ')
-    else if (valid=1) then writeln('ÀË¯Ìˇˇ ÓÚÍ˚‚‡˛˘‡ˇ ÒÍÓ·Í‡')
-      else if (valid>1) then writeln('ÀË¯ÌËÂ ÓÚÍ˚‚‡˛˘ËÂ ÒÍÓ·ÍË')
-        else if (valid=-1) then writeln('ÀË¯Ìˇˇ Á‡Í˚‚‡˛˘‡ˇ ÒÍÓ·Í‡')
-          else writeln ('ÃÌÓ„Ó ÎË¯ÌËı Á‡Í˚‚‡˛˘Ëı ÒÍÓ·ÓÍ');
+  if (valid=0) then writeln('–°–∫–æ–±–∫–∏ —Ä–∞—Å—Å—Ç–∞–≤–ª–µ–Ω—ã –ø—Ä–∞–≤–∏–ª—å–Ω–æ')
+    else if (valid=1) then writeln('–õ–∏—à–Ω—è—è –æ—Ç–∫—Ä—ã–≤–∞—é—â–∞—è —Å–∫–æ–±–∫–∞')
+      else if (valid>1) then writeln('–õ–∏—à–Ω–∏–µ –æ—Ç–∫—Ä—ã–≤–∞—é—â–∏–µ 
+—Å–∫–æ–±–∫–∏')
+        else if (valid=-1) then writeln('–õ–∏—à–Ω—è—è –∑–∞–∫—Ä—ã–≤–∞—é—â–∞—è 
+—Å–∫–æ–±–∫–∞')
+          else writeln ('–ú–Ω–æ–≥–æ –ª–∏—à–Ω–∏—Ö –∑–∞–∫—Ä—ã–≤–∞—é—â–∏—Ö —Å–∫–æ–±–æ–∫');
  readkey;
 end.

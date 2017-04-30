@@ -22,8 +22,8 @@ while not eof(s) do begin
 end;
 
 srd_zarp:= srd_zarp/i;
-writeln('Фамилии работников, чья ЗП ниже средней:');
-writeln('Средняя зарплата: ',srd_zarp:5:3);
+writeln('Р¤Р°РјРёР»РёРё СЂР°Р±РѕС‚РЅРёРєРѕРІ, С‡СЊСЏ Р—Рџ РЅРёР¶Рµ СЃСЂРµРґРЅРµР№:');
+writeln('РЎСЂРµРґРЅСЏСЏ Р·Р°СЂРїР»Р°С‚Р°: ',srd_zarp:5:3);
 i:=1;
 reset(s);
 while not eof(s) do
@@ -37,7 +37,7 @@ begin
 end; 
 
 writeln;
-writeln('Фамилии работников, стаж которых более 10 лет:');
+writeln('Р¤Р°РјРёР»РёРё СЂР°Р±РѕС‚РЅРёРєРѕРІ, СЃС‚Р°Р¶ РєРѕС‚РѕСЂС‹С… Р±РѕР»РµРµ 10 Р»РµС‚:');
 i:=1;
 reset(s);
 while not eof(s) do
@@ -45,7 +45,8 @@ begin
   read(s,f[i]);
   if (f[i].staz > 10) then
   begin
-    writeln(f[i].name,', з/п: ',f[i].zarplata,', стаж ',f[i].staz,' лет, ',f[i].dolznost);
+    writeln(f[i].name,', Р·/Рї: ',f[i].zarplata,', СЃС‚Р°Р¶ 
+',f[i].staz,' Р»РµС‚, ',f[i].dolznost);
   end;
   i:=i+1;
 end;

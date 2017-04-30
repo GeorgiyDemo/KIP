@@ -3,8 +3,9 @@ uses crt;
 var y,x,result:real;
 begin
      clrscr;
-     write('õ= ');Readln(x);
+     write('Ñ…= ');Readln(x);
      write('y= ');Readln(y);
-     result:=ln(abs((y-sqrt(abs(x))*(x-(y/(x+(power(x,2)/4)))))));
-     writeln('Ğåçóëüòàò:',result:8:4);
+     
+result:=ln(abs((y-sqrt(abs(x))*(x-(y/(x+(power(x,2)/4)))))));
+     writeln('Ğ ĞµĞ·ÑƒĞ»ÑŒÑ‚Ğ°Ñ‚:',result:8:4);
 end.

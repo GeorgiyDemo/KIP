@@ -6,15 +6,16 @@ var a:array[1..100,1..100] of integer;
 
 begin
 
-     //Ввод
+     //Р’РІРѕРґ
      clrscr;
-     write('Введите n => ');Readln(n);
-     write('Введите m => ');Readln(m);
-     if (n = m) then writeln('Требуется прямоугольная матрица!')
+     write('Р’РІРµРґРёС‚Рµ n => ');Readln(n);
+     write('Р’РІРµРґРёС‚Рµ m => ');Readln(m);
+     if (n = m) then writeln('РўСЂРµР±СѓРµС‚СЃСЏ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅР°СЏ 
+РјР°С‚СЂРёС†Р°!')
      else
       begin
       
-     //Генерация
+     //Р“РµРЅРµСЂР°С†РёСЏ
      randomize;
      for i:=1 to n do begin
      writeln;
@@ -24,7 +25,7 @@ begin
          end;
       end;
       
-      //Находим сумму отриц элементов строки и выводим
+      //РќР°С…РѕРґРёРј СЃСѓРјРјСѓ РѕС‚СЂРёС† СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё Рё РІС‹РІРѕРґРёРј
       for i:=1 to n do begin
       s:=0;
       for j:=1 to m do
@@ -35,10 +36,10 @@ begin
       writeln;
       writeln;
       for i:=1 to n do begin
-      writeln('Строка №',i,'= ',sum[i]);
+      writeln('РЎС‚СЂРѕРєР° в„–',i,'= ',sum[i]);
       end;
       
-      //Сортировка значений в  массиве sum
+      //РЎРѕСЂС‚РёСЂРѕРІРєР° Р·РЅР°С‡РµРЅРёР№ РІ  РјР°СЃСЃРёРІРµ sum
         for i:= 1 to n-1 do
           for k:=i+1 to n do
             if (sum[i]>sum[k]) then
@@ -57,7 +58,7 @@ begin
                end;
              writeln;
       
-      //Вывод матрицы
+      //Р’С‹РІРѕРґ РјР°С‚СЂРёС†С‹
       for i:=1 to n do
         begin
           writeln;
@@ -67,3 +68,4 @@ begin
     end;
    readkey;   
 end.
+

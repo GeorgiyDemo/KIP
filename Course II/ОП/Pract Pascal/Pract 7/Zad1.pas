@@ -6,9 +6,9 @@ var i:integer;
 begin
 clrscr;
   k:=3;
-  write('Введите строку => ');Readln(str);
+  write('Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ => ');Readln(str);
   writeln('- - - - - - - - - - - - - - -'); 
-  writeln('Слова, содержащие ',k,' буквы:'); 
+  writeln('РЎР»РѕРІР°, СЃРѕРґРµСЂР¶Р°С‰РёРµ ',k,' Р±СѓРєРІС‹:'); 
   for i:=1 to length(str) do
     if (str[i]<>' ') and (str[i]<>'.') then
       c:=c+str[i]

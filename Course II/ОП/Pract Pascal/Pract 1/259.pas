@@ -3,7 +3,9 @@ uses crt;
 var x,y:real;
 function tochka(var t1,t2:real):string;
          begin
-              if ((t1 <= -2) and (t1 >= -6) and  (t2 > 2) and  (t2 < 7)) or ((t1 <= -4) and (t1 >= -6) and (t2 >= -3) and (t2 <= 2)) then
+              if ((t1 <= -2) and (t1 >= -6) and  (t2 > 2) and  
+(t2 < 7)) or ((t1 <= -4) and (t1 >= -6) and (t2 >= -3) and (t2 
+<= 2)) then
                   tochka:='True'
               else
                  tochka:='False';
@@ -11,7 +13,7 @@ function tochka(var t1,t2:real):string;
 
 begin
      clrscr;
-     write('Ââåäèòå òî÷êó x: ');Readln(x);
-     write('Ââåäèòå òî÷re y: ');Readln(y);
+     write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‚Ğ¾Ñ‡ĞºÑƒ x: ');Readln(x);
+     write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‚Ğ¾Ñ‡re y: ');Readln(y);
      writeln(tochka(x,y));
 end.

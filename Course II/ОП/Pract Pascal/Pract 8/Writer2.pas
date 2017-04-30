@@ -1,25 +1,12 @@
-program CCTV;
-uses crt;
-type television= record
-  chan:integer;
-  timeHH,timeMM:byte;
-  name,typ,dayname:string[100];
-end;
-var TV:file of television;
-    f:array[1..100] of television;
-    n,i:integer;
-begin
-n:=15;
-assign(TV,'TV.dat'); rewrite(TV);
 for i:=1 to n do 
   begin
-    writeln('Название: '); Readln(f[i].name);
-    writeln('День недели: '); Readln(f[i].dayname);
-    writeln('Вид: '); Readln(f[i].typ);
-    writeln('№ канала: '); Readln(f[i].chan);
-    writeln('Время (часы): '); Readln(f[i].timeHH);
-    writeln('Время (минуты): '); Readln(f[i].timeMM);
-    writeln('Осталось еще заполнить ',n-i,' каналов');
+    writeln('РќР°Р·РІР°РЅРёРµ: '); Readln(f[i].name);
+    writeln('Р”РµРЅСЊ РЅРµРґРµР»Рё: '); Readln(f[i].dayname);
+    writeln('Р’РёРґ: '); Readln(f[i].typ);
+    writeln('в„– РєР°РЅР°Р»Р°: '); Readln(f[i].chan);
+    writeln('Р’СЂРµРјСЏ (С‡Р°СЃС‹): '); Readln(f[i].timeHH);
+    writeln('Р’СЂРµРјСЏ (РјРёРЅСѓС‚С‹): '); Readln(f[i].timeMM);
+    writeln('РћСЃС‚Р°Р»РѕСЃСЊ РµС‰Рµ Р·Р°РїРѕР»РЅРёС‚СЊ ',n-i,' РєР°РЅР°Р»РѕРІ');
     write(TV,f[i]);
   end;
 end.
@@ -40,11 +27,10 @@ begin
 assign(s,'baza.dat'); rewrite(s);
 for i:=1 to 5 do 
   begin
-    writeln('ФИО: '); Readln(f[i].name);
-    writeln('Должность: '); Readln(f[i].dolznost);
-    writeln('Зарплата: '); Readln(f[i].zarplata);
-    writeln('Стаж: '); Readln(f[i].staz);
+    writeln('Р¤РРћ: '); Readln(f[i].name);
+    writeln('Р”РѕР»Р¶РЅРѕСЃС‚СЊ: '); Readln(f[i].dolznost);
+    writeln('Р—Р°СЂРїР»Р°С‚Р°: '); Readln(f[i].zarplata);
+    writeln('РЎС‚Р°Р¶: '); Readln(f[i].staz);
     write(s,f[i]);
   end;
 end.
-}

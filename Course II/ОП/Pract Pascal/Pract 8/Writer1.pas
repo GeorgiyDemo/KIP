@@ -14,10 +14,10 @@ begin
 assign(s,'baza.dat'); rewrite(s);
 for i:=1 to 5 do 
   begin
-    writeln('ФИО: '); Readln(f[i].name);
-    writeln('Должность: '); Readln(f[i].dolznost);
-    writeln('Зарплата: '); Readln(f[i].zarplata);
-    writeln('Стаж: '); Readln(f[i].staz);
+    writeln('Р¤РРћ: '); Readln(f[i].name);
+    writeln('Р”РѕР»Р¶РЅРѕСЃС‚СЊ: '); Readln(f[i].dolznost);
+    writeln('Р—Р°СЂРїР»Р°С‚Р°: '); Readln(f[i].zarplata);
+    writeln('РЎС‚Р°Р¶: '); Readln(f[i].staz);
     write(s,f[i]);
   end;
 end.

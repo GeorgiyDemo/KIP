@@ -5,9 +5,9 @@ var a:array[1..1000] of integer;
 begin
   clrscr;
   randomize;
-  write('Введите размерность массива  =>');Readln(n);
+  write('Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂРЅРѕСЃС‚СЊ РјР°СЃСЃРёРІР°  =>');Readln(n);
   
-  //Генерация массива
+  //Р“РµРЅРµСЂР°С†РёСЏ РјР°СЃСЃРёРІР°
   write('[');
   for i:=1 to n do
   begin
@@ -16,9 +16,9 @@ begin
   end;
   write(']');
   writeln;
-  write('Введите число Z => '); Readln(Z);
+  write('Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ Z => '); Readln(Z);
   
-  //Замена
+  //Р—Р°РјРµРЅР°
   zamena:=0;
   for i:=1 to n do
   if (a[i] > Z) then
@@ -27,13 +27,13 @@ begin
       zamena:=zamena+1;
     end;
     
-  //Вывод
+  //Р’С‹РІРѕРґ
   write('[');
   for i:=1 to n do
     write(a[i],' ');
   write(']');
   writeln;
-  write('Кол-во замен: ',zamena);
+  write('РљРѕР»-РІРѕ Р·Р°РјРµРЅ: ',zamena);
   readkey();
 
 end.
