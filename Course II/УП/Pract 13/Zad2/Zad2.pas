@@ -26,7 +26,7 @@ procedure initarray();
     for i:=1 to n do
       for j:=1 to m do
       begin
-        write('Ââåäèòå ıëåìåíò ¹',i,',',j,': ');
+        write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ â„–',i,',',j,': ');
         read(a[i,j]);
       end;
   end;
@@ -44,9 +44,9 @@ procedure initarray();
   
 begin
 
-  writeln('1. Ãåíåğàöèÿ ìàòğèöû');
-  writeln('2. Ğó÷íîé ââîä ìàòğèöû');
-  writeln('3. ×òåíèå ìàòğèöû èç ôàéëà');
+  writeln('1. Ğ“ĞµĞ½ĞµÑ€Ğ°Ñ†Ğ¸Ñ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹');
+  writeln('2. Ğ ÑƒÑ‡Ğ½Ğ¾Ğ¹ Ğ²Ğ²Ğ¾Ğ´ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹');
+  writeln('3. Ğ§Ñ‚ĞµĞ½Ğ¸Ğµ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹ Ğ¸Ğ· Ñ„Ğ°Ğ¹Ğ»Ğ°');
   
   write('=> '); readln(k);
   
@@ -63,7 +63,7 @@ procedure outarray();
   procedure monitor_out;
   var i,j:integer;
   begin
-    writeln('Èñõîäíàÿ ìàòğèöà:');
+    writeln('Ğ˜ÑÑ…Ğ¾Ğ´Ğ½Ğ°Ñ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ğ°:');
     for i:=1 to n do
     begin
       writeln;
@@ -85,8 +85,8 @@ procedure outarray();
   end;
   
 begin
-    writeln('1. Âûâîä ìàòğèöû íà ıêğàí');
-    writeln('2. Âûâîä ìàòğèöû â ôàéë');
+    writeln('1. Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹ Ğ½Ğ° ÑĞºÑ€Ğ°Ğ½');
+    writeln('2. Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹ Ğ² Ñ„Ğ°Ğ¹Ğ»');
     write('=> '); readln(k);
   
      case k of
@@ -97,7 +97,7 @@ end;
 
 procedure v_input();
 begin
-  write('Ââåäèòå âåëè÷èíó => ');
+  write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ²ĞµĞ»Ğ¸Ñ‡Ğ¸Ğ½Ñƒ => ');
   read(bike);
 end;
 
@@ -114,7 +114,7 @@ begin
         begin
           k:=k+1;
           writeln;
-          writeln(i,' - ñòîëáåö');
+          writeln(i,' - ÑÑ‚Ğ¾Ğ»Ğ±ĞµÑ†');
           writeln;
           for j:= 1 to n do
             begin
@@ -131,11 +131,11 @@ begin
 begin
   repeat
     clrscr;
-    writeln('1. Ââîä ìàòğèöû');
-    writeln('2. Âûâîä ìàòğèöû');
-    writeln('3. Ââîä âåëè÷èíû');
-    writeln('4. Íîìåğà ñòîëáöîâ');
-    writeln('0. Âûõîä èç ïğîãğàììû');
+    writeln('1. Ğ’Ğ²Ğ¾Ğ´ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹');
+    writeln('2. Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¼Ğ°Ñ‚Ñ€Ğ¸Ñ†Ñ‹');
+    writeln('3. Ğ’Ğ²Ğ¾Ğ´ Ğ²ĞµĞ»Ğ¸Ñ‡Ğ¸Ğ½Ñ‹');
+    writeln('4. ĞĞ¾Ğ¼ĞµÑ€Ğ° ÑÑ‚Ğ¾Ğ»Ğ±Ñ†Ğ¾Ğ²');
+    writeln('0. Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹');
     write('=> '); readln(k);
   
      case k of

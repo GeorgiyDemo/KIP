@@ -9,10 +9,10 @@ procedure initarray();
   var one, two, i: integer;
   begin
     randomize;
-    write('Ââåäèòå êîë-âî ıëåìåíòîâ ìàññèâà n => '); read(n);
+    write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»-Ğ²Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ² Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° n => '); read(n);
     a:=new integer[n+1];
-    write('Ââåäèòå 1-é ıëåìåíò ìàññèâà => '); read(one);
-    write('Ââåäèòå 2-é ıëåìåíò ìàññèâà => '); read(two);
+    write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 1-Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° => '); read(one);
+    write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ 2-Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° => '); read(two);
     
     a[1]:=one;
     a[2]:=two;
@@ -25,7 +25,7 @@ procedure initarray();
 procedure outarray();
   var i: integer;
   begin
-    writeln('Ïîëó÷åííûé ìàññèâ:');
+    writeln('ĞŸĞ¾Ğ»ÑƒÑ‡ĞµĞ½Ğ½Ñ‹Ğ¹ Ğ¼Ğ°ÑÑĞ¸Ğ²:');
     write('[');
     for i:=1 to n do
       write(a[i],' ');
@@ -36,9 +36,9 @@ procedure outarray();
 begin
  repeat
   clrscr;
-  writeln('1. Ãåíåğàöèÿ ìàññèâà');
-  writeln('2. Âûâîä ìàññèâà');
-  writeln('0. Âûõîä èç ïğîãğàììû');
+  writeln('1. Ğ“ĞµĞ½ĞµÑ€Ğ°Ñ†Ğ¸Ñ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°');
+  writeln('2. Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°');
+  writeln('0. Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹');
   write('=> '); readln(k);
   
   case k of

@@ -8,7 +8,7 @@ procedure initarray();
   var i:integer;
   begin
     randomize;
-    write('Ââåäèòå êîë-âî ıëåìåíòîâ ìàññèâà n => '); read(n);
+    write('Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»-Ğ²Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ² Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° n => '); read(n);
     a := new integer[n+1];
     for i:=1 to n do
         a[i]:=random(20);
@@ -17,7 +17,7 @@ procedure initarray();
 procedure outarray();
   var i:integer;
   begin
-    writeln('Ìàññèâ:');
+    writeln('ĞœĞ°ÑÑĞ¸Ğ²:');
     for i:=1 to n do
       write(a[i],' ');
   readkey();
@@ -34,10 +34,10 @@ procedure sort();
 begin
   repeat
   clrscr;
-  writeln('1. Ãåíåğàöèÿ ìàññèâà');
-  writeln('2. Âûâîä ìàññèâà');
-  writeln('3. Ñîğòèğîâêà ìàññèâà');
-  writeln('0. Âûõîä èç ïğîãğàììû');
+  writeln('1. Ğ“ĞµĞ½ĞµÑ€Ğ°Ñ†Ğ¸Ñ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°');
+  writeln('2. Ğ’Ñ‹Ğ²Ğ¾Ğ´ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°');
+  writeln('3. Ğ¡Ğ¾Ñ€Ñ‚Ğ¸Ñ€Ğ¾Ğ²ĞºĞ° Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°');
+  writeln('0. Ğ’Ñ‹Ñ…Ğ¾Ğ´ Ğ¸Ğ· Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹');
   write('=> '); readln(k);
   
   case k of

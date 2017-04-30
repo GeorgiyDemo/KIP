@@ -7,7 +7,7 @@ procedure initarray();
   var i: integer;
   begin
     randomize;
-    write('Введите кол-во элементов массива n => '); read(n);
+    write('Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° n => '); read(n);
     a := new integer[n+1];
     for i:=1 to n do
       a[i]:=random(20);
@@ -16,23 +16,23 @@ procedure initarray();
 procedure outarray();
   var i: integer;
   begin
-    writeln('Текущий массив:');
+    writeln('РўРµРєСѓС‰РёР№ РјР°СЃСЃРёРІ:');
     for i:=1 to n do
       write(a[i],' ');
   readkey();
   end;
 
-procedure finder(); //Тут ищем элементы
+procedure finder(); //РўСѓС‚ РёС‰РµРј СЌР»РµРјРµРЅС‚С‹
   var i: integer;
   begin
   writeln;
-  write('Введите число A => '); read(num);
+  write('Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ A => '); read(num);
   for i:=1 to n do
     if (a[i]=num) then
       begin
-        writeln('Элемент B найден!');
+        writeln('Р­Р»РµРјРµРЅС‚ B РЅР°Р№РґРµРЅ!');
         index1:=i;
-        writeln('№',i,'. B=',a[i]);
+        writeln('в„–',i,'. B=',a[i]);
         break;
       end;
 
@@ -40,13 +40,13 @@ procedure finder(); //Тут ищем элементы
     if (a[i]=num) then
       if (index1<>i) then
         begin
-          writeln('Элемент C найден!');
-          writeln('№',i,'. C=',a[i]);
+          writeln('Р­Р»РµРјРµРЅС‚ C РЅР°Р№РґРµРЅ!');
+          writeln('в„–',i,'. C=',a[i]);
           break;
         end
       else
         begin
-          writeln('Элементы C и B совпадают :c');
+          writeln('Р­Р»РµРјРµРЅС‚С‹ C Рё B СЃРѕРІРїР°РґР°СЋС‚ :c');
           break;
         end;
     readkey();
@@ -55,10 +55,10 @@ procedure finder(); //Тут ищем элементы
 begin
   repeat
   clrscr;
-  writeln('1. Генерация массива');
-  writeln('2. Вывод массива');
-  writeln('3. Поиск элементов в массиве');
-  writeln('0. Выход из программы');
+  writeln('1. Р“РµРЅРµСЂР°С†РёСЏ РјР°СЃСЃРёРІР°');
+  writeln('2. Р’С‹РІРѕРґ РјР°СЃСЃРёРІР°');
+  writeln('3. РџРѕРёСЃРє СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ');
+  writeln('0. Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹');
   write('=> '); readln(k);
   
   case k of
