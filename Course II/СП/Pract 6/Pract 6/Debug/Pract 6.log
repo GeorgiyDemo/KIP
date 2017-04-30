@@ -1,7 +1,0 @@
-﻿  Pract 6.cpp
-\\mac\home\documents\visual studio 2017\projects\pract 6\pract 6\pract 6.cpp(14): warning C4473: "scanf_s": передано недостаточно аргументов для строки формата
-  \\mac\home\documents\visual studio 2017\projects\pract 6\pract 6\pract 6.cpp(14): note: заполнители и их параметры ожидают переменное число аргументов в количестве 2, но было предоставлено 1
-  \\mac\home\documents\visual studio 2017\projects\pract 6\pract 6\pract 6.cpp(14): note: отсутствующий вариативный аргумент "2" требуется для строки форматирования "%c"
-  \\mac\home\documents\visual studio 2017\projects\pract 6\pract 6\pract 6.cpp(14): note: этот аргумент используется в качестве размера буфера
-  Pract 6.vcxproj -> \\mac\home\documents\visual studio 2017\Projects\Pract 6\Debug\Pract 6.exe
-  Pract 6.vcxproj -> \\mac\home\documents\visual studio 2017\Projects\Pract 6\Debug\Pract 6.pdb (Partial PDB)
