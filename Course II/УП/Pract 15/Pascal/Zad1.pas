@@ -1,4 +1,4 @@
-﻿program meow1;
+program meow1;
 uses crt; 
 
 var a : array [1..100,1..100] of integer;
@@ -120,8 +120,8 @@ procedure outarray();
   end;
  
 begin
-    writeln('1. Вывод массива на экран');
-    writeln('2. Вывод массива в файл');
+    writeln('1. Вывод массивов на экран');
+    writeln('2. Вывод массивов в файл');
     write('=> '); readln(k);
   
      case k of
@@ -171,7 +171,7 @@ begin
     clrscr;
     writeln('1. Ввод массивов');
     writeln('2. Вывод массивов');
-    writeln('3. Cреднее арифмет. массива х');
+    writeln('3. Формирование массива x');
     writeln('0. Выход из программы');
     write('=> '); readln(k);
   

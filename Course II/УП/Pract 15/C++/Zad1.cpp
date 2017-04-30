@@ -110,7 +110,7 @@ void counter(){
   for (i=0;i<m;i++)
     for (j=0;j<m;j++)
       if (i==j)
-        s +=a[i][j];
+        s+=a[i][j];
 
   cout<<"\nМассив x на выходе:\n";
 
@@ -182,7 +182,7 @@ void outarray(){
 
 }
 
-int main() {
+int main(){
 
   do
   {
