@@ -9,7 +9,7 @@ double p, q, n, v, *x;
 bool xarray = false;
 FILE *outfile;
 
-//Генерация матрицы
+//Генерация массивов
 void generate(){
 
   srand((unsigned)time(0));
@@ -22,8 +22,9 @@ void generate(){
 
 }
 
+//Ручный ввод массивов
 void enter(){
-/////
+
   cout<<"<Заполняем матрицу А>\n";
   for(i=0;i<m;i++)
     for(j=0;j<m;j++){
@@ -39,7 +40,7 @@ void enter(){
 
 }
 
-//Ввод матрицы из файла
+//Ввод массивов из файла
 void file_in(){
 
   fstream fi;
@@ -57,6 +58,7 @@ void file_in(){
 
 }
 
+//Вывод массивов на экран
 void monitor_out(){
 
   cout<<"\nИсходная матрица А:";
@@ -102,6 +104,7 @@ void initarray(){
 
 }
 
+//Процедура формирования массива x по образцу
 void counter(){
 
   cout<<"Введите переменную b =>";
