@@ -25,8 +25,8 @@ void generate(){
 void enter(){
 
   cout<<"<Заполняем матрицу А>\n";
-  for(i=0;i<n;i++)
-    for(j=0;j<m;j++){
+  for (i=0;i<n;i++)
+    for (j=0;j<m;j++){
       cout<<"Введите элемент ["<<i<<"]["<<j<<"]: ";
       cin>>a[i][j];
     }
