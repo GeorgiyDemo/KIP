@@ -1,14 +1,12 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <cmath>
 using namespace std;
 
 int const n = 25;
 int const m = 3;
 
-int i, j, t, k, k1, k2, menu, *c, **a;
-double p, s, s1, q, v;
+int i, j, k1, k2, menu, **a;
 FILE *outfile;
 
 //Генерация массивов
@@ -86,8 +84,10 @@ void initarray(){
 void counter(){
   
  for (i=0;i<n;i++){
-    if ((a[i][0]<(a[i][1]+a[i][2])) || (a[i][1]<(a[i][0]+a[i][2])) || (a[i][2]<(a[i][1]+a[i][0])))
-          printf("\nНесуществующий %d-й треугольник",i+1);
+    if ((a[i][0]<(a[i][1]+a[i][2])) && (a[i][1]<(a[i][0]+a[i][2])) && (a[i][2]<(a[i][1]+a[i][0])))
+          printf("\n✅  Строка №%d: треугольник существует [%d, %d, %d]",i+1,a[i][0],a[i][1],a[i][2]);
+    else
+          printf("\n❌  Строка №%d: треугольник не существует [%d, %d, %d]",i+1,a[i][0],a[i][1],a[i][2]);
  }
 
 }
@@ -104,8 +104,10 @@ void file_out(){
   }
   
   for (i=0;i<n;i++){
-     if ((a[i][0]<(a[i][1]+a[i][2])) || (a[i][1]<(a[i][0]+a[i][2])) || (a[i][2]<(a[i][1]+a[i][0])))
-          fprintf(outfile,"\nНесуществующий %d-й треугольник",i+1);
+     if ((a[i][0]<(a[i][1]+a[i][2])) && (a[i][1]<(a[i][0]+a[i][2])) && (a[i][2]<(a[i][1]+a[i][0])))
+          fprintf(outfile,"\n✅  Строка №%d: треугольник существует [%d, %d, %d]",i+1,a[i][0],a[i][1],a[i][2]);
+     else
+          fprintf(outfile,"\n❌  Строка №%d: треугольник не существует [%d, %d, %d]",i+1,a[i][0],a[i][1],a[i][2]);
   
   }
   
