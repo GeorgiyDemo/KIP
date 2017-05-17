@@ -46,7 +46,7 @@ void file_in(){
 //Вывод массивов на экран
 void monitor_out(){
 
-  cout<<"\nИсходная матрица А:";
+  cout<<"\nМатрица А:";
   for (i=0;i<n;i++){
     cout<<"\n";
     for (j=0;j<m;j++)
