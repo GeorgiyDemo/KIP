@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 #include <conio.h>
 
 unsigned char a = 10;
@@ -16,20 +16,20 @@ void main() {
 		mov bl, 0;
 
 
-	m1: 
-		inc bl
-		mov al, a
-		mul bl
-		jc m2
-		mov c,al
-		jmp m1
-	
-	m2: 
-		mov n, bl
-	
+		BEGINER :
+			inc bl
+			mov al, a
+			mul bl
+			jc KOT
+			mov c, al
+			jmp BEGINER 
+
+		KOT :
+			mov n, bl
+
 	}
 
-	printf("Произведение = %i\n", c);
-	printf("При умножении %i будет переполнение!\n", n);
+	printf("РџРµСЂРµРїРѕР»РЅРµРЅРёРµ РїСЂРё СѓРјРЅРѕР¶РµРЅРёРё %i\n", n);
+	printf("РџСЂРѕРёР·РІРµРґРµРЅРёРµ: %i\n", c);
 	system("pause");
 }

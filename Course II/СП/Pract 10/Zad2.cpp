@@ -1,40 +1,43 @@
 #include <iostream>
+#include <iomanip>
 #include <conio.h>
 
 unsigned short a = 32000;
-unsigned short n = 0;
 unsigned int b = 2000000000;
-unsigned int s;
+unsigned short n = 0;
+unsigned int s, s1, s2;
 
 void main() {
 
-	setlocale(LC_ALL, "rus");
+	setlocale(LC_ALL, "RUS");
 
 	_asm {
 
 		mov ebx, b
 		mov cx, n
 
-	FIRST:
-		mov ax, a
-		mul cx
-		shl edx, 16
+		BEGINER :
+			mov ax, a
+			mul cx
+			mov s1, edx
+			shl edx, 16
+				
+			mov dx, ax
+			inc cx
+			cmp edx, ebx
 
-		mov dx, ax
-		inc cx
-		cmp edx, ebx
+			jae KOT
+			jmp BEGINER
 
-		jae FATAL
-		jmp FIRST
+		KOT :
 
-	FATAL:
-
-		mov s, edx
-		mov n, cx
+			mov s, edx
+			mov n, cx
 
 	}
 
-	printf("%i\n", n);
-	printf("%i\n", s);
+	printf("Ответ: CX = %i\n", n);
+	printf("EDX перед смещением на 16 %i (%x)", s1, s1);
+	printf("\nEDX после смещения на 16 %i (%x)\n\n", s, s);
 	system("pause");
 }
