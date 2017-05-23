@@ -12,15 +12,17 @@ Private Sub UserForm2_Initialize()
     rs.Source = "SELECT Продажа.* FROM Дисциплина order by Дисциплина.Код_пред"
     Set rs.ActiveConnection = cn
     rs.Open
-    
+
     Do Until rs.EOF
     '    txtFind.AddItem rs Fields("Код_пред")
         rs.Movenext
     Loop
 
 End Sub
-    
+
 Private Sub CommandButton8_Click()
     UserForm2.Hide
 End Sub
 
+Вывести весь ассортимент товаров
+Вывести информацию о проданном товаре конкретного менеджера по продажам
