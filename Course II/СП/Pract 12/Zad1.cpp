@@ -36,7 +36,7 @@ void monitor_out(){
   cout<<"]";
 }
 
-//
+//Функция прибавления 10 к отрицательным числам
 void counter(){
 
 	monitor_out();
@@ -75,7 +75,7 @@ void initarray(){
 
 }
 
-
+//Главное меню
 int main(){
 
   do
@@ -103,4 +103,5 @@ int main(){
 
 cout<<"\n";
 return 0;
+
 }
