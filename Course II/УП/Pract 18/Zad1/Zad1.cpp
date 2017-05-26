@@ -5,8 +5,9 @@
 
 using namespace std;
 
-int i,j,n,k1,menu,k2, input_len;
-string s, s1, strbuf;
+int i, k1, k2, menu, input_len;
+string s, s1, strbuf, allbuf;
+bool cflag = false;
 FILE *outfile;
 
 //Ручный ввод строки
@@ -21,15 +22,13 @@ void enter(){
 
 //Ввод строки из файла
 void file_in(){
-
-  cout<<"Введите размерность строки: ";
-  cin>>n;
-
-  fstream fi;
-  fi.open("input.txt");
-  for (i=0;i<n;i++)
-      fi>>s[i];
-  fi.close();
+  cout<<"\nСчитали следующую строку:\n'";
+  ifstream file("input.txt");
+  while(getline(file,s)){
+    cout<< s;
+  }
+  cout<<"'";
+  file.close();
 
 }
 
@@ -64,57 +63,46 @@ void counter(){
 
     cout<<"Введите длинну слова => ";
     cin>>input_len;
-
+    cout<<"\nСлова, длинной в "<<input_len<<" символ(ов):\n";
     for (i=0;i<s.length();i++){
         if (s[i]!=' '){
             strbuf += s[i];
-        } 
-        else{
-          if (input_len == strbuf.length())
-            cout << strbuf;
+        }
+        else {
+          if (input_len == strbuf.length()){
+            allbuf += strbuf+' ';
+            cout << strbuf<<"\n";
+          }
             strbuf.clear();
         }
     }
-    ///
+  cflag=true;
 }
 
 //Процедура вывода в файл
-//void file_out(){
-//
-//  outfile=fopen("out.txt","w+");
-//  fprintf(outfile,"Матрица А:\n");
-//  for (i=0;i<n;i++){
-//    for (j=0;j<m;j++)
-//      fprintf(outfile,"%4d",a[i][j]);
-//    fprintf(outfile,"\n");
-//  }
-//  
-//  for (i=0;i<n;i++){
-//    if ((a[i][0]<(a[i][1]+a[i][2])) && (a[i][1]<(a[i][0]+a[i][2])) && (a[i][2]<(a[i][1]+a[i][0]))){
-//      
-//      p=a[i][0]+a[i][1]+a[i][2];
-//      s1=(double)p/2;
-//      s=sqrt(s1*(s1-a[i][0])*(s1-a[i][1])*(s1-a[i][2]));
-//      
-//     fprintf(outfile,"\n----Треугольник №%d----\nСтороны: %d, %d,%d\nПериметр: %f\nПлощадь: %f",i+1,a[i][0],a[i][1],a[i][2],p,s);
-//    }
-//    
-//    else {
-//      fprintf(outfile,"\n\nНесуществующий %d-й треугольник\nЗавершаем цикл..",i+1);
-//      break;
-//    }
-//  
-//  }
-//  
-//  fprintf(outfile,"\n");
-//  fclose(outfile);
+void file_out(){
 
-//}
+  outfile=fopen("out.txt","w+");
+  fprintf(outfile,"Исходная строка:\n");
+  fprintf(outfile,"'%s'\n",s.c_str());
+  
+  if (cflag==true){
+
+    fprintf(outfile,"\nСлова с длинной в %d символ(ов):\n",input_len);
+    fprintf(outfile,"%s",allbuf.c_str());
+  }
+  else
+    fprintf(outfile,"\n*Не вызывали процедуру нахождения слов заданной длинны*");
+
+  fprintf(outfile,"\n");
+  fclose(outfile);
+
+}
 
 //Меню выбора вывода
 void outarray(){
 
-  cout<<"\n\n1. Вывод матрицы A на экран\n2. Вывод матрицы А и результатов вычислений в файл\n=> ";
+  cout<<"\n\n1. Вывод строки на экран\n2. Вывод строки и результатов в файл\n=> ";
     cin>>k2;
     switch (k2)
     {
@@ -123,8 +111,7 @@ void outarray(){
         break;
 
       case 2:
-          cout<<"Пилю";
-        //file_out();
+        file_out();
         break;
     }
 
@@ -134,7 +121,7 @@ int main(){
 
   do
   {
-    cout<<"\n\n1. Ввод Строки\n2. Вывод матрицы\n3.Вывод слов заданной длинны\n0. Выход из программы\n=> ";
+    cout<<"\n\n1. Ввод строки\n2. Вывод строки\n3. Вывод слов заданной длинны\n0. Выход из программы\n=> ";
     cin>>menu;
     switch (menu)
     {
