@@ -18,15 +18,17 @@ void enter(){
   cin>>s1;
   getline(cin,s);
   s=s1+s;
+
 }
 
 //Ввод строки из файла
 void file_in(){
   cout<<"\nСчитали следующую строку:\n'";
   ifstream file("input.txt");
-  while(getline(file,s)){
-    cout<< s;
-  }
+
+  while(getline(file,s))
+    cout<<s;
+  
   cout<<"'";
   file.close();
 
@@ -76,7 +78,9 @@ void counter(){
             strbuf.clear();
         }
     }
+
   cflag=true;
+
 }
 
 //Процедура вывода в файл
@@ -144,4 +148,5 @@ int main(){
 
 cout<<"\n";
 return 0;
+
 }
