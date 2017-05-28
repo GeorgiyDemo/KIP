@@ -63,15 +63,15 @@ void initarray(){
 //Процедура формирования массива x по образцу
 void counter(){
 
-	for(i=0; i<s.length(); i++)
-        for(j=0; j<str_a.length(); j++)
-            if(s[i]==str_a[j])
-                a_count++;
+	for(i=0;i<s.length();i++)
+    for(j=0;j<str_a.length();j++)
+      if(s[i]==str_a[j])
+        a_count++;
  
-    for(i=0; i<s.length(); i++)
-    	for(j=0; j<str_b.length(); j++)
-            if(s[i]==str_b[j])
-                b_count++;
+  for(i=0;i<s.length();i++)
+    for(j=0;j<str_b.length();j++)
+      if(s[i]==str_b[j])
+        b_count++;
  	
  	cflag = true;
  	printf("\nКол-во гласных букв в строке: %d\nКол-во согласных букв в строке: %d", a_count, b_count);
