@@ -1,5 +1,7 @@
 Исходная строка:
-'The Verge was founded in 2011 in partnership with Vox Media, and covers the intersection of technology, science, art, and culture.'
+'meo3w me1ow 2z3z4z1.'
 
-Кол-во гласных букв: 39
-Кол-во согласных букв: 58
+Кол-во гласных букв в строке: 4
+Кол-во согласных букв в строке: 7
+
+Согласных букв в строке больше

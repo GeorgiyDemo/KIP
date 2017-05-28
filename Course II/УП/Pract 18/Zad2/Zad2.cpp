@@ -12,6 +12,12 @@ string str_b = "bcdfghjklmnpqrstvwxz";
 string s, s1;
 FILE *outfile;
 
+string checker(int a, int b){
+	if (a>b)
+		return "Гласных букв в строке больше";
+	return "Согласных букв в строке больше";
+}
+
 //Ручный ввод строки
 void enter(){
   
@@ -27,7 +33,7 @@ void file_in(){
   cout<<"\nСчитали следующую строку:\n'";
   ifstream file("input.txt");
   while(getline(file,s)){
-    cout<< s;
+    cout<<s;
   }
   cout<<"'";
   file.close();
@@ -60,7 +66,7 @@ void initarray(){
 
 }
 
-//Процедура формирования массива x по образцу
+//Счет гласных/согласных букв в строке, согласно условию
 void counter(){
 
 	for(i=0;i<s.length();i++)
@@ -75,6 +81,7 @@ void counter(){
  	
  	cflag = true;
  	printf("\nКол-во гласных букв в строке: %d\nКол-во согласных букв в строке: %d", a_count, b_count);
+ 	printf("\n\n%s",checker(a_count,b_count).c_str());
     
 }
 
@@ -85,8 +92,10 @@ void file_out(){
   fprintf(outfile,"Исходная строка:\n");
   fprintf(outfile,"'%s'\n",s.c_str());
   
-  if (cflag==true)
+  if (cflag==true){
   	fprintf(outfile,"\nКол-во гласных букв в строке: %d\nКол-во согласных букв в строке: %d", a_count, b_count);
+  	fprintf(outfile,"\n\n%s",checker(a_count,b_count).c_str());
+  }
   else
     fprintf(outfile,"\n*Не вызывали процедуру счета гласных/согласных букв в строке*");
 

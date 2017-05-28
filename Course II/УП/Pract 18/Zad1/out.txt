@@ -1,5 +1,5 @@
 Исходная строка:
-'The Verge was founded in 2011 in partnership with Vox Media, and covers the intersection of technology, science, art, and culture.
+'The Verge was founded in 2011 in partnership with Vox Media, and covers the intersection of technology, science, art, and culture.'
 
-Слова с длинной в 4 символов:
-2011 with art, 
+Слова с длиной в 3 символ(ов):
+The was Vox and the and 

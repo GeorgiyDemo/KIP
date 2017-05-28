@@ -60,12 +60,12 @@ void initarray(){
 
 }
 
-//Процедура формирования массива x по образцу
+//Вывод слов определённой длины, согласно условию
 void counter(){
 
-    cout<<"Введите длинну слова => ";
+    cout<<"Введите длину слова => ";
     cin>>input_len;
-    cout<<"\nСлова, длинной в "<<input_len<<" символ(ов):\n";
+    cout<<"\nСлова, длиной в "<<input_len<<" символ(ов):\n";
     for (i=0;i<s.length();i++){
         if (s[i]!=' '){
             strbuf += s[i];
@@ -92,11 +92,11 @@ void file_out(){
   
   if (cflag==true){
 
-    fprintf(outfile,"\nСлова с длинной в %d символ(ов):\n",input_len);
+    fprintf(outfile,"\nСлова с длиной в %d символ(ов):\n",input_len);
     fprintf(outfile,"%s",allbuf.c_str());
   }
   else
-    fprintf(outfile,"\n*Не вызывали процедуру нахождения слов заданной длинны*");
+    fprintf(outfile,"\n*Не вызывали процедуру нахождения слов заданной длины*");
 
   fprintf(outfile,"\n");
   fclose(outfile);
