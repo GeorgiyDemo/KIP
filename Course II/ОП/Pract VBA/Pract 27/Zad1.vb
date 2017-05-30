@@ -2,9 +2,54 @@ Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
 Public rsp As ADODB.Recordset
 
+Private Sub UserForm_Initialize()
+
+    Set cn = New ADODB.Connection
+    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
+    cn.ConnectionString = "C:\Users\georgiydemo\Documents\Computer_store.accdb"
+    cn.Open
+    Set rs = New ADODB.Recordset
+    rs.CursorType = adOpenKeyset
+    rs.LockType = adLockOptimistic
+    rs.Source = "SELECT Клиент.* FROM Клиент"
+    Set rs.ActiveConnection = cn
+    rs.Open
+
+    CMDUpdateButton.Tag = "Update"
+    'cmdUpdate.Tag = "Update"
+    'CMDFirstButton_Click
+
+    ShowEmptyRecord
+    CMDFirstButton_Click
+
+End Sub
+
+Private Sub CMDAddButton_Click()
+    ShowEmptyRecord
+    rs.AddNew
+    FillRecord
+    TextBox1.SetFocus
+    IsDisable = True
+    SetEnabled True, False
+
+End Sub
+
+Private Sub CMDDeleteButton_Click()
+ If (rs.RecordCount >= 1) Then
+    If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes Then
+        rs.Delete
+        If (rs.RecordCount > 0) Then
+            CMDNextButton_Click
+        Else
+            ShowEmptyRecord
+        End If
+    End If
+ End If
+End Sub
+
 Private Sub CMDFirstButton_Click()
     rs.MoveFirst
-    Call ShowRecord
+    ShowRecord
 End Sub
 
 Private Sub CMDLastButton_Click()
@@ -13,7 +58,7 @@ Private Sub CMDLastButton_Click()
 End Sub
 
 Private Sub CMDNextButton_Click()
-    If Not rs.EOF Then
+    If (rs.EOF = False) Then
         rs.MoveNext
         ShowRecord
     Else
@@ -22,12 +67,14 @@ Private Sub CMDNextButton_Click()
 End Sub
 
 Private Sub CMDPreviousButton_Click()
-    If Not rs.BOF Then
+
+    If (Not rs.BOF) Then
         rs.MovePrevious
         ShowRecord
     Else
         rs.MoveFirst
     End If
+
 End Sub
 
 Private Sub CMDUpdateButton_Click()
@@ -41,33 +88,19 @@ Private Sub CMDUpdateButton_Click()
 
 End Sub
 
-Private Sub UserForm_Initialize()
-
-    Set cn = New ADODB.Connection
-    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Computer_store.accdb"
-    cn.Open
-    Set rs = New ADODB.Recordset
-    rs.CursorType = adOpenKeyset
-    rs.LockType = adLockOptimistic
-    rs.Source = "SELECT Клиент.* FROM Клиент"
-    Set rs.ActiveConnection = cn
-    rs.Open
-
-    'cmdUpdate.Tag = "Update"
-    'CMDFirstButton_Click
-
-    'ShowEmptyRecord
-    'Call ShowRecord
-
-End Sub
-
 Private Sub SetEnabled(IsUpdateOn As Boolean, IsOthersOn As Boolean)
+    Dim ctrl As Control
+    For Each ctrl In Controls
 
+    If (LCase(Left(ctrl.Name, 3)) = "cmd") Then
+        If (ctrl.Tag = "Update") Then
+            ctrl.Enabled = IsUpdateOn
+            'продолжение..
 End Sub
 
 Private Sub FillRecord()
 
+    'Тут проблема с типами, пока не знаю что делать
     rs.Fields("Кодклиента").Value = TextBox1.Text
     rs.Fields("Клиент").Value = TextBox2.Text
 
@@ -86,7 +119,6 @@ Private Sub ShowEmptyRecord()
     TextBox2.Text = Empty
 
 End Sub
-
 
 Private Sub ExitButton_Click()
 
