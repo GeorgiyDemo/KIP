@@ -1,9 +1,9 @@
-program KOT;
+﻿program KOT;
 uses crt;
 
 type worker = record
-  name,dolznost,telephone:string[111];
-  staz:integer;
+  name,dolznost,telephone : string[100];
+  staz : integer;
 end;
 
 var s : file of worker;
@@ -63,7 +63,7 @@ procedure outarray();
   begin
       i:=1;
       reset(s);
-
+      
       //Вывод первой записи в структуре
       if (flag=true) then
         begin
@@ -71,7 +71,7 @@ procedure outarray();
           writeln('ФИО          Должность          Стаж работы          Телефон');
           writeln(f[1].name,'          ',f[1].dolznost,'          ',f[1].staz,'          ',f[1].telephone);
         end;
-
+      
       //Вывод всех записей в структуре
       if (flag=false) then
         begin
@@ -102,7 +102,7 @@ end;
 //Процедура поиска данных
 procedure search();
   var checker:boolean;
-
+  
   function supervisor(str:string):boolean;
   begin
     if ((str = '361') or (str= '+361') or (str = '362') or (str = '+362') or (str = '273') or (str = '+273')) then
@@ -120,15 +120,15 @@ begin
    while not eof(s) do
    begin
     read(s,f[i]);
-
-    if (supervisor(f[i].telephone) = true) then
+    
+    if (supervisor(f[i].telephone) = true) then 
         writeln(f[i].name);
       i:=i+1;
    end;
-
+   
    if (checker=false) then
     writeln('Таких сотрудников нет');
-
+    
    readkey();
 end;
 
@@ -144,7 +144,7 @@ procedure ChangeData();
     writeln('Телефон: '); Readln(f[buf+1].telephone);
     write(s,f[buf+1]);
   end;
-
+  
   procedure DelData();
   begin
     writeln('ЯНЕРАБОТАЮ');
