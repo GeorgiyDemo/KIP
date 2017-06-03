@@ -1,4 +1,7 @@
-﻿program KOT;
+﻿//Пофиксить поиск (сравнение первых символов)
+//Добавить изменение определенных данных в определенной строке
+
+program KOT;
 uses crt;
 
 type worker = record
@@ -8,7 +11,8 @@ end;
 
 var s : file of worker;
     f : array[1..100] of worker;
-    n,k,i,buf : integer;
+    delflag : boolean;
+    n, k, i, buf, delindex : integer;
 
 //Процедура формирования меню ввода
 procedure initarray();
@@ -72,8 +76,18 @@ procedure outarray();
           writeln(f[1].name,'          ',f[1].dolznost,'          ',f[1].staz,'          ',f[1].telephone);
         end;
       
+      //Это если мы удалили какой-либо элемент
+      if ((flag=false) and (delflag=true)) then
+        begin
+          writeln('Общая таблица текущей структуры:');
+          writeln('ФИО          Должность          Стаж работы          Телефон');
+          
+          for i:=1 to buf-1 do 
+            writeln(f[i].name,'          ',f[i].dolznost,'          ',f[i].staz,'          ',f[i].telephone);
+        end
+      
       //Вывод всех записей в структуре
-      if (flag=false) then
+      else if (flag=false) then
         begin
           writeln('Общая таблица текущей структуры:');
           writeln('ФИО          Должность          Стаж работы          Телефон');
@@ -81,9 +95,11 @@ procedure outarray();
           begin
             read(s,f[i]);
             writeln(f[i].name,'          ',f[i].dolznost,'          ',f[i].staz,'          ',f[i].telephone);
-            i:=i+1;
+             i:=i+1;
           end;
+          buf:=i;
         end;
+       
   readkey();
 end;
 
@@ -100,31 +116,36 @@ begin
 end;
 
 //Процедура удаления данных
-  //Выше т.к. вызывается и в search() и в ChangeData()
+//Выше т.к. вызывается и в search() и в ChangeData()
  procedure DelData(delindex : integer);
+  
   procedure worker(delindex : integer);
-  var i,j : integer;
+  var i : integer;
   begin
-    idelindex
-    for i:=1 to buf do
-      for j:=1 to buf-1 do
-        if 
+    for i:=delindex to buf-1 do begin
+       f[i].name:=f[i+1].name;
+       f[i].dolznost:=f[i+1].dolznost;
+       f[i].staz:=f[i+1].staz;
+       f[i].telephone:=f[i+1].telephone;
+    end;
+  delflag:=true;
   end;
+  
   var k : integer;
   begin
     writeln('Вы действительно хотите удалить строку с индексом ',delindex,' ?');
     writeln('1. Да');
     writeln('2. Нет');
+    write('=> ');
     readln(k);
     
     case k of
-      1 : worker();
+      1 : worker(delindex);
       2 : writeln('Хорошо, выходим в главное меню');
     end;
     
     readkey();
 
-    
   end;
 
 //Процедура поиска данных
@@ -181,14 +202,18 @@ begin
     write('=> '); readln(k);
 
      case k of
-       1 : DelData;
+       1 : begin
+            write('Введите № элемента для удаления: ');
+            read(delindex);
+            DelData(delindex);
+           end;
        2 : AddData;
      end;
 end;
 
 //Главное меню программы
 begin
-
+  delflag:=false;
   repeat
     clrscr;
     writeln('1. Ввод данных');
