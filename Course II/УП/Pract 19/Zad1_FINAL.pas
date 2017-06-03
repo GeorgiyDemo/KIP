@@ -99,6 +99,34 @@ begin
      end;
 end;
 
+//Процедура удаления данных
+  //Выше т.к. вызывается и в search() и в ChangeData()
+ procedure DelData(delindex : integer);
+  procedure worker(delindex : integer);
+  var i,j : integer;
+  begin
+    idelindex
+    for i:=1 to buf do
+      for j:=1 to buf-1 do
+        if 
+  end;
+  var k : integer;
+  begin
+    writeln('Вы действительно хотите удалить строку с индексом ',delindex,' ?');
+    writeln('1. Да');
+    writeln('2. Нет');
+    readln(k);
+    
+    case k of
+      1 : worker();
+      2 : writeln('Хорошо, выходим в главное меню');
+    end;
+    
+    readkey();
+
+    
+  end;
+
 //Процедура поиска данных
 procedure search();
   var checker:boolean;
@@ -132,6 +160,7 @@ begin
    readkey();
 end;
 
+
 //Меню процедуры добавления/удаления данных
 procedure ChangeData();
   //Процедура добавления данных
@@ -143,11 +172,6 @@ procedure ChangeData();
     writeln('Стаж: '); Readln(f[buf+1].staz);
     writeln('Телефон: '); Readln(f[buf+1].telephone);
     write(s,f[buf+1]);
-  end;
-  
-  procedure DelData();
-  begin
-    writeln('ЯНЕРАБОТАЮ');
   end;
 
 //Меню вывода
