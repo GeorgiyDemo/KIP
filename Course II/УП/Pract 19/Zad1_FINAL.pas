@@ -1,5 +1,4 @@
-﻿//Пофиксить поиск (сравнение первых символов)
-//Добавить изменение определенных данных в определенной строке
+﻿//Добавить изменение определенных данных в определенной строке
 
 program KOT;
 uses crt;
@@ -115,46 +114,14 @@ begin
      end;
 end;
 
-//Процедура удаления данных
-//Выше т.к. вызывается и в search() и в ChangeData()
- procedure DelData(delindex : integer);
-  
-  procedure worker(delindex : integer);
-  var i : integer;
-  begin
-    for i:=delindex to buf-1 do begin
-       f[i].name:=f[i+1].name;
-       f[i].dolznost:=f[i+1].dolznost;
-       f[i].staz:=f[i+1].staz;
-       f[i].telephone:=f[i+1].telephone;
-    end;
-  delflag:=true;
-  end;
-  
-  var k : integer;
-  begin
-    writeln('Вы действительно хотите удалить строку с индексом ',delindex,' ?');
-    writeln('1. Да');
-    writeln('2. Нет');
-    write('=> ');
-    readln(k);
-    
-    case k of
-      1 : worker(delindex);
-      2 : writeln('Хорошо, выходим в главное меню');
-    end;
-    
-    readkey();
-
-  end;
-
 //Процедура поиска данных
 procedure search();
-  var checker:boolean;
+  var checker : boolean;
+      i : integer;
   
   function supervisor(str:string):boolean;
   begin
-    if ((str = '361') or (str= '+361') or (str = '362') or (str = '+362') or (str = '273') or (str = '+273')) then
+    if ((pos('361', str)=1) or (pos('+361', str)=1) or (pos('362', str)=1) or (pos('+362', str)=1) or (pos('273', str)=1) or (pos('+273', str)=1)) then
       begin
         supervisor:=true;
         checker:=true;
@@ -166,14 +133,11 @@ begin
    writeln('*Поиск данных в структуре, согласно условию*');
    writeln('ФИО сотрудников, номера телефонов которых начинаются с 361/362/273');
    checker:=false;
-   while not eof(s) do
-   begin
-    read(s,f[i]);
-    
+   writeln();
+   
+   for i:=1 to buf do
     if (supervisor(f[i].telephone) = true) then 
         writeln(f[i].name);
-      i:=i+1;
-   end;
    
    if (checker=false) then
     writeln('Таких сотрудников нет');
@@ -181,10 +145,80 @@ begin
    readkey();
 end;
 
-
-//Меню процедуры добавления/удаления данных
+//Меню процедуры работы с данными
 procedure ChangeData();
-  //Процедура добавления данных
+
+  //Процедура изменения данных
+  procedure ChangeNewData();
+  var newchanger, changeindex : integer;
+  begin
+    write('Введите № элемента для удаления: '); read(changeindex);
+    writeln('Какие данные вы хотите удалить?');
+    
+    writeln('1. ФИО');
+    writeln('2. Должность');
+    writeln('3. Стаж');
+    writeln('4. Телефон');
+    write('=> ');
+    readln(newchanger);
+    
+    case newchanger of
+    
+      1 : begin
+            writeln('Введите новое ФИО для элемента №',changeindex,':');
+            readln(f[changeindex].name);
+          end;
+      2 : begin
+            writeln('Введите новую должность для элемента №',changeindex,':');
+            readln(f[changeindex].dolznost);
+          end;
+      3 : begin
+            writeln('Введите новый стаж для элемента №',changeindex,':');
+            readln(f[changeindex].staz);
+          end;
+      4 : begin
+            writeln('Введите новый телефон для элемента №',changeindex,':');
+            readln(f[changeindex].telephone);
+          end;
+          
+    end;
+    write(s,f[changeindex]);
+    writeln('Данные успешно обновлены!');
+    readkey();
+  end;
+  
+  //Процедура удаления данных из структуры
+  procedure DelData();
+  
+      procedure worker(delindex : integer);
+      var i : integer;
+      begin
+        for i:=delindex to buf-1 do begin
+           f[i].name:=f[i+1].name;
+           f[i].dolznost:=f[i+1].dolznost;
+           f[i].staz:=f[i+1].staz;
+           f[i].telephone:=f[i+1].telephone;
+        end;
+        delflag:=true;
+       end;
+  
+  var k : integer;
+  begin
+    write('Введите № элемента для удаления: '); read(delindex);
+    writeln('Вы действительно хотите удалить строку с индексом ',delindex,' ?');
+    writeln('1. Да');
+    writeln('2. Нет');
+    write('=> ');
+    readln(k);
+    
+    case k of
+      1 : worker(delindex);
+      2 : writeln('Хорошо, выходим в главное меню');
+    end; 
+    readkey();
+  end;
+  
+  //Процедура добавления данных в структуру
   procedure AddData();
   begin
     writeln('*Добавление записи в структуру*');
@@ -198,16 +232,14 @@ procedure ChangeData();
 //Меню вывода
 begin
     writeln('1. Удаление данных');
-    writeln('2. Добавление данных');
+    writeln('2. Изменение данных');
+    writeln('3. Добавление данных');
     write('=> '); readln(k);
 
      case k of
-       1 : begin
-            write('Введите № элемента для удаления: ');
-            read(delindex);
-            DelData(delindex);
-           end;
-       2 : AddData;
+       1 : DelData;
+       2 : ChangeNewData;
+       3 : AddData;
      end;
 end;
 
@@ -219,7 +251,7 @@ begin
     writeln('1. Ввод данных');
     writeln('2. Вывод данных');
     writeln('3. Поиск записей, согласно условию');
-    writeln('4. Добавление/удаление данных');
+    writeln('4. Работа с данными');
     writeln('0. Выход из программы');
     write('=> '); readln(k);
 
