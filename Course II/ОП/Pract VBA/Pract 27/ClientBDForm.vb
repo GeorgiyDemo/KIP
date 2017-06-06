@@ -1,55 +1,54 @@
 Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
-Public rsp As ADODB.Recordset
 
-Private Sub CMDFindFirstCODE_Click()
+Private Sub CMDFindFirstSearch_Click()
+
  Dim skiprecord As Long
  Dim direction As Long
- Lname = TextBoxCODE.Text
+ Lname = TextBoxSearch.Text
 
  If (Lname = "") Then
     MsgBox "Не заполнено поле для поиска записей по коду"
  Else
-     criteria = "[Кодклиента] = '" & Lname & "'"
-     skiprecord = 0
-     direction = adSearchForward
-     rs.MoveFirst
-     rs.Find criteria, skiprecord, direction
+     If (IsNumeric(Lname) = True) Then
 
-     If rs.EOF Then
-        MsgBox "Запись c кодом " + CStr(Lname) + " не найдена"
-        Beep
-     Else
-        MsgBox "Запись c кодом " + CStr(Lname) + " найдена!"
-        Beep
-        ShowRecord
+         criteria = "[Кодклиента] = '" & Lname & "'"
+         skiprecord = 0
+         direction = adSearchForward
+         rs.MoveFirst
+         rs.Find criteria, skiprecord, direction
+
+         If rs.EOF Then
+            MsgBox "Запись c кодом " + CStr(Lname) + " не найдена"
+            Beep
+         Else
+            MsgBox "Запись c кодом " + CStr(Lname) + " найдена!"
+            Beep
+            ShowRecord
+        End If
     End If
-End If
+    If (IsNumeric(Lname) = False) Then
+        criteria = "[Клиент] = '" & Lname & "'"
+         skiprecord = 0
+         direction = adSearchForward
+         rs.MoveFirst
+         rs.Find criteria, skiprecord, direction
+
+         If rs.EOF Then
+            MsgBox "Запись c ФИО '" + CStr(Lname) + "' не найдена"
+            Beep
+         Else
+            MsgBox "Запись c ФИО '" + CStr(Lname) + "' найдена!"
+            Beep
+            ShowRecord
+        End If
+    End If
+  End If
+
 End Sub
 
-Private Sub CMDFindFirstFIO_Click()
- Dim skiprecord As Long
- Dim direction As Long
- Lname = TextBoxFIO.Text
-
- If (Lname = "") Then
-    MsgBox "Не заполнено поле для поиска записей по коду"
- Else
-     criteria = "[Клиент] = '" & Lname & "'"
-     skiprecord = 0
-     direction = adSearchForward
-     rs.MoveFirst
-     rs.Find criteria, skiprecord, direction
-
-     If rs.EOF Then
-        MsgBox "Запись c ФИО '" + CStr(Lname) + "' не найдена"
-        Beep
-     Else
-        MsgBox "Запись c ФИО '" + CStr(Lname) + "' не найдена"
-        Beep
-        ShowRecord
-    End If
-End If
+Private Sub RefreshButton_Click()
+    ShowRecord
 End Sub
 
 Private Sub UserForm_Initialize()
@@ -111,18 +110,18 @@ End Sub
 
 Private Sub CMDPreviousButton_Click()
     If (rs.BOF = False) Then rs.MovePrevious
-    If (rs.BOF = Flase) Then ShowRecord
+    If (rs.BOF = False) Then ShowRecord
 End Sub
 
 Private Sub CMDUpdateButton_Click()
-
-    Call FillRecord
-    rs.Update
-    Call SetEnabled(True, True)
-    If (Not IsDisable) Then
-        IsDisable = False
+    If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo + vbQuestion) = vbYes Then
+        Call FillRecord
+        rs.Update
+        Call SetEnabled(True, True)
+        If (Not IsDisable) Then
+            IsDisable = False
+        End If
     End If
-
 End Sub
 
 Private Sub SetEnabled(IsUpdateOn As Boolean, IsOthersOn As Boolean)
@@ -140,9 +139,7 @@ Private Sub SetEnabled(IsUpdateOn As Boolean, IsOthersOn As Boolean)
 End Sub
 
 Private Sub FillRecord()
-
     rs.Fields("Клиент").Value = TextBox2.Text
-
 End Sub
 
 Private Sub ShowRecord()
