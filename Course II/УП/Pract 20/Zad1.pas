@@ -108,9 +108,9 @@ begin
     write('=> '); readln(k);
   
      case k of
-       1 : graphOne();
-       2 : graphTwo();
-       3 : doubleGraph();
+       1 : GraphOne();
+       2 : GraphTwo();
+       3 : DoubleGraph();
      end;
      
 end.
