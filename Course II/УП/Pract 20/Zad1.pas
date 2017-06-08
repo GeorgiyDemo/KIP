@@ -1,22 +1,18 @@
-﻿program graph;
+﻿program Graph;
 uses graphABC; 
 
-var y,x : real;
-    b,h : integer; 
+var x, y : real;
+    k, b, h : integer; 
 
-begin 
+procedure GraphOne();
+begin
+    
+    clearwindow;
+    setpencolor(clBlack); 
     moveto(50,0); 
     lineto(50,100); 
     moveto(0,50); 
-    lineto(100,50); 
-    moveto(250,0); 
-    lineto(250,100); 
-    moveto(200,50); 
-    lineto(300,50); 
-    moveto(150,200); 
-    lineto(150,300); 
-    moveto(100,250); 
-    lineto(200,250); 
+    lineto(100,50);
     
     x:=0.1; 
     y:=-x*power(sin(1/x),2);
@@ -31,28 +27,25 @@ begin
         h:=round(x); 
         setpencolor(clred); 
         lineto(10*h+50,20*b+50); 
-    until(x>10); 
-    
-    x:=0.1; 
-    y:=-x*power(sin(1/x),2);
-    b:=round(y); 
-    h:=round(x); 
-    moveto(10*h+150,20*b+250); 
-    
-    repeat 
-        x:=x+0.1; 
-        y:=-x*power(sin(1/x),2);
-        b:=round(y); 
-        h:=round(x); 
-        setpencolor(clred); 
-        lineto(10*h+150,20*b+250); 
-    until(x>10); 
+    until(x>10);
+    read();
+end;
+
+procedure GraphTwo();
+begin
+
+    clearwindow;
+    setpencolor(clBlack); 
+    moveto(50,0); 
+    lineto(50,100); 
+    moveto(0,50); 
+    lineto(100,50);
     
     x:=0.1;
     y:=(x+1)*power(sin(1/x),2);
     b:=round(y); 
     h:=round(x); 
-    moveto(10*h+250,20*b+50); 
+    moveto(10*h+50,20*b+50); 
     
     repeat 
         x:=x+0.1;
@@ -60,14 +53,40 @@ begin
         b:=round(y); 
         h:=round(x); 
         setpencolor(clblue); 
-        lineto(10*h+250,20*b+50); 
+        lineto(10*h+50,20*b+50); 
     until(x>10); 
+end;
+
+procedure DoubleGraph();
+begin
     
+    clearwindow;
+    setpencolor(clBlack); 
+    moveto(50,0); 
+    lineto(50,100); 
+    moveto(0,50); 
+    lineto(100,50);
+    
+    x:=0.1; 
+    y:=-x*power(sin(1/x),2);
+    b:=round(y); 
+    h:=round(x); 
+    moveto(10*h+50,20*b+50);
+    
+    repeat 
+        x:=x+0.1; 
+        y:=-x*power(sin(1/x),2);
+        b:=round(y); 
+        h:=round(x); 
+        setpencolor(clred); 
+        lineto(10*h+50,20*b+50); 
+    until(x>10); 
+
     x:=0.1; 
     y:=(x+1)*power(sin(1/x),2);
     b:=round(y); 
     h:=round(x); 
-    moveto(10*h+150,20*b+250); 
+    moveto(10*h+50,20*b+50);
     
     repeat 
         x:=x+0.1;
@@ -75,7 +94,23 @@ begin
         b:=round(y); 
         h:=round(x); 
         setpencolor(clblue); 
-        lineto(10*h+150,20*b+250); 
-    until(x>10); 
-    
+        lineto(10*h+50,20*b+50); 
+    until(x>10);
+end;
+
+begin
+
+    clearwindow;
+    writeln('1. Построение графика №1');
+    writeln('2.  Построение графика №2');
+    writeln('3. Построение двух графиков на одной плоскости');
+    writeln('0. Выход из программы');
+    write('=> '); readln(k);
+  
+     case k of
+       1 : graphOne();
+       2 : graphTwo();
+       3 : doubleGraph();
+     end;
+     
 end.
