@@ -6,26 +6,16 @@ Private Sub CMDFindFirstSearch_Click()
     Dim skiprecord As Long
     Dim direction As Long
     Lname = TextBoxSearch.Text
-
-    k = InputBox("По какому критерию вы хотите выполнить поиск?" + Chr(13) + "1. Код" + Chr(13) + "2. Имя" + Chr(13) + "3. Фамилия" + Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
-
-    Select Case k
-    Case 1
-        MsgBox "Один"
-    Case 2
-        MsgBox "Два"
-    Case 3
-        MsgBox "Три"
-    Case Else
-        MsgBox "Выбрано что-то другое"
-End Select
-
-        criteria = "[КодМенеджераПродажи] = '" & Lname & "'"
+    
+    k = InputBox("По какому критерию вы хотите выполнить поиск?" + Chr(13) + "1. Код" + Chr(13) + "2. Имя" + Chr(13) + "3. 
+Фамилия" + Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
+    
+    criteria = "[КодМенеджераПродажи] = '" & Lname & "'"
          skiprecord = 0
          direction = adSearchForward
          rs.MoveFirst
          rs.Find criteria, skiprecord, direction
-
+         
          If rs.EOF Then
             MsgBox "Запись c кодом " + CStr(Lname) + " не найдена"
             Beep
@@ -45,7 +35,7 @@ Private Sub UserForm_initialize()
 
     Set cn = New ADODB.Connection
     cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
+    cn.ConnectionString = "C:\Users\georgiydemo\Documents\Computer_store.accdb"
     cn.Open
     Set rs = New ADODB.Recordset
     rs.CursorType = adOpenKeyset
@@ -53,11 +43,11 @@ Private Sub UserForm_initialize()
     rs.Source = "SELECT [Менеджер по продажам].* FROM [Менеджер по продажам];"
     Set rs.ActiveConnection = cn
     rs.Open
-
+    
     CMDUpdateButton.Tag = "Update"
     ShowEmptyRecord
     CMDFirstButton_Click
-
+    
 End Sub
 
 Private Sub CMDAddButton_Click()
@@ -136,7 +126,7 @@ Private Sub FillRecord()
     rs.Fields("Фамилия").Value = TextBox3.Text
     rs.Fields("Отчество").Value = TextBox4.Text
     rs.Fields("Телефон").Value = TextBox5.Text
-
+    
 End Sub
 
 Private Sub ShowRecord()
@@ -146,7 +136,7 @@ Private Sub ShowRecord()
     TextBox3.Text = rs.Fields("Фамилия").Value
     TextBox4.Text = rs.Fields("Отчество").Value
     TextBox5.Text = rs.Fields("Телефон").Value
-
+    
 End Sub
 
 Private Sub ShowEmptyRecord()
@@ -163,5 +153,6 @@ Private Sub ExitButton_Click()
 
     Unload Me
     BDMainForm.Show
-
+    
 End Sub
+

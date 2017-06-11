@@ -1,7 +1,34 @@
 Public cn As ADODB.Connection
-Public rs As ADODB.Recordset
+Public mainclient, clientmanager As ADODB.Recordset
 
-Private Sub CMDFindFirstSearch_Click()
+Private Sub UserForm_initialize()
+
+    Set cn = New ADODB.Connection
+    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
+    cn.ConnectionString = "C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
+    cn.Open
+
+    Set mainclient = New ADODB.Recordset
+    mainclient.CursorType = adOpenKeyset
+    mainclient.LockType = adLockOptimistic
+    mainclient.Source = "SELECT Клиент.* FROM Клиент"
+    Set mainclient.ActiveConnection = cn
+    mainclient.Open
+
+    Set clientmanager = New ADODB.Recordset
+    clientmanager.CursorType = adOpenKeyset
+    clientmanager.LockType = adLockOptimistic
+    clientmanager.Source = "SELECT [Менеджер по работе с клиентами].* FROM [Менеджер по работе с клиентами];"
+    Set clientmanager.ActiveConnection = cn
+    clientmanager.Open
+
+    CMDUpdateButton.Tag = "Update"
+    ShowEmptyRecord
+    CMDFirstButton_Click
+
+End Sub
+
+Private Sub CMDFindFimainclienttSearch_Click()
 
  Dim skiprecord As Long
  Dim direction As Long
@@ -15,64 +42,42 @@ Private Sub CMDFindFirstSearch_Click()
          criteria = "[Кодклиента] = '" & Lname & "'"
          skiprecord = 0
          direction = adSearchForward
-         rs.MoveFirst
-         rs.Find criteria, skiprecord, direction
+         mainclient.MoveFirst
+         mainclient.Find criteria, skiprecord, direction
 
-         If rs.EOF Then
+         If mainclient.EOF Then
             MsgBox "Запись c кодом " + CStr(Lname) + " не найдена"
             Beep
          Else
-            MsgBox "Запись c кодом " + CStr(Lname) + " найдена!"
-            Beep
             ShowRecord
+            Beep
         End If
     End If
     If (IsNumeric(Lname) = False) Then
         criteria = "[Клиент] = '" & Lname & "'"
          skiprecord = 0
          direction = adSearchForward
-         rs.MoveFirst
-         rs.Find criteria, skiprecord, direction
+         mainclient.MoveFirst
+         mainclient.Find criteria, skiprecord, direction
 
-         If rs.EOF Then
+         If mainclient.EOF Then
             MsgBox "Запись c ФИО '" + CStr(Lname) + "' не найдена"
             Beep
          Else
-            MsgBox "Запись c ФИО '" + CStr(Lname) + "' найдена!"
-            Beep
             ShowRecord
+            Beep
         End If
     End If
   End If
-
 End Sub
 
 Private Sub RefreshButton_Click()
     ShowRecord
 End Sub
 
-Private Sub UserForm_Initialize()
-
-    Set cn = New ADODB.Connection
-    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Users\georgiydemo\Documents\Computer_store.accdb"
-    cn.Open
-    Set rs = New ADODB.Recordset
-    rs.CursorType = adOpenKeyset
-    rs.LockType = adLockOptimistic
-    rs.Source = "SELECT Клиент.* FROM Клиент"
-    Set rs.ActiveConnection = cn
-    rs.Open
-
-    CMDUpdateButton.Tag = "Update"
-    ShowEmptyRecord
-    CMDFirstButton_Click
-
-End Sub
-
 Private Sub CMDAddButton_Click()
     ShowEmptyRecord
-    rs.AddNew
+    mainclient.AddNew
     FillRecord
     TextBox1.SetFocus
     IsDisable = True
@@ -81,10 +86,10 @@ Private Sub CMDAddButton_Click()
 End Sub
 
 Private Sub CMDDeleteButton_Click()
- If (rs.RecordCount >= 1) Then
+ If (mainclient.RecordCount >= 1) Then
     If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes Then
-        rs.Delete
-        If (rs.RecordCount > 0) Then
+        mainclient.Delete
+        If (mainclient.RecordCount > 0) Then
             CMDNextButton_Click
         Else
             ShowEmptyRecord
@@ -94,29 +99,29 @@ Private Sub CMDDeleteButton_Click()
 End Sub
 
 Private Sub CMDFirstButton_Click()
-    rs.MoveFirst
+    mainclient.MoveFirst
     ShowRecord
 End Sub
 
 Private Sub CMDLastButton_Click()
-    rs.MoveLast
+    mainclient.MoveLast
     ShowRecord
 End Sub
 
 Private Sub CMDNextButton_Click()
-    If (rs.EOF = False) Then rs.MoveNext
-    If (rs.EOF = False) Then ShowRecord
+    If (mainclient.EOF = False) Then mainclient.MoveNext
+    If (mainclient.EOF = False) Then ShowRecord
 End Sub
 
 Private Sub CMDPreviousButton_Click()
-    If (rs.BOF = False) Then rs.MovePrevious
-    If (rs.BOF = False) Then ShowRecord
+    If (mainclient.BOF = False) Then mainclient.MovePrevious
+    If (mainclient.BOF = False) Then ShowRecord
 End Sub
 
 Private Sub CMDUpdateButton_Click()
     If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo + vbQuestion) = vbYes Then
         Call FillRecord
-        rs.Update
+        mainclient.Update
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False
@@ -139,13 +144,33 @@ Private Sub SetEnabled(IsUpdateOn As Boolean, IsOthersOn As Boolean)
 End Sub
 
 Private Sub FillRecord()
-    rs.Fields("Клиент").Value = TextBox2.Text
+    mainclient.Fields("Клиент").Value = CStr(TextBox2.Text)
+    mainclient.Fields("ЕдТовара").Value = CInt(TextBox3.Text)
+    mainclient.Fields("КодМенеджера").Value = CInt(TextBox4.Text)
 End Sub
 
 Private Sub ShowRecord()
 
-    TextBox1.Text = rs.Fields("Кодклиента").Value
-    TextBox2.Text = rs.Fields("Клиент").Value
+    TextBox1.Text = mainclient.Fields("Кодклиента").Value
+    TextBox2.Text = mainclient.Fields("Клиент").Value
+    TextBox3.Text = mainclient.Fields("ЕдТовара").Value
+    TextBox4.Text = mainclient.Fields("КодМенеджера").Value
+
+
+    clientmanager.MoveFirst
+    While Not clientmanager.EOF
+        If (mainclient.Fields("КодМенеджера").Value = clientmanager.Fields("Код").Value) Then
+
+            TextBox5.Text = clientmanager.Fields("Телефон").Value
+            TextBox6.Text = clientmanager.Fields("Код").Value
+            TextBox7.Text = clientmanager.Fields("Имя").Value
+            TextBox8.Text = clientmanager.Fields("Фамилия").Value
+            TextBox9.Text = clientmanager.Fields("Отчество").Value
+
+
+        End If
+        clientmanager.MoveNext
+    Wend
 
 End Sub
 
@@ -153,6 +178,8 @@ Private Sub ShowEmptyRecord()
 
     TextBox1.Text = Empty
     TextBox2.Text = Empty
+    TextBox3.Text = 0
+    TextBox4.Text = 1
 
 End Sub
 
