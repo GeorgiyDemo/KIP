@@ -10,21 +10,87 @@ Private Sub CMDFindFirstSearch_Click()
     k = InputBox("По какому критерию вы хотите выполнить поиск?" + Chr(13) + "1. Код" + Chr(13) + "2. Имя" + Chr(13) + "3. 
 Фамилия" + Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
     
-    criteria = "[КодМенеджераПродажи] = '" & Lname & "'"
-         skiprecord = 0
-         direction = adSearchForward
-         rs.MoveFirst
-         rs.Find criteria, skiprecord, direction
-         
-         If rs.EOF Then
-            MsgBox "Запись c кодом " + CStr(Lname) + " не найдена"
-            Beep
-         Else
-            MsgBox "Запись c кодом " + CStr(Lname) + " найдена!"
-            Beep
-            ShowRecord
-        End If
-    '
+    Select Case k
+        Case 1
+            criteria = "[КодМенеджераПоставки] = '" & Lname & "'"
+        Case 2
+            criteria = "[Имя] = '" & Lname & "'"
+        Case 3
+            criteria = "[Фамилия] = '" & Lname & "'"
+        Case 4
+            criteria = "[Отчество] = '" & Lname & "'"
+        Case 5
+            criteria = "[Телефон] = '" & Lname & "'"
+    End Select
+        
+    skiprecord = 0
+    direction = adSearchForward
+    rs.MoveFirst
+    rs.Find criteria, skiprecord, direction
+             
+    If rs.EOF Then
+        MsgBox "Запись не найдена"
+        Beep
+    Else
+        MsgBox "Запись найдена!"
+        ShowRecord
+        Beep
+    End If
+    
+End Sub
+
+Private Sub PrintButton_Click()
+    Dim kot As Document
+    Dim i As Integer
+    Set kot = Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\UniversalDOC.docx")
+    
+    i = 0
+    rs.MoveFirst
+    
+    Do Until rs.EOF
+        i = i + 1
+        rs.MoveNext
+    Loop
+    
+        kot.Tables.Add Range:=Selection.Range, NumRows:=i + 1, NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+            
+            With Selection.Tables(1)
+                If .Style <> "Сетка таблицы" Then
+                    .Style = "Сетка таблицы"
+                End If
+                .ApplyStyleHeadingRows = True
+                .ApplyStyleLastRow = True
+                .ApplyStyleFirstColumn = True
+                .ApplyStyleLastColumn = True
+                .Cell(0, 1).Range.Text = "№"
+                .Cell(0, 2).Range.Text = "Фамилия"
+                .Cell(0, 3).Range.Text = "Имя"
+                .Cell(0, 4).Range.Text = "Отчество"
+                .Cell(0, 5).Range.Text = "Телефон"
+                i = 1
+            rs.MoveFirst
+            End With
+     
+        Do Until rs.EOF
+            i = i + 1
+            With Selection.Tables(1)
+                .Cell(i, 1).Range.Text = rs.Fields("КодМенеджераПоставки").Value
+                .Cell(i, 2).Range.Text = rs.Fields("Фамилия").Value
+                .Cell(i, 3).Range.Text = rs.Fields("Имя").Value
+                .Cell(i, 4).Range.Text = rs.Fields("Отчество").Value
+                .Cell(i, 5).Range.Text = rs.Fields("Телефон").Value
+            End With
+            rs.MoveNext
+        Loop
+    
+    kot.Bookmarks("тема_отчета").Range.Text = "*Общий отчет по менеджерам поставки*"
+    kot.Bookmarks("время").Range.Text = Time
+    kot.Bookmarks("дата").Range.Text = Date
+    
+    GetManagerBDForm.Hide
+    kot.Activate
+
 End Sub
 
 Private Sub RefreshButton_Click()
@@ -35,12 +101,12 @@ Private Sub UserForm_initialize()
 
     Set cn = New ADODB.Connection
     cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Users\georgiydemo\Documents\Computer_store.accdb"
+    cn.ConnectionString = "C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
     cn.Open
     Set rs = New ADODB.Recordset
     rs.CursorType = adOpenKeyset
     rs.LockType = adLockOptimistic
-    rs.Source = "SELECT [Менеджер по продажам].* FROM [Менеджер по продажам];"
+    rs.Source = "SELECT [Менеджер Поставки].* FROM [Менеджер Поставки];"
     Set rs.ActiveConnection = cn
     rs.Open
     
@@ -131,7 +197,7 @@ End Sub
 
 Private Sub ShowRecord()
 
-    TextBox1.Text = rs.Fields("КодМенеджераПродажи").Value
+    TextBox1.Text = rs.Fields("КодМенеджераПоставки").Value
     TextBox2.Text = rs.Fields("Имя").Value
     TextBox3.Text = rs.Fields("Фамилия").Value
     TextBox4.Text = rs.Fields("Отчество").Value
