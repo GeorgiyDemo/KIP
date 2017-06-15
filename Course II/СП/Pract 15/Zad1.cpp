@@ -1,98 +1,52 @@
-#include <iostream>
-#include <iomanip>
+#include "stdafx.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <locale.h>
 using namespace std;
 
-int const n=10;
-bool flag=false;
-int i, k1, menu, sum, *a;
+int i;
+unsigned char z, o, s, c;
+void input(unsigned short a, unsigned short b)
+{
+	c = o = s = z = 0;
+	
+	_asm {
 
-//Генерация массивов
-void generate(){
+		mov bx, b
+		mov ax, a
+		cmp ax, bx
 
-  srand((unsigned)time(0));
-  for (i=0;i<n;i++)
-    a[i]=rand()%20-10;
-
+		jb CARRY
+		ODIN :
+			jo OVER
+		DVA :
+			js SIGN
+		TRI :
+			jz ZERO
+			jmp END
+		CARRY :
+			mov c, 1
+			jmp ODIN
+		OVER :
+			mov o, 1
+			jmp DVA
+		SIGN :
+			mov s, 1
+			jmp TRI
+		ZERO :
+			mov z, 1
+		END :
+	}
+	printf("C(carry) = %i, O(overflow) = %i, S(sign) = %i, Z(zero) = %i\n", c, o, s, z);
 }
-
-//Ручный ввод массивов
-void enter(){
-
-  cout<<"<Заполняем массив А>\n";
-  for (i=0;i<n;i++){
-     cout<<"Введите элемент ["<<i<<"]: ";
-      cin>>a[i];
-    }
-}
-
-
-//Вывод массивов на экран
-void monitor_out(){
-
-  cout<<"\nМассив А:\n[";
-  for (i=0;i<n;i++){
-    cout<<a[i]<<" ";
-  }
-  cout<<"]";
-}
-
-//Функция элементов массива
-void counter(){
-
-	monitor_out();
-  sum=0;
-	for (i=0;i<n;i++)
-    sum+=a[i];
-  cout<<"\nСумма элементов массива А: "<<sum;
-}
-
-//Меню выбора ввода
-void initarray(){
-
-  a = new int [n];
-
-  cout<<"\n\n1. Генерация массива А\n2. Ручной ввод массива А\n=> ";
-    cin>>k1;
-    switch (k1)
-    {
-      case 1:
-        generate();
-        break;
-
-      case 2:
-        enter();
-        break;
-    }
-
-}
-
-//Главное меню
-int main(){
-
-  do
-  {
-    cout<<"\n\n1. Ввод массива\n2. Вывод массива\n3. Сумма элементов массива\n0. Выход из программы\n=> ";
-    cin>>menu;
-    switch (menu)
-    {
-      case 1:
-        initarray();
-        break;
-
-      case 2:
-        monitor_out();
-        break;
-
-      case 3:
-        counter();
-        break;
-
-    }
-
-  }
-  while (menu!=0);
-
-cout<<"\n";
-return 0;
-
+int main()
+{
+	setlocale(LC_ALL, "RUS");
+	for (i = 0; i < 100; i++) {
+		printf("___________________________\nИсходные данные:\na = %d\nb = 
+80\nФлаги:\n", i);
+		input(i, 80);
+	}
+	system("pause");
+	return 0;
 }
