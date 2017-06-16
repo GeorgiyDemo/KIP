@@ -190,7 +190,11 @@ CStr(TextBox9.Text)
     
     'Допилить
     If (k = 2) Then
+        
+        Dim moneymax, moneymin As Double
         Dim KOT_MEOW_MEOW As Integer
+        Dim maxnumber, minnumber, maxcli, mincli, maxmgr, minmgr, 
+maxdata, mindata As String
         Dim first, second
         Dim GoodsDOCSecond As Document
         Set GoodsDOCSecond = 
@@ -199,7 +203,18 @@ Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintTwo.do
         first = InputBox("Введите дату ОТ: (пример: 01.01.16)")
         second = InputBox("Введите дату ДО: (пример: " + CStr(Date) + 
 ")")
-    
+        
+        moneymax = 0
+        content.MoveFirst
+        While Not content.EOF
+            If (content.Fields("№ Продажи").Value = 1) Then
+                moneymax = moneymax + ((content.Fields("Цена").Value) * 
+(content.Fields("Кол-во").Value))
+            End If
+            content.MoveNext
+        Wend
+        moneymin = moneymax
+        
         KOT_MEOW_MEOW = 0
         Selection.MoveDown Unit:=wdLine, Count:=3
         sale.MoveFirst
@@ -236,11 +251,12 @@ AutoFitBehavior:=wdAutoFitContent
             sale.MoveFirst
         End With
         
+        'Поиск записей между собой/поиск наиболее большой продажи/поиск 
+наиболее маленькой продажи
         sale.MoveFirst
         While Not sale.EOF
             If (first < CDate(sale.Fields("Дата продажи").Value) And 
 second > CDate(sale.Fields("Дата продажи").Value)) Then
-                
                 cli.MoveFirst
                 While Not cli.EOF
                     If (cli.Fields("Кодклиента").Value = 
@@ -248,20 +264,9 @@ sale.Fields("КодКлиента").Value) Then
                         KOT_MEOW_MEOW = KOT_MEOW_MEOW + 1
                         With Selection.Tables(1)
                             .Cell(KOT_MEOW_MEOW, 1).Range.Text = 
-Str(KOT_MEOW_MEOW - 1)
+CStr(KOT_MEOW_MEOW - 1)
                             .Cell(KOT_MEOW_MEOW, 2).Range.Text = 
 cli.Fields("Клиент").Value
-                            mngr.MoveFirst
-                            While Not mngr.EOF
-                                If 
-(mngr.Fields("КодМенеджераПродажи").Value = 
-sale.Fields("КодМенеджераПродажи").Value) Then
-                                    
-Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text = 
-mngr.Fields("Имя").Value
-                                End If
-                                mngr.MoveNext
-                            Wend
                             mngr.MoveFirst
                             While Not mngr.EOF
                                 If 
@@ -291,6 +296,35 @@ sale.Fields("№ продажи").Value) Then
                                 Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
 4).Range.Text = CStr(tsum)
                             End If
+                            
+                            'Макс доход
+                            If (tsum > moneymax) Then
+                                
+                                moneymax = tsum
+                                maxnumber = CStr(KOT_MEOW_MEOW - 1)
+                                maxcli = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
+                                maxmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
+                                maxdata = CStr(sale.Fields("Дата 
+продажи").Value)
+                                
+                            End If
+                            
+                            'Мин доход
+                             If (tsum < moneymin) Then
+                                
+                                moneymin = tsum
+                                minnumber = CStr(KOT_MEOW_MEOW - 1)
+                                mincli = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
+                                minmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
+                                mindata = CStr(sale.Fields("Дата 
+продажи").Value)
+                                
+                            End If
+                        
                             Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
 5).Range.Text = sale.Fields("Дата продажи").Value
                         End With
@@ -300,7 +334,8 @@ sale.Fields("№ продажи").Value) Then
             End If
         sale.MoveNext
         Wend
-     
+
+
      With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -311,7 +346,80 @@ sale.Fields("№ продажи").Value) Then
         .TypeText Text:="Цена (руб)"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="Дата"
-        .MoveDown Unit:=wdLine, Count:=1
+        .MoveDown Unit:=wdLine, Count:=KOT_MEOW_MEOW + 2
+    End With
+    
+    'Таблица для макс денег
+    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+    With Selection.Tables(1)
+        If .Style <> "Сетка таблицы" Then
+            .Style = "Сетка таблицы"
+    End If
+    .Range.Font.Size = 11
+    .ApplyStyleHeadingRows = True
+    .ApplyStyleLastRow = True
+    .ApplyStyleFirstColumn = True
+    .ApplyStyleLastColumn = True
+    End With
+    
+    With Selection.Tables(1)
+        .Cell(0, 1).Range.Text = maxnumber
+        .Cell(0, 2).Range.Text = maxcli
+        .Cell(0, 3).Range.Text = maxmgr
+        .Cell(0, 4).Range.Text = moneymax
+        .Cell(0, 5).Range.Text = maxdata
+    End With
+    
+    With Selection
+        .TypeText Text:="№"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО клиента"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО менеджера"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Цена (руб)"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Дата"
+        .MoveDown Unit:=wdLine, Count:=4
+    End With
+    
+    'Таблица для мин денег
+    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+    With Selection.Tables(1)
+        If .Style <> "Сетка таблицы" Then
+            .Style = "Сетка таблицы"
+    End If
+    .Range.Font.Size = 11
+    .Range.Font.Bold = wdToggle
+    .ApplyStyleHeadingRows = True
+    .ApplyStyleLastRow = True
+    .ApplyStyleFirstColumn = True
+    .ApplyStyleLastColumn = True
+    End With
+    
+    With Selection.Tables(1)
+        .Cell(0, 1).Range.Text = minnumber
+        .Cell(0, 2).Range.Text = mincli
+        .Cell(0, 3).Range.Text = minmgr
+        .Cell(0, 4).Range.Text = moneymin
+        .Cell(0, 5).Range.Text = mindata
+    End With
+    
+    With Selection
+        .TypeText Text:="№"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО клиента"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО менеджера"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Цена (руб)"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Дата"
+        .MoveDown Unit:=wdLine, Count:=3
     End With
     
      With GoodsDOCSecond
