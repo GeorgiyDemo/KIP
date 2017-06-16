@@ -3,15 +3,14 @@ Public mainclient, clientmanager As ADODB.Recordset
 
 Private Sub PrintButton_Click()
     Dim ClientDOC As Document
-    Set ClientDOC = Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\ClientPrint.docx")
+    Set ClientDOC = 
+Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\ClientPrint.docx")
     
     With ClientDOC
         .Bookmarks("номер_клиента").Range.Text = CStr(TextBox1.Text)
-        .Bookmarks("код_клиента").Range.Text = CStr(TextBox1.Text)
         .Bookmarks("фио_клиента").Range.Text = CStr(TextBox2.Text)
         .Bookmarks("товар_клиент").Range.Text = CStr(TextBox3.Text)
         .Bookmarks("номер_менеджер").Range.Text = CStr(TextBox4.Text)
-        .Bookmarks("менеджер_код").Range.Text = CStr(TextBox6.Text)
         .Bookmarks("менеджер_имя").Range.Text = CStr(TextBox7.Text)
         .Bookmarks("менеджер_фамилия").Range.Text = CStr(TextBox8.Text)
         .Bookmarks("менеджер_отчество").Range.Text = CStr(TextBox9.Text)
@@ -29,7 +28,8 @@ Private Sub UserForm_initialize()
 
     Set cn = New ADODB.Connection
     cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
+    cn.ConnectionString = 
+"C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
     cn.Open
     
     Set mainclient = New ADODB.Recordset
@@ -42,7 +42,8 @@ Private Sub UserForm_initialize()
     Set clientmanager = New ADODB.Recordset
     clientmanager.CursorType = adOpenKeyset
     clientmanager.LockType = adLockOptimistic
-    clientmanager.Source = "SELECT [Менеджер по работе с клиентами].* FROM [Менеджер по работе с клиентами];"
+    clientmanager.Source = "SELECT [Менеджер по работе с клиентами].* 
+FROM [Менеджер по работе с клиентами];"
     Set clientmanager.ActiveConnection = cn
     clientmanager.Open
     
@@ -113,7 +114,8 @@ End Sub
 
 Private Sub CMDDeleteButton_Click()
  If (mainclient.RecordCount >= 1) Then
-    If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes Then
+    If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes 
+Then
         mainclient.Delete
         If (mainclient.RecordCount > 0) Then
             CMDNextButton_Click
@@ -145,7 +147,8 @@ Private Sub CMDPreviousButton_Click()
 End Sub
 
 Private Sub CMDUpdateButton_Click()
-    If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo + vbQuestion) = vbYes Then
+    If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo 
++ vbQuestion) = vbYes Then
         Call FillRecord
         mainclient.Update
         Call SetEnabled(True, True)
@@ -185,7 +188,8 @@ Private Sub ShowRecord()
     
     clientmanager.MoveFirst
     While Not clientmanager.EOF
-        If (mainclient.Fields("КодМенеджера").Value = clientmanager.Fields("Код").Value) Then
+        If (mainclient.Fields("КодМенеджера").Value = 
+clientmanager.Fields("Код").Value) Then
             
             TextBox5.Text = clientmanager.Fields("Телефон").Value
             TextBox6.Text = clientmanager.Fields("Код").Value

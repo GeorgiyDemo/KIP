@@ -1,5 +1,5 @@
 Public cn As ADODB.Connection
-Public cli, mngr, sale, content, goods As ADODB.Recordset
+Public geter, getmngr, getgoods, goods As ADODB.Recordset
 
 Function Translater(number)
 
@@ -44,6 +44,64 @@ sizes(i)))
     
 End Function
 
+Private Sub UserForm_initialize()
+    
+    Set cn = New ADODB.Connection
+    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
+    cn.ConnectionString = 
+"C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
+    cn.Open
+
+    'Запросы для БД "Поставки товара"
+    Set getgoods = New ADODB.Recordset
+    getgoods.CursorType = adOpenKeyset
+    getgoods.LockType = adLockOptimistic
+    getgoods.Source = "SELECT [Поставка Товара].* FROM [Поставка 
+Товара];"
+    Set getgoods.ActiveConnection = cn
+    getgoods.Open
+
+    'Запросы для БД "менеджер поставки"
+    Set getmngr = New ADODB.Recordset
+    getmngr.CursorType = adOpenKeyset
+    getmngr.LockType = adLockOptimistic
+    getmngr.Source = "SELECT [Менеджер Поставки].* FROM [Менеджер 
+Поставки];"
+    Set getmngr.ActiveConnection = cn
+    getmngr.Open
+
+'   'Запросы для БД "Поставщик"
+    Set geter = New ADODB.Recordset
+    geter.CursorType = adOpenKeyset
+    geter.LockType = adLockOptimistic
+    geter.Source = "SELECT [Менеджер по продажам].* FROM [Менеджер по 
+продажам];"
+    Set geter.ActiveConnection = cn
+    geter.Open
+    
+    'Запросы для БД "Товар"
+    Set content = New ADODB.Recordset
+    content.CursorType = adOpenKeyset
+    content.LockType = adLockOptimistic
+    content.Source = "SELECT [Состав заказа].* FROM [Состав заказа];"
+    Set content.ActiveConnection = cn
+    content.Open
+    
+    'Запросы для БД товаров
+    Set goods = New ADODB.Recordset
+    goods.CursorType = adOpenKeyset
+    goods.LockType = adLockOptimistic
+    goods.Source = "SELECT [Товар].* FROM [Товар];"
+    Set goods.ActiveConnection = cn
+    goods.Open
+    
+    
+    CMDUpdateButton.Tag = "Update"
+    ShowEmptyRecord
+    CMDFirstButton_Click
+
+End Sub
+
 Private Sub CMDFindFirstSearch_Click()
     Dim skiprecord As Long
     Dim direction As Long
@@ -54,17 +112,17 @@ Chr(13) + "1. Код" + Chr(13) + "2. Дата")
     
     Select Case k
         Case 1
-            criteria = "[№ продажи] = '" & Lname & "'"
+            criteria = "[КодПоставки] = '" & Lname & "'"
         Case 2
-            criteria = "[Дата продажи] = '" & Lname & "'"
+            criteria = "[ДатаПоставки] = '" & Lname & "'"
     End Select
         
     skiprecord = 0
     direction = adSearchForward
-    sale.MoveFirst
-    sale.Find criteria, skiprecord, direction
+    getgoods.MoveFirst
+    getgoods.Find criteria, skiprecord, direction
              
-    If sale.EOF Then
+    If getgoods.EOF Then
         MsgBox "Запись не найдена"
         Beep
     Else
@@ -87,7 +145,7 @@ Private Sub PrintButton_Click()
 Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintOne.docx")
         meow = 0
         
-        Selection.MoveDown Unit:=wdLine, Count:=16
+        Selection.MoveDown Unit:=wdLine, Count:=14
     
         content.MoveFirst
         While Not content.EOF
@@ -168,9 +226,7 @@ content.Fields("Цена").Value
             .Bookmarks("номер_чека").Range.Text = CStr(TextBox10.Text)
             .Bookmarks("время_покупки").Range.Text = 
 CStr(TextBox11.Text)
-            .Bookmarks("код_клиента").Range.Text = CStr(TextBox6.Text)
             .Bookmarks("фио_клиента").Range.Text = CStr(TextBox8.Text)
-            .Bookmarks("менеджер_код").Range.Text = CStr(TextBox1.Text)
             .Bookmarks("менеджер_имя").Range.Text = CStr(TextBox2.Text)
             .Bookmarks("менеджер_фамилия").Range.Text = 
 CStr(TextBox3.Text)
@@ -184,13 +240,17 @@ CStr(TextBox9.Text)
             .Bookmarks("дата").Range.Text = Date
         End With
         
-        GoodsSaleBDForm.Hide
+        GetGoodsBDForm.Hide
         GoodsDOC.Activate
     End If
     
     'Допилить
     If (k = 2) Then
+        
+        Dim moneymax, moneymin As Double
         Dim KOT_MEOW_MEOW As Integer
+        Dim maxnumber, minnumber, maxcli, mincli, maxmgr, minmgr, 
+maxdata, mindata As String
         Dim first, second
         Dim GoodsDOCSecond As Document
         Set GoodsDOCSecond = 
@@ -199,7 +259,18 @@ Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintTwo.do
         first = InputBox("Введите дату ОТ: (пример: 01.01.16)")
         second = InputBox("Введите дату ДО: (пример: " + CStr(Date) + 
 ")")
-    
+        
+        moneymax = 0
+        content.MoveFirst
+        While Not content.EOF
+            If (content.Fields("№ Продажи").Value = 1) Then
+                moneymax = moneymax + ((content.Fields("Цена").Value) * 
+(content.Fields("Кол-во").Value))
+            End If
+            content.MoveNext
+        Wend
+        moneymin = moneymax
+        
         KOT_MEOW_MEOW = 0
         Selection.MoveDown Unit:=wdLine, Count:=3
         sale.MoveFirst
@@ -236,11 +307,12 @@ AutoFitBehavior:=wdAutoFitContent
             sale.MoveFirst
         End With
         
+        'Поиск записей между собой/поиск наиболее большой продажи/поиск 
+наиболее маленькой продажи
         sale.MoveFirst
         While Not sale.EOF
             If (first < CDate(sale.Fields("Дата продажи").Value) And 
 second > CDate(sale.Fields("Дата продажи").Value)) Then
-                
                 cli.MoveFirst
                 While Not cli.EOF
                     If (cli.Fields("Кодклиента").Value = 
@@ -248,20 +320,9 @@ sale.Fields("КодКлиента").Value) Then
                         KOT_MEOW_MEOW = KOT_MEOW_MEOW + 1
                         With Selection.Tables(1)
                             .Cell(KOT_MEOW_MEOW, 1).Range.Text = 
-Str(KOT_MEOW_MEOW - 1)
+CStr(KOT_MEOW_MEOW - 1)
                             .Cell(KOT_MEOW_MEOW, 2).Range.Text = 
 cli.Fields("Клиент").Value
-                            mngr.MoveFirst
-                            While Not mngr.EOF
-                                If 
-(mngr.Fields("КодМенеджераПродажи").Value = 
-sale.Fields("КодМенеджераПродажи").Value) Then
-                                    
-Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text = 
-mngr.Fields("Имя").Value
-                                End If
-                                mngr.MoveNext
-                            Wend
                             mngr.MoveFirst
                             While Not mngr.EOF
                                 If 
@@ -291,6 +352,35 @@ sale.Fields("№ продажи").Value) Then
                                 Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
 4).Range.Text = CStr(tsum)
                             End If
+                            
+                            'Макс доход
+                            If (tsum > moneymax) Then
+                                
+                                moneymax = tsum
+                                maxnumber = CStr(KOT_MEOW_MEOW - 1)
+                                maxcli = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
+                                maxmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
+                                maxdata = CStr(sale.Fields("Дата 
+продажи").Value)
+                                
+                            End If
+                            
+                            'Мин доход
+                             If (tsum < moneymin) Then
+                                
+                                moneymin = tsum
+                                minnumber = CStr(KOT_MEOW_MEOW - 1)
+                                mincli = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
+                                minmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
+                                mindata = CStr(sale.Fields("Дата 
+продажи").Value)
+                                
+                            End If
+                        
                             Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
 5).Range.Text = sale.Fields("Дата продажи").Value
                         End With
@@ -300,7 +390,8 @@ sale.Fields("№ продажи").Value) Then
             End If
         sale.MoveNext
         Wend
-     
+
+
      With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -311,7 +402,80 @@ sale.Fields("№ продажи").Value) Then
         .TypeText Text:="Цена (руб)"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="Дата"
-        .MoveDown Unit:=wdLine, Count:=1
+        .MoveDown Unit:=wdLine, Count:=KOT_MEOW_MEOW + 2
+    End With
+    
+    'Таблица для макс денег
+    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+    With Selection.Tables(1)
+        If .Style <> "Сетка таблицы" Then
+            .Style = "Сетка таблицы"
+    End If
+    .Range.Font.Size = 11
+    .ApplyStyleHeadingRows = True
+    .ApplyStyleLastRow = True
+    .ApplyStyleFirstColumn = True
+    .ApplyStyleLastColumn = True
+    End With
+    
+    With Selection.Tables(1)
+        .Cell(0, 1).Range.Text = maxnumber
+        .Cell(0, 2).Range.Text = maxcli
+        .Cell(0, 3).Range.Text = maxmgr
+        .Cell(0, 4).Range.Text = moneymax
+        .Cell(0, 5).Range.Text = maxdata
+    End With
+    
+    With Selection
+        .TypeText Text:="№"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО клиента"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО менеджера"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Цена (руб)"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Дата"
+        .MoveDown Unit:=wdLine, Count:=4
+    End With
+    
+    'Таблица для мин денег
+    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+    With Selection.Tables(1)
+        If .Style <> "Сетка таблицы" Then
+            .Style = "Сетка таблицы"
+    End If
+    .Range.Font.Size = 11
+    .Range.Font.Bold = wdToggle
+    .ApplyStyleHeadingRows = True
+    .ApplyStyleLastRow = True
+    .ApplyStyleFirstColumn = True
+    .ApplyStyleLastColumn = True
+    End With
+    
+    With Selection.Tables(1)
+        .Cell(0, 1).Range.Text = minnumber
+        .Cell(0, 2).Range.Text = mincli
+        .Cell(0, 3).Range.Text = minmgr
+        .Cell(0, 4).Range.Text = moneymin
+        .Cell(0, 5).Range.Text = mindata
+    End With
+    
+    With Selection
+        .TypeText Text:="№"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО клиента"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО менеджера"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Цена (руб)"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Дата"
+        .MoveDown Unit:=wdLine, Count:=3
     End With
     
      With GoodsDOCSecond
@@ -324,62 +488,6 @@ sale.Fields("№ продажи").Value) Then
      GoodsSaleBDForm.Hide
      GoodsDOCSecond.Activate
     End If
-End Sub
-
-Private Sub UserForm_initialize()
-    
-    Set cn = New ADODB.Connection
-    cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = 
-"C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
-    cn.Open
-
-    'Запросы для продажи
-    Set sale = New ADODB.Recordset
-    sale.CursorType = adOpenKeyset
-    sale.LockType = adLockOptimistic
-    sale.Source = "SELECT Продажа.* FROM Продажа"
-    Set sale.ActiveConnection = cn
-    sale.Open
-
-    'Запросы для клиента
-    Set cli = New ADODB.Recordset
-    cli.CursorType = adOpenKeyset
-    cli.LockType = adLockOptimistic
-    cli.Source = "SELECT Клиент.* FROM Клиент"
-    Set cli.ActiveConnection = cn
-    cli.Open
-
-'   'Запросы для менеджера
-    Set mngr = New ADODB.Recordset
-    mngr.CursorType = adOpenKeyset
-    mngr.LockType = adLockOptimistic
-    mngr.Source = "SELECT [Менеджер по продажам].* FROM [Менеджер по 
-продажам];"
-    Set mngr.ActiveConnection = cn
-    mngr.Open
-    
-    'Запросы для состава заказа
-    Set content = New ADODB.Recordset
-    content.CursorType = adOpenKeyset
-    content.LockType = adLockOptimistic
-    content.Source = "SELECT [Состав заказа].* FROM [Состав заказа];"
-    Set content.ActiveConnection = cn
-    content.Open
-    
-    'Запросы для товаров
-    Set goods = New ADODB.Recordset
-    goods.CursorType = adOpenKeyset
-    goods.LockType = adLockOptimistic
-    goods.Source = "SELECT [Товар].* FROM [Товар];"
-    Set goods.ActiveConnection = cn
-    goods.Open
-    
-    
-    CMDUpdateButton.Tag = "Update"
-    ShowEmptyRecord
-    CMDFirstButton_Click
-
 End Sub
 
 Private Sub CMDFindFimainclienttSearch_Click()

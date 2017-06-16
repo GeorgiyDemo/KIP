@@ -87,7 +87,7 @@ Private Sub PrintButton_Click()
 Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintOne.docx")
         meow = 0
         
-        Selection.MoveDown Unit:=wdLine, Count:=16
+        Selection.MoveDown Unit:=wdLine, Count:=14
     
         content.MoveFirst
         While Not content.EOF
@@ -168,9 +168,7 @@ content.Fields("Цена").Value
             .Bookmarks("номер_чека").Range.Text = CStr(TextBox10.Text)
             .Bookmarks("время_покупки").Range.Text = 
 CStr(TextBox11.Text)
-            .Bookmarks("код_клиента").Range.Text = CStr(TextBox6.Text)
             .Bookmarks("фио_клиента").Range.Text = CStr(TextBox8.Text)
-            .Bookmarks("менеджер_код").Range.Text = CStr(TextBox1.Text)
             .Bookmarks("менеджер_имя").Range.Text = CStr(TextBox2.Text)
             .Bookmarks("менеджер_фамилия").Range.Text = 
 CStr(TextBox3.Text)
