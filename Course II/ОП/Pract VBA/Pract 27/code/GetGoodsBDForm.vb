@@ -74,18 +74,9 @@ Private Sub UserForm_initialize()
     Set geter = New ADODB.Recordset
     geter.CursorType = adOpenKeyset
     geter.LockType = adLockOptimistic
-    geter.Source = "SELECT [Менеджер по продажам].* FROM [Менеджер по 
-продажам];"
+    geter.Source = "SELECT [Поставщик].* FROM [Поставщик];"
     Set geter.ActiveConnection = cn
     geter.Open
-    
-    'Запросы для БД "Товар"
-    Set content = New ADODB.Recordset
-    content.CursorType = adOpenKeyset
-    content.LockType = adLockOptimistic
-    content.Source = "SELECT [Состав заказа].* FROM [Состав заказа];"
-    Set content.ActiveConnection = cn
-    content.Open
     
     'Запросы для БД товаров
     Set goods = New ADODB.Recordset
@@ -135,38 +126,30 @@ End Sub
 
 Private Sub PrintButton_Click()
     Dim k As Integer
-    k = InputBox("1. Распечатать текущую продажу" + Chr(13) + "2. 
-Распечатать все продажи в определенном промежутке времени")
+    k = InputBox("1. Распечатать текущую поставку" + Chr(13) + "2. 
+Распечатать все поставки в определенном промежутке времени")
     
     If (k = 1) Then
         Dim meow As Integer
-        Dim GoodsDOC As Document
-        Set GoodsDOC = 
-Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintOne.docx")
+        Dim GetGoodsDOC As Document
+        Set GetGoodsDOC = 
+Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GetGoodsPrintOne.docx")
         meow = 0
         
-        Selection.MoveDown Unit:=wdLine, Count:=14
+        Selection.MoveDown Unit:=wdLine, Count:=18
     
-        content.MoveFirst
-        While Not content.EOF
-        
-            If (sale.Fields("№ продажи").Value = content.Fields("№ 
-Продажи").Value) Then
-                goods.MoveFirst
-                While Not goods.EOF
-                    If (content.Fields("КодТовара").Value = 
+        goods.MoveFirst
+        While Not goods.EOF
+            If (getgoods.Fields("КодТовара").Value = 
 goods.Fields("КодТовара").Value) Then
-                        meow = meow + 1
-                    End If
-                    goods.MoveNext
-                Wend
+                meow = meow + 1
             End If
-            content.MoveNext
+            goods.MoveNext
         Wend
-      
-        content.MoveFirst
-            GoodsDOC.Tables.Add Range:=Selection.Range, NumRows:=meow + 
-1, NumColumns:=4, DefaultTableBehavior:=wdWord9TableBehavior, 
+
+        getgoods.MoveFirst
+            GetGoodsDOC.Tables.Add Range:=Selection.Range, NumRows:=meow 
++ 1, NumColumns:=4, DefaultTableBehavior:=wdWord9TableBehavior, 
 AutoFitBehavior:=wdAutoFitContent
                 
                 With Selection.Tables(1)
@@ -181,35 +164,25 @@ AutoFitBehavior:=wdAutoFitContent
                     .ApplyStyleLastColumn = True
                    
                     meow = 1
-                content.MoveFirst
+                getgoods.MoveFirst
                 End With
             
-        content.MoveFirst
-        While Not content.EOF
-        
-            If (sale.Fields("№ продажи").Value = content.Fields("№ 
-Продажи").Value) Then
-                goods.MoveFirst
-                While Not goods.EOF
-    
-                    If (content.Fields("КодТовара").Value = 
+        goods.MoveFirst
+        While Not goods.EOF
+            If (getgoods.Fields("КодТовара").Value = 
 goods.Fields("КодТовара").Value) Then
-                        meow = meow + 1
-                        With Selection.Tables(1)
-                            .Cell(meow, 1).Range.Text = Str(meow - 1)
-                            .Cell(meow, 2).Range.Text = 
+                meow = meow + 1
+                With Selection.Tables(1)
+                    .Cell(meow, 1).Range.Text = Str(meow - 1)
+                    .Cell(meow, 2).Range.Text = 
 goods.Fields("Товар").Value
-                            .Cell(meow, 3).Range.Text = 
-content.Fields("Кол-во").Value
-                            .Cell(meow, 4).Range.Text = 
-content.Fields("Цена").Value
-                    
-                        End With
-                    End If
-                    goods.MoveNext
-                Wend
+                    .Cell(meow, 3).Range.Text = 
+getgoods.Fields("КоличествоТовараПоставки").Value
+                    .Cell(meow, 4).Range.Text = 
+getgoods.Fields("ЦенаТовараПоставки").Value
+                End With
             End If
-            content.MoveNext
+            goods.MoveNext
         Wend
         
         'Хотфикс заголовков таблицы
@@ -222,11 +195,24 @@ content.Fields("Цена").Value
         Selection.TypeText Text:="Цена (руб)"
         Selection.MoveDown Unit:=wdLine, Count:=1
         
-        With GoodsDOC
-            .Bookmarks("номер_чека").Range.Text = CStr(TextBox10.Text)
-            .Bookmarks("время_покупки").Range.Text = 
+        With GetGoodsDOC
+            .Bookmarks("номер_поставки").Range.Text = 
+CStr(TextBox10.Text)
+            .Bookmarks("дата_поставки").Range.Text = 
 CStr(TextBox11.Text)
-            .Bookmarks("фио_клиента").Range.Text = CStr(TextBox8.Text)
+            
+            .Bookmarks("поставщик_компания").Range.Text = 
+CStr(TextBox8.Text)
+            .Bookmarks("имя_представителя").Range.Text = 
+CStr(TextBox7.Text)
+            .Bookmarks("фамилия_представителя").Range.Text = 
+CStr(TextBox5.Text)
+            .Bookmarks("отчество_представителя").Range.Text = 
+CStr(TextBox15.Text)
+            .Bookmarks("телефон_представителя").Range.Text = 
+CStr(TextBox16.Text)
+            
+            
             .Bookmarks("менеджер_имя").Range.Text = CStr(TextBox2.Text)
             .Bookmarks("менеджер_фамилия").Range.Text = 
 CStr(TextBox3.Text)
@@ -234,6 +220,7 @@ CStr(TextBox3.Text)
 CStr(TextBox4.Text)
             .Bookmarks("менеджер_телефон").Range.Text = 
 CStr(TextBox9.Text)
+            
             .Bookmarks("сумма_общ").Range.Text = CStr(TextBox14.Text) + 
 " руб. (" + Translater(TextBox14.Text) + ")" + Chr(13)
             .Bookmarks("время").Range.Text = Time
@@ -241,7 +228,7 @@ CStr(TextBox9.Text)
         End With
         
         GetGoodsBDForm.Hide
-        GoodsDOC.Activate
+        GetGoodsDOC.Activate
     End If
     
     'Допилить
@@ -252,31 +239,25 @@ CStr(TextBox9.Text)
         Dim maxnumber, minnumber, maxcli, mincli, maxmgr, minmgr, 
 maxdata, mindata As String
         Dim first, second
-        Dim GoodsDOCSecond As Document
-        Set GoodsDOCSecond = 
-Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GoodsPrintTwo.docx")
+        Dim GetGoodsDOCSecond As Document
+        Set GetGoodsDOCSecond = 
+Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GetGoodsPrintTwo.docx")
         
         first = InputBox("Введите дату ОТ: (пример: 01.01.16)")
         second = InputBox("Введите дату ДО: (пример: " + CStr(Date) + 
 ")")
         
-        moneymax = 0
-        content.MoveFirst
-        While Not content.EOF
-            If (content.Fields("№ Продажи").Value = 1) Then
-                moneymax = moneymax + ((content.Fields("Цена").Value) * 
-(content.Fields("Кол-во").Value))
-            End If
-            content.MoveNext
-        Wend
+        getgoods.MoveFirst
+        moneymax = getgoods.Fields("ЦенаТовараПоставки").Value
         moneymin = moneymax
         
         KOT_MEOW_MEOW = 0
         Selection.MoveDown Unit:=wdLine, Count:=3
-        sale.MoveFirst
-        While Not sale.EOF
-            If (first < CDate(sale.Fields("Дата продажи").Value) And 
-second > CDate(sale.Fields("Дата продажи").Value)) Then
+        
+        getgoods.MoveFirst
+        While Not getgoods.EOF
+            If (first < CDate(getgoods.Fields("Дата продажи").Value) And 
+second > CDate(getgoods.Fields("Дата продажи").Value)) Then
                 cli.MoveFirst
                 While Not cli.EOF
                     If (cli.Fields("Кодклиента").Value = 
@@ -286,7 +267,7 @@ sale.Fields("КодКлиента").Value) Then
                     cli.MoveNext
                 Wend
             End If
-        sale.MoveNext
+        getgoods.MoveNext
         Wend
         
         sale.MoveFirst
@@ -390,7 +371,6 @@ CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
             End If
         sale.MoveNext
         Wend
-
 
      With Selection
         .TypeText Text:="№"
@@ -541,7 +521,7 @@ End Sub
 
 Private Sub CMDAddButton_Click()
     ShowEmptyRecord
-    sale.AddNew
+    getgoods.AddNew
     FillRecord
     ListBox1.Clear
     TextBox1.SetFocus
@@ -551,11 +531,11 @@ Private Sub CMDAddButton_Click()
 End Sub
 
 Private Sub CMDDeleteButton_Click()
- If (sale.RecordCount >= 1) Then
+ If (getgoods.RecordCount >= 1) Then
     If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes 
 Then
-        sale.Delete
-        If (sale.RecordCount > 0) Then
+        getgoods.Delete
+        If (getgoods.RecordCount > 0) Then
             CMDNextButton_Click
         Else
             ShowEmptyRecord
@@ -565,30 +545,30 @@ Then
 End Sub
 
 Private Sub CMDFirstButton_Click()
-    sale.MoveFirst
+    getgoods.MoveFirst
     ShowRecord
 End Sub
 
 Private Sub CMDLastButton_Click()
-    sale.MoveLast
+    getgoods.MoveLast
     ShowRecord
 End Sub
 
 Private Sub CMDNextButton_Click()
-    If (sale.EOF = False) Then sale.MoveNext
-    If (sale.EOF = False) Then ShowRecord
+    If (getgoods.EOF = False) Then getgoods.MoveNext
+    If (getgoods.EOF = False) Then ShowRecord
 End Sub
 
 Private Sub CMDPreviousButton_Click()
-    If (sale.BOF = False) Then sale.MovePrevious
-    If (sale.BOF = False) Then ShowRecord
+    If (getgoods.BOF = False) Then getgoods.MovePrevious
+    If (getgoods.BOF = False) Then ShowRecord
 End Sub
 
 Private Sub CMDUpdateButton_Click()
     If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo 
 + vbQuestion) = vbYes Then
         Call FillRecord
-        sale.Update
+        getgoods.Update
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False
@@ -617,76 +597,69 @@ Private Sub FillRecord()
 End Sub
 
 Private Sub ShowRecord()
-    Dim tsum As Double
-    Dim i As Integer
     
-    tsum = 0
+    Dim getsum As Double
+    Dim i As Integer
+ 
     i = 1
     ListBox1.Clear
     ListBox1.AddItem "Название"
     ListBox1.List(0, 1) = "Кол-во"
     ListBox1.List(0, 2) = "Цена"
+ 
+    TextBox10.Text = getgoods.Fields("КодПоставки").Value
+    TextBox11.Text = getgoods.Fields("ДатаПоставки").Value
+    TextBox12.Text = getgoods.Fields("КодМенеджераПоставки").Value
+    TextBox13.Text = getgoods.Fields("КодПоставщика").Value
+ 
+    getsum = (getgoods.Fields("ЦенаТовараПоставки").Value) * 
+(getgoods.Fields("КоличествоТовараПоставки").Value)
+    TextBox14.Text = getsum
     
-    
-    TextBox10.Text = sale.Fields("№ продажи").Value
-    TextBox11.Text = sale.Fields("Дата продажи").Value
-    TextBox12.Text = sale.Fields("КодМенеджераПродажи").Value
-    TextBox13.Text = sale.Fields("КодКлиента").Value
-    
-    cli.MoveFirst
-    While Not cli.EOF
-        If (sale.Fields("КодКлиента").Value = 
-cli.Fields("Кодклиента").Value) Then
-    
-            TextBox6.Text = cli.Fields("Кодклиента").Value
-            TextBox8.Text = cli.Fields("Клиент").Value
-            TextBox7.Text = cli.Fields("ЕдТовара").Value
-            TextBox5.Text = cli.Fields("КодМенеджера").Value
-    
+    geter.MoveFirst
+    While Not geter.EOF
+        If (getgoods.Fields("КодПоставщика").Value = 
+geter.Fields("КодПоставщика").Value) Then
+ 
+            TextBox6.Text = geter.Fields("КодПоставщика").Value
+            TextBox8.Text = geter.Fields("КомпанияПоставщик").Value
+            TextBox7.Text = geter.Fields("ПредставительИмя").Value
+            TextBox5.Text = geter.Fields("ПредставительФамилия").Value
+            TextBox15.Text = geter.Fields("ПредставительОтчество").Value
+            TextBox16.Text = geter.Fields("ПредставительТелефон").Value
+ 
         End If
-        cli.MoveNext
+        geter.MoveNext
     Wend
-    
-    mngr.MoveFirst
-    While Not mngr.EOF
-        If (sale.Fields("КодМенеджераПродажи").Value = 
-mngr.Fields("КодМенеджераПродажи").Value) Then
-      
-            TextBox1.Text = mngr.Fields("КодМенеджераПродажи").Value
-            TextBox2.Text = mngr.Fields("Имя").Value
-            TextBox3.Text = mngr.Fields("Фамилия").Value
-            TextBox4.Text = mngr.Fields("Отчество").Value
-            TextBox9.Text = mngr.Fields("Телефон").Value
+ 
+    getmngr.MoveFirst
+    While Not getmngr.EOF
+        If (getgoods.Fields("КодМенеджераПоставки").Value = 
+getmngr.Fields("КодМенеджераПоставки").Value) Then
+            TextBox1.Text = getmngr.Fields("КодМенеджераПоставки").Value
+            TextBox2.Text = getmngr.Fields("Имя").Value
+            TextBox3.Text = getmngr.Fields("Фамилия").Value
+            TextBox4.Text = getmngr.Fields("Отчество").Value
+            TextBox9.Text = getmngr.Fields("Телефон").Value
         End If
-        
-        mngr.MoveNext
+ 
+        getmngr.MoveNext
     Wend
-    
-    content.MoveFirst
-    While Not content.EOF
-    
-        If (sale.Fields("№ продажи").Value = content.Fields("№ 
-Продажи").Value) Then
-            goods.MoveFirst
-            While Not goods.EOF
-
-                If (content.Fields("КодТовара").Value = 
+ 
+ 
+    goods.MoveFirst
+    While Not goods.EOF
+        If (getgoods.Fields("КодТовара").Value = 
 goods.Fields("КодТовара").Value) Then
                     ListBox1.AddItem goods.Fields("Товар").Value
-                    ListBox1.List(i, 1) = content.Fields("Кол-во").Value
-                    ListBox1.List(i, 2) = content.Fields("Цена").Value
-                    tsum = tsum + ((content.Fields("Цена").Value) * 
-(content.Fields("Кол-во").Value))
+                    ListBox1.List(i, 1) = 
+getgoods.Fields("КоличествоТовараПоставки").Value
+                    ListBox1.List(i, 2) = 
+getgoods.Fields("ЦенаТовараПоставки").Value
                     i = i + 1
-                End If
-                goods.MoveNext
-            Wend
         End If
-        
-       
-        content.MoveNext
+        goods.MoveNext
     Wend
-    TextBox14.Text = tsum
 End Sub
 
 Private Sub ShowEmptyRecord()
