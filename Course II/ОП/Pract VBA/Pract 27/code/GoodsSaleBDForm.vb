@@ -337,9 +337,9 @@ CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
      With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="ФИО клиента"
+        .TypeText Text:="Компания-поставщик"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="ФИО менеджера"
+        .TypeText Text:="Представитель"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="Цена (руб)"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -543,6 +543,22 @@ Private Sub CMDAddButton_Click()
     FillRecord
     ListBox1.Clear
     TextBox1.SetFocus
+    
+    'Блокировка большинства элементов
+    TextBox6.Enabled = False
+    TextBox8.Enabled = False
+    TextBox7.Enabled = False
+    TextBox5.Enabled = False
+    TextBox1.Enabled = False
+    TextBox2.Enabled = False
+    TextBox3.Enabled = False
+    TextBox4.Enabled = False
+    TextBox9.Enabled = False
+    TextBoxSearch.Enabled = False
+    ListBox1.Enabled = False
+    Frame1.Enabled = False
+    Frame2.Enabled = False
+    
     IsDisable = True
     SetEnabled True, False
     
@@ -587,6 +603,22 @@ Private Sub CMDUpdateButton_Click()
 + vbQuestion) = vbYes Then
         Call FillRecord
         sale.Update
+        
+        'Разблокировка большинства элементов
+            TextBox6.Enabled = True
+            TextBox8.Enabled = True
+            TextBox7.Enabled = True
+            TextBox5.Enabled = True
+            TextBox1.Enabled = True
+            TextBox2.Enabled = True
+            TextBox3.Enabled = True
+            TextBox4.Enabled = True
+            TextBox9.Enabled = True
+            TextBoxSearch.Enabled = True
+            ListBox1.Enabled = True
+            Frame1.Enabled = True
+            Frame2.Enabled = True
+            
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False
@@ -680,7 +712,6 @@ goods.Fields("КодТовара").Value) Then
                 goods.MoveNext
             Wend
         End If
-        
        
         content.MoveNext
     Wend

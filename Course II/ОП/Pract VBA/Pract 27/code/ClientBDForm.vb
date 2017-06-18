@@ -107,6 +107,16 @@ Private Sub CMDAddButton_Click()
     mainclient.AddNew
     FillRecord
     TextBox1.SetFocus
+    
+    'Блокировка большинства элементов
+    TextBox6.Enabled = False
+    TextBox7.Enabled = False
+    TextBox8.Enabled = False
+    TextBox9.Enabled = False
+    TextBox5.Enabled = False
+    TextBoxSearch.Enabled = False
+    Frame2.Enabled = False
+    
     IsDisable = True
     SetEnabled True, False
     
@@ -151,6 +161,16 @@ Private Sub CMDUpdateButton_Click()
 + vbQuestion) = vbYes Then
         Call FillRecord
         mainclient.Update
+        
+        'Разблокировка большинства элементов
+        TextBox6.Enabled = True
+        TextBox7.Enabled = True
+        TextBox8.Enabled = True
+        TextBox9.Enabled = True
+        TextBox5.Enabled = True
+        TextBoxSearch.Enabled = True
+        Frame2.Enabled = True
+        
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False

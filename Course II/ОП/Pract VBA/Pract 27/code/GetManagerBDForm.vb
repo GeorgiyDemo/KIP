@@ -7,8 +7,9 @@ Private Sub CMDFindFirstSearch_Click()
     Dim direction As Long
     Lname = TextBoxSearch.Text
     
-    k = InputBox("По какому критерию вы хотите выполнить поиск?" + Chr(13) + "1. Код" + Chr(13) + "2. Имя" + Chr(13) + "3. 
-Фамилия" + Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
+    k = InputBox("По какому критерию вы хотите выполнить поиск?" + 
+Chr(13) + "1. Код" + Chr(13) + "2. Имя" + Chr(13) + "3. Фамилия" + 
+Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
     
     Select Case k
         Case 1
@@ -42,7 +43,8 @@ End Sub
 Private Sub PrintButton_Click()
     Dim kot As Document
     Dim i As Integer
-    Set kot = Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\UniversalDOC.docx")
+    Set kot = 
+Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\UniversalDOC.docx")
     
     i = 0
     rs.MoveFirst
@@ -52,7 +54,8 @@ Private Sub PrintButton_Click()
         rs.MoveNext
     Loop
     
-        kot.Tables.Add Range:=Selection.Range, NumRows:=i + 1, NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+        kot.Tables.Add Range:=Selection.Range, NumRows:=i + 1, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
 AutoFitBehavior:=wdAutoFitContent
             
             With Selection.Tables(1)
@@ -75,7 +78,8 @@ AutoFitBehavior:=wdAutoFitContent
         Do Until rs.EOF
             i = i + 1
             With Selection.Tables(1)
-                .Cell(i, 1).Range.Text = rs.Fields("КодМенеджераПоставки").Value
+                .Cell(i, 1).Range.Text = 
+rs.Fields("КодМенеджераПоставки").Value
                 .Cell(i, 2).Range.Text = rs.Fields("Фамилия").Value
                 .Cell(i, 3).Range.Text = rs.Fields("Имя").Value
                 .Cell(i, 4).Range.Text = rs.Fields("Отчество").Value
@@ -84,7 +88,8 @@ AutoFitBehavior:=wdAutoFitContent
             rs.MoveNext
         Loop
     
-    kot.Bookmarks("тема_отчета").Range.Text = "*Общий отчет по менеджерам поставки*"
+    kot.Bookmarks("тема_отчета").Range.Text = "*Общий отчет по 
+менеджерам поставки*"
     kot.Bookmarks("время").Range.Text = Time
     kot.Bookmarks("дата").Range.Text = Date
     
@@ -101,7 +106,8 @@ Private Sub UserForm_initialize()
 
     Set cn = New ADODB.Connection
     cn.Provider = "Microsoft.ACE.OLEDB.12.0"
-    cn.ConnectionString = "C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
+    cn.ConnectionString = 
+"C:\Users\georgiydemo\Documents\DEMKA\Computer_store.accdb"
     cn.Open
     Set rs = New ADODB.Recordset
     rs.CursorType = adOpenKeyset
@@ -122,6 +128,7 @@ Private Sub CMDAddButton_Click()
     rs.AddNew
     FillRecord
     TextBox1.SetFocus
+    TextBoxSearch.Enabled = False
     IsDisable = True
     SetEnabled True, False
 
@@ -130,7 +137,8 @@ End Sub
 Private Sub CMDDeleteButton_Click()
 
  If (rs.RecordCount >= 1) Then
-    If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes Then
+    If MsgBox("Удалить текущую запись?", vbYesNo + vbQuestion) = vbYes 
+Then
         rs.Delete
         If (rs.RecordCount > 0) Then
             CMDNextButton_Click
@@ -162,9 +170,11 @@ Private Sub CMDPreviousButton_Click()
 End Sub
 
 Private Sub CMDUpdateButton_Click()
-    If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo + vbQuestion) = vbYes Then
+    If MsgBox("Вы действительно хотите обновить данную запись?", vbYesNo 
++ vbQuestion) = vbYes Then
         Call FillRecord
         rs.Update
+        TextBoxSearch.Enabled = True
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False

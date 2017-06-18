@@ -43,7 +43,6 @@ sizes(i)))
     Translater = LCase(Left(m, 1)) & Mid(m, 2)
     
 End Function
-
 Private Sub UserForm_initialize()
     
     Set cn = New ADODB.Connection
@@ -137,7 +136,7 @@ Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GetGoodsPrintOne
         meow = 0
         
         Selection.MoveDown Unit:=wdLine, Count:=18
-    
+        getgoods.MoveFirst
         goods.MoveFirst
         While Not goods.EOF
             If (getgoods.Fields("КодТовара").Value = 
@@ -231,13 +230,12 @@ CStr(TextBox9.Text)
         GetGoodsDOC.Activate
     End If
     
-    'Допилить
     If (k = 2) Then
         
         Dim moneymax, moneymin As Double
         Dim KOT_MEOW_MEOW As Integer
-        Dim maxnumber, minnumber, maxcli, mincli, maxmgr, minmgr, 
-maxdata, mindata As String
+        Dim maxnumber, minnumber, maxcompany, mincompany, maxhuman, 
+minhuman, maxmgr, minmgr, maxdata, mindata As String
         Dim first, second
         Dim GetGoodsDOCSecond As Document
         Set GetGoodsDOCSecond = 
@@ -253,129 +251,134 @@ Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\GetGoodsPrintTwo
         
         KOT_MEOW_MEOW = 0
         Selection.MoveDown Unit:=wdLine, Count:=3
-        
+       
         getgoods.MoveFirst
         While Not getgoods.EOF
-            If (first < CDate(getgoods.Fields("Дата продажи").Value) And 
-second > CDate(getgoods.Fields("Дата продажи").Value)) Then
-                cli.MoveFirst
-                While Not cli.EOF
-                    If (cli.Fields("Кодклиента").Value = 
-sale.Fields("КодКлиента").Value) Then
+            If (first < CDate(getgoods.Fields("ДатаПоставки").Value) And 
+second > CDate(getgoods.Fields("ДатаПоставки").Value)) Then
+                geter.MoveFirst
+                While Not geter.EOF
+                    If (geter.Fields("КодПоставщика").Value = 
+getgoods.Fields("КодПоставщика").Value) Then
                         KOT_MEOW_MEOW = KOT_MEOW_MEOW + 1
                     End If
-                    cli.MoveNext
+                    geter.MoveNext
                 Wend
             End If
         getgoods.MoveNext
         Wend
         
-        sale.MoveFirst
-        GoodsDOCSecond.Tables.Add Range:=Selection.Range, 
-NumRows:=KOT_MEOW_MEOW + 1, NumColumns:=5, 
+        getgoods.MoveFirst
+        GetGoodsDOCSecond.Tables.Add Range:=Selection.Range, 
+NumRows:=KOT_MEOW_MEOW + 1, NumColumns:=6, 
 DefaultTableBehavior:=wdWord9TableBehavior, 
 AutoFitBehavior:=wdAutoFitContent
         With Selection.Tables(1)
             If .Style <> "Сетка таблицы" Then
                .Style = "Сетка таблицы"
             End If
-            .Range.Font.Size = 11
+            .Range.Font.Size = 10
             .ApplyStyleHeadingRows = True
             .ApplyStyleLastRow = True
             .ApplyStyleFirstColumn = True
             .ApplyStyleLastColumn = True
             KOT_MEOW_MEOW = 1
-            sale.MoveFirst
+            getgoods.MoveFirst
         End With
         
         'Поиск записей между собой/поиск наиболее большой продажи/поиск 
 наиболее маленькой продажи
-        sale.MoveFirst
-        While Not sale.EOF
-            If (first < CDate(sale.Fields("Дата продажи").Value) And 
-second > CDate(sale.Fields("Дата продажи").Value)) Then
-                cli.MoveFirst
-                While Not cli.EOF
-                    If (cli.Fields("Кодклиента").Value = 
-sale.Fields("КодКлиента").Value) Then
+        getgoods.MoveFirst
+        While Not getgoods.EOF
+            If (first < CDate(getgoods.Fields("ДатаПоставки").Value) And 
+second > CDate(getgoods.Fields("ДатаПоставки").Value)) Then
+                
+                geter.MoveFirst
+                While Not geter.EOF
+                     If (geter.Fields("КодПоставщика").Value = 
+getgoods.Fields("КодПоставщика").Value) Then
                         KOT_MEOW_MEOW = KOT_MEOW_MEOW + 1
                         With Selection.Tables(1)
                             .Cell(KOT_MEOW_MEOW, 1).Range.Text = 
 CStr(KOT_MEOW_MEOW - 1)
                             .Cell(KOT_MEOW_MEOW, 2).Range.Text = 
-cli.Fields("Клиент").Value
-                            mngr.MoveFirst
-                            While Not mngr.EOF
+geter.Fields("КомпанияПоставщик").Value
+                            .Cell(KOT_MEOW_MEOW, 3).Range.Text = 
+geter.Fields("ПредставительФамилия").Value + " " + 
+geter.Fields("ПредставительИмя").Value + " " + 
+geter.Fields("ПредставительОтчество").Value
+                        End With
+                            getmngr.MoveFirst
+                            While Not getmngr.EOF
                                 If 
-(mngr.Fields("КодМенеджераПродажи").Value = 
-sale.Fields("КодМенеджераПродажи").Value) Then
+(getmngr.Fields("КодМенеджераПоставки").Value = 
+getgoods.Fields("КодМенеджераПоставки").Value) Then
                                     
-Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text = 
-mngr.Fields("Фамилия").Value + " " + mngr.Fields("Имя").Value + " " + 
-mngr.Fields("Отчество").Value
+Selection.Tables(1).Cell(KOT_MEOW_MEOW, 4).Range.Text = 
+getmngr.Fields("Фамилия").Value + " " + getmngr.Fields("Имя").Value + " 
+" + getmngr.Fields("Отчество").Value
                                 End If
-                                mngr.MoveNext
+                                getmngr.MoveNext
                             Wend
-                            tsum = 0
-                            content.MoveFirst
-                             While Not content.EOF
-                                If (content.Fields("№ Продажи").Value = 
-sale.Fields("№ продажи").Value) Then
-                                    tsum = tsum + 
-((content.Fields("Цена").Value) * (content.Fields("Кол-во").Value))
-                                End If
-                                content.MoveNext
-                            Wend
-                            If (tsum = 0) Then
+                            getsum = 
+(getgoods.Fields("ЦенаТовараПоставки").Value) * 
+(getgoods.Fields("КоличествоТовараПоставки").Value)
+                            If (getsum = 0) Then
                                 Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
-4).Range.Text = "-"
+5).Range.Text = "-"
                             Else
                                 Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
-4).Range.Text = CStr(tsum)
+5).Range.Text = CStr(getsum)
                             End If
                             
+                            Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
+6).Range.Text = getgoods.Fields("ДатаПоставки").Value
+                            
                             'Макс доход
-                            If (tsum > moneymax) Then
-                                
-                                moneymax = tsum
+                            If (getsum > moneymax) Then
+                            
+                                moneymax = getsum
                                 maxnumber = CStr(KOT_MEOW_MEOW - 1)
-                                maxcli = 
+                                maxcompany = 
 CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
-                                maxmgr = 
+                                maxhuman = 
 CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
-                                maxdata = CStr(sale.Fields("Дата 
-продажи").Value)
-                                
+                                maxmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 4).Range.Text)
+                                maxdata = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 6).Range.Text)
+                            
                             End If
                             
                             'Мин доход
-                             If (tsum < moneymin) Then
-                                
-                                moneymin = tsum
+                            If (getsum < moneymin) Then
+                            
+                                moneymin = getsum
                                 minnumber = CStr(KOT_MEOW_MEOW - 1)
-                                mincli = 
+                                mincompany = 
 CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 2).Range.Text)
-                                minmgr = 
+                                minhuman = 
 CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
-                                mindata = CStr(sale.Fields("Дата 
-продажи").Value)
-                                
+                                minmgr = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 4).Range.Text)
+                                mindata = 
+CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 6).Range.Text)
+                            
                             End If
-                        
-                            Selection.Tables(1).Cell(KOT_MEOW_MEOW, 
-5).Range.Text = sale.Fields("Дата продажи").Value
-                        End With
+                            
                     End If
-                    cli.MoveNext
+                    geter.MoveNext
                 Wend
             End If
-        sale.MoveNext
+        getgoods.MoveNext
         Wend
 
      With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="ФИО клиента"
+        .TypeText Text:="Компания-поставщик"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО представителя"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="ФИО менеджера"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -386,14 +389,14 @@ CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
     End With
     
     'Таблица для макс денег
-    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
-NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+    GetGoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=6, DefaultTableBehavior:=wdWord9TableBehavior, 
 AutoFitBehavior:=wdAutoFitContent
     With Selection.Tables(1)
         If .Style <> "Сетка таблицы" Then
             .Style = "Сетка таблицы"
     End If
-    .Range.Font.Size = 11
+    .Range.Font.Size = 10
     .ApplyStyleHeadingRows = True
     .ApplyStyleLastRow = True
     .ApplyStyleFirstColumn = True
@@ -402,16 +405,19 @@ AutoFitBehavior:=wdAutoFitContent
     
     With Selection.Tables(1)
         .Cell(0, 1).Range.Text = maxnumber
-        .Cell(0, 2).Range.Text = maxcli
-        .Cell(0, 3).Range.Text = maxmgr
-        .Cell(0, 4).Range.Text = moneymax
-        .Cell(0, 5).Range.Text = maxdata
+        .Cell(0, 2).Range.Text = maxcompany
+        .Cell(0, 3).Range.Text = maxhuman
+        .Cell(0, 4).Range.Text = maxmgr
+        .Cell(0, 5).Range.Text = moneymax
+        .Cell(0, 6).Range.Text = maxdata
     End With
     
     With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="ФИО клиента"
+        .TypeText Text:="Компания-поставщик"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО представителя"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="ФИО менеджера"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -420,35 +426,38 @@ AutoFitBehavior:=wdAutoFitContent
         .TypeText Text:="Дата"
         .MoveDown Unit:=wdLine, Count:=4
     End With
-    
-    'Таблица для мин денег
-    GoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
-NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+   
+   'Таблица для мин денег
+   GetGoodsDOCSecond.Tables.Add Range:=Selection.Range, NumRows:=2, 
+NumColumns:=6, DefaultTableBehavior:=wdWord9TableBehavior, 
 AutoFitBehavior:=wdAutoFitContent
-    With Selection.Tables(1)
+   With Selection.Tables(1)
         If .Style <> "Сетка таблицы" Then
             .Style = "Сетка таблицы"
-    End If
-    .Range.Font.Size = 11
+        End If
+    .Range.Font.Size = 10
     .Range.Font.Bold = wdToggle
     .ApplyStyleHeadingRows = True
     .ApplyStyleLastRow = True
     .ApplyStyleFirstColumn = True
     .ApplyStyleLastColumn = True
-    End With
-    
+   End With
+   
     With Selection.Tables(1)
         .Cell(0, 1).Range.Text = minnumber
-        .Cell(0, 2).Range.Text = mincli
-        .Cell(0, 3).Range.Text = minmgr
-        .Cell(0, 4).Range.Text = moneymin
-        .Cell(0, 5).Range.Text = mindata
+        .Cell(0, 2).Range.Text = mincompany
+        .Cell(0, 3).Range.Text = minhuman
+        .Cell(0, 4).Range.Text = minmgr
+        .Cell(0, 5).Range.Text = moneymin
+        .Cell(0, 6).Range.Text = mindata
     End With
-    
+   
     With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="ФИО клиента"
+        .TypeText Text:="Компания-поставщик"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="ФИО представителя"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="ФИО менеджера"
         .MoveRight Unit:=wdCharacter, Count:=1
@@ -458,15 +467,15 @@ AutoFitBehavior:=wdAutoFitContent
         .MoveDown Unit:=wdLine, Count:=3
     End With
     
-     With GoodsDOCSecond
+    With GetGoodsDOCSecond
         .Bookmarks("начало_дата").Range.Text = CStr(first)
         .Bookmarks("конец_дата").Range.Text = CStr(second)
         .Bookmarks("время").Range.Text = Time
         .Bookmarks("дата").Range.Text = Date
-     End With
+    End With
         
-     GoodsSaleBDForm.Hide
-     GoodsDOCSecond.Activate
+     GetGoodsBDForm.Hide
+     GetGoodsDOCSecond.Activate
     End If
 End Sub
 
@@ -525,6 +534,25 @@ Private Sub CMDAddButton_Click()
     FillRecord
     ListBox1.Clear
     TextBox1.SetFocus
+    
+    'Блокировка большинства элементов
+    TextBox6.Enabled = False
+    TextBox7.Enabled = False
+    TextBox8.Enabled = False
+    TextBox5.Enabled = False
+    TextBox15.Enabled = False
+    TextBox16.Enabled = False
+    TextBox1.Enabled = False
+    TextBox2.Enabled = False
+    TextBox3.Enabled = False
+    TextBox4.Enabled = False
+    TextBox9.Enabled = False
+    TextBox14.Enabled = False
+    TextBoxSearch.Enabled = False
+    ListBox1.Enabled = False
+    Frame1.Enabled = False
+    Frame2.Enabled = False
+    
     IsDisable = True
     SetEnabled True, False
     
@@ -569,6 +597,25 @@ Private Sub CMDUpdateButton_Click()
 + vbQuestion) = vbYes Then
         Call FillRecord
         getgoods.Update
+        
+        'Разблокировка большинства элементов
+            TextBox6.Enabled = True
+            TextBox7.Enabled = True
+            TextBox8.Enabled = True
+            TextBox5.Enabled = True
+            TextBox15.Enabled = True
+            TextBox16.Enabled = True
+            TextBox1.Enabled = True
+            TextBox2.Enabled = True
+            TextBox3.Enabled = True
+            TextBox4.Enabled = True
+            TextBox9.Enabled = True
+            TextBox14.Enabled = True
+            TextBoxSearch.Enabled = True
+            ListBox1.Enabled = True
+            Frame1.Enabled = True
+            Frame2.Enabled = True
+            
         Call SetEnabled(True, True)
         If (Not IsDisable) Then
             IsDisable = False
@@ -591,9 +638,13 @@ Private Sub SetEnabled(IsUpdateOn As Boolean, IsOthersOn As Boolean)
 End Sub
 
 Private Sub FillRecord()
-    sale.Fields("Дата продажи").Value = TextBox11.Text
-    sale.Fields("КодМенеджераПродажи").Value = TextBox12.Text
-    sale.Fields("КодКлиента").Value = TextBox13.Text
+    getgoods.Fields("ДатаПоставки").Value = TextBox11.Text
+    getgoods.Fields("ЦенаТовараПоставки").Value = TextBox18.Text
+    getgoods.Fields("КоличествоТовараПоставки").Value = TextBox19.Text
+    getgoods.Fields("КодТовара").Value = TextBox17.Text
+    getgoods.Fields("КодМенеджераПоставки").Value = TextBox12.Text
+    getgoods.Fields("КодПоставщика").Value = TextBox13.Text
+
 End Sub
 
 Private Sub ShowRecord()
@@ -611,6 +662,9 @@ Private Sub ShowRecord()
     TextBox11.Text = getgoods.Fields("ДатаПоставки").Value
     TextBox12.Text = getgoods.Fields("КодМенеджераПоставки").Value
     TextBox13.Text = getgoods.Fields("КодПоставщика").Value
+    TextBox17.Text = getgoods.Fields("КодТовара").Value
+    TextBox18.Text = getgoods.Fields("ЦенаТовараПоставки").Value
+    TextBox19.Text = getgoods.Fields("КоличествоТовараПоставки").Value
  
     getsum = (getgoods.Fields("ЦенаТовараПоставки").Value) * 
 (getgoods.Fields("КоличествоТовараПоставки").Value)
@@ -663,10 +717,21 @@ getgoods.Fields("ЦенаТовараПоставки").Value
 End Sub
 
 Private Sub ShowEmptyRecord()
-
-    TextBox10.Text = Empty
+    
+    TextBox11.Text = Empty
+    TextBox14.Text = Empty
+    
+    'Дата продажи
     TextBox11.Text = Date
+    'ЦенаТовараПоставки
+    TextBox18.Text = 1
+    'КоличествоТовараПоставки
+    TextBox19.Text = 1
+    'КодТовара
+    TextBox17.Text = 1
+    'КодМенеджераПоставки
     TextBox12.Text = 1
+    'КодПоставщика
     TextBox13.Text = 1
     
 End Sub
