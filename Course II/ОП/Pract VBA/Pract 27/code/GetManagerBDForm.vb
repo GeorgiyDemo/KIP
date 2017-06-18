@@ -2,7 +2,7 @@ Public cn As ADODB.Connection
 Public rs As ADODB.Recordset
 
 Private Sub CMDFindFirstSearch_Click()
-
+    On Error GoTo ErrorHandler
     Dim skiprecord As Long
     Dim direction As Long
     Lname = TextBoxSearch.Text
@@ -37,7 +37,8 @@ Chr(13) + "4. Отчество" + Chr(13) + "5. Телефон")
         ShowRecord
         Beep
     End If
-    
+ErrorHandler:
+    On Error Resume Next
 End Sub
 
 Private Sub PrintButton_Click()

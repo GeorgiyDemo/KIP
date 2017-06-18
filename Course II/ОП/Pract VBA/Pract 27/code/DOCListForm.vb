@@ -626,8 +626,68 @@ AutoFitBehavior:=wdAutoFitContent
 End Sub
 
 Sub FiveButton()
-    Dim input_code As Integer
-    'input_code = inputbox(
+    Dim i As Integer
+    Dim FiveDoc As Document
+    Set FiveDoc = 
+Application.Documents.Add("C:\Users\georgiydemo\Documents\DEMKA\FiveButton.docx")
+    
+    i = 0
+    Selection.MoveDown Unit:=wdLine, Count:=2
+    mngr.MoveFirst
+
+    Do Until mngr.EOF
+        i = i + 1
+        mngr.MoveNext
+    Loop
+    
+        FiveDoc.Tables.Add Range:=Selection.Range, NumRows:=i + 1, 
+NumColumns:=5, DefaultTableBehavior:=wdWord9TableBehavior, 
+AutoFitBehavior:=wdAutoFitContent
+            
+            With Selection.Tables(1)
+                If .Style <> "Сетка таблицы" Then
+                    .Style = "Сетка таблицы"
+                End If
+                .ApplyStyleHeadingRows = True
+                .ApplyStyleLastRow = True
+                .ApplyStyleFirstColumn = True
+                .ApplyStyleLastColumn = True
+                i = 1
+            mngr.MoveFirst
+            End With
+     
+        Do Until mngr.EOF
+            i = i + 1
+            With Selection.Tables(1)
+                .Cell(i, 1).Range.Text = 
+mngr.Fields("КодМенеджераПродажи").Value
+                .Cell(i, 2).Range.Text = mngr.Fields("Фамилия").Value
+                .Cell(i, 3).Range.Text = mngr.Fields("Имя").Value
+                .Cell(i, 4).Range.Text = mngr.Fields("Отчество").Value
+                .Cell(i, 5).Range.Text = mngr.Fields("Телефон").Value
+            End With
+            mngr.MoveNext
+        Loop
+    
+    With Selection
+        .TypeText Text:="№"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Имя"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Фамилия"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Отчество"
+        .MoveRight Unit:=wdCharacter, Count:=1
+        .TypeText Text:="Телефон"
+        .MoveDown Unit:=wdLine, Count:=3
+    End With
+    
+    FiveDoc.Bookmarks("время").Range.Text = Time
+    FiveDoc.Bookmarks("дата").Range.Text = Date
+    
+    DOCListForm.Hide
+    FiveDoc.Activate
+    
 End Sub
 
 Private Sub UserForm_initialize()
@@ -698,7 +758,7 @@ Private Sub UserForm_initialize()
     Set cli.ActiveConnection = cn
     cli.Open
 
-'   'Запросы для менеджера
+'   'Запросы для менеджера по продажам
     Set mngr = New ADODB.Recordset
     mngr.CursorType = adOpenKeyset
     mngr.LockType = adLockOptimistic

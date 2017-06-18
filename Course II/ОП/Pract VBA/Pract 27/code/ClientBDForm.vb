@@ -54,7 +54,7 @@ FROM [Менеджер по работе с клиентами];"
 End Sub
 
 Private Sub CMDFindFimainclienttSearch_Click()
- 
+ On Error GoTo ErrorHandler
  Dim skiprecord As Long
  Dim direction As Long
  Lname = TextBoxSearch.Text
@@ -96,6 +96,8 @@ Private Sub CMDFindFimainclienttSearch_Click()
         End If
     End If
   End If
+ErrorHandler:
+    On Error Resume Next
 End Sub
 
 Private Sub RefreshButton_Click()

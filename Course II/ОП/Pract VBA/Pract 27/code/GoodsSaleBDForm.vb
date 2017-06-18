@@ -45,6 +45,7 @@ sizes(i)))
 End Function
 
 Private Sub CMDFindFirstSearch_Click()
+    On Error GoTo ErrorHandler
     Dim skiprecord As Long
     Dim direction As Long
     Lname = TextBoxSearch.Text
@@ -63,7 +64,6 @@ Chr(13) + "1. Код" + Chr(13) + "2. Дата")
     direction = adSearchForward
     sale.MoveFirst
     sale.Find criteria, skiprecord, direction
-             
     If sale.EOF Then
         MsgBox "Запись не найдена"
         Beep
@@ -72,6 +72,9 @@ Chr(13) + "1. Код" + Chr(13) + "2. Дата")
         ShowRecord
         Beep
     End If
+    
+ErrorHandler:
+    On Error Resume Next
 End Sub
 
 
@@ -186,7 +189,6 @@ CStr(TextBox9.Text)
         GoodsDOC.Activate
     End If
     
-    'Допилить
     If (k = 2) Then
         
         Dim moneymax, moneymin As Double
@@ -337,9 +339,9 @@ CStr(Selection.Tables(1).Cell(KOT_MEOW_MEOW, 3).Range.Text)
      With Selection
         .TypeText Text:="№"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="Компания-поставщик"
+        .TypeText Text:="ФИО клиента"
         .MoveRight Unit:=wdCharacter, Count:=1
-        .TypeText Text:="Представитель"
+        .TypeText Text:="ФИО менеджера"
         .MoveRight Unit:=wdCharacter, Count:=1
         .TypeText Text:="Цена (руб)"
         .MoveRight Unit:=wdCharacter, Count:=1
