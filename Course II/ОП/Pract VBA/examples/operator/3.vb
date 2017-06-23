@@ -23,7 +23,6 @@ Private Sub CommandButton1_Click()
         End If
     Next i
 
-    Label1.Caption = Label1.Caption + Chr(13) + "Сумма полож. элементов:
-" + CStr(sum) + Chr(13) + "Произведение отриц. элементов: " + CStr(proz)
+    Label1.Caption = Label1.Caption + Chr(13) + "Сумма полож. элементов:" + CStr(sum) + Chr(13) + "Произведение отриц. элементов: " + CStr(proz)
 
 End Sub
