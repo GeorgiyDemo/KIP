@@ -1,5 +1,6 @@
 Private Sub CommandButton1_Click()
     Dim a(100, 100), ch(100), h(100), buf, i, j, n, k, t, q, w As Integer
+    Dim flag As Boolean
 
     'Размерность матрицы
     n = TextBox1.Text
@@ -7,9 +8,15 @@ Private Sub CommandButton1_Click()
     'На сколько делаем сдвиг
     w = TextBox2.Text
 
-    'Сдвиг вверх/вниз (1 или 0)
-    q = TextBox3.Text
+    'Выбор сдвига (вверх/вниз)
+    q = InputBox("В какую сторону выполняем смещение?" + Chr(13) + "1. Вверх" + Chr(13) + "2. Вниз")
 
+    Select Case q
+        Case 1
+            flag = True
+        Case 2
+            flag = False
+    End Select
 
     Label1.Caption = "Исходная матрица:" + Chr(10)
     Randomize
@@ -21,7 +28,7 @@ Private Sub CommandButton1_Click()
         Next j
     Next i
 
-    If (q = 1) Then
+    If (flag = True) Then
         For k = 1 To w
             For j = 0 To n - 1
                 i = 0
@@ -37,7 +44,9 @@ Private Sub CommandButton1_Click()
                 a(n - 1, j) = h(j)
             Next j
         Next k
-    Else
+    End If
+
+    If (flag = False) Then
         For k = 1 To w
             For j = 0 To n - 1
                 h(j) = a(n - 1, j)
