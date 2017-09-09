@@ -20,8 +20,6 @@
 * [Варианты исходных заданий](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20II/tasks) - DOC
 
 ### 3 Курс
-*
-*
-*
+* [Прикладное программирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F) - C++
 
 >[Удобный shell для g++](https://github.com/GeorgiyDemo/KIP/blob/master/Course%20II/%D0%9E%D0%9F/Pract%20C%2B%2B/alias.sh)
