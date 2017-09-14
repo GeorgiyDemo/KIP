@@ -3,16 +3,15 @@
 
 using namespace std;
 
-int i, j, n, k, sum, input;
-double *x, *b, **a;
+int i, j, n, m, k, sum, input;
+double kot, *x, **a;
 
 //Процедура рандома для массивов
 void initarray(double **a, int n){
  srand((unsigned)time(0)); 
  for(i=0;i<n;i++){
-    for(j=0;j<n;j++)
+    for(j=0;j<m;j++)
         a[i][j]=rand()%10-5;
-    b[i]=rand()%10-5;
     x[i]=rand()%10-5;
   }
 }
@@ -22,16 +21,9 @@ void enter(){
 
   cout<<"<Заполняем матрицу А>\n";
   for (i=0;i<n;i++)
-    for (j=0;j<n;j++){
-      cout<<"Введите элемент ["<<i<<"]["<<j<<"]: ";
+    for (j=0;j<m;j++){
+      cout<<"Введите элемент ["<<i+1<<"]["<<j+1<<"]: ";
       cin>>a[i][j];
-    }
-
-  cout<<"<Заполняем столбец свободных членов B>\n";
-  for (i=0;i<n;i++){
-      cout<<"Введите элемент №"<<i<<": ";
-      cin>>b[i];
-      x[i]=rand()%10-5;
     }
 
 }
@@ -41,44 +33,44 @@ void outarray(double **a, int n){
  cout<<"\nИсходная матрица:\n";
  for(i=0;i<n;i++){
     cout<<"\n";
-    for(j=0;j<n;j++)
+    for(j=0;j<m;j++)
         cout<<setw(5)<<a[i][j];
-    cout<<setw(3)<<"|"<<setw(3)<<b[i];
  }
 }
 
 //Процедура вычислений по Гауссу
-void gauss(double **a, double *b, double *x, int n){
+void gauss(double **a, double *x, int n){
   
-  for(k=0;k<=n-2;k++)
-    for(i=k+1;i<=n-1;i++){
-        double t=a[i][k]/a[k][k];
-        b[i]=b[i]-t*b[k];
-        
-        for(j=k+1;j<=n-1;j++)
-          a[i][j]=a[i][j]-t*a[k][j];
+  for(i=0;i<n;i++){
+    kot=a[i][i];
+    for(j=n;j>=i;j--)
+      a[i][j]/=kot;
+    for(j=i+1;j<n;j++){
+      kot=a[j][i];
+      for(k=n;k>=i;k--)
+        a[j][k]-=kot*a[i][k];
     }
+  }
 
-    for(k=n-1;k>=0;k--){
+  x[n-1]=a[n-1][n];
+  for (i=n-2;i >= 0;i--){
+    x[i]=a[i][n];
+    for(j=i+1;j<n;j++)
+      x[i] -= a[i][j] * x[j];
+  }
 
-      sum=0;
-      for(j=k+1;j<n;j++)
-        sum=sum+a[k][j]*x[j];
-
-      x[k]=(b[k]-sum)/a[k][k];
-    }
-
-  cout<<"\n\nРезультаты вычислений:\n\n";
-  for(i=0;i<n;i++)
-    cout<<i+1<<". "<<x[i]<<"\n";
+  cout<<"\n\nОтвет:";
+  for(i=0;i<n;i++){
+    cout<<"\n"<<x[i];
+  }
 }
 
 int main()
 {
-    cout<<"Введите кол-во неизвестных в системе => "; cin>>n;
+    cout<<"Введите n => "; cin>>n;
+    cout<<"Введите m => "; cin>>m;
 
-    x = new double [n];
-    b = new double [n];
+    x = new double [m];
     a = new double *[n];
     for(i=0;i<n;i++)
         a[i]=new double[n];
@@ -99,7 +91,7 @@ int main()
     }
 
     outarray(a,n);
-    gauss(a,b,x,n);
+    gauss(a,x,n);
 
 cout<<"\n";
 return 0;
