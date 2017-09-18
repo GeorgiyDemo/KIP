@@ -63,7 +63,7 @@ void gauss(double **a, double *x, int n){
       pkot=p[j][i];
       for(k=n;k>=i;k--){
         //Формула №2 (чек)
-        p[j][k]=fabs(a[i][k])*pkot+fabs(kot)*p[j][k];
+        p[j][k]=p[j][k]+fabs(a[i][k])*pkot+fabs(kot)*p[i][k];
         a[j][k]=a[j][k]-kot*a[i][k];
       }
     }
