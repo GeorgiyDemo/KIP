@@ -54,6 +54,7 @@ void gauss(double **a, double *x, int n){
     kot=a[i][i];
     pkot=p[i][i];
     for(j=n;j>=i;j--){
+      //Формула №1 (чек)
       p[i][j]=(fabs(a[i][j])*pkot+fabs(kot)*p[i][j])/(kot*kot);
       a[i][j]/=kot;
     }
@@ -61,6 +62,7 @@ void gauss(double **a, double *x, int n){
       kot=a[j][i];
       pkot=p[j][i];
       for(k=n;k>=i;k--){
+        //Формула №2 (чек)
         p[j][k]=fabs(a[i][k])*pkot+fabs(kot)*p[j][k];
         a[j][k]=a[j][k]-kot*a[i][k];
       }
@@ -73,6 +75,7 @@ void gauss(double **a, double *x, int n){
     p1[i]=p[i][n];
     for(j=i+1;j<n;j++){
       x[i]=x[i]-a[i][j]*x[j];
+      //Формула №3 (чек)
       p1[i]=p1[i]+(fabs(a[i][j])*p[i][n]+fabs(x[j])*p[i][j]);
     }
   }
