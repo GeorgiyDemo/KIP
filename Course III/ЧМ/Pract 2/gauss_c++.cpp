@@ -1,10 +1,11 @@
 #include <iostream>
 #include <iomanip>
+#include <math.h>
 
 using namespace std;
 
 int i, j, n, m, k, sum, input;
-double kot, *x, **a;
+double kot, pkot, *x, **a, **p, *p1;
 
 //Процедура рандома для массивов
 void initarray(double **a, int n){
@@ -24,6 +25,8 @@ void enter(){
     for (j=0;j<m;j++){
       cout<<"Введите элемент ["<<i+1<<"]["<<j+1<<"]: ";
       cin>>a[i][j];
+      cout<<"Введите погрешность для элемента ["<<i+1<<"]["<<j+1<<"]: ";
+      cin>>p[i][j];
     }
 
 }
@@ -36,33 +39,56 @@ void outarray(double **a, int n){
     for(j=0;j<m;j++)
         cout<<setw(5)<<a[i][j];
  }
+ cout<<"\n\nПогрешности элементов матрицы:\n";
+ for(i=0;i<n;i++){
+    cout<<"\n";
+    for(j=0;j<m;j++)
+        cout<<setw(5)<<p[i][j];
+ }
 }
 
-//Процедура вычислений по Гауссу
+//Процедура вычислений по Гауссу + нахождение погрешности
 void gauss(double **a, double *x, int n){
   
   for(i=0;i<n;i++){
     kot=a[i][i];
-    for(j=n;j>=i;j--)
-      a[i][j]/=kot;
+    pkot=p[i][i];
+    for(j=n;j>=i;j--){
+      //Формула №1 (чек)
+      p[i][j]=(fabs(a[i][j])*pkot+fabs(kot)*p[i][j])/(kot*kot);
+      a[i][j]=a[i][j]/kot;
+    }
     for(j=i+1;j<n;j++){
       kot=a[j][i];
-      for(k=n;k>=i;k--)
-        a[j][k]-=kot*a[i][k];
+      pkot=p[j][i];
+      for(k=n;k>=i;k--){
+        //Формула №2 (чек)
+        p[j][k]=p[j][k]+fabs(a[i][k])*pkot+fabs(kot)*p[i][k];
+        a[j][k]=a[j][k]-kot*a[i][k];
+      }
     }
   }
 
   x[n-1]=a[n-1][n];
-  for (i=n-2;i >= 0;i--){
+  for(i=n-2;i>=0;i--){
     x[i]=a[i][n];
-    for(j=i+1;j<n;j++)
-      x[i] -= a[i][j] * x[j];
+    p1[i]=p[i][n];
+    for(j=i+1;j<n;j++){
+      x[i]=x[i]-a[i][j]*x[j];
+      //Формула №3 (чек)
+      p1[i]=p1[i]+(fabs(a[i][j])*p1[j]+fabs(x[j])*p[i][j]);
+    }
   }
 
   cout<<"\n\nОтвет:";
   for(i=0;i<n;i++){
     cout<<"\n"<<x[i];
   }
+  cout<<"\n\nПогрешности:";
+  for(i=0;i<n;i++){
+    cout<<"\n"<<p1[i];
+  }
+
 }
 
 int main()
@@ -71,9 +97,13 @@ int main()
     cout<<"Введите m => "; cin>>m;
 
     x = new double [m];
+    p1 = new double [m];
     a = new double *[n];
     for(i=0;i<n;i++)
         a[i]=new double[n];
+    p = new double *[n];
+    for(i=0;i<n;i++)
+        p[i]=new double[n];
   
  
     cout<<"\nКак вы хотите ввести матрицу?\n1. Ручной ввод исходной матрицы\n2. Рандомный ввод исходной матрицы\n=> ";
