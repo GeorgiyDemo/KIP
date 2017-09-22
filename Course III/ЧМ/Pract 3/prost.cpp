@@ -1,53 +1,72 @@
 #include <iostream>
-#include <cmath>
- 
- 
+#include <iomanip>
+#include <math.h>
+
+const int n=4;
+const int m=4;
 using namespace std;
-int main()
-{
-    double a11 = -19, a12 = 2, a13 = -1, a14 = -8;  // матрица 
-    double a21 = 2, a22 = 14, a23 = 0, a24 = -4;
-    double a31 = 6, a32 = -5, a33 = -20, a34 = -6;
-    double a41 = -6, a42 = 4, a43 = -2, a44 = 15;
-    double b1 = 38, b2 = 20, b3 = 52, b4 = 43;      // столбец свободных членов
+
+int i, j, n, m, k, sum, checker, iteration;
+double **a, *b, *x, *xn;
+
+void initarray(double **a, int n, int m){
+ srand((unsigned)time(0)); 
+ for(i=0;i<n;i++){
+    for(j=0;j<m;j++)
+        a[i][j]=rand()%10-5;
+    b[i]=rand()%10-5;
+  }
+}
+
+int main(){
+
+    b = new double [m];
+    x = new double [m];
+    xn = new double [m];
+    a = new double *[n];
+    for(i=0;i<n;i++)
+        a[i]=new double[m];
+
+    a[0][0]=-19; a[0][1]=2;  a[0][2]=-1;  a[0][3]=-8;  // матрица 
+    a[1][0]=2;   a[1][1]=14; a[1][2]=0;   a[1][3]=-4;
+    a[2][0]=6;   a[2][1]=-5; a[2][2]=-20; a[2][3]=-6;
+    a[3][0]=-6;  a[3][1]=4;  a[3][2]=-2;  a[3][3]=15;
     
-    double x1 = 0, x2 = 0, x3 = 0, x4 = 0;          // начальное приближение
-    double x1n, x2n, x3n, x4n;
-    double eps = 0.0000000000001;
-    int count;
+    b[0]=38; b[1]=20; b[2]=52; b[3]=43;      // столбец свободных членов
+    x[0]=0;  x[1]=0;  x[2]=0;  x[3]=0;          // начальное приближение
+    double eps = 0.005;
     
-    if ( fabs(a11) > fabs(a12) + fabs(a13) + fabs(a14) &&
-         fabs(a22) > fabs(a21) + fabs(a23) + fabs(a24) &&
-         fabs(a33) > fabs(a31) + fabs(a32) + fabs(a34) &&
-         fabs(a44) > fabs(a41) + fabs(a42) + fabs(a43))
-         cout << "Diagonal'noe preobladaniye ne narushaetsya" << endl;
-    else 
-    {
-        cout << "Diagonal'noe preobladaniye narushaetsya" << endl;
-    }
-    count = 0;
-    do 
-    {
-        x1n = (b1 - (a12*x2 + a13*x3 + a14*x4))/a11; 
-        x2n = (b2 - (a21*x1 + a23*x3 + a24*x4))/a22;
-        x3n = (b3 - (a31*x1 + a32*x2 + a34*x4))/a33;
-        x4n = (b4 - (a41*x1 + a42*x2 + a43*x3))/a44;
-        count = count + 1;
-        if(fabs(x1n-x1) < eps && 
-            fabs(x2n-x2) < eps && 
-            fabs(x3n-x3) < eps &&
-            fabs(x4n-x4) < eps) break;
-        x1 = x1n;
-        x2 = x2n;
-        x3 = x3n;
-        x4 = x4n;
+    iteration=0;
+    while (true){
+        //cout<<"НИХЕРА, МЫ В ЦИКЛЕ";
+        xn[0] = (b[0] - (a[0][1]*x[1] + a[0][2]*x[2] + a[0][3]*x[3]))/a[0][0]; 
+        xn[1] = (b[1] - (a[1][0]*x[0] + a[1][2]*x[2] + a[1][3]*x[3]))/a[1][1];
         
-//  cout << "x1 = " << x1n << endl << "x2 = " << x2n << endl << "x3 = " << x3n << endl << "x4 = " << x4n << endl;   
-    }while(1);  
-    x1 = x1n;
-    x2 = x2n;
-    x3 = x3n;
-    x4 = x4n;
-    cout << "Kolichestvo iter. = " << count << endl << "x1 = " << x1 << endl 
-         << "x2 = " << x2 << endl << "x3 = " << x3 << endl << "x4 = " << x4 << endl;       
+        xn[2] = (b[2] - (a[2][0]*x[0] + a[2][1]*x[1] + a[2][3]*x[3]))/a[2][2];
+        xn[3] = (b[3] - (a[3][0]*x[0] + a[3][1]*x[1] + a[3][2]*x[2]))/a[3][3];
+
+        checker=0;
+        for(i=0;i<4;i++)
+            if(fabs(xn[i]-x[i])<eps)
+                checker++;
+        
+        if (checker==4)
+            break;
+
+        for(int i=0;i<4;i++)
+            x[i] = xn[i];
+    cout << "\nИтерация №"<<iteration+1<<":\nx1 = "<<xn[0]  << "\nx2 = " << xn[1] << endl << "x3 = " << xn[2] << endl << "x4 = " << xn[3] << endl;   
+    iteration++;
+    }
+
+    for(i=0;i<4;i++)
+            x[i] = xn[i];  
+   
+    cout << "\n-------------------\nИтераций всего: " << iteration+1;
+    for(i=0;i<4;i++)
+        cout<<"\n"<<x[i];
+
+cout<<"\n";
+return 0;
+
 }
