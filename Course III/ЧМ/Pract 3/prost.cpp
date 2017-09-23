@@ -10,7 +10,8 @@ const int m=4;
 int i, j, k, checker, iteration, input;
 double **a, *b, *x, *xn, eps;
 
-void initarray(double **a, double *b, double *x){
+//Рандомный ввод массивов
+void initarray(){
     srand((unsigned)time(0)); 
     for(i=0;i<n;i++){
         for(j=0;j<m;j++)
@@ -38,6 +39,7 @@ void enter(){
 
 }
 
+//Вывод массивов на экран
 void outarray(){
     cout<<"\nИсходная матрица:\n";
     for(i=0;i<n;i++){
@@ -48,27 +50,14 @@ void outarray(){
     }
 }
 
-void simple_iteration(double **a, double *b, double *x){
-
-    ///////////////////////////Разобраться с этим///////////////////////
-    ///////////////////////////////////////////////////////////////////
-    a[0][0]=-19.1; a[0][1]=2;  a[0][2]=-1;  a[0][3]=-8;  // матрица 
-    a[1][0]=2;   a[1][1]=14; a[1][2]=0;   a[1][3]=-4;
-    a[2][0]=6;   a[2][1]=-5; a[2][2]=-20; a[2][3]=-6;
-    a[3][0]=-6;  a[3][1]=4;  a[3][2]=-2;  a[3][3]=15;
-    
-    b[0]=38; b[1]=20; b[2]=52; b[3]=43;      // столбец свободных членов
-    x[0]=0;  x[1]=0;  x[2]=0;  x[3]=0;          // начальное приближение
-    
-    double eps = 0.0000000000001;
-    ///////////////////////////////////////////////////////////////////
+//Функция метода простых итераций
+void simple_iteration(){
 
     iteration=0;
     while (true){
-        //cout<<"НИХЕРА, МЫ В ЦИКЛЕ";
+
         xn[0] = (b[0] - (a[0][1]*x[1] + a[0][2]*x[2] + a[0][3]*x[3]))/a[0][0]; 
-        xn[1] = (b[1] - (a[1][0]*x[0] + a[1][2]*x[2] + a[1][3]*x[3]))/a[1][1];
-        
+        xn[1] = (b[1] - (a[1][0]*x[0] + a[1][2]*x[2] + a[1][3]*x[3]))/a[1][1];    
         xn[2] = (b[2] - (a[2][0]*x[0] + a[2][1]*x[1] + a[2][3]*x[3]))/a[2][2];
         xn[3] = (b[3] - (a[3][0]*x[0] + a[3][1]*x[1] + a[3][2]*x[2]))/a[3][3];
 
@@ -97,9 +86,11 @@ void simple_iteration(double **a, double *b, double *x){
 
 int main(){
 
-    a = new double *[n];
+    cout<<"Введите точность (пример: 0.005) => "; cin>>eps;
+
+    a = new double *[m];
     for(i=0;i<n;i++)
-        a[i]=new double[m];
+        a[i]=new double[n];
     b = new double [m];
     x = new double [m];
     xn = new double [m];
@@ -114,14 +105,12 @@ int main(){
         break;
 
       case 2:
-        initarray(a,b,x);
+        initarray();
         break;
     }
 
     outarray();
-    simple_iteration(a,b,x);
-
-cout<<"\n";
+    simple_iteration();
 
 cout<<"\n";
 return 0;
