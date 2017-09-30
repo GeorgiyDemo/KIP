@@ -22,5 +22,6 @@
 ### 3 Курс
 * [Прикладное программирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F) - C++
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
+* [Технология разработки и защиты баз данных](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94) - SQL/Access
 
 >[Удобный shell для g++](https://github.com/GeorgiyDemo/KIP/blob/master/Course%20II/%D0%9E%D0%9F/Pract%20C%2B%2B/alias.sh)
