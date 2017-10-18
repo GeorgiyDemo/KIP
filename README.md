@@ -1,12 +1,13 @@
 <img src="cat.jpg" align="right" />
 
-# Demka's KIP repo
-### Вариант №7
+# Demka's KIP repo (ПКС)
 ### 1 Курс
+#### Вариант №7
 
 * [Информатика](https://github.com/GeorgiyDemo/KIP/tree/master/%D0%A1ourse%20I)  - Pascal/Lasarus
 
 ### 2 Курс
+#### Вариант №7
 
 * Основы программирования:
   * [Практические по Pascal](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20II/%D0%9E%D0%9F/Pract%20Pascal)
@@ -20,6 +21,7 @@
 * [Варианты исходных заданий](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20II/tasks) - DOC
 
 ### 3 Курс
+#### Вариант №4
 * [Прикладное программирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F) - C++
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
 * [Технология разработки и защиты баз данных](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94) - SQL/Access
