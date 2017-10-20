@@ -1,0 +1,3 @@
+﻿MComp operator!(MComp &x){
+x.Im*=-1;
+return x;}
