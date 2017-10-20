@@ -1,3 +1,5 @@
-﻿MComp operator++(MComp &x){
-x.Re++;
-return x;}
+﻿MComp operator++(MComp& x)
+{
+    x.Re++;
+    return x;
+}
