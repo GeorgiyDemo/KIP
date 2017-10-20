@@ -1,10 +1,10 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cstdio>
 using namespace std;
 int main(){
 char str[100];
 cout<<"Enter your text, please: ";
-//Äëÿ ñ÷èòûâàíèÿ ñòðîêè èñïîëüçîâàíà ôóíêöèÿ gets():
+//Ð”Ð»Ñ ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°Ð½Ð¸Ñ ÑÑ‚Ñ€Ð¾ÐºÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð° Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ gets():
 gets(str);
 cout<<"Your text is: "<<str<<endl;
 return 0;

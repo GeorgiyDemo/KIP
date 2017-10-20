@@ -1,15 +1,15 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 class MyClass{
 public:
 double x;
 };
-//Передача аргумента по значению:
+//РџРµСЂРµРґР°С‡Р° Р°СЂРіСѓРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ:
 double f1(MyClass obj){
 obj.x*=10;
 return obj.x;
 }
-//Передача аргумента по ссылке:
+//РџРµСЂРµРґР°С‡Р° Р°СЂРіСѓРјРµРЅС‚Р° РїРѕ СЃСЃС‹Р»РєРµ:
 double f2(MyClass &obj){
 obj.x*=10;
 return obj.x;

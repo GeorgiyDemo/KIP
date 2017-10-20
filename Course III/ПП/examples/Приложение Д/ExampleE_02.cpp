@@ -1,6 +1,6 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Пространство имен myOun:
+//РџСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РёРјРµРЅ myOun:
 namespace myOun{
    int n=10;
    class MyClass{
@@ -11,12 +11,12 @@ namespace myOun{
 }
 int main(){
 int n=5;
-//Открытие пространства имен myOun:
+//РћС‚РєСЂС‹С‚РёРµ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° РёРјРµРЅ myOun:
 using namespace myOun;
-//Ссылка на класс из пространства имен myOun:
+//РЎСЃС‹Р»РєР° РЅР° РєР»Р°СЃСЃ РёР· РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° РёРјРµРЅ myOun:
 MyClass obj;
 cout<<"obj.x = "<<obj.x<<endl;
 cout<<"n = "<<n<<endl;
-//ССылка на переменную из пространства имен myOun:
+//РЎРЎС‹Р»РєР° РЅР° РїРµСЂРµРјРµРЅРЅСѓСЋ РёР· РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІР° РёРјРµРЅ myOun:
 cout<<"myOun::n = "<<myOun::n<<endl;
 return 0;}

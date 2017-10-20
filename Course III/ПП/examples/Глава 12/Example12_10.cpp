@@ -1,35 +1,35 @@
-#include <iostream>
+п»ї#include <iostream>
 const N=100;
 using namespace std;
-//Класс для реализации комплексных чисел:
+//РљР»Р°СЃСЃ РґР»СЏ СЂРµР°Р»РёР·Р°С†РёРё РєРѕРјРїР»РµРєСЃРЅС‹С… С‡РёСЃРµР»:
 class Complex{
 public:
 double Re,Im;
-//Перегрузка оператора присваивания:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ:
 Complex operator=(double x){
 Re=x;
 Im=0;
 return *this;}
-//Перегрузка оператора умножения:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СѓРјРЅРѕР¶РµРЅРёСЏ:
 Complex operator*(Complex obj){
 Complex tmp;
 tmp.Re=Re*obj.Re-Im*obj.Im;
 tmp.Im=Re*obj.Im+Im*obj.Re;
 return tmp;}
-//Перегрузка оператора сложения:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃР»РѕР¶РµРЅРёСЏ:
 Complex operator+(Complex obj){
 Complex tmp;
 tmp.Re=Re+obj.Re;
 tmp.Im=Im+obj.Im;
 return tmp;}
-//Перегрузка оператора деления:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РґРµР»РµРЅРёСЏ:
 Complex operator/(double x){
 Complex tmp;
 tmp.Re=Re/x;
 tmp.Im=Im/x;
 return tmp;}
 };
-//Шаблонная функция для определения экспоненты:
+//РЁР°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ СЌРєСЃРїРѕРЅРµРЅС‚С‹:
 template <class X> X mExp(X t){
 X s;
 s=1;

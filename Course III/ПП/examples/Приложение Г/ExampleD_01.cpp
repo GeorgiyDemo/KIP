@@ -1,40 +1,40 @@
-#include <iostream>
-//Заголовок для потоков файлового ввода-вывода:
+п»ї#include <iostream>
+//Р—Р°РіРѕР»РѕРІРѕРє РґР»СЏ РїРѕС‚РѕРєРѕРІ С„Р°Р№Р»РѕРІРѕРіРѕ РІРІРѕРґР°-РІС‹РІРѕРґР°:
 #include <fstream>
 using namespace std;
 int main(){
-//Символьный массив для считывания слов:
+//РЎРёРјРІРѕР»СЊРЅС‹Р№ РјР°СЃСЃРёРІ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃР»РѕРІ:
 char word[30];
-//Индексная переменная:
+//РРЅРґРµРєСЃРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ:
 int i=1;
-//Поток вывода в файл mydata.txt:
+//РџРѕС‚РѕРє РІС‹РІРѕРґР° РІ С„Р°Р№Р» mydata.txt:
 ofstream out("D:\\mydata.txt");
-//Проверка открытия файла:
+//РџСЂРѕРІРµСЂРєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°:
 if(!out) {cout<<"File mydata.txt is not opened.\n";
           return 1;}
-//Запись данных в файл mydata.txt:
+//Р—Р°РїРёСЃСЊ РґР°РЅРЅС‹С… РІ С„Р°Р№Р» mydata.txt:
 else {out<<"This file contains simple text";
-//Закрытие файла для записи:
+//Р—Р°РєСЂС‹С‚РёРµ С„Р°Р№Р»Р° РґР»СЏ Р·Р°РїРёСЃРё:
       out.close();}
-//Поток вывода в файл newdata.txt:
+//РџРѕС‚РѕРє РІС‹РІРѕРґР° РІ С„Р°Р№Р» newdata.txt:
 ofstream outMore;
 outMore.open("D:\\newdata.txt");
-//Проверка открытия файла newdata.txt:
+//РџСЂРѕРІРµСЂРєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° newdata.txt:
 if(!outMore) {cout<<"File newdata.txt is not opened.\n";
               return 1;}
-//Поток вывода из файла mydata.txt:
+//РџРѕС‚РѕРє РІС‹РІРѕРґР° РёР· С„Р°Р№Р»Р° mydata.txt:
 ifstream in;
-//Проверка открытия файла mydata.txt:
+//РџСЂРѕРІРµСЂРєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° mydata.txt:
 in.open("D:\\mydata.txt");
 if(!in) {cout<<"File mydata.txt is not opened.\n";
          return 1;}
-//Считывание из файла mydata.txt и запись в файл newdata.txt:
+//РЎС‡РёС‚С‹РІР°РЅРёРµ РёР· С„Р°Р№Р»Р° mydata.txt Рё Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р» newdata.txt:
 while(!in.eof()){
    in>>word;
    outMore<<word<<" - "<<i<<endl;
    i++;}
-//Закрытие файла mydata.txt:
+//Р—Р°РєСЂС‹С‚РёРµ С„Р°Р№Р»Р° mydata.txt:
 in.close();
-//Закрытие файла newdata.txt:
+//Р—Р°РєСЂС‹С‚РёРµ С„Р°Р№Р»Р° newdata.txt:
 outMore.close();
 return 0;}

@@ -1,11 +1,11 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 class SimpleClass{
-//Закрытые члены класса:
+//Р—Р°РєСЂС‹С‚С‹Рµ С‡Р»РµРЅС‹ РєР»Р°СЃСЃР°:
 int m;
 int n;
 public:
-//Открытые члены класса:
+//РћС‚РєСЂС‹С‚С‹Рµ С‡Р»РµРЅС‹ РєР»Р°СЃСЃР°:
 void show();
 void setnm(int i,int j);
 };
@@ -14,7 +14,7 @@ SimpleClass obj;
 obj.setnm(1,2);
 obj.show();
 return 0;}
-//Описание методов класса:
+//РћРїРёСЃР°РЅРёРµ РјРµС‚РѕРґРѕРІ РєР»Р°СЃСЃР°:
 void SimpleClass::show(){
 cout<<"m = "<<m<<endl;
 cout<<"n = "<<n<<endl;}

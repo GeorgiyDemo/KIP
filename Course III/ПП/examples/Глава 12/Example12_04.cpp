@@ -1,12 +1,12 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенная функция:
+//РћР±РѕР±С‰РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 template <class X> void change(X &a,X &b){
 X t;
 t=a;
 a=b;
 b=t;}
-//Явная специализация обобщенной функции:
+//РЇРІРЅР°СЏ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЏ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 void change(int &a,int &b){
 int t;
 t=a;
@@ -15,7 +15,7 @@ b=t+1;}
 int main(){
 double x=2.3,y=4.5;
 int m=6,n=8;
-//Вызов обобщенной функции:
+//Р’С‹Р·РѕРІ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 change(x,y);
 cout<<"x = "<<x<<endl;
 cout<<"y = "<<y<<endl;

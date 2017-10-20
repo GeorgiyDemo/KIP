@@ -1,14 +1,14 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 class MyClass{
 public:
 int m,n;
-//Конструктор класса:
+//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°:
 MyClass(){
 m=0;
 n=0;
 cout<<"Object has been created"<<endl;}
-//Деструктор класса:
+//Р”РµСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°:
 ~MyClass(){
 cout<<"Object has been deleted"<<endl;}
 };

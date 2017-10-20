@@ -1,14 +1,14 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
-// Объявление класса SimpleClass:
+// РћР±СЉСЏРІР»РµРЅРёРµ РєР»Р°СЃСЃР° SimpleClass:
 class SimpleClass{
 public:
-// Целочисленное поле класса:
+// Р¦РµР»РѕС‡РёСЃР»РµРЅРЅРѕРµ РїРѕР»Рµ РєР»Р°СЃСЃР°:
 int number;}
-// Создание объектов MyObj1 и MyObj2 класса SimpleClass:
+// РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ MyObj1 Рё MyObj2 РєР»Р°СЃСЃР° SimpleClass:
 MyObj1, MyObj2;
 int main(){
-// Полям объектов присваиваются значения:
+// РџРѕР»СЏРј РѕР±СЉРµРєС‚РѕРІ РїСЂРёСЃРІР°РёРІР°СЋС‚СЃСЏ Р·РЅР°С‡РµРЅРёСЏ:
 MyObj1.number=5;
 MyObj2.number=++MyObj1.number;
 cout<<"Object field value is "<<MyObj2.number<<"\n";

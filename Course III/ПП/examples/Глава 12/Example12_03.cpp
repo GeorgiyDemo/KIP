@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенная функция:
+//РћР±РѕР±С‰РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 template <class X,class Y> void show(X x,Y y){
 cout<<"1-st argument: "<<x<<endl;
 cout<<"2-d argument: "<<y<<endl;}
 int main(){
-//Вызов обобщенной функции:
+//Р’С‹Р·РѕРІ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 show(1,'a');
 show("TEXT",3.5);
 return 0;}

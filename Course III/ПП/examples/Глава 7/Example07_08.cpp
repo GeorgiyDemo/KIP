@@ -1,9 +1,9 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 class MyClass{
 int a,b;
 public:
-//Перегруженный метод:
+//РџРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РјРµС‚РѕРґ:
 void setab(int i,int j){
 a=i;
 b=j;

@@ -1,17 +1,17 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенная функция:
+//РћР±РѕР±С‰РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 template <class X> X MySum(X a,X b){
 return a+b;}
-//Перегрузка обобщенной функции:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 template <class X> X MySum(X a){
 return a+1;}
 int main(){
 int n=2,m=4;
 double x=4.2,y=3.4;
 char s='a';
-//Вызов обобщенной функции:
-cout<<MySum(n,m)<<endl;//Результат: 6
-cout<<MySum(x,y)<<endl;//Результат: 7.6
-cout<<MySum(s)<<endl;//Результат: b
+//Р’С‹Р·РѕРІ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
+cout<<MySum(n,m)<<endl;//Р РµР·СѓР»СЊС‚Р°С‚: 6
+cout<<MySum(x,y)<<endl;//Р РµР·СѓР»СЊС‚Р°С‚: 7.6
+cout<<MySum(s)<<endl;//Р РµР·СѓР»СЊС‚Р°С‚: b
 return 0;}

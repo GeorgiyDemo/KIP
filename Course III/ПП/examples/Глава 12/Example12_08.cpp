@@ -1,6 +1,6 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенный класс:
+//РћР±РѕР±С‰РµРЅРЅС‹Р№ РєР»Р°СЃСЃ:
 template <class X> class MyClass{
 X value;
 public:
@@ -10,7 +10,7 @@ void set(X m){value=m;}
 void get(){
 cout<<"value = "<<value<<endl;}
 };
-//Явная специализация обобщенного класса:
+//РЇРІРЅР°СЏ СЃРїРµС†РёР°Р»РёР·Р°С†РёСЏ РѕР±РѕР±С‰РµРЅРЅРѕРіРѕ РєР»Р°СЃСЃР°:
 template <> class MyClass<int>{
 public:
 int value;
@@ -18,12 +18,12 @@ MyClass(){
 value=5;}
 };
 int main(){
-//Создание объекта с int-полем:
+//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ int-РїРѕР»РµРј:
 MyClass<int> a;
 cout<<"value = "<<a.value<<endl;
 a.value=3;
 cout<<"value = "<<a.value<<endl;
-//Создание объекта с char-полем:
+//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ char-РїРѕР»РµРј:
 MyClass<char> b('x');
 b.get();
 b.set('z');

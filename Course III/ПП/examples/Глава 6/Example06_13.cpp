@@ -1,19 +1,19 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <cmath>
 using namespace std;
-//Алгебраическая форма комплексного числа:
+//РђР»РіРµР±СЂР°РёС‡РµСЃРєР°СЏ С„РѕСЂРјР° РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°:
 struct Compl{
 double Re;
 double Im;
 };
-//Комплексная экспонента:
+//РљРѕРјРїР»РµРєСЃРЅР°СЏ СЌРєСЃРїРѕРЅРµРЅС‚Р°:
 Compl ComplExp(Compl z){
 Compl tmp;
 tmp.Re=exp(z.Re)*cos(z.Im);
 tmp.Im=exp(z.Re)*sin(z.Im);
 return tmp;
 }
-//Отображение комплексного числа:
+//РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°:
 void show(Compl z){
 cout<<z.Re;
 if(z.Im>=0) cout<<" + "<<z.Im<<"i\n";

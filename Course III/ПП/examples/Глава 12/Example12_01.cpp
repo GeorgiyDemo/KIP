@@ -1,13 +1,13 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенная функция:
+//РћР±РѕР±С‰РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 template <class X> void show(X arg){
 cout<<"Value is "<<arg<<endl;}
 int main(){
 int n=5;
 double x=3.6;
 char s='a';
-//Вызов обобщенной функции:
+//Р’С‹Р·РѕРІ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 show(n);
 show(x);
 show(s);

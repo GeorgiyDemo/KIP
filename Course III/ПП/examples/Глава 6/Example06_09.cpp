@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 int main(){
 enum  color {red=10, green, blue=100, yellow, black};

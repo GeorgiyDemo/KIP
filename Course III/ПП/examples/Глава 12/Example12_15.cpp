@@ -1,15 +1,15 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Количество веток дерева:
+//РљРѕР»РёС‡РµСЃС‚РІРѕ РІРµС‚РѕРє РґРµСЂРµРІР°:
 const int n=2;
-//Обобщенный класс:
+//РћР±РѕР±С‰РµРЅРЅС‹Р№ РєР»Р°СЃСЃ:
 template <class X> class MyTree{
 public:
-//Обобщенное поле:
+//РћР±РѕР±С‰РµРЅРЅРѕРµ РїРѕР»Рµ:
 X record;
-//Массив указателей:
+//РњР°СЃСЃРёРІ СѓРєР°Р·Р°С‚РµР»РµР№:
 MyTree *pnt[n];
-//Конструктор:
+//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ:
 MyTree(int k){
 int i;
 if(k==1)
@@ -20,7 +20,7 @@ cout<<"created: "<<this<<endl;
 for(i=0;i<n;i++)
    cout<<i<<": "<<pnt[i]<<endl;
 cout<<endl;}
-//Деструктор:
+//Р”РµСЃС‚СЂСѓРєС‚РѕСЂ:
 ~MyTree(){
 int i;
 for(i=0;i<n;i++)
@@ -29,16 +29,16 @@ cout<<"deleted: "<<this<<endl;
 }
 };
 int main(){
-//Указатель на первый объект дерева:
+//РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ РѕР±СЉРµРєС‚ РґРµСЂРµРІР°:
 MyTree<double> *input;
-//Создание дерева:
+//РЎРѕР·РґР°РЅРёРµ РґРµСЂРµРІР°:
 input=new MyTree<double>(3);
-//Обращение к полю record объекта дерева:
+//РћР±СЂР°С‰РµРЅРёРµ Рє РїРѕР»СЋ record РѕР±СЉРµРєС‚Р° РґРµСЂРµРІР°:
 input->pnt[1]->record=3.1415;
 cout<<endl;
 cout<<input->pnt[1]<<": record=";
 cout<<(*(*input).pnt[1]).record<<endl;
 cout<<endl;
-//Удаление дерева:
+//РЈРґР°Р»РµРЅРёРµ РґРµСЂРµРІР°:
 delete input;
 return 0;}

@@ -1,9 +1,9 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 class MyClass{
 public:
 int m,n;
-//Конструктор класса:
+//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°:
 MyClass(int a,int b){
 m=a;
 n=b;
@@ -11,18 +11,18 @@ cout<<"Object "<<this<<" has been created"<<endl;
 cout<<"m = "<<m<<endl;
 cout<<"n = "<<n<<endl;
 }
-//Деструктор класса:
+//Р”РµСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°:
 ~MyClass(){
 cout<<"Object "<<this<<" has been deleted"<<endl;}
 };
-//В функции создается объект:
+//Р’ С„СѓРЅРєС†РёРё СЃРѕР·РґР°РµС‚СЃСЏ РѕР±СЉРµРєС‚:
 MyClass MyFunc(int x,int y){
 MyClass tmp(x,y);
 return tmp;}
 int main(){
-//Создание объекта:
+//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р°:
 MyClass obj(1,2);
-//Изменение объекта:
+//РР·РјРµРЅРµРЅРёРµ РѕР±СЉРµРєС‚Р°:
 obj=MyFunc(3,4);
 return 0;
 }

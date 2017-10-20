@@ -1,7 +1,7 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <cstdio>
 using namespace std;
-//Функция для вычисления длины строки:
+//Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё:
 int length(char *str){
 int i=0;
 while(str[i]){
@@ -9,7 +9,7 @@ while(str[i]){
 }
 return i;
 }
-//Проверка работы функции length():
+//РџСЂРѕРІРµСЂРєР° СЂР°Р±РѕС‚С‹ С„СѓРЅРєС†РёРё length():
 int main(){
 char str[80];
 cout<<"Enter a string: ";

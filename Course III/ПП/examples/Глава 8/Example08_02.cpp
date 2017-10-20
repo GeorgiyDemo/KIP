@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 class ClassA{
 public:
@@ -22,7 +22,7 @@ objA.x=2.5;
 objA.y=3.6;
 objB.a=2;
 objB.b=5;
-//Результатом функции является объект:
+//Р РµР·СѓР»СЊС‚Р°С‚РѕРј С„СѓРЅРєС†РёРё СЏРІР»СЏРµС‚СЃСЏ РѕР±СЉРµРєС‚:
 obj=sumAB(objA,objB);
 cout<<"x = "<<obj.x<<endl;
 cout<<"y = "<<obj.y<<endl;

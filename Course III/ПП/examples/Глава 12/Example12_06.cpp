@@ -1,6 +1,6 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенный класс:
+//РћР±РѕР±С‰РµРЅРЅС‹Р№ РєР»Р°СЃСЃ:
 template <class X> class MyClass{
 X value;
 public:
@@ -11,12 +11,12 @@ void get(){
 cout<<"value = "<<value<<endl;}
 };
 int main(){
-//Создание объекта с int-полем:
+//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ int-РїРѕР»РµРј:
 MyClass<int> a(5);
 a.get();
 a.set(3);
 a.get();
-//Создание объекта с char-полем:
+//РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° СЃ char-РїРѕР»РµРј:
 MyClass<char> b('x');
 b.get();
 b.set('z');

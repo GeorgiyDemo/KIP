@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cstdio>
 using namespace std;
 void decoder(char *s,int *cstr,int n){

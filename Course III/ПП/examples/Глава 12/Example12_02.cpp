@@ -1,6 +1,6 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Обобщенная функция:
+//РћР±РѕР±С‰РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 template <class X> X AddOne(X arg){
 X t;
 t=arg+1;
@@ -9,7 +9,7 @@ int main(){
 int n=5;
 double x=3.6;
 char s='a';
-//Вызов обобщенной функции:
+//Р’С‹Р·РѕРІ РѕР±РѕР±С‰РµРЅРЅРѕР№ С„СѓРЅРєС†РёРё:
 cout<<n<<" + 1 = "<<AddOne(n)<<endl;
 cout<<x<<" + 1 = "<<AddOne(x)<<endl;
 cout<<s<<" + 1 = "<<AddOne(s)<<endl;

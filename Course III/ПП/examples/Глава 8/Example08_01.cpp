@@ -1,22 +1,22 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Первый класс:
+//РџРµСЂРІС‹Р№ РєР»Р°СЃСЃ:
 class ClassA{
 public:
 double x;
 double y;
 }objA;
-//Второй класс:
+//Р’С‚РѕСЂРѕР№ РєР»Р°СЃСЃ:
 class ClassB{
 public:
 int a;
 int b;
-//Методу объектом передается объект:
+//РњРµС‚РѕРґСѓ РѕР±СЉРµРєС‚РѕРј РїРµСЂРµРґР°РµС‚СЃСЏ РѕР±СЉРµРєС‚:
 double f(ClassA obj){
 return a*obj.x+b*obj.y;
 }
 }objB;
-//Внешняя функция с аргументом-объектом:
+//Р’РЅРµС€РЅСЏСЏ С„СѓРЅРєС†РёСЏ СЃ Р°СЂРіСѓРјРµРЅС‚РѕРј-РѕР±СЉРµРєС‚РѕРј:
 void showB(ClassB obj){
 cout<<"a = "<<obj.a<<endl;
 cout<<"b = "<<obj.b<<endl;

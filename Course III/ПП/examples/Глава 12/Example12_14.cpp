@@ -1,13 +1,13 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Базовый обобщенный класс:
+//Р‘Р°Р·РѕРІС‹Р№ РѕР±РѕР±С‰РµРЅРЅС‹Р№ РєР»Р°СЃСЃ:
 template <class X> class First{
 public:
 X a;
 First(X arg){
 a=arg;}
 };
-//Производный обобщенный класс:
+//РџСЂРѕРёР·РІРѕРґРЅС‹Р№ РѕР±РѕР±С‰РµРЅРЅС‹Р№ РєР»Р°СЃСЃ:
 template <class X,class Y> class Second:public First<X>{
 public:
 Y b;

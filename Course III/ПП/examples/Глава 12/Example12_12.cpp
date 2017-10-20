@@ -1,15 +1,15 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
-//Размер поля-массива:
+//Р Р°Р·РјРµСЂ РїРѕР»СЏ-РјР°СЃСЃРёРІР°:
 const int n=10;
 template <class X> class MyClass{
 public:
-//Поле-массив:
+//РџРѕР»Рµ-РјР°СЃСЃРёРІ:
 X array[n];
-//Перегрузка оператора []:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° []:
 X operator[](int k){
 return array[k%n];}
-//Перегрузка оператора ++:
+//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° ++:
 MyClass operator++(){
 X tmp;
 int i;
@@ -18,12 +18,12 @@ for(i=n-1;i>0;i--)
    array[i]=array[i-1];
 array[0]=tmp;
 return *this;}
-//Метод для отображения массива:
+//РњРµС‚РѕРґ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РјР°СЃСЃРёРІР°:
 void show(){
 for(int i=0;i<n;i++)
    cout<<array[i]<<" ";
 cout<<endl;}
-//Конструктор класса:
+//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°:
 MyClass(){
 for(int i=0;i<n;i++)
    array[i]=(X)(rand()%25+100);
