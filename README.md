@@ -23,6 +23,7 @@
 ### 3 Курс
 #### Вариант №4
 * [Прикладное программирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F) - C++
+* [УП.01.01 Учебная практика (по программированию)](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A3%D0%9F) - C++
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
 * [Технология разработки и защиты баз данных](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94) - SQL/Access
 
