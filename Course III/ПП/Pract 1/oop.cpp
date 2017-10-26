@@ -24,7 +24,6 @@ public:
 
 faktorclass::faktorclass(double f1, double buf1, int n1)
 {
-    cout << "Конструктор работает\n";
     f = f1;
     buf = buf1;
     n = n1;
