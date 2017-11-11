@@ -17,7 +17,7 @@ class coord {
 
 		coord operator-(coord a){
 			coord temp;
-			temp.x=x-a.y;
+			temp.x=x-a.x;
 			temp.y=y-a.y;
 			return temp;
 		}
