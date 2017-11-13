@@ -27,7 +27,6 @@ int main(){
     MainClass *u = &a;
     u->f1();
     cout<<"Ответ: "<<u->x;
-    //f1(obj);
 
 cout<<"\n";
 return 0;
