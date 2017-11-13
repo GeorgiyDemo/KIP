@@ -1,6 +1,11 @@
-//Вариант 9 -> f1 должна взять инкремент x, возвести в квадрат  и сложить с  y  
+/* Вариант 9 (4+5)
+ Функция f1 должна взять инкремент x,
+ возвести в квадрат и сложить с y  
+*/
+
 #include <iostream>
 using namespace std;
+
 class MainClass{
 
     public:
@@ -17,6 +22,7 @@ class MainClass{
         MainClass f1(){
             *p++;
             *p=*p*(*p);
+            *p=*p+(*c);
             x=x+y;
             return *this;
         }
