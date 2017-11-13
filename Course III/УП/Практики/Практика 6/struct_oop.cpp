@@ -14,24 +14,20 @@ using namespace std;
    public:
       void inputer(){
 
-         //for(int i=0;i<n;i++){
-
             cout<<("Введите ФИО рабочего: ");
             gets(name);
             cout<<("Введите должность рабочего: ");
             gets(dolznost);
             cout<<("Введите год поступления на работу: ");
             gets(year);
-      //}
 
       }
 
       void printer(){
-         //for(int i=0;i<n;i++){
+
          cout<<"ФИО: "<<name<<endl;
          cout<<"Должность: "<<dolznost<<endl;
          cout<<"Год поступления на работу: "<<year<<endl;
-       //}
 
       }
 
@@ -41,16 +37,14 @@ using namespace std;
          cout<<"*Поиск по рабочим*\nВведите имя рабочего\n=> ";
          gets(s);
          state=true;
-         //for(int i=0;i<n;i++){
 
             if(!strcmp(name,s)){
                state=false;
                cout<<"ФИО: "<<name<<endl;
                cout<<"Должность: "<<dolznost<<endl;
                cout<<"Год поступления на работу: "<<year<<endl;
-               //break;
                }
-         //}
+
          if(state) cout<<"Нет рабочего с таким именем!\n";
       }
 
@@ -61,11 +55,16 @@ using namespace std;
    int main(){
 
 
-      WORKER ob1;
+      WORKER ob1, ob2;
 
       ob1.inputer();
+      ob2.inputer();
       ob1.printer();
+      ob2.printer();
       ob1.search();
+      ob2.search();
+
+
 
 cout<<"\n";
 return 0;
