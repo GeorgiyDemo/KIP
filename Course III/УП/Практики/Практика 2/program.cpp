@@ -57,12 +57,12 @@ int main(){
 
    coord a(3, 5);
    cout<<"a\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
-   a++;
-   cout<<"a++\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
+   a--;
+   cout<<"a--\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
    --a;
    cout<<"--a\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
-   ++a;
-   cout<<"++a\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
+   a++;
+   cout<<"a++\na.x="<<a._x<<"\na.y="<<a._y<<"\n\n";
    a--;
    cout<<"a--\na.x="<<a._x<<"\na.y="<<a._y<<"\n";
 
