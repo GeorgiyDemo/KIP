@@ -4,6 +4,7 @@
 */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class MainClass{
@@ -20,19 +21,25 @@ class MainClass{
         }
 
         MainClass f1(){
-            *p++;
-            *p=*p*(*p);
-            *p=*p+(*c);
+            x++;
+            //*p++;
+            x = pow(x,2);
             x=x+y;
             return *this;
         }
 } ;
 
 int main(){
-    MainClass a(3,4);
-    MainClass *u = &a;
-    u->f1();
-    cout<<"Ответ: "<<u->x;
+    int __x, __y;
+    cout<<"Введите x =>";
+    cin >> __x;
+    cout<<"Введите y => ";
+    cin >> __y;
+
+    MainClass a(__y,__x);
+    MainClass *KOTIK = &a;
+    KOTIK->f1();
+    cout<<"Ответ ((x++)^2+y=): "<<KOTIK->x;
 
 cout<<"\n";
 return 0;
