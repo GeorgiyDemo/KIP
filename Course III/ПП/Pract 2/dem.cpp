@@ -1,55 +1,45 @@
 #include <iostream>
 using namespace std;
-//Счетчик элементов дерева:
-int Count = 0;
-//Структура-элемент дерева:
-struct BinTree {
-    //Поля-указатели:
-    BinTree* p1;
-    BinTree* p2;
-    BinTree* p3;
-    BinTree* p4;
-    //Целочисленное поле:
+int global_counter = 0;
+
+struct DemkaTreeStruct {
+
+    DemkaTreeStruct* p1;
+    DemkaTreeStruct* p2;
+    DemkaTreeStruct* p3;
+    DemkaTreeStruct* p4;
     int n;
+
 };
-//Функция создания бинарного дерева:
-BinTree* MakeTree(int N)
-{
-    //Указатель на создаваемый элемент:
-    BinTree* p;
-    p = new BinTree;
-    //Создание дерева:
-    Count++;
-    p->n = Count;
-    if (N > 1){
 
-    	//
+DemkaTreeStruct* MakeNewDemkaTree(int _n);
 
-    	//
+int main(){
 
-        p->p1 = MakeTree(N - 1);
-        p->p2 = MakeTree(N - 1);
-        p->p1->p3 = MakeTree(N - 1);
-        p->p2->p4 = MakeTree(N - 1);
-    }
-    //Результат-указатель на созданный элемент:
-    return p;
-}
-int main()
-{
-    //Указатель на нулевой (начальный) элемент:
-    BinTree* q;
-    //Создание 4-х уровневого бинарного дерева:
-    q = MakeTree(3);
-    //Проверка результата. Количество элементов:
-    cout << "Elements in tree: " << Count << endl;
-    //Элемент №1:
-    cout << q->n << endl;
-    //Элемент №2:
-    cout << q->p1->n << endl;
-    //Элемент №3:
-    cout << q->p1->p3->p2->n << endl;
-    //Элемент №4:
-    cout << q->p2->p4->p1->n << endl;
+    DemkaTreeStruct* first;
+    first = MakeNewDemkaTree(3);
+    cout << "Элементов в дереве: " << global_counter <<"\n"<<first->n<<" ["<<&first->n<<"]\n";
+    cout << first->p1->n<<" ["<<&first->p1->n<<"]\n";
+    cout << first->p1->p3->p2->n<<" ["<<&first->p1->p3->p2->n<<"]\n";
+    cout << first->p2->p4->p1->n<<" ["<<&first->p2->p4->p1->n<<"]\n";
     return 0;
+}
+
+DemkaTreeStruct* MakeNewDemkaTree(int _n)
+{
+
+    DemkaTreeStruct* p;
+    p = new DemkaTreeStruct;
+    global_counter++;
+    p->n = global_counter;
+    if (_n > 1){
+
+        p->p1 = MakeNewDemkaTree(_n - 1);
+        p->p2 = MakeNewDemkaTree(_n - 1);
+        p->p1->p3 = MakeNewDemkaTree(_n - 1);
+        p->p2->p4 = MakeNewDemkaTree(_n - 1);
+    }
+
+    return p;
+
 }
