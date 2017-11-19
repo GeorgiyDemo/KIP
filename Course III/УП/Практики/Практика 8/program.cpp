@@ -1,27 +1,46 @@
 /*
-4. Перегрузите операцию << для класса Variant4,
-который будет просить ввести строку, содержащую произвольные слова и 
-цифры,
-разделенные пробелами, а затем выведет её на экран, но без больших букв 
-и цифр.
+4. Напишите программу, которая содержит метод formatter класса FormatClass с
+ использованием флагов для вывода числа в восьмеричной системе счисления
+ большими символами.
 */
+
 #include "stdafx.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
-ostream& left10(ostream &stream)
+class FormatClass {
+
+	int main_int;
+
+public:
+	FormatClass(int input_int);
+	void formatter();
+};
+
+FormatClass::FormatClass(int input_int = 10)
 {
-	stream.setf(ios::right);
-	stream << setw(10);
-	return stream;
+	main_int = input_int;
 }
-int main(void)
+void FormatClass::formatter()
 {
+	cout << "Исходное число:      А это с форматированием\n" << main_int;
+	cout.flags(ios::right | ios::hex | ios::showbase | ios::uppercase);
+	cout.width(25);
+	cout.precision(15);
+	cout << main_int << "\n";
+};
+
+int main()
+{
+	int buf_int;
 	setlocale(LC_ALL, "RUS");
-	cout << "р    а    з" << left10 << "р   а   з     " << "р   а   
-з" << "\n";
+
+	cout << "Введите исходное число => ";
+	cin >> buf_int;
+	FormatClass obj(buf_int);
+	obj.formatter();
+
+	system("pause");
 	return 0;
 }
-
-
