@@ -1,6 +1,3 @@
-/*
-
-*/
 #include <iostream>
 using namespace std;
 
@@ -11,11 +8,9 @@ struct Item {
 
 int main()
 {
+	int arr[4], i, m;
     Item* first = 0;
     Item* p;
-    int arr[4];
-    int i;
-    int m;
 
     cout<<"Начальный m: "<<m<<"Адрес: "<<&m<<"\n";
     // Создать список
@@ -50,22 +45,11 @@ int main()
         p = p->next;
     }
 
-    // Пройти список и удалить элементы
-    /*
-    p = first;
-    while (p) {
-        cout << p->info << "  ";
-        p = p->next;
-    }
-    */
     cout<<"Введите искомое число: ";
    	cin>>m;
    	i=0;
-   	cout<<"----------------------------";
    	p = first;
     while (p){
-    	cout<<"p->info : "<<p->info<<"\n";
-    	cout<<"----------------------------";
     	if ((p->info) == m){
     		cout<<"Искомый элемент есть в списке "<<"\n";
     		i++;
@@ -80,8 +64,14 @@ int main()
         p = first;
         first = first->next;
         delete p;
+        cout<<"Информация после удаления: "<<p->info<<" Адрес: "<<p<<" Указывает на: "<<p->next<<"\n";
     }
-    //cout<<"Информация после удаления"
+
+    cout<<"Вывод массива:\n";
+    for (i=0;i<4;i++){
+    	cout<<"Информация: "<<arr[i]<<" Адрес "<<&arr[i]<<"\n";
+    }
+
 return 0;
 }
 
