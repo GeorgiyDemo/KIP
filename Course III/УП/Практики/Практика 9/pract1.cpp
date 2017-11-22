@@ -29,7 +29,7 @@ int& MainClass::operator[](int i)
 {
     if ((i>0) && (i<5)) {
         cout << "Ошибка!\n";
-        //exit(1);
+        exit(1);
     }
     return obj[i];
 }
@@ -45,9 +45,9 @@ int main()
     MainClass main_obj(1, 2, 3, 4);
     main_obj.show();
 
-    //main_obj[1] = -2;
+    main_obj[1] = -2;
     main_obj[2] = 5;
-    //main_obj[3] = 6;
+    main_obj[3] = 6;
     
     return 0;
 }
