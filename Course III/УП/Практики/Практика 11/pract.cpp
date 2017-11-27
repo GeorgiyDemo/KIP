@@ -31,14 +31,14 @@ public:
     StringClass();
     StringClass(char*);
     ~StringClass();
-    char* number1(); //метод, выполняющий поставленную задачу.
-    char* number2(); //метод, выполняющий поставленную задачу.
+    char* number1();
+    char* number2();
     void Set(char*);
-    friend void print(StringClass&); //функция-друг печати
-    friend ostream& operator<<(ostream&, StringClass&); //перегрузка оператора вывода
-    friend istream& operator>>(istream&, StringClass&); //перегрузка оператора ввода
-    friend char* number1(StringClass&); //функция-друг, выполняющий поставленную задачу.
-    friend char* number2(StringClass&); //функция-друг, выполняющий поставленную задачу.
+    friend void print(StringClass&);
+    friend ostream& operator<<(ostream&, StringClass&);
+    friend istream& operator>>(istream&, StringClass&);
+    friend char* number1(StringClass&);
+    friend char* number2(StringClass&);
 };
 StringClass::StringClass()
 {
@@ -46,6 +46,7 @@ StringClass::StringClass()
     str[0] = '\0';
     str_return = new char[SIZE];
     str_return[0] = '\0';
+
 };
 StringClass::StringClass(char* s)
 {
@@ -67,7 +68,7 @@ void StringClass::Set(char* s)
     str[i] = '\0';
 };
 
-//Если длина L кратна 3-м, то удаляются все числа, делящиеся на 3;
+//Если длина L кратна 3-м, то удаляются все числа, делящиеся на 3
 char* StringClass::number1()
 {
 	bool boolflag = false;
@@ -93,29 +94,26 @@ char* StringClass::number1()
     return str_return;
 };
 
+//Длина L делится на 5, то удаляется все символы кроме a-z
 char* StringClass::number2()
 {
-	bool boolflag = false;
-    int j = 0;
-    if ((strlen(str) % 3) == 0){
-    	cout<<"--> Длина строки кратна 3\n";
-        for (unsigned int i = 0; i < strlen(str); i++){
-            if ((toDigit(str[i]) % 3) != 0){
-            	boolflag = true;
-                str_return[j] = str[i];
-                j++;
-            }
-        }
-        str_return[j] = '\0';
-   	(boolflag == true) ? cout<<"--> Есть цифры, кратные 3": cout<<"--> Нет цифр, кратных 3";
-    }
-    else {
-        strcpy(str_return, str);
-        cout<<"--> Длина строки не кратна 3\n";
-    }
-    cout<<"\n*Преобразованная строка*\n--> ";
-
-    return str_return;
+	int i, j, f;
+	char b[SIZE]="0123456789";
+	char c[SIZE]=".?:;|+-()&^%";
+ 
+	for(int j=0;j<strlen(str);j++)
+		for(int i=0;i<strlen(str);i++){
+			if(str[j]==b[i]){
+				cout<<"--> В строке присутствуют числа\n";
+				str[j]='#';
+			}
+		}
+	for( j=0;j<strlen(str);j++)
+		for(int f=0;f<strlen(str);f++){
+			if(str[j]==c[f])
+				str[j]='#';
+		}
+    return str;
 };
 
 char* number1(StringClass& obj) {
@@ -143,18 +141,20 @@ istream& operator>>(istream& stream, StringClass& ob)
 int main()
 {
     char s[265];
+    char s1[265];
 
     LINE;
+    cout<<"Задание №1\n";
     cout<<"|Пример с доступом к методам класса непосредственно через переменную|\nВведите строку и нажмите \"Enter\" => ";
-    cin.getline(s, 256); //считываем полностью всю строку
-    StringClass str(s); //доступ к методам класса непосредственно через переменную,
+    cin.getline(s, 256);
+    StringClass str(s);
     cout<<"Вы ввели строку: ";
 	print(str);
 	cout<<"\n\n*Результат выполнения*"<<endl;
 	cout<<number1(str)<<endl;
-	
-	///////////////////////////////////////////////////////
+
 	LINE;
+	cout<<"Задание №1\n";
 	cout << "|Пример с доступом к методам класса через указатель|\nВведите строку и нажмите \"Enter\" => ";
 	cin.getline(s,256);
 	StringClass *pstr;
@@ -165,5 +165,28 @@ int main()
 	cout<<"\n\n*Результат выполнения*"<<endl;
 	cout<<number1(*pstr)<<endl;
 	delete pstr;
+
+	LINE;
+	cout<<"Задание №2\n";
+    cout<<"|Пример с доступом к методам класса непосредственно через переменную|\nВведите строку и нажмите \"Enter\" => ";
+    cin.getline(s1, 256);
+    StringClass str1(s1);
+    cout<<"Вы ввели строку: ";
+	print(str1);
+	cout<<"\n\n*Результат выполнения*"<<endl;
+	cout<<number2(str1)<<endl;
+
+	LINE;
+	cout<<"Задание №2\n";
+	cout << "|Пример с доступом к методам класса через указатель|\nВведите строку и нажмите \"Enter\" => ";
+	cin.getline(s,256);
+	StringClass *pstr1;
+	pstr1=new StringClass();
+	pstr1->Set(s);
+	cout<<"Вы ввели строку: ";
+	print(*pstr1);
+	cout<<"\n\n*Результат выполнения*"<<endl;
+	cout<<number2(*pstr1)<<endl;
+	delete pstr1;
 	return 0;
 };
