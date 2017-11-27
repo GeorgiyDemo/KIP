@@ -1,65 +1,72 @@
+#define LINE cout << "----------------------\n"
 #include <iostream>
-#include <math.h>
-#include <math.h>
-
 using namespace std;
-int leng = 0;
 
-struct tangle {
-	tangle* point1;
-	tangle* point2;
-	int inf;
+int global_counter = 0;
+
+struct ExampleClass {
+	int value_int;
+    ExampleClass* object1;
+    ExampleClass* object2;
 };
 
-tangle *a = NULL;
+ExampleClass* a = NULL;
 
-void additem(tangle* &now,  int inf) {
-	static tangle* now1, *now2, *now3;
-	if (now == NULL) {
-		now = new tangle;
-		now->inf = inf;
-		now->point1 = NULL;
-		now->point2 = NULL;
-		leng++;
-		if (leng == 1) now2 = now;
-		if ((leng + 1) % 3 == 0) now1 = now;
-		if (((leng + 2) % 3 == 0) && leng != 1) {
-			now2 = now;
-			now1->point2 = now;
-		}
-		if (leng % 3 == 0)
-		{
-			now->point2 = now2;
-			now2->point2 = now;
-		}	}
-else
+void add_item(ExampleClass*& abstract_val, int transfer_int);
+void struct_outer(ExampleClass*& abstract_val);
+
+int main()
 {
-	additem(now->point1, inf);
+	int buf_inputer;
+	cout<<"Введите кол-во значений для записи => ";
+	cin>>buf_inputer;
+    for (int i = 1; i <= buf_inputer; i++)
+        add_item(a, i);
+    LINE;
+    cout << "*Выборочный вывод*\n";
+    cout<<"--> "<<a->object1->object1->value_int<<" ["<<&a->object1->object1->value_int<<"]\n";
+    cout<<"--> "<<a->object2->object2->value_int<<" ["<<&a->object2->object2->value_int<<"]\n";
+    cout<<"--> "<<a->object1->object2->value_int<<" ["<<&a->object1->object2->value_int<<"]\n";
+    cout<<"--> "<<a->object2->object1->object2->value_int<<" ["<<&a->object2->object1->object2->value_int<<"]\n";
+    LINE;
+    cout << "*Вывод всей структуры*\n";
+    struct_outer(a);
+    return 0;
 }
-	}
 
-
-void print(tangle *&now)
+void add_item(ExampleClass*& abstract_val, int transfer_int)
 {
-	if (now != NULL) {
-		cout << now->inf << endl;
-		print(now->point1);
-	}
+
+    static ExampleClass *FirstStatic, *SecondStatic;
+    if (abstract_val == NULL) {
+        abstract_val = new ExampleClass;
+        abstract_val->value_int = transfer_int;
+        abstract_val->object1 = NULL;
+        abstract_val->object2 = NULL;
+        global_counter++;
+        if (global_counter == 1)
+            SecondStatic = abstract_val;
+        if ((global_counter + 1) % 3 == 0)
+            FirstStatic = abstract_val;
+        if (((global_counter + 2) % 3 == 0) && global_counter != 1) {
+            SecondStatic = abstract_val;
+            FirstStatic->object2 = abstract_val;
+        }
+        if (global_counter % 3 == 0) {
+            abstract_val->object2 = SecondStatic;
+            SecondStatic->object2 = abstract_val;
+        }
+    }
+    else {
+        add_item(abstract_val->object1, transfer_int);
+    }
 }
 
-int main() {
-for (int i = 1; i <= 6; i++){
-	additem(a, i);
-}
-	setlocale(LC_ALL, "rus");
-	cout << "Показательный вывод: "<<endl;
-	printf("%d\n", a->point1->point1->inf);
-	printf("%d\n", a->point2->point2->inf);
-	printf("%d\n", a->point1->point2->inf);
-	printf("%d\n", a->point2->point1->point2->inf);
-	cout << "Вывод всей структуры: "<<endl;
-	print(a);
 
-return 0;
+void struct_outer(ExampleClass*& abstract_val)
+{
+    if (abstract_val != NULL) {
+        cout<<"--> "<<abstract_val->value_int <<" ["<<&abstract_val->value_int<<"]\n";
+        struct_outer(abstract_val->object1);
+    }
 }
-
