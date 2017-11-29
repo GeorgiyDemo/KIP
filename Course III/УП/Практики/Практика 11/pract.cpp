@@ -101,18 +101,25 @@ char* StringClass::number2()
 	char b[SIZE]="0123456789";
 	char c[SIZE]=".?:;|+-()&^%";
  
-	for(int j=0;j<strlen(str);j++)
-		for(int i=0;i<strlen(str);i++){
-			if(str[j]==b[i]){
-				cout<<"--> В строке присутствуют числа\n";
-				str[j]='#';
-			}
-		}
-	for( j=0;j<strlen(str);j++)
-		for(int f=0;f<strlen(str);f++){
-			if(str[j]==c[f])
-				str[j]='#';
-		}
+ 	if ((strlen(str) % 5) ==0){
+        cout<<"--> Длинна строки делится на 5\n";
+    	for(int j=0;j<strlen(str);j++)
+    		for(int i=0;i<strlen(str);i++){
+    			if(str[j]==b[i]){
+    				cout<<"--> В строке присутствуют числа\n";
+    				str[j]='#';
+    			}
+    		}
+    	for( j=0;j<strlen(str);j++)
+    		for(int f=0;f<strlen(str);f++){
+    			if(str[j]==c[f]){
+                    cout<<"--> В строке присутствуют спец. символы\n";
+    				str[j]='#';
+                }
+    		}
+	}
+    else
+        cout<<"--> Длинна строки не делится на 5\n";
     return str;
 };
 
