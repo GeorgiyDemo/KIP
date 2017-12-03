@@ -1,10 +1,10 @@
 /*
+
   Вариант 4
   Написать программу, которая считывает текст из 
   файла и выводит на экран только строки,
   не содержащие двузначных чисел.
   
-  //Еще добавить потоковый ввод
 */
 
 #include <cctype>
@@ -41,8 +41,8 @@ void StringClass::checker()
 
 int main()
 {
-    StringClass obj;
-    obj.checker();
-
-    return 0;
+  StringClass* obj;
+  obj = new StringClass;
+  obj->checker();
+  return 0;
 }

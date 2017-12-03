@@ -1,100 +1,59 @@
 /*
+
   Вариант 4
   Написать программу, которая считывает текст из 
   файла и выводит на экран только строки,
   не содержащие двузначных чисел.
   
-  //Еще добавить потоковый ввод
 */
 
-#include <cctype>
-#include <iostream>
-#include <string.h>
 #include <fstream>
-#include <sstream>
-
+#include <iostream>
 using namespace std;
 
-class StringClass
+class StringStreamClass
 {
 
-	protected:
+   protected:
+       char buff[50];
 
-	    FILE* buf_file;
-      stringstream ss;
-	    char str[256];
-
-	public:
-      void input_file();
-	    void checker();
+   public:
+       void readstream();
 };
 
-void StringClass::input_file(){
+void StringStreamClass::readstream(){
 
+   int n, tmp_counter = 0;
+   char* a;
+   
+   cout << "Введите кол-во строк в файле => ";
+   cin >> n;
+   ifstream fin("txt.txt");
+   cout << "Вывод строк, согласно условию:\n";
 
-   ifstream in ("txt.txt"); 
- 
-      if (! in) { 
-         cout << "Невозможно открыть файл\n";
-      }
-      while (in){
-         in >> str;
-         ss << str<<"\n";
-      } 
-      in.close(); 
-}
-
-void StringClass::checker()
-{
-    char cset[] = "1234567890";
-
-    const string& tmp = ss.str();   
-    const char* cstr = tmp.c_str();
-
-    cout<<cstr;
-
-/*
-    int down=0;
-    int up=down;
-    int symbol=up;
-
-    for(int i=0;i<15;i++){
-      up++;
-      if (cstr[i] == "\n"){
-         for(j=down;down<up+1;down++){
-            if (isdigit(cstr[j])==true){
-              symbol++;
+    for (int i = 0; i < n; i++) {
+        fin.getline(buff, 50);
+        if (strlen(buff)==2){
+           for (int j=0;j<2;j++){
+            if(isdigit(buff[j])!=0){
+               tmp_counter++;
             }
-            if (symbol==2){
-              cout<<"\n\n"
-            }
-
-            }
-         } 
-      } 
-
-      cout<<cstr[i];
+           }
+           if (tmp_counter!=2)
+            cout << buff << "\n";
+         tmp_counter=0;
+            
+         }
+         else
+            cout << buff << "\n"; 
     }
-*/
-
-
-/*
-        gets(str, 256, ss);
-        char* symbol = str;
-        while (!isdigit(*symbol))
-            symbol++;
-        int i = strspn(symbol, cset);
-        if (i != 2)
-            puts(str);
-*/
-    
+    fin.close();
 }
 
 int main()
 {
-    StringClass obj;
-    obj.input_file();
-    obj.checker();
-
-    return 0;
+   StringStreamClass* mainobj;
+   mainobj = new StringStreamClass;
+   mainobj->readstream();
+   return 0;
 }
