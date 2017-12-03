@@ -5,7 +5,6 @@
   не содержащие двузначных чисел.
   
 */
-
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -16,16 +15,14 @@ char q, w, e;
 
 int main()
 {
-    cout << "Введите кол-во строк в файле" << endl;
-    cin >> n;
-    char buff[50]; // буфер промежуточного хранения считываемого из файла
-    ifstream fin("txt.txt");
-    cout << "Исходные данные\n";
+   char buff[50];
+   cout << "Введите кол-во строк в файле => ";
+   cin >> n;
+   ifstream fin("txt.txt");
+   cout << "Исходные данные\n";
 
     for (i = 0; i < n; i++) {
-        fin.getline(buff, 50); // считали строку из файла
-        cout << buff << "\n"; // напечатали эту строку
-        int count = strlen(buff);
+        fin.getline(buff, 50);
         if (strlen(buff)==2){
 
            for (int j=0;j<2;j++){
@@ -35,11 +32,15 @@ int main()
            }
            if (tmp_counter==2){
             tmp_counter=0;
-            cout<<"ДВУХЗНАЧНОЕ ЧИСЛО\n";
+            }
+            else{
+               tmp_counter=0;
+               cout << buff << "\n"; 
             }
          }
-        cout << "Кол-во символов= " << count << endl;
+         else
+            cout << buff << "\n"; 
     }
-    fin.close(); // закрываем файл
+    fin.close();
     return 0;
 }
