@@ -1,12 +1,12 @@
 #include <iostream>
-#include <stdlib.h>
 using namespace std;
 class B2 {
     int e;
 
 public:
     B2(int x, int y){};
-    B2(int x) { e = x; }
+    B2(int x) { 
+        e = x; }
     void show_B2() { cout << "B2=  " << e << "\n"; }
 };
 
@@ -23,7 +23,7 @@ class D1 : private B2, public B1 {
     int b;
 
 public:
-    D1(int x, int y,int i,int u) : B2(x,y), B1(i) { b = x; };
+    D1(int x, int y,int i,int u) : B2(x), B1(i) { b = x; };
 
     void show_D1()
     {
@@ -32,8 +32,6 @@ public:
         show_B2();
     }
 };
-
-
 
 class D2 : public D1 {
 	int c;
@@ -55,9 +53,6 @@ int main()
     setlocale(LC_ALL, "rus");
 
     D3 temp(100, 200, 300, 400);
-
-    /*
-	cout << "D4 temp1(1,2,3,4);\n";*/
     cout << "\nПолученная иерархия: \n";
     temp.show_D3();
 
