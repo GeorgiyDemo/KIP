@@ -1,100 +1,74 @@
 /*
-	Разместить в памяти компьютера массив из N целых чисел со знаком.
-	Написать программу, позволяющую увеличить на 10
-	отрицательные элементы массива.
-	Вывести на экран измененный массив, либо, если таких элементов в массиве нет,
-	вывести на экран соответствующее сообщение.
-	Ввод массива необходимо осуществлять двумя способами (предусмотреть наличие меню):
+	Разместить в памяти компьютера массив из N целых беззнаковых чисел. 
+	Написать программу, позволяющую уменьшить на единицу элементы массива с четными индексами. 
+	Вывести на экран измененный массив. 
+	Ввод массива необходимо осуществлять двумя способами (предусмотреть наличие меню): 
 	вручную с клавиатуры, а также с помощью ГСЧ.
-
 */
-
+#include "stdafx.h"
 #include <iostream>
-#include <ctime>
+#include <time.h>
 using namespace std;
 
-class ArrayClass{
+int main(void) {
+	setlocale(LC_ALL, "rus");
+	unsigned int *a;
+	int i, n = 0, k = 0;
+	do {
+		cout << "*1* Случайный ввод\n*2* Ручной ввод\n*0* Выход \n=> ";
+		srand(time(NULL));
+		cin >> k;
+		if (k == 0)
+			break;
+		cout << "n=";
+		cin >> n;
+		a = new unsigned int[n];
+		if (k == 1)
+		{
+			cout << "Исходный массив: " << endl;
+			for (i = 0; i < n; i++)
+			{
+				a[i] = rand() % 50;
+				cout << a[i] << " ";
+			}
+		}
+		if (k == 2)
+		{
+			cout << "Введите элементы: " << endl;
+			for (i = 0; i < n; i++)
+			{
+				cout << "a[" << i << "]= ";
+				cin >> a[i];
+			}
+			cout << "Получившийся массив: " << endl;
+			for (i = 0; i < n; i++) {
+				cout << "a[" << i << "]= " << a[i] << endl;
+			}
+		}
 
-	protected:
-	    int *a;
-	    int n;
-	    unsigned int start_time;
-	    unsigned int end_time;
+		n = n * 2;
+		_asm {
+			mov esi, a
+			mov eax, [esi]
+			mov ecx, n
+			mov eax, 0
 
-	public:
-		void outarray();
-	    void initarray();
-	    void enterarray();
-	    void checker();
-	    int timer();
-};
+			l1 :
+			test esi, 4
+				jnbe m2
+				add [esi], 1
+				add esi, 4; следующий индекс
 
-void ArrayClass::outarray(){
+				m2 :
+			inc esi
+				loop l1;
 
-	cout<<"Исходный массив:\n[";
-	for(int i=0;i<n;i++)
-    	cout<<a[i]<<" ";
-	cout<<"]\n";
+		}
 
-}
+		cout << "Преобразованный массив: " << endl;
+		for (i = 0; i < n-5; i++)
+			cout << a[i] << " ";
 
-void ArrayClass::initarray(){
-
-	cout<<"Введите n => "; cin>>n;
-	srand(time(0));
- 	srand((unsigned)time(0));
-	a = new int [n];
-	for(int i=0;i<n;i++)
-	    a[i]=rand()%100-50;
-	outarray();
-}
-
-void ArrayClass::enterarray(){
-  
-  cout<<"Введите n => "; cin>>n;
-  a = new int [n];	
-  cout<<"<Заполняем массив>\n";
-  for (int i=0;i<n;i++){
-      cout<<"Введите элемент №"<<i<<": ";
-      cin>>a[i];
-  }
-
-}
-
-void ArrayClass::checker(){
-	start_time = clock();
-	for(int i=0;i<n;i++)
-		if (a[i]<0)
-			a[i]+=10;
-
-	end_time = clock(); 
-}
-
-int ArrayClass::timer(){
-	return end_time - start_time; 
-}
-
- int main(){
-  	
-  	int k;
-  	ArrayClass* arr_obj;
-  	arr_obj = new ArrayClass;
-
-    cout<<"\n\n1. Генерация массива\n2. Ручной ввод массива\n=> ";
-    cin>>k;
-    switch (k)  
-    {  
-        case 1:
-           	arr_obj->initarray();
-           	break;
-        case 2:
-            arr_obj->enterarray();
-            break;
-    }    
-    arr_obj->checker();
-    arr_obj->outarray();
-
-    cout<<"\nВремя: "<<arr_obj->timer()<<" мс.\n";
-	return 0;
-
+		system("pause");
+	} while (k != 0);
 }
