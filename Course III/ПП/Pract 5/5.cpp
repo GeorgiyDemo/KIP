@@ -4,18 +4,16 @@
  	С помощью перегруженных функций (без классов)
  	С помощью перегруженных конструкторов или методов класса
 */
-
 #include <sstream>
 #include <iostream>
-#include <string>
 using namespace std;
-
+double swap(int a, double b);
+char swap(char *c);
 class MyClass {
 	int a;
 	double b;
 	char* c;
 	int buf;
-
 
 public:
 	void swap(int a, double b) {
@@ -28,13 +26,11 @@ public:
 	void swap(char *c) {
 		double temp = strtod(c, NULL);
 		this->b = temp;
-
-		//В c (char) надо записать a (double)
 		stringstream s;
 		double aDoubleValue = this->buf;
 		s << aDoubleValue;
 		string output = s.str();
-		this->c=  strdup(output.c_str());
+		this->c = strdup(output.c_str());
 	}
 	void Show() {
 		cout << "a = " << this->a << endl;
@@ -43,17 +39,57 @@ public:
 	}
 };
 int main() {
-	setlocale(LC_ALL, "rus");
 	int a;
 	double b;
 	char *c = "3";
 	MyClass  obj;
+
+	cout << "Задание А:" << endl;
+	cout << "с помощью перегруженных функций" << endl;
 	cout << "a = ";
 	cin >> a;
 	cout << "b = ";
 	cin >> b;
-	cout << "c = " << c;
+	c = "3";
+	cout << "c = " << c << endl;
+	double y = swap(a, b);
+	char z = swap(c);
+	cout << "c = " << z << endl;
+
+	cout << "Задание Б:" << endl;
+	cout << "с помощью перегруженных методов класса" << endl;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	cout << "c = " << c << endl;
 	obj.swap(a, b);
 	obj.swap(c);
 	obj.Show();
+
+	cout << "\n";
+}
+double swap(int a, double b){
+	int buf;
+double c1;
+c1 = b;
+b = (double)a;
+buf = a;
+a = (int)c1;
+cout << "a = " << a << endl;
+return b;
+}
+
+char swap(char * c)
+{
+	double b,temp = strtod(c, NULL);
+	int buf=1;
+	b = temp;
+	stringstream s;
+	double aDoubleValue = buf;
+	s << aDoubleValue;
+	string output = s.str();
+	c = strdup(output.c_str());
+	cout << "b = " << b << endl;
+	return *c;
 }
