@@ -8,8 +8,6 @@
 вручную с клавиатуры, а также с помощью ГСЧ.
 
 */
-
-#include "stdafx.h"
 #include <iostream>
 #include <ctime>
 using namespace std;
@@ -77,7 +75,6 @@ int ArrayClass::timer() {
 
 int main() {
 
-	setlocale(LC_ALL, "RUS");
 	int k;
 	ArrayClass* arr_obj;
 	arr_obj = new ArrayClass;
@@ -98,7 +95,6 @@ int main() {
 	arr_obj->outarray();
 
 	cout << "\nВремя: " << arr_obj->timer() << " мс.\n";
-	system("pause");
 	return 0;
 
 }
