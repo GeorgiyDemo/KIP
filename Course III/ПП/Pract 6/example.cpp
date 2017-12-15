@@ -1,10 +1,17 @@
 /*
-26. Создать абстрактный класс CVehicle.
-	На его основе реализовать классы CPlane и ССаr.
-	Классы должны иметь возможность задавать и получать координаты,
-	параметры средств передвижения (цена, скорость, год выпуска).
-	Для самолета должна быть определена высота, для автомобиля — количество пассажиров.
-	Написать программу, создающую список объектов этих классов в динамической памяти.
+    Определить абстрактный базовый класс "Летательный аппарат" содержащий данные,
+    описывающие название, стартовую массу аппарата. В этом классе должна быть 
+    чистая виртуальная функция print для вывода данных. 
+    Затем определите производный класс «Ракета», 
+    в котором будут новые элементы данных – количество ступеней, 
+    масса полезной нагрузки. Определите класс «Вертолёт»,
+    производный от «Летательного аппарата», в котором будут новые элементы данных
+     – количество человек в экипаже. 
+
+    Вывод данных должен осуществляться с помощью виртуальной функции print. 
+    Написать программу, создающую список объектов этих классов в динамической
+    памяти. 
+
 */
 
 #include <iostream>
@@ -13,23 +20,23 @@
 using namespace std;
 
 //Класс летательных аппаратов
-class CVehicle {
+class FlyApparatClass {
 protected:
     int mass;
     string name;
 
 public:
-    CVehicle(int m = 0, string n = "")
+    FlyApparatClass(int m = 0, string n = "")
         : mass(m),
           name(n)
     {
     }
     virtual void Print() const = 0;
-    virtual ~CVehicle() {}
+    virtual ~FlyApparatClass() {}
 };
 
 //Класс ракеты
-class RocketClass : public CVehicle {
+class RocketClass : public FlyApparatClass {
     int netto, amount;
 
 public:
@@ -47,12 +54,12 @@ public:
     }
 };
 
-class HelicopterClass : public CVehicle {
+class HelicopterClass : public FlyApparatClass {
     int units;
 
 public:
     HelicopterClass(int m, string n, int u = 0)
-        : CVehicle(m, n)
+        : FlyApparatClass(m, n)
         , units(u)
     {
     }
@@ -70,7 +77,7 @@ public:
 int main()
 {
     RocketClass a;
-    CVehicle* p = &a;
+    FlyApparatClass* p = &a;
     a.GetData(48, "РАКЕТА №1", 20, 3);
     p->Print();
 
@@ -84,4 +91,3 @@ int main()
         chop_array[i].Print();
     return 0;
 }
-
