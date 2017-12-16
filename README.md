@@ -25,7 +25,10 @@
 * УП.01.01 Учебная практика (по программированию):
 	* [Практические работы](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A3%D0%9F/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8)
 	* [Лекции и материалы](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A3%D0%9F/%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D0%B8)
-* [Прикладное программирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F) - C++
+* Прикладное программирование:
+	* [Индивидуальные практические работы](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F/practs)
+	* [Совместные практические работы](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F/group%20tasks)
+	* [Пример листингов программ (из учебника)](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9F/examples)
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
 * [Технология разработки и защиты баз данных](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94) - SQL/Access
 * [Бухгалтерский учет](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%A3) - DOC
