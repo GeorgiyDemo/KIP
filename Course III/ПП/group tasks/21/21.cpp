@@ -40,5 +40,6 @@ int main()
     cin >> a.N;
     cout << "ln ( " << 1 + a.x << ") = " << a.Ln() << endl;
     cout << "ln ( " << 1 + a.x << ") = " << log(1 + a.x) << endl;
-    system("pause");
+
+    return 0;
 }
