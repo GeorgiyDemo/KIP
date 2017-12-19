@@ -39,7 +39,6 @@ class VectorClass
 
 
 void VectorClass::FileOutVectors(int way_id, double number){
-cout<<"number: "<<number;
 
   outfile=fopen("out.txt","a");
 
@@ -53,6 +52,14 @@ cout<<"number: "<<number;
 
     if(way_id == 2){
         fprintf(outfile,"\nПреобразованный вектор после разделения элементов на %f:\n[",number);
+        for (int i = 0; i < vector2.size(); i++)
+        fprintf(outfile,"%f ",vector2[i]);
+    
+     fprintf(outfile,"]\n");
+    }
+
+    if(way_id == 3){
+        fprintf(outfile,"Преобразованный вектор после удаления целых чисел: %f:\n[",number);
         for (int i = 0; i < vector2.size(); i++)
         fprintf(outfile,"%f ",vector2[i]);
     
@@ -97,6 +104,7 @@ void VectorClass::vector2checker(double number){
         cout<<vector2[i]<<" "; 
     }
     cout<<"]\n";
+    FileOutVectors(3,number);
 
 }
 
