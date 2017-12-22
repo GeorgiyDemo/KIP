@@ -72,6 +72,13 @@ void VectorClass::FileOutVectors(int way_id, double number){
   fclose(outfile);
 }
 
+void VectorClass::middlevector(){
+    double sum;
+    for (vector<double>::iterator it = vector2.begin(); it !=vector2.end(); it++)
+        sum +=pow(*it,2);
+    cout<< sqrt(sum/vector2.size());
+}
+
 void VectorClass::outvector1(){
 
     cout << "\nИсходный вектор:\n[";
@@ -107,6 +114,7 @@ void VectorClass::vector2checker(double number){
         cout<<vector2[i]<<" "; 
     }
     cout<<"]\n";
+    middlevector();
     FileOutVectors(3,number);
 
 }
@@ -118,9 +126,19 @@ void VectorClass::initvector2(double number){
             vector2.push_back(vector1[i]);
 
         for (int i=0;i<n;i++){
-            vector2[i] = vector1[i]/number;
+                try
+            {
+                if (number == 0 )
+                    throw 123;
+                vector2[i] = vector1[i]/number;
+            }
+            catch (int e){
+                vector2[i] = 0;
+                cout<<"!";
+            }
         }
         outvector2(number);
+
         vector2checker(number);
 }
 
