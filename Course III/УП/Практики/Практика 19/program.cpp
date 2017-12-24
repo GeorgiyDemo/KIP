@@ -6,58 +6,79 @@
 	столбцы в массиве циклически сдвигались на одну позицию.
 
 */
-
+ 
 #include <iostream>
+#include <string>
+#include <cstdlib>
+ 
 using namespace std;
-//Размер поля-массива:
-const int n = 10;
-template <class X>
-class MyClass {
+ 
+template<class X, int n> class Abc
+{
 public:
-    //Поле-массив:
-    X array[n];
-    //Перегрузка оператора []:
+    X x[n];
+ 
     X operator[](int k)
     {
-        return array[k % n];
+        return x[k % n];
     }
-    //Перегрузка оператора ++:
-    MyClass operator++()
+ 
+    Abc operator++(int m)
     {
         X tmp;
-        int i;
-        tmp = array[n - 1];
-        for (i = n - 1; i > 0; i--)
-            array[i] = array[i - 1];
-        array[0] = tmp;
+        tmp = x[n - 1];
+ 
+        for (int i = n - 1; i > 0; i--)
+            x[i] = x[i - 1];
+ 
+        x[0] = tmp;
         return *this;
     }
-    //Метод для отображения массива:
-    void show()
+ 
+    Abc()
     {
+        srand(1);
         for (int i = 0; i < n; i++)
-            cout << array[i] << " ";
-        cout << endl;
+        {
+            x[i] = (X)(rand() % 100);
+        }
     }
-
-    //Конструктор класса:
-    MyClass()
+ 
+    Abc(string str)
     {
         for (int i = 0; i < n; i++)
-            array[i] = (X)(rand() % 25 + 100);
+        {
+            x[i] = str[i];
+        }
+    }
+ 
+    void ShowValue()
+    {
+        cout<<"[";
+        for (int i = 0; i < n; i++)
+        {
+            cout << x[i] << " ";
+        }
+        cout<<"]";
     }
 };
-
+ 
 int main()
 {
-    MyClass<int> obj1;
-    obj1.show();
-    for (int i = n; i < 2 * n; i++)
-        cout << obj1[i] << " ";
-    cout << endl;
-    MyClass<char> obj2;
-    obj2.show();
-    ++obj2;
-    obj2.show();
+    Abc<int, 10> abc;
+    cout << "Массив чисел до сдвига:\n";
+    abc.ShowValue();
+    abc++;
+    cout << "\nМассив чисел после сдвига:\n";
+    abc.ShowValue();
+ 
+    Abc<string, 13> abc2("KOT_MEOW_MEOW");
+    cout << "\n\nМассив строк до сдвига:\n";
+    abc2.ShowValue();
+    abc2++;
+    cout << "\nМассив строк после сдвига:\n";
+    abc2.ShowValue();
+ 
+    cout<<"\n";
     return 0;
 }
