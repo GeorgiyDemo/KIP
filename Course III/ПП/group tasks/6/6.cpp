@@ -125,7 +125,7 @@ int main()
 					miss[i][i] = miss[i][i] + fabs(data[i][j]) * miss[j][j] + fabs(helper[j]) * miss[i][j];
 				}
 			}
-			helper[i] = data[i][i]; //превращаем в Зейделя одной строкой
+			
 		}
 		help = 0;
 		for (i = 0; i < n; i++) {
