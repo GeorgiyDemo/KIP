@@ -1,11 +1,12 @@
 /*
-    Создать абстрактный базовый класс Figure с виртуальной функцией - Периметр.
-    На его основе реализовать производные классы Rectangle, Circle,
-    в которых данная функция переопределена.
-    В функции main определить массив указателей на абстрактный класс,
-    в котором присваиваются адреса различных объектов.
+Создать абстрактный базовый класс Figure с виртуальной функцией - Периметр.
+На его основе реализовать производные классы Rectangle, Circle,
+в которых данная функция переопределена.
+В функции main определить массив указателей на абстрактный класс,
+в котором присваиваются адреса различных объектов.
 */
 
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
@@ -13,8 +14,9 @@ class Figure {
 public:
     virtual double getSquare() { return 0; };
     virtual double getPerimeter() { return 0; };
-    virtual void showFigureType(){};
+    virtual void showFigureType() {};
 };
+
 class Rectangle : public Figure {
 private:
     double width;
@@ -36,8 +38,7 @@ public:
     }
     void showFigureType()
     {
-        cout << "Rectangle"
-             << "\n";
+        cout << "Rectangle\n";
     }
 };
 class Circle : public Figure {
@@ -46,7 +47,7 @@ private:
 
 public:
     Circle(double r)
-        : radius(r){};
+        : radius(r) {};
 
     double getSquare()
     {
@@ -59,7 +60,7 @@ public:
     void showFigureType()
     {
         cout << "Circle"
-             << "\n";
+            << "\n";
     }
 };
 
@@ -76,11 +77,12 @@ int main()
 
     Circle* circle[3];
     circle[0] = new Circle(25);
-    circle[1] = new Circle(25);
-    circle[2] = new Circle(25);
+    circle[1] = new Circle(20);
+    circle[2] = new Circle(30);
     for (int i = 0; i < 3; i++) {
         cout << "Circle square: " << circle[i]->getSquare() << "\n";
     }
 
+    system("pause");
     return 0;
 }

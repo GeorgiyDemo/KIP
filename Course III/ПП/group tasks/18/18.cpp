@@ -1,43 +1,45 @@
 /*
-    Создайте функцию add () которая   к аргументу прибавляет 1, где аргументы целый (int), вещественный (double), символьный  (char) тип.
-	a)	С помощью перегруженных функций(без классов);
-	b)	С помощью перегруженных конструкторов или методов класса.
+Создайте функцию add () которая   к аргументу прибавляет 1, где аргументы целый (int), вещественный (double), символьный  (char) тип.
+a)  С помощью перегруженных функций(без классов);
+b)  С помощью перегруженных конструкторов или методов класса.
 */
 
+#include "stdafx.h"
 #include <iostream>
+
 using namespace std;
 class Myclass {
 public:
     Myclass(double x)
     {
         x++;
-        cout << "x=" << x << endl;
+        cout << "x=" << x << "\n";
     }
     Myclass(int x)
     {
         x++;
-        cout << "x=" << x << endl;
+        cout << "x=" << x << "\n";
     }
     Myclass(char x)
     {
         x++;
-        cout << "x=" << x << endl;
+        cout << "x=" << x << "\n";
     }
 };
-void Add(double x)
+void add(double x)
 {
     x++;
-    cout << "x=" << x << endl;
+    cout << "x=" << x << "\n";
 }
-void Add(int x)
+void add(int x)
 {
     x++;
-    cout << "x=" << x << endl;
+    cout << "x=" << x << "\n";
 }
-void Add(char x)
+void add(char x)
 {
     x++;
-    cout << "x=" << x << endl;
+    cout << "x=" << x << "\n";
 }
 
 int main()
@@ -45,8 +47,10 @@ int main()
     cout << "A:\n";
     Myclass a(1), b(3.2), c('c');
     cout << "B:\n";
-    Add(1);
-    Add(3.2);
-    Add('c');
+    add(1);
+    add(3.2);
+    add('c');
+
+    system("pause");
     return 0;
 }

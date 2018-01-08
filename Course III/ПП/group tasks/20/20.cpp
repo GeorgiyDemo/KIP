@@ -1,12 +1,13 @@
 /*
-    Создать абстрактный базовый класс Figure с виртуальной функцией – площадь поверхности.
-    Создать производные классы параллелепипед и шар, в 
-    которых данная функция переопределена. Продемонстрировать на 5 объектах.
+Создать абстрактный базовый класс Figure с виртуальной функцией – площадь поверхности.
+Создать производные классы параллелепипед и шар, в
+которых данная функция переопределена. Продемонстрировать на 5 объектах.
 */
 
+#include "stdafx.h"
 #include <iostream>
 #include <cmath>
-# define pi   3.14159265358979323846 
+# define pi 3.14159265358979323846 
 using namespace std;
 class figure
 {
@@ -27,7 +28,7 @@ public:
     virtual double show()
         const
     {
-        cout <<"шара с радиусом равным "<< r;
+        cout << "шара с радиусом равным " << r;
         return 0;
     }
     virtual double ploshad()
@@ -51,9 +52,9 @@ public:
     virtual double show()
         const
     {
-        cout << "паралепипеда со стороной a= " << a << " b= "<<b<<" c= "<<c;
+        cout << "паралепипеда со стороной a= " << a << " b= " << b << " c= " << c;
         return 0;
-    } 
+    }
 
     virtual double ploshad()
         const
@@ -63,8 +64,7 @@ public:
 };
 
 int main() {
-    setlocale(LC_ALL, "rus");
-    int r;
+    setlocale(LC_ALL, "RUS");
 
     figure *mas[4];
     mas[0] = new shar(5);
@@ -75,10 +75,12 @@ int main() {
     for (int i = 0; i < 4; i++) {
         cout << "У ";
         mas[i]->show();
-        cout <<". Площадь равна " << mas[i]->ploshad()<<endl;
+        cout << ", площадь равна " << mas[i]->ploshad() << "\n";
     }
-        for (int i = 0; i != 4; ++i) {
+    for (int i = 0; i != 4; ++i) {
         delete mas[i];
     }
+
+    system("pause");
     return 0;
 }

@@ -1,28 +1,29 @@
 /*
 26. Создать абстрактный класс CVehicle.
-	На его основе реализовать классы CPlane и ССаr.
-	Классы должны иметь возможность задавать и получать координаты,
-	параметры средств передвижения (цена, скорость, год выпуска).
-	Для самолета должна быть определена высота, для автомобиля — количество пассажиров.
-	Написать программу, создающую список объектов этих классов в динамической памяти.
+На его основе реализовать классы CPlane и ССаr.
+Классы должны иметь возможность задавать и получать координаты,
+параметры средств передвижения (цена, скорость, год выпуска).
+Для самолета должна быть определена высота, для автомобиля — количество пассажиров.
+Написать программу, создающую список объектов этих классов в динамической памяти.
 */
 
+#include "stdafx.h"
 #include <iostream>
 #include <list>
 using namespace std;
 
-class CVehicle{
+class CVehicle {
 protected:
 	int cost;
 	int speed;
 	int year;
 };
 
-class CCar : public CVehicle{
+class CCar : public CVehicle {
 public:
 	int passagers;
 
-	void SetParams(){
+	void SetParams() {
 		cout << "Cost=";
 		cin >> cost;
 		cout << "Speed=";
@@ -31,18 +32,18 @@ public:
 		cin >> year;
 	}
 
-	void GetParams(){
+	void GetParams() {
 		cout << "Cost=" << cost << "\n";
 		cout << "Speed=" << speed << "\n";
 		cout << "Year=" << year << "\n";
 	}
 };
 
-class CPlane : public CVehicle{
+class CPlane : public CVehicle {
 public:
 	int height;
 
-	void SetParams(){
+	void SetParams() {
 		cout << "Cost=";
 		cin >> cost;
 		cout << "Speed=";
@@ -51,7 +52,7 @@ public:
 		cin >> height;
 	}
 
-	void GetParams(){
+	void GetParams() {
 		cout << "Cost=" << cost << "\n";
 		cout << "Speed=" << speed << "\n";
 		cout << "Height=" << height << "\n";
@@ -65,27 +66,28 @@ int main()
 	CCar *cars[n];
 	CPlane *planes[n];
 
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		cout << "CCar number " << i << "\n";
 		cars[i] = new CCar();
 		cars[i]->SetParams();
 	}
 
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		cout << "CPlane number " << i << "\n";
 		planes[i] = new CPlane();
 		planes[i]->SetParams();
 	}
 
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		cout << "CCar number " << i << "\n";
 		cars[i]->GetParams();
 	}
 
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++) {
 		cout << "CPlane number " << i << "\n";
 		planes[i]->GetParams();
 	}
 
+	system("pause");
 	return 0;
 }

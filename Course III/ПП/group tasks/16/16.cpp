@@ -1,31 +1,28 @@
 /*
-	Создайте перегруженную функцию maxc(), которая находит максимум для двух переменных типа целые (int), вещественные (double), символьные (char). 
-	 a. С помощью перегруженных функций (без классов)
-	 b. С помощью перегруженных конструкторов или методов класса
+Создайте перегруженную функцию maxc(), которая находит максимум для двух переменных типа целые (int), вещественные (double), символьные (char).
+a. С помощью перегруженных функций (без классов)
+b. С помощью перегруженных конструкторов или методов класса
 */
-
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
 int maxc(int a, int b)
 {
 	if (a > b)
 		return a;
-	else
-		return b;
+	return b;
 }
 double maxc(double a, double b)
 {
 	if (a > b)
 		return a;
-	else
-		return b;
+	return b;
 }
 char maxc(char a, char b)
 {
 	if (a > b)
 		return a;
-	else
-		return b;
+	return b;
 }
 class Max {
 	char cmax;
@@ -69,4 +66,6 @@ int main()
 	cout << "Max(1,2).GetIntMax()=" << Max(1, 2).GetIntMax() << "\n";
 	cout << "Max(1.0,2.0).GetDoubleMax()=" << Max(1.0, 2.0).GetDoubleMax() << "\n";
 	cout << "Max('a','b').GetCharMax()=" << Max('a', 'b').GetCharMax() << "\n";
+	system("pause");
+
 }

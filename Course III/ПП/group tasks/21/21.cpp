@@ -1,6 +1,6 @@
+#include "stdafx.h"
 #include <iostream>
 #include <cmath>
-#include <math.h>
 using namespace std;
 
 class MyLog {
@@ -10,7 +10,6 @@ public:
     double Ln()
     {
         double ln1 = x, lnotv = x;
-        int i;
 
         for (int i = 2; i <= N; i++) {
 
@@ -32,14 +31,15 @@ public:
 
 int main()
 {
-    setlocale(LC_ALL, "rus");
+    setlocale(LC_ALL, "RUS");
     MyLog a;
     cout << "Введите число для получения логарифма = ";
     cin >> a.x;
     cout << "Введите диапазон = ";
     cin >> a.N;
-    cout << "ln ( " << 1 + a.x << ") = " << a.Ln() << endl;
-    cout << "ln ( " << 1 + a.x << ") = " << log(1 + a.x) << endl;
+    cout << "ln (" << 1 + a.x << ") = " << a.Ln() << endl;
+    cout << "ln (" << 1 + a.x << ") = " << log(1 + a.x) << endl;
 
+    system("pause");
     return 0;
 }
