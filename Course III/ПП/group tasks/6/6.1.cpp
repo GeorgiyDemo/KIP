@@ -64,7 +64,7 @@ int main()
 			}
 		}
 		if (fabs(copy - fabs(help)) > fabs(help)) {
-			cout << "\n\nНельзя решить методом Зейделя!";
+			cout << "\n\nНельзя решить методом Простых итераций!";
 			system("pause");
 			exit(0);
 		}
@@ -74,7 +74,7 @@ int main()
 	for (i = 0; i < n; i++)
 		for (j = i + 1; j < n; j++)
 			if (hlp[j] == hlp[i]) {
-				printf("\n\nНельзя решить методом Зейделя\n ");
+				printf("\n\nНельзя решить методом Простых итераций\n ");
 				system("pause");
 				exit(0);
 			}
