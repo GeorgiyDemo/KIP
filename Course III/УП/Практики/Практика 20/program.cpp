@@ -5,21 +5,26 @@
 using namespace std;
 
 int main() {
-	setlocale(LC_ALL, "Russian");
-	const int kol = 19; //кол-во работ
-	int sr, ost, i = 0;
+
+	setlocale(LC_ALL, "RUS");
+	const int kol = 19;
+	int sr, ost, i, sum, osenki[kol];;
 	double otv;
-	int osenki[kol];//массив для оценок
 	string s;
 
-	ifstream fs("file.txt", ios::in | ios::binary); //связываем файл
-	if (!fs) return 1;  // если не нашли файл, то завершаем 
-	while (getline(fs, s)) { // пока не достигнут конец файла класть 
-очередную строку в переменную (s)
-		osenki[i] = atoi(s.c_str());// переводим  строку в инт
+	i = sum = 0;
+
+	ifstream fs("INPUT.txt");
+	if (!fs) return 1; 
+	
+	while (getline(fs, s)) {
+			osenki[i] = atoi(s.c_str());
 		i++;
 	}
 	fs.close();
+
+	for (i = 0; i < kol; i++)
+		sum += osenki[i];
 
 	_asm {
 		mov eax, 0; начальное значение суммы
@@ -36,15 +41,21 @@ int main() {
 			mov ost, edx // остаток деления
 
 	}
-	otv = ost; //ответ = остаток 
-	otv = otv / kol + sr; //операция для красивого вывода
-	cout << otv << endl;
+	
+	otv = ost;
+	otv = otv / kol + sr;
 
-	ofstream out("output.txt");
-	out << "Ваш средний балл:" << otv; //вывод в файл
+	cout << "Текущие оценки: \n";
+	for (i = 0; i < kol; i++)
+		cout << osenki[i]<< " ";
+	cout << "\nСумма оценок: " << sum;
+	cout << "\nКол-во оценок: " << kol;
+	cout << "\nСредний балл: " << otv << endl;
+
+	ofstream out("OUT.txt");
+	out << "Средний балл: " << otv; //вывод в файл
 	out.close();
 
 	system("pause");
 	return 0;
 }
-
