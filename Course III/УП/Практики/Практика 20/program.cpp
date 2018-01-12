@@ -3,64 +3,60 @@
 #include <fstream>
 #include <string>
 using namespace std;
+const int K = 19;
 
-int main() {
+int main()
+{
 
-	setlocale(LC_ALL, "RUS");
-	const int kol = 19;
-	int sr, ost, i, sum, osenki[kol];;
-	double otv;
-	string FIO, s;
+    setlocale(LC_ALL, "RUS");
+    int middle_numbers, ender, i, sum, marks[K];
+    double answer;
+    string FIO, Localstring;
 
-	ifstream fs("INPUT.txt");
-	if (!fs) return 1; 
-	
-	i = 0;
-	while (getline(fs, s)) {
-		int buf = atoi(s.c_str());
-		if (buf == 0)
-			FIO = s.c_str();
-		else{
-			osenki[i] = atoi(s.c_str());
-			i++;
-		}
-	}
-	fs.close();
+    ifstream fs("INPUT.txt");
+    if (!fs)
+        return 1;
 
-	sum = 0;
-	for (i = 0; i < kol; i++)
-		sum += osenki[i];
+    i = 0;
+    while (getline(fs, Localstring)) {
+        int buf = atoi(Localstring.c_str());
+        if (buf == 0)
+            FIO = Localstring.c_str();
+        else {
+            marks[i] = atoi(Localstring.c_str());
+            i++;
+        }
+    }
+    fs.close();
 
-	_asm {
+    sum = 0;
+    for (i = 0; i < K; i++)
+        sum += marks[i];
+
+    _asm {
 		mov eax, 0; начальное значение суммы
-		mov ecx, kol; счетчик цикла
+		mov ecx, K; счетчик цикла
 		mov esi, 0; начальное значение индекса
-		l : add eax, osenki[esi]; eax = eax + osenki[i]
+		l : add eax, marks[esi]; eax = eax + marks[i]
 			add esi, 4; следующий индекс
 			loop l; цикл  n раз
-			//в eax хранится сумма
-			mov edx, 0  //тут будет храниться остаток
-			mov ebx, kol //делитель 19
-			div ebx // eax/ebx  само деление
-			mov sr, eax // результат деления 
-			mov ost, edx // остаток деления
+			mov edx, 0
+			mov ebx, K
+			div ebx
+			mov middle_numbers, eax
+			mov ender, edx
+    }
 
-	}
-	
-	otv = ost;
-	otv = otv / kol + sr;
+    answer = ender;
+    answer = answer / K + middle_numbers;
 
-	cout << FIO << "\nТекущие оценки: \n";
-	for (i = 0; i < kol; i++)
-		cout << osenki[i]<< " ";
-	cout << "\nСумма оценок: " << sum;
-	cout << "\nКол-во оценок: " << kol;
-	cout << "\nСредний балл: " << otv << endl;
+    cout << FIO << "\nТекущие оценки: \n";
+    for (i = 0; i < K; i++)
+        cout << marks[i] << " ";
+    cout << "\nСумма оценок: " << sum;
+    cout << "\nКол-во оценок: " << K;
+    cout << "\nСредний балл: " << answer << "\n";
 
-	ofstream out("OUT.txt");
-	out << "Средний балл: " << otv; //вывод в файл
-	out.close();
-
-	system("pause");
-	return 0;
+    system("pause");
+    return 0;
 }
