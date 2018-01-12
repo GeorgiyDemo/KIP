@@ -10,19 +10,24 @@ int main() {
 	const int kol = 19;
 	int sr, ost, i, sum, osenki[kol];;
 	double otv;
-	string s;
-
-	i = sum = 0;
+	string FIO, s;
 
 	ifstream fs("INPUT.txt");
 	if (!fs) return 1; 
 	
+	i = 0;
 	while (getline(fs, s)) {
+		int buf = atoi(s.c_str());
+		if (buf == 0)
+			FIO = s.c_str();
+		else{
 			osenki[i] = atoi(s.c_str());
-		i++;
+			i++;
+		}
 	}
 	fs.close();
 
+	sum = 0;
 	for (i = 0; i < kol; i++)
 		sum += osenki[i];
 
@@ -45,7 +50,7 @@ int main() {
 	otv = ost;
 	otv = otv / kol + sr;
 
-	cout << "Текущие оценки: \n";
+	cout << FIO << "\nТекущие оценки: \n";
 	for (i = 0; i < kol; i++)
 		cout << osenki[i]<< " ";
 	cout << "\nСумма оценок: " << sum;
