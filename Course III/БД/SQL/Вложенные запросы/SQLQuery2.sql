@@ -1,0 +1,1 @@
+SELECT * FROM dbo.Старые_покупатели WHERE Код IN (SELECT Код_покупателя FROM dbo.Сделки)
