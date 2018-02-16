@@ -4,7 +4,7 @@
 ### 1 Курс
 #### Вариант №7
 
-* [Информатика](https://github.com/GeorgiyDemo/KIP/tree/master/%D0%A1ourse%20I)  - Pascal/Lasarus
+* [Информатика](https://github.com/GeorgiyDemo/KIP/tree/master/%D0%A1ourse%20I)  - Pascal/Lazarus
 
 ### 2 Курс
 #### Вариант №7
