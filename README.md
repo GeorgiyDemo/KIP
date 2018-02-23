@@ -32,6 +32,7 @@
 	* [Microsoft Office Access](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/Access)
 	* [Microsoft SQL Server](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/SQL)
 	* [1С:Предприятие](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/1C)
+* [Технология разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9E) - С#
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
 * [Курсовой проект](https://github.com/GeorgiyDemo/Cursach_3) - C++/CLI + SQLite3
 * [Бухгалтерский учет](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%A3) - DOC
