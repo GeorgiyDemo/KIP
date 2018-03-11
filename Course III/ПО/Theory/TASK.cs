@@ -33,17 +33,17 @@ namespace Test
         {
 
             /*
-             Многомерные массивы
-            */
+             * Многомерные массивы
+             */
             int[,] data2 = new int[4, 2] { { 1, 2 }, { 5, 8 }, { 7, 9 }, { 8, 10 } };
             int[,,] data3 = new int[5, 2, 3];
             int[,] data4 = { { 1, 2 }, { 5, 9 }, { 11, 12 } };
             int[] data = { 1, 2, 4, 5, 6 };
 
             /*
-             Ступенчатые массивы
-             Type [][] JaggedArray = new Type[size][];
-            */
+             * Ступенчатые массивы
+             * Type [][] JaggedArray = new Type[size][];
+             */
 
             int[][] dd = new int[3][];
             int[][] JaggedArray = new int[4][];
@@ -58,8 +58,8 @@ namespace Test
             Console.WriteLine("\n" + len);
 
             /*
-             Отличия for и foreach
-            */
+             * Отличия for и foreach
+             */
 
             int[] oldnumbers = { 1, 2, 3, 4, 5 };
             for (int i = 0; i < oldnumbers.Length; i++)
@@ -74,35 +74,39 @@ namespace Test
             }
 
             /*
-             Краткая форма if
-             Type result = [condition] ? [true expression] : [false expression]
-            */
+             * Краткая форма if
+             * Type result = [condition] ? [true expression] : [false expression]
+             */
 
             string carColor = "green";
             string response = (carColor == "red") ? "You have a red car" : "You do not have a red car";
 
             /*
-             Методы разделяются на обычные и статические
+             * Методы разделяются на обычные и статические
              */
 
             /*
-             Обычный, count - объект
+             * Обычный, count - объект
              */
             int count = 99;
             string strCount = count.ToString();
 
-            /*Статический метод
-             Вызов методов используется при помощи имени класса без инициализации объекта
-            */
+            /* Статический метод
+             * Вызов методов используется при помощи имени класса без инициализации объекта
+             */
             string strCount1 = "99";
             count = Convert.ToInt32(strCount1);
 
             /*
-             Используем params - возможность передачи произвольного числа параметров
+             * Используем params - возможность передачи произвольного числа параметров
              */
 
             int sum = Add(99, 2, 55, -26);
             Console.WriteLine(sum);
+
+            /*
+             * Работа с файлами
+             */
 
 
         }
