@@ -21,6 +21,8 @@ namespace MatrixMultiplication
     {
         // TODO Task 2 Declare variables
         // Declare three arrays of doubles to hold the 3 matrices:
+        double[,] matrix1, matrix2, result;
+
         // The two input matrices and the result matrix
 
 
@@ -114,10 +116,18 @@ namespace MatrixMultiplication
         /// <param name="e"></param>
         private void buttonCalculate_Click(object sender, RoutedEventArgs e)
         {
+
+
             // TODO Task 2 Copy data from input Grids
             // Retrieve the contents of the first two grids into the first two matrices
-
+            getValuesFromGrid(grid1,matrix1);
+            getValuesFromGrid(grid2, matrix2);
             // TODO Task 2 Get the matrix dimensions
+            int m1columns_m2rows, m1rows, m2columns;
+            m1columns_m2rows = matrix1.GetLength(0);
+            m1rows = matrix2.GetLength(1);
+            m2columns = matrix2.GetLength(0);
+
             // Discover the dimensions of the input matrices
             // (Remember that the number of columns in the first matrix will 
             // always be the same as the number of rows in the second matrix)
@@ -125,8 +135,22 @@ namespace MatrixMultiplication
             // TODO Task 3 Calculate the result
             // Calculate the contents of each cell in the result matrix
 
+            for (int row = 0; row < m1rows; row++)
+            {
+                for (int column = 0; column < m1columns_m2rows; column++)
+                {
+                   double accumulator = 0;
+                    for (int cell = 0; cell < m1rows; cell++)
+                    {
+                        accumulator = matrix1[cell, row] * matrix2[column, cell];
+                    }
+                    result[column, row] = accumulator;
+                }
+            }
+
             // TODO Task 4 Display the result
             // Display the results of your calculation in the third Grid
+            initializeGrid(grid3, result);
         }
 
         /// <summary>
