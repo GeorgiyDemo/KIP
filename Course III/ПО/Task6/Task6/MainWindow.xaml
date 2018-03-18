@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Task6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="272.5" Width="481.5">
+        Title="Перевод систем
+        " Height="110.5" Width="313.5">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="409*"/>
@@ -17,7 +18,7 @@
             <ColumnDefinition Width="36*"/>
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="BinaryLabel" Content="0" HorizontalAlignment="Left" Margin="12,41,0,0" VerticalAlignment="Top" Height="28" Width="120" FontSize="14"/>
+        <Label x:Name="BinaryLabel" Content="0" HorizontalAlignment="Left" Margin="12,41,0,0" VerticalAlignment="Top" Height="28" Width="255" FontSize="14" Grid.ColumnSpan="2"/>
         <TextBox x:Name="InputTextBox" HorizontalAlignment="Left" Height="28" Margin="12,12,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <Button x:Name="ConvertButton" Content="Convert" HorizontalAlignment="Left" Margin="138,12,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="ConvertButton_Click"/>
 
