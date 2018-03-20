@@ -34,7 +34,8 @@
 	* [1С:Предприятие](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/1C)
 * [Технология разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9E) - С#
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
-* [Курсовой проект](https://github.com/GeorgiyDemo/Cursach_3) - C++/CLI + SQLite3
+* [Курсовой проект (1-е полугодие)](https://github.com/GeorgiyDemo/Cursach_3) - C++/CLI + SQLite3
+* [Курсовой проект (2-е полугодие)](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/1C/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%BE%D0%B9) - 1С:Предприятие
 * [Бухгалтерский учет](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%A3) - DOC
 * [Расчетно-графические работы](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BD%D0%BE-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5) - DOC/PDF
 
