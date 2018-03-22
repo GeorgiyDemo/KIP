@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
-
-namespace GreatestCommonDivisor
+﻿namespace GreatestCommonDivisor
 {
     static class GCDAlgorithms
     {
@@ -40,7 +34,7 @@ namespace GreatestCommonDivisor
 
         }
 
-        //Алгоритм Стейна/Стайна
+        //Бинарный (модифицированный) алгоритм товарища Евклида
         public static long Stain(long a, long b)
         {
             if (a == 0)
