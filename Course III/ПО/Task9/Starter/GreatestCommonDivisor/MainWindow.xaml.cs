@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace GreatestCommonDivisor
 {
@@ -59,14 +60,26 @@ namespace GreatestCommonDivisor
             return false;
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        private static void GetHelper()
         {
             string commandText = "C:/Help.chm";
             var proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = commandText;
             proc.StartInfo.UseShellExecute = true;
             proc.Start();
+        }
 
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            GetHelper();
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            KeyConverter converter = new KeyConverter();
+            string key = converter.ConvertToString(e.Key);
+            if (key == "F1")
+                GetHelper();
         }
     }
 }
