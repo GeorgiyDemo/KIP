@@ -1,6 +1,8 @@
 <img src="cat.jpg" align="right" />
 
 # Demka's KIP repo (ПКС)
+[![CodeFactor](https://www.codefactor.io/repository/github/georgiydemo/kip/badge)](https://www.codefactor.io/repository/github/georgiydemo/kip)
+[![BCH compliance](https://bettercodehub.com/edge/badge/GeorgiyDemo/KIP?branch=master)](https://bettercodehub.com/)
 ### 1 Курс
 #### Вариант №7
 
