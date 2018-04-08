@@ -15,20 +15,17 @@
 #define   Version    "0.0.1"
 ; Фирма-разработчик
 #define   Publisher  "Cambridge university"
-; Сафт фирмы разработчика
+; Сайт фирмы разработчика
 #define   URL        "http://www.github.com/GeorgiyDemo/"
 ; Имя исполняемого модуля
 #define   ExeName    "Module3.exe"
-;Тело скрипта разделяется на секции, каждая из которых несет свое 
-функциональное назначение. Обязательная секция [Setup] задает глобальные 
-параметры работы инсталлятора и деинсталатора. 
+;Тело скрипта разделяется на секции, каждая из которых несет свое функциональное назначение. Обязательная секция [Setup] задает глобальные параметры работы инсталлятора и деинсталатора. 
 ;------------------------------------------------------------------------------
 ;   Параметры установки
 ;------------------------------------------------------------------------------
 [Setup]
 ; Уникальный идентификатор приложения, 
-;сгенерированный через {73041752-596E-4AC2-9D2D-8ABBB4553E71} -> 
-Generate GUID
+;сгенерированный через {73041752-596E-4AC2-9D2D-8ABBB4553E71} -> Generate GUID
 AppId={{73041752-596E-4AC2-9D2D-8ABBB4553E71}
 ; Прочая информация, отображаемая при установке
 AppName={#Name}
@@ -49,9 +46,7 @@ OutputBaseFileName=test-setup
 ; Параметры сжатия
 Compression=lzma
 SolidCompression=yes
-;В хорошем инсталяторе должна быть поддержка нескольких языков. Включаем 
-её в наш «сетап», используя опциональную секцию [Languages]. При 
-отсутствии данной секции будет использоваться английский язык.
+;В хорошем инсталяторе должна быть поддержка нескольких языков. Включаем её в наш «сетап», используя опциональную секцию [Languages]. При отсутствии данной секции будет использоваться английский язык.
 
 
 [Code]
@@ -109,7 +104,7 @@ key_value);
       end; 
 
      // Вресия 4.5 
-     if Pos('v4.5', version) = 0 then 
+     if Pos('v4.5', version) = 1 then 
       begin 
           sub_key := 'v4\Full'; 
           reg_key := reg_key + sub_key; 
@@ -133,15 +128,11 @@ end;
 function InitializeSetup(): boolean;
 begin
 
-  // Если нет тербуемой версии .NET выводим сообщение о том, что 
-инсталлятор
+  // Если нет тербуемой версии .NET выводим сообщение о том, что инсталлятор
   // попытается установить её на данный компьютер
   if not IsDotNetDetected('v4.0 Full Profile', 0) then
     begin
-      MsgBox('{#Name} requires Microsoft .NET Framework 4.0 Full 
-Profile.'#13#13
-             'The installer will attempt to install it', mbInformation, 
-MB_OK);
+      MsgBox('{#Name} requires Microsoft .NET Framework 4.0 Full Profile.'#13#13'The installer will attempt to install it', mbInformation, MB_OK);
     end;   
 
   result := true;
@@ -150,23 +141,17 @@ end;
 
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"; LicenseFile: 
-"C:\RESOURCES\LIC_RUS.txt"
-Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"; 
-LicenseFile: "C:\RESOURCES\LIC_RUS.txt"
-;Обычно установщик предлагает нам, например, определится, хотим мы или 
-не хотим создать ярлык на рабочем столе. Такие опции установки 
-определяются необязательной секцией [Tasks]
+Name: "english"; MessagesFile: "compiler:Default.isl"; LicenseFile: "C:\RESOURCES\LIC_RUS.txt"
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"; LicenseFile: "C:\RESOURCES\LIC_RUS.txt"
+;Обычно установщик предлагает нам, например, определится, хотим мы или не хотим создать ярлык на рабочем столе. Такие опции установки определяются необязательной секцией [Tasks]
 
 ;------------------------------------------------------------------------------
 ;   Опционально - некоторые задачи, которые надо выполнить при установке
 ;------------------------------------------------------------------------------
 [Tasks]
 ; Создание иконки на рабочем столе
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; 
-GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-;Теперь укажем, какие файлы надо включить в дистрибутив и где их надо 
-поместить при установке. Для этого используется обязательная секция 
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+;Теперь укажем, какие файлы надо включить в дистрибутив и где их надо поместить при установке. Для этого используется обязательная секция 
 [Files]
 
 ;------------------------------------------------------------------------------
@@ -176,18 +161,14 @@ GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 
 ; .NET Framework 4.0
-Source: "C:\READY\NET_FRAMEWORK.exe"; DestDir: "{tmp}"; Flags: 
-deleteafterinstall; Check: not IsRequiredDotNetDetected
+Source: "C:\READY\NET_FRAMEWORK.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
 
 ; Исполняемый файл
-Source: "C:\RESOURCES\Module3.exe"; DestDir: "{app}"; Flags: 
-ignoreversion
+Source: "C:\RESOURCES\Module3.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Прилагающиеся ресурсы
-Source: "C:\RESOURCES\*"; DestDir: "{app}"; Flags: ignoreversion 
-recursesubdirs createallsubdirs
-;Наконец, чтобы всё было красиво, опционально укажем компилятору, где 
-брать иконки для размещения в меню программ и на рабочем столе
+Source: "C:\RESOURCES\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Наконец, чтобы всё было красиво, опционально укажем компилятору, где брать иконки для размещения в меню программ и на рабочем столе
 
 ;------------------------------------------------------------------------------
 ;   Указываем установщику, где он должен взять иконки
@@ -196,12 +177,9 @@ recursesubdirs createallsubdirs
 
 Name: "{group}\{#Name}"; Filename: "{app}\{#ExeName}"
 
-Name: "{commondesktop}\{#Name}"; Filename: "{app}\{#ExeName}"; Tasks: 
-desktopicon
+Name: "{commondesktop}\{#Name}"; Filename: "{app}\{#ExeName}"; Tasks: desktopicon
 
 [Run]
 
-Filename: {tmp}\NET_FRAMEWORK.exe; Parameters: "/q:a /c:""install /l 
-/q"""; Check: not IsRequiredDotNetDetected; StatusMsg: Microsoft 
-Framework 4.5 is installed. Please wait...
+Filename: {tmp}\NET_FRAMEWORK.exe; Parameters: "/q:a /c:""install /l /q"""; Check: not IsRequiredDotNetDetected; StatusMsg: Microsoft Framework 4.5 is installed. Please wait...
 
