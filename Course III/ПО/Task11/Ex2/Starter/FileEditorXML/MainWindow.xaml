@@ -1,0 +1,10 @@
+﻿<Window x:Class="FileEditorXML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox Height="269" HorizontalAlignment="Left" Name="editor" VerticalAlignment="Top" Width="503" AcceptsReturn="True" />
+        <Button Content="Open" Height="29" HorizontalAlignment="Left" Margin="0,270,0,0" Name="openButton" VerticalAlignment="Top" Width="96" Click="OpenButton_Click" />
+        <Button Content="Save" Height="29" HorizontalAlignment="Left" Margin="102,270,0,0" Name="saveButton" VerticalAlignment="Top" Width="96" Click="SaveButton_Click" />
+    </Grid>
+</Window>

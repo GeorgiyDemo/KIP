@@ -1,0 +1,5 @@
+Move x, 10
+Move y, 20
+If x < y Add x, y
+If x > y & x < 20 Sub x, y
+Store 30
