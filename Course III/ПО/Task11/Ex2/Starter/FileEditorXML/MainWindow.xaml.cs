@@ -42,7 +42,7 @@ namespace FileEditorXML
             {
                 // TODO - Update the UI to use the new method.
                 // Call the new read file contents method
-                editor.Text = TextFileOperations.ReadTextFileContents(fileName);
+                editor.Text = TextFileOperations.ReadAndFilterTextFileContents(fileName);
             }
         }
 
@@ -58,7 +58,7 @@ namespace FileEditorXML
 
             // Configure open file dialog box
             OpenFileDialog openFileDlg = new OpenFileDialog();
-            openFileDlg.InitialDirectory = @"E:\Labfiles\Lab 5\Ex1\Solution";
+            openFileDlg.InitialDirectory = @"W:\Projects\KIP\Course III\ПО\Task11\Ex2\Starter\";
             openFileDlg.DefaultExt = ".txt"; // Default file extension
             openFileDlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
 
@@ -77,9 +77,7 @@ namespace FileEditorXML
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (fileName != string.Empty)
-            {
                 TextFileOperations.WriteTextFileContents(fileName, editor.Text);
-            }
         }
     }
 }
