@@ -1,0 +1,11 @@
+﻿<Window x:Class="IntegerArithmetic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="182" Width="328" Loaded="Window_Loaded">
+    <Grid>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="intOne" VerticalAlignment="Top" Width="283" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="intTwo" VerticalAlignment="Top" Width="283" />
+        <Button Content="Multiply" Height="23" HorizontalAlignment="Left" Margin="12,70,0,0" Name="doMultiply" VerticalAlignment="Top" Width="75" Click="DoMultiply_Click" />
+        <Label Content="Answer" Height="28" HorizontalAlignment="Left" Margin="12,99,0,0" Name="labelAnswer" VerticalAlignment="Top" Width="283" />
+    </Grid>
+</Window>

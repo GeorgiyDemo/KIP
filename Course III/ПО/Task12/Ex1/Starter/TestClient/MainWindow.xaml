@@ -1,0 +1,9 @@
+﻿<Window x:Class="TestClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBlock Height="303" HorizontalAlignment="Left" Margin="10,3,0,0" Name="textBlock1" Text="" VerticalAlignment="Top" Width="387" />
+        <Button Content="Shutdown" Height="31" HorizontalAlignment="Left" Margin="404,268,0,0" Name="button1" VerticalAlignment="Top" Width="87" Click="Button1_Click" />
+    </Grid>
+</Window>

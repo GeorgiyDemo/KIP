@@ -1,0 +1,50 @@
+﻿<Window x:Class="MatrixMultiplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="578" Width="649">
+    <Grid>
+        <Grid Height="176" HorizontalAlignment="Left" Margin="19,12,0,0" Name="grid1" VerticalAlignment="Top" Width="254" ShowGridLines="True" />
+        <Grid Height="176" HorizontalAlignment="Left" Margin="291,12,0,0" Name="grid2" VerticalAlignment="Top" Width="258" ShowGridLines="True"></Grid>
+        <Grid Height="261" HorizontalAlignment="Left" Margin="250,266,0,0" Name="grid3" ShowGridLines="True" VerticalAlignment="Top" Width="365" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="12,206,0,0" Name="matrix1width" 
+                  VerticalAlignment="Top" Width="120" SelectionChanged="MatrixDimensions_Changed" SelectedIndex="0">
+            <ComboBoxItem Content="Matrix 1: 1 Column" />
+            <ComboBoxItem Content="Matrix 1: 2 Columns" />
+            <ComboBoxItem Content="Matrix 1: 3 Columns" />
+            <ComboBoxItem Content="Matrix 1: 4 Columns" />
+            <ComboBoxItem Content="Matrix 1: 5 Columns" />
+            <ComboBoxItem Content="Matrix 1: 6 Columns" />
+            <ComboBoxItem Content="Matrix 1: 7 Columns" />
+            <ComboBoxItem Content="Matrix 1: 8 Columns" />
+            <ComboBoxItem Content="Matrix 1: 9 Columns" />
+            <ComboBoxItem Content="Matrix 1: 10 Columns" />
+        </ComboBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="250,206,0,0" Name="matrix1height" 
+                  VerticalAlignment="Top" Width="120" SelectionChanged="MatrixDimensions_Changed" SelectedIndex="0">
+            <ComboBoxItem Content="Matrix 1: 1 Row" />
+            <ComboBoxItem Content="Matrix 1: 2 Rows" />
+            <ComboBoxItem Content="Matrix 1: 3 Rows" />
+            <ComboBoxItem Content="Matrix 1: 4 Rows" />
+            <ComboBoxItem Content="Matrix 1: 5 Rows" />
+            <ComboBoxItem Content="Matrix 1: 6 Rows" />
+            <ComboBoxItem Content="Matrix 1: 7 Rows" />
+            <ComboBoxItem Content="Matrix 1: 8 Rows" />
+            <ComboBoxItem Content="Matrix 1: 9 Rows" />
+            <ComboBoxItem Content="Matrix 1: 10 Rows" />
+        </ComboBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="495,206,0,0" Name="matrix2width" 
+                  SelectedIndex="0" VerticalAlignment="Top" Width="120" SelectionChanged="MatrixDimensions_Changed" >
+            <ComboBoxItem Content="Matrix 2: 1 Column" />
+            <ComboBoxItem Content="Matrix 2: 2 Columns" />
+            <ComboBoxItem Content="Matrix 2: 3 Columns" />
+            <ComboBoxItem Content="Matrix 2: 4 Columns" />
+            <ComboBoxItem Content="Matrix 2: 5 Columns" />
+            <ComboBoxItem Content="Matrix 2: 6 Columns" />
+            <ComboBoxItem Content="Matrix 2: 7 Columns" />
+            <ComboBoxItem Content="Matrix 2: 8 Columns" />
+            <ComboBoxItem Content="Matrix 2: 9 Columns" />
+            <ComboBoxItem Content="Matrix 2: 10 Columns" />
+        </ComboBox>
+        <Button Content="Calculate" Height="43" HorizontalAlignment="Left" Margin="12,484,0,0" Name="buttonCalculate" VerticalAlignment="Top" Width="116" Click="ButtonCalculate_Click" />
+    </Grid>
+</Window>
