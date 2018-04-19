@@ -13,45 +13,41 @@ namespace FileEditorXML
     /// </summary>
     class TextFileOperations
     {
-
-
+ 
         public static string ReadAndFilterTextFileContents(string fileName)
         {
-            int charCode;
             StringBuilder fileContents = new StringBuilder();
+            char charCode;
             StreamReader fileReader = new StreamReader(fileName);
-            string line;
-            // Read and display lines from the file until the end of 
-            // the file is reached.
+            StreamReader fileReader1 = new StreamReader(fileName);
 
-            while (fileReader.Read() != -1)
+            while (fileReader1.Read() != -1)
             {
-                charCode = fileReader.Read();
-                MessageBox.Show(charCode.ToString());
+                charCode = (char)fileReader.Read();
                 switch (charCode)
                 {
-                    case 34:
-                        fileContents.Append("&quot;");
+                    case ((char)34):
+                        fileContents.Append("& quot;");
                         break;
-                    case 38:
-                        fileContents.Append("&amp;");
+                    case ((char)38):
+                        fileContents.Append("& amp;");
                         break;
-                    case 39:
-                        fileContents.Append("&apos;");
+                    case ((char)39):
+                        fileContents.Append("& apos;");
                         break;
-                    case 60:
-                        fileContents.Append("&lt;");
+                    case ((char)60):
+                        fileContents.Append("& lt; ");
                         break;
-                    case 62:
-                        fileContents.Append("&gt;");
+                    case ((char)62):
+                        fileContents.Append("& gt; ");
                         break;
                     default:
-                        fileContents.Append(charCode.ToString());
+                        fileContents.Append(charCode);
                         break;
                 }
             }
-            fileContents.AppendLine();
             return fileContents.ToString();
+
 
         }
         /// <summary>
