@@ -9,22 +9,12 @@ namespace MatrixMultiplication
         {
             try
             {
-                if (matrix1.Length != matrix2.Length)
+                if (matrix1.GetLength(0) != matrix2.GetLength(1))
                     throw new ArgumentException();
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("Число строк и столбцов должно совпадать");
-            }
-
-            try
-            {
-                if (matrix1.Length != matrix2.Length)
-                    throw new ArgumentException();
-            }
-            catch (ArgumentException)
-            {
-                MessageBox.Show("Число строк и столбцов должно совпадать");
+                MessageBox.Show("Число столбцов матрицы №1 и число строк матрицы №2 должно совпадать!");
             }
 
             int m1columns_m2rows = matrix1.GetLength(0);
@@ -42,9 +32,9 @@ namespace MatrixMultiplication
                         {
 
                             if (matrix1[column, cell] < 0)
-                                throw new ArgumentException(string.Format(" Matrix1 содержит неправильное значение в ячейке[{0}, {1}].", column + 1, cell + 1));
+                                throw new ArgumentException(string.Format(" Matrix1 содержит некорректное значение в ячейке[{0}, {1}].", column + 1, cell + 1));
                             if (matrix2[column, cell] < 0)
-                                throw new ArgumentException(string.Format(" Matrix2 содержит неправильное значение в ячейке[{0}, {1}].", column + 1, cell + 1));
+                                throw new ArgumentException(string.Format(" Matrix2 содержит некорректное значение в ячейке[{0}, {1}].", column + 1, cell + 1));
 
                             accumulator += matrix1[cell, row] * matrix2[column, cell];
                         }
