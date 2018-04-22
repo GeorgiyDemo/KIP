@@ -33,7 +33,7 @@ namespace IntegerArithmetic
             }
             catch (OverflowException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Оп, поймали ошибку!\n"+ex.Message);
             }
            
         }
