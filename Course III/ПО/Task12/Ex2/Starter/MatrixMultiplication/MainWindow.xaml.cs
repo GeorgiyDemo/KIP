@@ -1,52 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MatrixMultiplication
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// First matrix
-        /// </summary>
+
         double[,] matrix1;
-
-        /// <summary>
-        /// Second matrix
-        /// </summary>
         double[,] matrix2;
-
-        /// <summary>
-        /// Result of multiplying matrix1 and matrix2
-        /// </summary>
         double[,] result;
-
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Event handler for all three combo boxes:
-        /// Creates matrices of requested size filled with zeroes
-        /// Displays matrices on the form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void MatrixDimensions_Changed(object sender, SelectionChangedEventArgs e)
         {
             int m1rows = 1;
@@ -62,6 +31,7 @@ namespace MatrixMultiplication
             InitializeGrid(grid2, matrix2);
             InitializeGrid(grid3, result);
         }
+
         private void InitializeGrid(Grid grid, double[,] matrix)
         {
             if (grid != null)
@@ -71,16 +41,14 @@ namespace MatrixMultiplication
                 grid.RowDefinitions.Clear();
                 int columns = matrix.GetLength(0);
                 int rows = matrix.GetLength(1);
+
                 for (int x = 0; x < columns; x++)
-                {
                     grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star), });
-                }
+
                 for (int y = 0; y < rows; y++)
-                {
                     grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star), });
-                }
+
                 for (int x = 0; x < columns; x++)
-                {
                     for (int y = 0; y < rows; y++)
                     {
                         double cell = (double)matrix[x, y];
@@ -92,25 +60,27 @@ namespace MatrixMultiplication
                         t.SetValue(Grid.ColumnProperty, x);
                         grid.Children.Add(t);
                     }
-                }
             }
         }
+
         private void ButtonCalculate_Click(object sender, RoutedEventArgs e)
         {
             GetValuesFromGrid(grid1, matrix1);
             GetValuesFromGrid(grid2, matrix2);
+
             try
             {
-
                 result = Matrix.MatrixMultiply(matrix1, matrix2);
                 throw new ArgumentException();
             }
+
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
             InitializeGrid(grid3, result);
         }
+
         private void GetValuesFromGrid(Grid grid, double[,] matrix)
         {
             int columns = grid.ColumnDefinitions.Count;
