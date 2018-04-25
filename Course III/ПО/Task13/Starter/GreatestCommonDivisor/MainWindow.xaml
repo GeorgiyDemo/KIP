@@ -1,0 +1,46 @@
+﻿<Window x:Class="GreatestCommonDivisor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вычисление НОД
+        " Height="497" Width="514" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="91*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="356*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Find GCD (2 Integers)" Height="23" HorizontalAlignment="Left" Margin="12,157,0,0" Name="findGCD" VerticalAlignment="Top" Width="161" Click="FindGCD_Click" Grid.ColumnSpan="3" />
+        <Label Content="Euclid: 0" Height="28" HorizontalAlignment="Left" Margin="12,186,0,0" Name="resultEuclid" VerticalAlignment="Top" Width="Auto" />
+        <Label Content="Stein: 0" Height="28" HorizontalAlignment="Left" Margin="12,208,0,0" Name="resultStein" VerticalAlignment="Top" Width="Auto" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="integer1" VerticalAlignment="Top" Width="120" Text="0" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="integer2" VerticalAlignment="Top" Width="120" Text="0" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,70,0,0" x:Name="integer3" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,99,0,0" Name="integer4" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,128,0,0" Name="integer5" Text="0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <StackPanel Height="305" HorizontalAlignment="Left" Margin="52,12,0,0" Name="chartCanvas" VerticalAlignment="Top" Width="280" Orientation="Vertical" Grid.Column="2">
+            <Button x:Name="HelpButton" Content="?" Margin="257,0,0,0" Height="24" Click="HelpButton_Click"/>
+        </StackPanel>
+        <Button Content="Find GCD (3 Integers)" Height="23" HorizontalAlignment="Left" Margin="12,242,0,0" Name="findGCD3" VerticalAlignment="Top" Width="161"  Click="FindGCD_Click" Grid.ColumnSpan="3"/>
+        <Button Content="Find GCD (4 Integers)" Height="23" HorizontalAlignment="Left" Margin="12,268,0,0" Name="findGCD4" VerticalAlignment="Top" Width="161"  Click="FindGCD_Click" Grid.ColumnSpan="3" />
+        <Button Content="Find GCD (5 Integers)" Height="23" HorizontalAlignment="Left" Margin="12,294,0,0" Name="findGCD5" VerticalAlignment="Top" Width="161"  Click="FindGCD_Click" Grid.ColumnSpan="3" />
+        <ListBox Height="101" HorizontalAlignment="Left" Margin="53,344,0,0" Name="euclidColor" VerticalAlignment="Top" Width="74" SelectedIndex="0" Grid.Column="2">
+            <ListBoxItem Content="Red" />
+            <ListBoxItem Content="Green" />
+            <ListBoxItem Content="Blue" />
+            <ListBoxItem Content="Black" />
+        </ListBox>
+        <ListBox Height="101" HorizontalAlignment="Left" Margin="133,345,0,0" Name="steinColor" VerticalAlignment="Top" Width="74" SelectedIndex="0" Grid.Column="2">
+            <ListBoxItem Content="Red" />
+            <ListBoxItem Content="Green" />
+            <ListBoxItem Content="Blue" />
+            <ListBoxItem Content="Black" />
+        </ListBox>
+        <ListBox Height="101" HorizontalAlignment="Left" Margin="213,345,0,0" Name="chartOrientation" VerticalAlignment="Top" Width="74" SelectedIndex="0" Grid.Column="2">
+            <ListBoxItem Content="Vertical" />
+            <ListBoxItem Content="Horizontal" />
+        </ListBox>
+        <Label Content="Euclid" Height="25" HorizontalAlignment="Left" Margin="53,323,0,0" Name="label1" VerticalAlignment="Top" Width="76" Grid.Column="2" />
+        <Label Content="Stein" Height="25" HorizontalAlignment="Left" Margin="133,323,0,0" Name="label2" VerticalAlignment="Top" Width="76" Grid.Column="2" />
+        <Label Content="Orientation" Height="25" HorizontalAlignment="Left" Margin="213,323,0,0" Name="label3" VerticalAlignment="Top" Width="76" Grid.Column="2" />
+    </Grid>
+</Window>
