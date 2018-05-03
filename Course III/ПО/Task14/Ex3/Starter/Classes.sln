@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Harness", "Classes\Test Harness.csproj", "{2DC07BF5-560F-4151-B23D-D887949C1A17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AC83EC3-F2FE-477A-A14B-DF7106708B3D}"
+	ProjectSection(SolutionItems) = preProject
+		Classes.vsmdi = Classes.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StressTest", "StressTest\StressTest.csproj", "{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClasses", "Classes Unit Test Project\TestClasses.csproj", "{C66C53DE-E3D9-4E16-B542-9401D2A0F028}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Classes.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Debug|x86.ActiveCfg = Debug|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Debug|x86.Build.0 = Debug|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Release|Any CPU.ActiveCfg = Release|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Release|x86.ActiveCfg = Release|x86
+		{2DC07BF5-560F-4151-B23D-D887949C1A17}.Release|x86.Build.0 = Release|x86
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A669C8C3-86EC-44CA-AC1A-377D40EDE5EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C66C53DE-E3D9-4E16-B542-9401D2A0F028} = {5AC83EC3-F2FE-477A-A14B-DF7106708B3D}
+	EndGlobalSection
+EndGlobal
