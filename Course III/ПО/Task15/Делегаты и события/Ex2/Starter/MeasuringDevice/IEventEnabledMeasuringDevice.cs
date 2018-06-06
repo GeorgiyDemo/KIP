@@ -8,7 +8,7 @@ namespace MeasuringDevice
     interface IEventEnabledMeasuringDevice : IMeasuringDevice
     {
         event EventHandler NewMeasurementTaken;
-
+        //IEventEnabledMeasuringDevice baseEventHandler  += NewMeasurementTaken;
         // TODO - Define the new event in the interface.
         // Event that fires every heartbeat.
 
