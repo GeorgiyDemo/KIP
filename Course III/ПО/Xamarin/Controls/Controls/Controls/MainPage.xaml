@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Controls"
+             x:Class="Controls.MainPage">
+
+    <!--Label>
+        <x:String xml:space="preserve">First line&#10;Second line</x:String>
+    </-->
+    <ScrollView>
+        <StackLayout>
+            <Frame OutlineColor="Aquamarine" Padding="10" Margin="10">
+                <Label
+           FontFamily="Arial"
+           FontSize="26"
+           FontAttributes="Italic"
+           >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>Welcome to</Span>
+                            <Span ForegroundColor="Red">Xamarin Forms</Span>
+                            <Span>!</Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+            <Button Text="Alert" Clicked="Button_Clicked_1"/>
+            <Button Text="Remove" Clicked="Button_Clicked_2"/>
+            <Button Text="Action" Clicked="Button_Clicked_3"/>
+            <Button Text="Start timer" Clicked="Button_Clicked_4"/>
+            <Button x:Name="myButton" Text="Press me" FontSize="Large" HorizontalOptions="CenterAndExpand"
+                BorderWidth="2" BorderColor="Red" BorderRadius="5"
+                Clicked="Button_Clicked"></Button>
+            <Label x:Name="eventInfo" Text="TextChanged event info"/>
+            <Stepper Minimum="0" Maximum="10" Increment="0.1"
+                 ValueChanged="Stepper_ValueChanged"/>
+
+            <Slider Minimum="0" Maximum="100" Value="50"
+                    ValueChanged="Stepper_ValueChanged"/>
+            <Switch IsToggled="True" HorizontalOptions="End" Toggled="Switch_Toggled"/>
+
+            <Entry x:Name="loginEntry" TextChanged="loginEntry_TextChanged"
+               Placeholder="Enter your login"/>
+
+            <Entry x:Name="passwordEntry" IsPassword="True" Completed="Button_Clicked"/>
+            <Entry x:Name="urlEntry" Keyboard="Telephone"/>
+            <Editor BackgroundColor="#a5d6a7" HeightRequest="100"/>
+            <DatePicker x:Name ="myDate" Format="yyyy MMMM dd"
+                    DateSelected="myDate_DateSelected"/>
+            <TimePicker />
+            <Picker x:Name="langPicker" SelectedIndexChanged="langPicker_SelectedIndexChanged"
+            Title="Любимый язык программрования">
+                <Picker.Items>
+                    <x:String>C</x:String>
+                    <x:String>C++</x:String>
+                    <x:String>C#</x:String>
+                    <x:String>Java</x:String>
+                </Picker.Items>
+
+            </Picker>
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

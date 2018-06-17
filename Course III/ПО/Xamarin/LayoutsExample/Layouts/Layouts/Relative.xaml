@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Layouts.Relative">
+    <RelativeLayout>
+        <Label Text="Anchor" x:Name="myAnchor"
+               RelativeLayout.XConstraint ="100"
+               RelativeLayout.YConstraint ="200"
+               />
+
+
+        <BoxView Color="Red" 
+                 RelativeLayout.XConstraint ="10"
+                 WidthRequest="100" HeightRequest="100"/>
+
+        <BoxView Color="Green" WidthRequest="100" HeightRequest="100"
+                 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.33, Constant=0}"
+                 RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5, Constant=0}"
+                 />
+
+        <BoxView Color="Blue" WidthRequest="100" HeightRequest="100"
+                 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-50}"
+                 RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-100}"
+                 />
+        <BoxView Color="Yellow" WidthRequest="100" HeightRequest="100"
+                 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToView, ElementName=myAnchor, Property=X, Factor=1, Constant=0}"
+                 RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToView, ElementName=myAnchor, Property=Y, Factor=1, Constant=50}"
+                 />
+    </RelativeLayout>
+
+</ContentPage>
