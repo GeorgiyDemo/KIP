@@ -36,6 +36,7 @@
 	* [1С:Предприятие](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/1C)
 * [Технология разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9F%D0%9E) - С#
 * [Численные методы в программировании](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%A7%D0%9C) - С++/Excel
+* [Математическое моделирование](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%9C%D0%9C) - С#
 * [Инфокоммуникационные системы и сети](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%98%D0%A1%D0%A1) - PHP/DOC
 * [Информационная безопасность](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%98%D0%91) - DOC
 * [Курсовой проект (1-е полугодие)](https://github.com/GeorgiyDemo/Cursach_3) - C++/CLI + SQLite3
@@ -48,5 +49,6 @@
 * [II курс (зима 2017)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20II%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202017)
 * [II курс (лето 2017)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20II%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202017)
 * [III курс (зима 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202018)
+* [III курс (лето 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202018)
 
 >[Удобный shell для C++ под gcc](https://github.com/GeorgiyDemo/KIP/blob/master/Course%20II/%D0%9E%D0%9F/Pract%20C%2B%2B/alias.sh)
