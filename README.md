@@ -47,6 +47,13 @@
 ### 4 Курс
 #### Вариант №4
 * [Курсовой проект (1-е полугодие)](https://github.com/GeorgiyDemo/SMSSender) - С# + MySQL
+* [Технология разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Инструментальные средства разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Компьютерная графика](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Основы проектной деятельности](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Документирование и сертификация](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Программное обеспечение компьютерных сетей](https://github.com/GeorgiyDemo/KIP/tree/master/)
+* [Сайтостроение](https://github.com/GeorgiyDemo/KIP/tree/master/)
 
 ### Сессия
 * [I курс (лето 2016)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20I%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202016)
