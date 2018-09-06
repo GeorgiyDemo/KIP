@@ -1,34 +1,64 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project1
 {
-    public class Program
+    class Program
     {
-
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.Write("Введите a -> ");
-            double a = System.Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("x          |         y");
+            Console.WriteLine("Georgiy Demenchuk");
+            Console.WriteLine("        |x^2*sin(2x+a),x<0");
+            Console.WriteLine("     y= |                    x[-20;20]");
+            Console.WriteLine("        |x/log(x+a),x>=0");
+            double x = -20;
+            Console.WriteLine("A=");
+            double y = 0;
+            string a_s = Console.ReadLine();
+            double a = Convert.ToDouble(a_s);
+            bool flag = false;
+            bool flag1 = false;
+            double u = 0;
+            string osh = "Деление на ноль";
+            string osh1 = "Нет решения функциии";
+            Console.WriteLine("     __________________________________");
+            Console.WriteLine("     |    x      |           y        |");
+            for (x = -20; x < 21; x++)
+            {
+                if (x < 0)
+                {
+                    y = x * x * Math.Sin(x + a);
+                }
+                else if (x >= 0)
+                {
+                    u = Math.Log(x + a);
+                    if (u == 0)
+                        flag = true;
 
-            for (int i = -20; i < 21; i++)
-                if ((i >= -20) && (i <= 20))
-                    Console.WriteLine(i.ToString()+ "           |          "+Convert.ToString(Math.Round(Checker(i, a),4)));
+                    y = x / u;
+                    if (Double.IsNaN(y))
+                    {
+                        flag1 = true;
+                    }
+
+                }
+                if (flag1)
+                {
+                    Console.WriteLine("     |    {0,3}    |{1,20}|", Math.Round(x, 2), osh1);
+                }
+                else if (flag)
+                {
+                    Console.WriteLine("     |    {0,3}    |{1,20}|", Math.Round(x, 2), osh);
+                }
+                else
+                {
+                    Console.WriteLine("     |    {0,3}    |{1,20}|", Math.Round(x, 2), Math.Round(y, 3));
+                }
+
+                flag = false;
+                flag1 = false;
+            }
+            Console.WriteLine("     ————————————————————————————————--");
             Console.ReadKey();
-        }
-
-        static public double Checker(double x, double a)
-        {
-            if (x < 0)
-                return x * x * Math.Sin(x + a);
-            else if (x >= 0)
-                return x / Math.Log(x + a);
-            return 0;
-
         }
     }
 }
