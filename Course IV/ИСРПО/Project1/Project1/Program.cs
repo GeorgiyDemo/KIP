@@ -7,9 +7,6 @@ namespace Project1
         static void Main(string[] args)
         {
             Console.WriteLine("Georgiy Demenchuk");
-            Console.WriteLine("        |x^2*sin(2x+a),x<0");
-            Console.WriteLine("     y= |                    x[-20;20]");
-            Console.WriteLine("        |x/log(x+a),x>=0");
             double x = -20;
             Console.WriteLine("A=");
             double y = 0;
