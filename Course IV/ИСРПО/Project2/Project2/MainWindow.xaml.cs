@@ -39,10 +39,8 @@ namespace Project2
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             double a = System.Convert.ToDouble(InputTextbox.Text);
-            //
-            DataGrid dataGrid;
 
-            string[] labels = new string[] { "x", "y" };
+            string[] labels = new string[] { "Значение X", "Значение Y" };
 
             foreach (string label in labels)
             {

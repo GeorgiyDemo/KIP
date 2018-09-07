@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Пример с DataGrid" Height="450" Width="800">
     <Grid>
-        <Button x:Name="StartButton" Content="Вычислить" HorizontalAlignment="Left" Margin="265,304,0,0" VerticalAlignment="Top" Width="230" Height="56" Click="StartButton_Click"/>
+        <Button x:Name="StartButton" Content="Вычислить" HorizontalAlignment="Left" Margin="266,322,0,0" VerticalAlignment="Top" Width="268" Height="50" Click="StartButton_Click"/>
         <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="237" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="MainDataGrid_SelectionChanged"/>
-        <TextBox x:Name="InputTextbox" HorizontalAlignment="Left" Height="23" Margin="569,273,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="476,269,0,0" VerticalAlignment="Top" Width="76"/>
+        <TextBox x:Name="InputTextbox" HorizontalAlignment="Left" Height="23" Margin="103,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Введите a -&gt;" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" Width="76"/>
 
     </Grid>
 </Window>
