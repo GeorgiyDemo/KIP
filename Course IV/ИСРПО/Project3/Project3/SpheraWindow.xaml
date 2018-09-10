@@ -1,0 +1,22 @@
+﻿<Window x:Class="Project3.SpheraWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project3"
+        mc:Ignorable="d"
+        Title="SpheraWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="ExitButton" Content="Назад" HorizontalAlignment="Left" Margin="442,321,0,0" VerticalAlignment="Top" Width="154" Height="48" Click="ExitButton_Click"/>
+        <Image Margin="0,0,494,117" Source="sf5.png" Stretch="Fill"/>
+        <TextBox x:Name="InoutRaduis" HorizontalAlignment="Left" Height="23" Margin="458,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="R=" HorizontalAlignment="Left" Margin="414,93,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
+        <TextBox x:Name="InputRaduisTextbox" HorizontalAlignment="Left" Height="23" Margin="458,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="InoutRaduisTextbox_TextChanged"/>
+        <Label Content="R=" HorizontalAlignment="Left" Margin="414,93,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
+        <Label Content="V=" HorizontalAlignment="Left" Margin="414,127,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
+        <TextBox x:Name="STextBox" HorizontalAlignment="Left" Height="23" Margin="458,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="S=" HorizontalAlignment="Left" Margin="414,161,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
+        <TextBox x:Name="VTextBox" HorizontalAlignment="Left" Height="23" Margin="458,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>
