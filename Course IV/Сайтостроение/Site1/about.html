@@ -11,111 +11,60 @@
 	<body>
 		<script src="js/jquery.min.js"></script> 
 		<script src="js/bootstrap.min.js"></script> 
+		<style>
+			p {
+    			font-size: 120%;
+    		}			
+			
+			.col-lg-6:first-child {
+  				background-color: white;
+			}
 
+			.table-responsive {
+  				font-size: 120%;
+  				background-color: #eee;
+			}
+
+			.label-default{
+			  background-color: #337ab7;
+			}
+		</style>
 		<ul class="nav nav-pills">
 		  <li role="presentation"><a href="./index.html">Основное</a></li>
 		  <li role="presentation"><a href="./history.html">История породы</a></li>
 		  <li role="presentation"><a href="./veterinary.html">Уход</a></li>
-		  <li role="presentation"><a href="./other.html">Другое</a></li>
+		  <li role="presentation"><a href="./other.html">Спонсоры</a></li>
 		  <li role="presentation" class="active"><a href="#">О нас</a></li>
 		</ul>
 
-		<div class="jumbotron">
-  			<h1>Сиамская кошка</h1>
-  			<p>Активные кошки. Нуждаются во внимании, любят физический контакт. Общительные, ласковые и доверчивые. Кошки из сиамо-ориентальной группы умеют пользоваться своими голосовыми связками, меняя тональность и высоту звука для выражения своих требований и чувств. Легко поддаются дрессировке.</p>
-  			<p><a class="btn btn-primary btn-lg" href="#" role="button">Приютить</a></p>
-  		</div>
+		<h1>Контактные данные</h1>
+		<br>
+		<p><span class="label label-default">Телефон:</span> +79999999999<br>
+		<span class="label label-default">E-mail:</span> test@test.com<br>
+		<span class="label label-default">Адрес:</span> Москва, ул. Осташковская, д. 14 стр. 2<br>
+		<span class="label label-default">Время работы:</span> 9.00 - 21.00 (без перерывов и выходных)<br>
+		</p>
+		<h2>Как добраться:</h2>
+ 
+		<p>Самый быстрый вариант: от станции метро "Медведково": 1 вагон из центра, из стеклянных дверей направо, перейти по диагонали на другую сторону дороги, автобус 601 до остановки "Погранинститут" (около 7 минут в пути)</p>
 
-  		<h4>Уже приютили 20% от всех кошек</h4>
-		<div class="progress">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">20%
-			</div>
-		</div>
+		<h2>Другие пути</h2>
 
+		<ul class="list-group">
+		  <li class="list-group-item"><p>От станции метро "Бабушкинская": 1 вагон из центра, из стеклянных дверей направо, затем налево, автобус 649к (именно 649 с буквой К, в тот который без буквы не садитесь!) до остановки "Погранинститут"(около 10 минут в пути)</p></li>
+		  <li class="list-group-item"><p>От станции МЦК "Ростокино": автобус 93 до остановки "Погранинститут" (около 20 минут в пути)</p></li>
+		  <li class="list-group-item"><p>От жд платформы "Лось" Ярославского направления: автобус 696 до остановки "Оборонная улица" (около 10 минут в пути)</p></li>
+		</ul>
 
-		<div class="row">
-			  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat1.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ЛАСКУН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	<div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat2.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ВИТОША</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat3.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ЭЛЬТОН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat4.jpg" alt="...">
-	      <div class="caption">
-	        <h3>Карина</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat5.jpg" alt="...">
-	      <div class="caption">
-	        <h3>РОБИНЗОН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat6.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ПЕТРУШКА</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-		<h2>Внешний вид</h2>
-
-		<p>Современная сиамская кошка имеет весьма характерную внешность, отличительными чертами которой являются тонкое, длинное, трубообразное гибкое тело, голова в виде длинного клина, большие миндалевидные косо поставленные глаза ярко-синего цвета, очень большие уши, широкие в основании и заостренные на концах, поставленные таким образом, чтобы между мочкой носа и кончиками ушей образовывался равносторонний треугольник. Шерсть короткая, плотно прилегающая к телу, без подшерстка. Очень длинный хлыстообразный хвост, тонкий от самого основания с заостренным длинным кончиком.</p>
-		<p>Для сиамских кошек характерен окрас колор-поинт (светлая шерсть с более тёмным окрасом на лапах, морде, ушах и хвосте). Такой окрас — это проявление неполного альбинизма, называемого акромеланизм. Действие акромеланизма связано с температурными особенностями живого организма: в теплых частях тела вырабатывается меньше пигмента, чем в холодных, поэтому уши, лапы, хвост и морда окрашены в более тёмный по сравнению с остальным телом цвет. С возрастом контраст поинтов по сравнению с телом может стать меньше. После года большинство кошек поинтового окраса имеют затемнение по корпусу. Сиамские котята рождаются абсолютно белыми, через несколько дней после рождения начинают темнеть поинты, окончательно окрас устанавливается в 6—10 месяцев.</p>
-		<h2>Характер</h2>
-		<p>Активные кошки. Нуждаются во внимании, любят физический контакт. Общительные, ласковые и доверчивые. Кошки из сиамо-ориентальной группы умеют пользоваться своими голосовыми связками, меняя тональность и высоту звука для выражения своих требований и чувств. Легко поддаются дрессировке.
-
-<div class="col-lg-3">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Поиск...">
-      <span class="input-group-btn" .bg-light>
-        <button class="btn btn-default" type="button">
-        	<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </button>
-      </span>
-    </div>
-  </div>
+		<h2>Мы в социальных сетях:</h2>
+		<p>
+			<span class="label label-default">VK:</span> http://vk.com/catsforpeople<br>
+			<span class="label label-default">Instagram:</span> @priyt_murkosha_moscow<br>
+			<span class="label label-default">Facebook:</span> http://fb.com/catsforpeople<br>
+			<span class="label label-default">Одноклассники:</span> http://ok.ru/murkosha<br>
+		<p>
   
-<small>Данная организация работает исключительно на деньги с пожертвований, если есть возможность +793469439688 (QIWI/Сбербанк)</small>
+<small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
 </body>
 
 </html>

@@ -11,107 +11,68 @@
 	<body>
 		<script src="js/jquery.min.js"></script> 
 		<script src="js/bootstrap.min.js"></script> 
+		<style>
+			p {
+    			font-size: 120%;
+    		}			
+			
+			.col-lg-6:first-child {
+  				background-color: white;
+			}
 
+			.table-responsive {
+  				font-size: 120%;
+  				background-color: #eee;
+			}
+
+			.label-default{
+			  background-color: #337ab7;
+			}
+		</style>
 		<ul class="nav nav-pills">
 		  <li role="presentation"><a href="./index.html">Основное</a></li>
 		  <li role="presentation"><a href="./history.html">История породы</a></li>
 		  <li role="presentation"><a href="./veterinary.html">Уход</a></li>
-		  <li role="presentation" class="active"><a href="#">Другое</a></li>
+		  <li role="presentation" class="active"><a href="#">Спонсоры</a></li>
 		  <li role="presentation"><a href="./about.html">О нас</a></li>
 		</ul>
 
-		<div class="jumbotron">
-  			<h1>Сиамская кошка</h1>
-  			<p>Активные кошки. Нуждаются во внимании, любят физический контакт. Общительные, ласковые и доверчивые. Кошки из сиамо-ориентальной группы умеют пользоваться своими голосовыми связками, меняя тональность и высоту звука для выражения своих требований и чувств. Легко поддаются дрессировке.</p>
-  			<p><a class="btn btn-primary btn-lg" href="#" role="button">Приютить</a></p>
-  		</div>
-
-  		<h4>Уже приютили 20% от всех кошек</h4>
-		<div class="progress">
-			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">20%
+		<div class="alert alert-info" role="alert">В данном разделе представлена информация о наших спонсорах</div>
+		
+		<div class="row">
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="./img/s1.jpg" alt="./img/s1.jpg">
+		      <div class="caption">
+		        <h3>Bondalem Beach Club</h3>
+		        <p>Отель на острове Бали</p>
+		        <p><a href="http://www.bondalembeachclub.com/" class="btn btn-default" role="button">Перейти</a></p>
+		      </div>
+		    </div>
+		  </div>
+		   <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="./img/s2.jpg" alt="./img/s2.jpg">
+		      <div class="caption">
+		        <h3>CyberCup</h3>
+		        <p>Организация киберсоревнований</p>
+		        <p><a href="http://cybercup.info/" class="btn btn-default" role="button">Перейти</a></p>
+		      </div>
+		    </div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="./img/s3.jpg" alt="./img/s3.jpg">
+		      <div class="caption">
+		        <h3>Пицца Паоло</h3>
+		        <p>Настоящая итальянская пицца</p>
+		        <p><a href="http://pizzapaolo.ru/" class="btn btn-default" role="button">Перейти</a></p>
+		      </div>
+		    </div>
 			</div>
 		</div>
 
-
-		<div class="row">
-			  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat1.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ЛАСКУН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	<div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat2.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ВИТОША</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat3.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ЭЛЬТОН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat4.jpg" alt="...">
-	      <div class="caption">
-	        <h3>Карина</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	  	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat5.jpg" alt="...">
-	      <div class="caption">
-	        <h3>РОБИНЗОН</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src="./img/cat6.jpg" alt="...">
-	      <div class="caption">
-	        <h3>ПЕТРУШКА</h3>
-	        <p>...</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Приютить</a></p>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-		<h2>Внешний вид</h2>
-
-		<p>Современная сиамская кошка имеет весьма характерную внешность, отличительными чертами которой являются тонкое, длинное, трубообразное гибкое тело, голова в виде длинного клина, большие миндалевидные косо поставленные глаза ярко-синего цвета, очень большие уши, широкие в основании и заостренные на концах, поставленные таким образом, чтобы между мочкой носа и кончиками ушей образовывался равносторонний треугольник. Шерсть короткая, плотно прилегающая к телу, без подшерстка. Очень длинный хлыстообразный хвост, тонкий от самого основания с заостренным длинным кончиком.</p>
-		<p>Для сиамских кошек характерен окрас колор-поинт (светлая шерсть с более тёмным окрасом на лапах, морде, ушах и хвосте). Такой окрас — это проявление неполного альбинизма, называемого акромеланизм. Действие акромеланизма связано с температурными особенностями живого организма: в теплых частях тела вырабатывается меньше пигмента, чем в холодных, поэтому уши, лапы, хвост и морда окрашены в более тёмный по сравнению с остальным телом цвет. С возрастом контраст поинтов по сравнению с телом может стать меньше. После года большинство кошек поинтового окраса имеют затемнение по корпусу. Сиамские котята рождаются абсолютно белыми, через несколько дней после рождения начинают темнеть поинты, окончательно окрас устанавливается в 6—10 месяцев.</p>
-		<h2>Характер</h2>
-		<p>Активные кошки. Нуждаются во внимании, любят физический контакт. Общительные, ласковые и доверчивые. Кошки из сиамо-ориентальной группы умеют пользоваться своими голосовыми связками, меняя тональность и высоту звука для выражения своих требований и чувств. Легко поддаются дрессировке.
-
-<li>Балийская — длинношёрстная порода кошек.</li>
-<li>Бурманская — порода кошек, выведенная из породы «Wong Mau». Джозеф Томпсон обнаружил её в Бирме в 1930 году. Он привез её в Калифорнию, где и была выведена бирманская порода кошек путём скрещивания «Wong Mau» с сиамской.</li>
-<li>Гималайская — длинношёрстная порода кошек, выведенная путём скрещивания персидской и сиамской кошки.</li>
-<li>Яванская (Ориентальная длинношёрстная) — длинношёрстная порода кошек.
-Ориентальная короткошёрстная</li>
-<li>Тайская — старотипный экстерьер сиамской кошки. Сохранён. Сейчас выделен в отдельную породу.</p></li>
-
-<small>Данная организация работает исключительно на деньги с пожертвований, если есть возможность +793469439688 (QIWI/Сбербанк)</small>
+		<small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
 </body>
 
 </html>
