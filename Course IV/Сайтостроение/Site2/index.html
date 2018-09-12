@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Учим Canvas</title>
+        <meta charset='utf-8' />
+    </head>
+    <body>
+
+        <canvas id="canvas"></canvas>
+        <script>
+        var canvas = document.getElementById('canvas');
+		var c = canvas.getContext('2d');
+		c.canvas.width  = window.innerWidth;
+		c.canvas.height = window.innerHeight;
+		var cX = canvas.width / 2;
+		var cY = canvas.height / 2;
+		var red = "#c43511";
+		var white = "#FFF";
+		var black = "#000000";
+		var blue = "#5e8dc1";
+
+        //Облако кароч
+        c.beginPath();
+        c.moveTo(170, 80);
+        c.bezierCurveTo(130, 100, 130, 150, 230, 150);
+        c.bezierCurveTo(250, 180, 320, 180, 340, 150);
+        c.bezierCurveTo(420, 150, 420, 120, 390, 100);
+        c.bezierCurveTo(430, 40, 370, 30, 340, 50);
+        c.bezierCurveTo(320, 5, 250, 20, 250, 50);
+        c.bezierCurveTo(200, 5, 150, 20, 170, 80);
+        c.closePath();
+        c.lineWidth = 2;
+        c.fillStyle = blue;
+        c.fill();
+        c.strokeStyle = black;
+        c.stroke();
+
+		//house
+		c.beginPath();
+		c.rect(cX - 100, cY - 50, 200, 200);
+		c.moveTo(1000,1000)
+		c.lineTo(1000,1000)
+		c.fillStyle = red;
+		c.fill();
+		c.closePath();
+
+		// window
+		c.beginPath();
+		c.rect(cX - 70, cY - 20, 40, 40);
+		c.fillStyle = blue;
+		c.fill();
+		c.closePath();
+
+		// roof
+		c.beginPath();
+		c.moveTo(cX - 100, cY - 50);
+		c.lineTo(cX, cY - 150);
+		c.lineTo(cX + 100, cY - 50);
+		c.lineTo(cX - 100, cY -50);
+		c.fillStyle = red;
+		c.fill();
+		c.closePath();
+
+		// door
+		c.beginPath();
+		c.rect(cX + 20, cY + 71, 50, 80);
+		c.fillStyle = "#755c1d";
+		c.fill();
+		c.closePath();
+
+		// chimney
+		c.beginPath();
+		c.rect(cX + 60, cY - 120, 20, 50);
+		c.rect(cX + 50, cY - 130, 40, 10);
+		c.fillStyle = black;
+		c.fill();
+		c.closePath();
+
+// window lines
+c.beginPath();
+c.moveTo(cX - 70, cY);
+c.lineTo(cX - 30, cY);
+c.moveTo(cX - 50, cY - 20);
+c.lineTo(cX - 50, cY + 20);
+c.strokeStyle = black;
+c.lineWidth = 2;
+c.stroke();
+c.closePath();
+
+
+
+        </script>
+    </body>
+</html>
