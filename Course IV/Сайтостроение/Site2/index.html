@@ -35,7 +35,6 @@
         c.strokeStyle = black;
         c.stroke();
 
-		//house
 		c.beginPath();
 		c.rect(cX - 100, cY - 50, 200, 200);
 		c.moveTo(1000,1000)
@@ -44,14 +43,12 @@
 		c.fill();
 		c.closePath();
 
-		// window
 		c.beginPath();
 		c.rect(cX - 70, cY - 20, 40, 40);
 		c.fillStyle = blue;
 		c.fill();
 		c.closePath();
 
-		// roof
 		c.beginPath();
 		c.moveTo(cX - 100, cY - 50);
 		c.lineTo(cX, cY - 150);
@@ -61,14 +58,12 @@
 		c.fill();
 		c.closePath();
 
-		// door
 		c.beginPath();
 		c.rect(cX + 20, cY + 71, 50, 80);
 		c.fillStyle = "#755c1d";
 		c.fill();
 		c.closePath();
 
-		// chimney
 		c.beginPath();
 		c.rect(cX + 60, cY - 120, 20, 50);
 		c.rect(cX + 50, cY - 130, 40, 10);
@@ -76,7 +71,68 @@
 		c.fill();
 		c.closePath();
 
-// window lines
+		c.strokeRect(200, 400, 80, 100);
+		c.moveTo(200, 400);
+		c.lineTo(240, 340);
+		c.lineTo(280, 400);
+		c.lineTo(340, 380);
+		c.lineTo(310, 330);
+
+		c.lineTo(290, 333);
+		c.moveTo(290, 345);
+		c.lineTo(290, 315);
+		c.lineTo(270, 315);
+		c.lineTo(270, 355);
+		c.moveTo(270, 337);
+
+		c.lineTo(240, 340);
+		c.moveTo(340, 380);
+		c.lineTo(340, 470);
+		c.lineTo(280, 500);
+
+		c.stroke();
+		c.closePath(); 
+
+		c.beginPath();
+		c.moveTo(240, 393);
+		c.moveTo(240, 363);
+		c.moveTo(225, 378);
+		c.moveTo(255, 378);
+		c.stroke();
+		c.closePath();
+
+		c.strokeRect(1000, 400, 80, 100);
+		c.moveTo(1000, 400);
+		c.lineTo(1040, 340);
+		c.lineTo(1080, 400);
+		c.lineTo(1140, 380);
+		c.lineTo(1110, 330);
+
+		c.lineTo(1090, 333);
+		c.moveTo(1090, 345);
+		c.lineTo(1090, 315);
+		c.lineTo(1070, 315);
+		c.lineTo(1070, 355);
+		c.moveTo(1070, 337);
+
+		c.lineTo(1040, 340);
+		c.moveTo(1140, 380);
+		c.lineTo(1140, 470);
+		c.lineTo(1080, 500);
+
+		c.stroke();
+		c.closePath(); 
+
+		c.beginPath();
+		c.moveTo(1040, 393);
+		c.moveTo(1040, 363);
+		c.moveTo(1025, 378);
+		c.moveTo(1055, 378);
+		c.stroke();
+		c.closePath();
+
+
+// Решетка
 c.beginPath();
 c.moveTo(cX - 70, cY);
 c.lineTo(cX - 30, cY);
