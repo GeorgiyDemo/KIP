@@ -1,0 +1,53 @@
+.green_text {
+	color: green;
+}
+
+.blue_background_text {
+	background: cyan
+}
+
+.red_background_color {
+	background: rgba(255,0,0,0.35)
+}
+
+.right_text{
+	text-align: right
+}
+
+.main_image{
+	width:732px;
+	height:488px;
+}
+
+.flag{
+	border: 1px solid black;
+	height: 300px;
+	width: 500px;
+}
+
+.russian_flag1{
+	background: white;
+	height: 100px;
+	width: 500px;
+
+}
+
+.russian_flag2{
+	background: blue;
+	height: 100px;
+	width: 500px;
+}
+
+.russian_flag3{
+	background: red;
+	height: 100px;
+	width: 500px;
+}
+
+.japan_flag{
+	background: red;
+	border-radius: 100%;
+	height: 200px;
+	width: 200px;
+	margin: 50px 150px 50px 150px;
+}
