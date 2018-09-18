@@ -3,15 +3,15 @@
 }
 
 .blue_background_text {
-	background: cyan
+	background: cyan;
 }
 
 .red_background_color {
-	background: rgba(255,0,0,0.35)
+	background: rgba(255,0,0,0.35);
 }
 
 .right_text{
-	text-align: right
+	text-align: right;
 }
 
 .main_image{
