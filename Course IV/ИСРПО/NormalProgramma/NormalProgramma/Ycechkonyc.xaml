@@ -15,7 +15,7 @@
         <Label Content="L&#xA;" HorizontalAlignment="Left" Margin="485,153,0,0" VerticalAlignment="Top" Width="27" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="txt_4" HorizontalAlignment="Left" Height="22" Margin="525,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" MaxLength="15" TextChanged="txt_4_TextChanged"/>
         <Label Content="Sбок&#xA;" HorizontalAlignment="Left" Margin="436,337,0,0" VerticalAlignment="Top" Width="48" Height="33" FontFamily="Times New Roman" FontSize="16"/>
-        <TextBox x:Name="txt_9" HorizontalAlignment="Left" Height="22" Margin="497,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
+        <TextBox x:Name="txt_9" HorizontalAlignment="Left" Height="22" Margin="497,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" TextChanged="txt_9_TextChanged" />
         <Label Content="Sосн(R)" HorizontalAlignment="Left" Margin="66,275,0,0" VerticalAlignment="Top" Width="66" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="txt_5" HorizontalAlignment="Left" Height="22" Margin="145,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
         <Label Content="Sобщая&#xA;" HorizontalAlignment="Left" Margin="516,275,0,0" VerticalAlignment="Top" Width="64" Height="33" FontFamily="Times New Roman" FontSize="16"/>
@@ -23,7 +23,7 @@
         <Label Content="V&#xA;" HorizontalAlignment="Left" Margin="227,336,0,0" VerticalAlignment="Top" Width="27" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="txt_8" HorizontalAlignment="Left" Height="22" Margin="267,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
         <Label Content="Sосн(r)" HorizontalAlignment="Left" Margin="282,275,0,0" VerticalAlignment="Top" Width="61" Height="33" FontFamily="Times New Roman" FontSize="16"/>
-        <TextBox x:Name="txt_6" HorizontalAlignment="Left" Height="22" Margin="348,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14"   RenderTransformOrigin="-0.138,0.69"/>
+        <TextBox x:Name="txt_6" HorizontalAlignment="Left" Height="22" Margin="352,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14"   RenderTransformOrigin="-0.138,0.69"/>
         <Label Content="r" HorizontalAlignment="Left" Margin="485,60,0,0" VerticalAlignment="Top" Width="27" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="txt_2" HorizontalAlignment="Left" Height="22" Margin="525,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" MaxLength="15" TextChanged="txt_2_TextChanged"/>
         <Label x:Name="l5" Content="Недостаточно данных" HorizontalAlignment="Left" Margin="116,244,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="14" Width="149" Visibility="Hidden" />
