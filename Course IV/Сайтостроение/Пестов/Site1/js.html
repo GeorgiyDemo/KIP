@@ -5,6 +5,7 @@
 		<meta charset=“utf-8”> <title>Приют "Котикус"</title> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="css/bootstrap.min.css" rel="stylesheet"> 
 		<script src="js/secred.js"></script>
+		<script src="js/pass.js"></script>
 		<style> [class*="col-"] { background-color: #eee; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; font-size: 2rem; }
 		</style> 
 
@@ -77,10 +78,41 @@
 				document.write("Ь");
 			if(((var1+var2+var3+var4+var5)/3)>60)
 				document.write("К");
+		</script> 
+
+		<script type="text/javascript">
+			var checkname = prompt("Запрос имени");
+			if (checkname != null) {
+				alert("Добро пожаловать, "+checkname+"!");
+			}
+
+			var password_check = prompt("Введите пароль");
+			if (password_check == SUPER_SECURE_PASSWORD)
+				alert("ПАРОЛЬ ПРАВИЛЬНЫЙ");
+			else
+				alert("ПАРОЛЬ НЕПРАВИЛЬНЫЙ");
+
+			alert([ "a", "в", "б" ].sort());
+
+			arr = [2,1,3,500]
 
 
+			for (var ch1=0; ch1 < arr.length; ch1++){
 
+				for (var ch2=ch1+1; ch2 < arr.length+1; ch2++){
+					if (arr[ch1]>arr[ch2]){
 
+						var buf = arr[ch2];
+						arr[ch2] = arr[ch1];
+						arr[ch1] = buf;
+					}
+				}
+			}
+			alert(arr)
+
+			document.write("<br>")
+			for (var checkchar=0; checkchar < 10000; checkchar+=20)
+				document.write("<b>Число<b>"+checkchar+"<br></b>")
 		</script> 
 
 		<small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
