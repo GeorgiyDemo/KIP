@@ -1,0 +1,32 @@
+<!DOCtype html>
+
+<html>
+	<head>
+		<meta charset=“utf-8”> <title>Приют "Котикус"</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet"> 
+		<style> [class*="col-"] { background-color: #eee; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; font-size: 2rem; }
+		</style> 
+
+	</head>
+	<body>
+		
+	<form action="action.php" method="post">
+		<legend>Контактная информация</legend>
+		<label>Имя</label><input type="text" name="name" /><br>
+		<label>Телефон</label><input type="text" name="phone" /><br>
+		<label>Email</label><input type="email" name="email" /><br>
+		<label>Дата посещения</label><input type="date" name="date" /><br>
+	</form>	
+	<br>
+	<form action="action.php" method="post">
+			<legend>Персональная информация</legend>
+			<label>Возраст</label><input type="number" min="1" max="100" step="1" name="age" /><br>
+			<label>Любимая кухня</label><option><select>Русская</select><select>ДРУГАя</select></option> /><br>
+			<label>Email</label><input type="email" name="email" /><br>
+			<label>Дата посещения</label><input type="date" name="date" />
+		</form>	
+
+	</body>
+
+</html>
