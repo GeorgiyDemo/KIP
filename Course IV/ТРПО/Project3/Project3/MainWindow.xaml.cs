@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Project3
 {
@@ -24,43 +12,76 @@ namespace Project3
     public partial class MainWindow : Window
     {
 
-        public char[,] GetArray()
-        {
-            char[,] array = new char[10, 10];
-            Random rnd = new Random();
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 10; j++)
-                {
-                    array[i, j] = (char)rnd.Next(65, 93);
-                }
-            }
-                ///
-                return array;
-        }
-        public MainWindow()
-        {
-            InitializeComponent();
+        string[,] MainArray;
+        private static Random random = new Random();
 
-            var array = GetArray();
-            var rows = array.GetLength(0);
-            var columns = array.GetLength(1);
+        public string[,] GetArray()
+        {
+            string[,] array = new string[10, 10];
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
+                    array[i, j] = RandomString(1);
+             return array;
+        }
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public DataTable DataGridInput(bool flag)
+        {
+            MainArray = flag ? GetArray() : MainArray;
+            var rows = MainArray.GetLength(0);
+            var columns = MainArray.GetLength(1);
 
             var t = new DataTable();
             for (var c = 0; c < columns; c++)
                 t.Columns.Add(new DataColumn(c.ToString()));
 
-             for (var r = 0; r < rows; r++)
+            for (var r = 0; r < rows; r++)
             {
                 var newRow = t.NewRow();
                 for (var c = 0; c < columns; c++)
-                {
-                    newRow[c] = array[r, c];
-                }
+                    newRow[c] = MainArray[r, c];
                 t.Rows.Add(newRow);
             }
-            MainDataGrid.ItemsSource = t.DefaultView;
+
+            return t;
         }
 
+        public MainWindow()
+        {
+            InitializeComponent();
+            MainDataGrid.ItemsSource = DataGridInput(true).DefaultView;
+        }
+
+        private void FirstToSecondButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainDataGrid.ItemsSource = null;
+
+            for (int i = 0; i < MainArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < MainArray.GetLength(1); j++)
+                    MainTextbox.Text += MainArray[i, j].ToString();
+                MainTextbox.Text += "\n";
+            }
+        }
+
+        private void SecondToFirstButton_Click(object sender, RoutedEventArgs e)
+        {
+       
+            for (int i = 0; i < MainArray.GetLength(0); i++)
+            {
+                string check = MainTextbox.Text.Split('\n')[i];
+                for (int j = 0; j < check.Length; j++)
+                    MainArray[i, j] = check[j].ToString();
+            }
+
+            MainTextbox.Text = "";
+            MainDataGrid.ItemsSource = DataGridInput(false).DefaultView;
+        }
     }
 }

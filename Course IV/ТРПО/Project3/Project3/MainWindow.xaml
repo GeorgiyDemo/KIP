@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="188" Margin="34,43,0,0" VerticalAlignment="Top" Width="303"/>
+        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="188" Margin="34,43,0,0" VerticalAlignment="Top" Width="265"/>
+        <TextBox x:Name="MainTextbox" HorizontalAlignment="Left" Height="188" Margin="517,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Button x:Name="SecondToFirstButton" Content="&lt;=" HorizontalAlignment="Left" Margin="359,161,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="SecondToFirstButton_Click"/>
+        <Button x:Name="FirstToSecondButton" Content="=&gt;" HorizontalAlignment="Left" Margin="359,87,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="FirstToSecondButton_Click"/>
 
     </Grid>
 </Window>
