@@ -76,8 +76,22 @@ namespace Project3
             for (int i = 0; i < MainArray.GetLength(0); i++)
             {
                 string check = MainTextbox.Text.Split('\n')[i];
-                for (int j = 0; j < check.Length; j++)
-                    MainArray[i, j] = check[j].ToString();
+                    if (check.Length < MainArray.GetLength(0))
+                    {
+                        int difflength = Math.Abs(MainArray.GetLength(0) - check.Length);
+                        int counter = MainArray.GetLength(0)-1;
+
+                        while (counter > MainArray.GetLength(0)-1-difflength)
+                        {
+                            MainArray[i, counter] = "";
+                            counter--;
+                        }
+                    }
+                        
+                    for (int j = 0; j < check.Length; j++)
+                        MainArray[i, j] = check[j].ToString();
+
+                
             }
 
             MainTextbox.Text = "";
