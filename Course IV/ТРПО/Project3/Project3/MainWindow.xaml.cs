@@ -87,9 +87,16 @@ namespace Project3
                             counter--;
                         }
                     }
-                        
+
+                try
+                {
                     for (int j = 0; j < check.Length; j++)
                         MainArray[i, j] = check[j].ToString();
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
 
                 
             }
