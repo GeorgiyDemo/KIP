@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="188" Margin="34,43,0,0" VerticalAlignment="Top" Width="265"/>
-        <TextBox x:Name="MainTextbox" HorizontalAlignment="Left" Height="188" Margin="517,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
-        <Button x:Name="SecondToFirstButton" Content="&lt;=" HorizontalAlignment="Left" Margin="359,161,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="SecondToFirstButton_Click"/>
-        <Button x:Name="FirstToSecondButton" Content="=&gt;" HorizontalAlignment="Left" Margin="359,87,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="FirstToSecondButton_Click"/>
+        Title="MainWindow" Height="519.665" Width="922.385">
+    <Grid Margin="0,0,0,-181">
+        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="188" Margin="34,141,0,0" VerticalAlignment="Top" Width="265"/>
+        <TextBox x:Name="MainTextbox" HorizontalAlignment="Left" Height="188" Margin="590,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Button x:Name="SecondToFirstButton" Content="&lt;=" HorizontalAlignment="Left" Margin="359,259,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="SecondToFirstButton_Click"/>
+        <Button x:Name="FirstToSecondButton" Content="=&gt;" HorizontalAlignment="Left" Margin="359,185,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="FirstToSecondButton_Click"/>
+        <TextBox x:Name="VerticalTextBox" HorizontalAlignment="Left" Height="188" Margin="590,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
 
     </Grid>
 </Window>

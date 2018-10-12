@@ -31,6 +31,17 @@ namespace Project3
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        T[,] ResizeArray<T>(T[,] original, int rows, int cols)
+        {
+            var newArray = new T[rows, cols];
+            int minRows = Math.Min(rows, original.GetLength(0));
+            int minCols = Math.Min(cols, original.GetLength(1));
+            for (int i = 0; i < minRows; i++)
+                for (int j = 0; j < minCols; j++)
+                    newArray[i, j] = original[i, j];
+            return newArray;
+        }
+
         public DataTable DataGridInput(bool flag)
         {
             MainArray = flag ? GetArray() : MainArray;
@@ -61,12 +72,39 @@ namespace Project3
         private void FirstToSecondButton_Click(object sender, RoutedEventArgs e)
         {
             MainDataGrid.ItemsSource = null;
-
+    
             for (int i = 0; i < MainArray.GetLength(0); i++)
             {
-                for (int j = 0; j < MainArray.GetLength(1); j++)
-                    MainTextbox.Text += MainArray[i, j].ToString();
+                for (int j = 0; j < MainArray.GetLength(1); j++) {
+
+                    try
+                    {
+                        MainTextbox.Text += MainArray[i, j].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        MainArray[i, j] = "";
+                        MainTextbox.Text += MainArray[i, j].ToString();
+                    }
+                }
                 MainTextbox.Text += "\n";
+            }
+
+            for (int i = 0; i < MainArray.GetLength(1); i++)
+            {
+                for (int j = 0; j < MainArray.GetLength(0); j++)
+                {
+                    try
+                    {
+                        VerticalTextBox.Text += MainArray[j, i].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        MainArray[j, i] = "";
+                        MainTextbox.Text += MainArray[j, i].ToString();
+                    }
+                }
+                VerticalTextBox.Text += "\n";
             }
         }
 
@@ -88,20 +126,25 @@ namespace Project3
                         }
                     }
 
-                try
+                if (check.Length > MainArray.GetLength(0))
                 {
-                    for (int j = 0; j < check.Length; j++)
-                        MainArray[i, j] = check[j].ToString();
-                }
-                catch (Exception)
-                {
-                    continue;
+
+                    MainArray = ResizeArray(MainArray, MainArray.GetLength(0), MainArray.GetLength(1)+(check.Length-MainArray.GetLength(0)));
                 }
 
-                
+                for (int j = 0; j < check.Length; j++)
+                {
+
+                    if (check.Length> MainArray.GetLength(0))
+                        MainArray[i, j] = check[j].ToString();
+
+                }
+
+
             }
 
             MainTextbox.Text = "";
+            VerticalTextBox.Text = "";
             MainDataGrid.ItemsSource = DataGridInput(false).DefaultView;
         }
     }
