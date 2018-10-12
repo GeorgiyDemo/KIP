@@ -101,7 +101,7 @@ namespace Project3
                     catch (Exception)
                     {
                         MainArray[j, i] = "";
-                        MainTextbox.Text += MainArray[j, i].ToString();
+                        VerticalTextBox.Text += "";
                     }
                 }
                 VerticalTextBox.Text += "\n";
