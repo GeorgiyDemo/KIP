@@ -24,7 +24,7 @@
         <Label Content="V" HorizontalAlignment="Left" Margin="474,172,0,0" VerticalAlignment="Top" Width="27" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="Vmain" HorizontalAlignment="Left" Height="22" Margin="543,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
         <GroupBox x:Name="InputGroupBox" Header="Ввод" HorizontalAlignment="Left" Height="156" Margin="241,44,0,0" VerticalAlignment="Top" Width="197"/>
-        <GroupBox x:Name="OutputGroupBox" Header="Ввод" HorizontalAlignment="Left" Height="161" Margin="457,44,0,0" VerticalAlignment="Top" Width="222"/>
+        <GroupBox x:Name="OutputGroupBox" Header="Вывод" HorizontalAlignment="Left" Height="161" Margin="457,44,0,0" VerticalAlignment="Top" Width="222"/>
 
     </Grid>
 </Window>

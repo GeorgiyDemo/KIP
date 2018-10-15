@@ -29,10 +29,28 @@ namespace Project3
             Close();
         }
 
+        private void CheckData()
+        {
+            double InputR, InputH;
+            if ((double.TryParse(InputRaduisTextbox.Text, out InputR)) && (double.TryParse(HTextBox.Text, out InputH)))
+            {
+
+                S1TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI * InputR * InputH, 3));
+                S2TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI + 2 * Math.PI * Math.Round(InputR, 2), 3));
+                VTextBox.Text = Convert.ToString(Math.Round(InputH * Math.PI * Math.Round(InputR, 2), 3));
+
+
+            }
+        }
+
         private void InoutRaduisTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //VTextBox.Text = System.Convert.ToString((4 / 3) * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 3));
-            STextBox.Text = System.Convert.ToString(4 * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 2));
+            CheckData();
+        }
+
+        private void HTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckData();
         }
     }
 }
