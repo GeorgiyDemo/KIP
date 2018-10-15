@@ -139,9 +139,14 @@ namespace Project3
                         MainArray[i, j] = check[j].ToString();
 
                 }
-
+            
 
             }
+
+            //Чекаем два Datagrid и на основе их формаируем массив MainArray, который мы затем фигачим на Datagrid
+            //for 
+
+            
 
             MainTextbox.Text = "";
             VerticalTextBox.Text = "";
