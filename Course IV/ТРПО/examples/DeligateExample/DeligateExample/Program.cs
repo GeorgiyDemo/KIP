@@ -1,36 +1,27 @@
 ﻿using System;
 
-namespace DeligateExample
+namespace Delegate
 {
-    delegate void Del1();
-    delegate void Del2(int a);
-
+    delegate void FirstDelegate();
+    delegate void SecondDelegate(string zz);
     class Program
     {
-        static void summ(int a)
+        private static void DelWithConstr()
         {
-            Console.WriteLine("Сумма = {0}", a + a);
+            Console.WriteLine("Делагат с конструктором");
         }
-
-        static void summ2(int a)
+        public static void DelWithOutConstructor(string zz)
         {
-            Console.WriteLine("Сумма2 = {0}", a + a + 1);
+            Console.WriteLine("Делагат без конструктора " + zz);
         }
-
-        static void summ3(int a)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Сумма3 = {0}", a + a + 2);
-        }
-
-        static void Main()
-        {
-            //Del1 de1 = new Del1();
-
-            Del2 de2 = null;
-            de2 += summ;
-            de2 += summ2;
-            de2 += summ3;
-            de2(1);
+            string zz = Console.ReadLine();
+            FirstDelegate del = new FirstDelegate(DelWithConstr);
+            del();
+            SecondDelegate del2 = zz1 => DelWithOutConstructor(zz);
+            del2(zz);
+            Console.ReadKey();
         }
     }
 }
