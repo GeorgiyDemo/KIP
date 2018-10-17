@@ -9,7 +9,10 @@ namespace Project3
     class ShortConusClass
     {
 
-        double InputR1, Inputr1, InputH1, InputL1;
+        double InputR1{ get; set; }
+        double Inputr1 { get; set; }
+        double InputH1 { get; set; }
+        double InputL1 { get; set; }
 
         public ShortConusClass(double InputR, double Inputr, double InputH, double InputL)
         {

@@ -8,7 +8,7 @@ namespace Project3
 {
     class SpheraClass
     {
-        double InputR;
+        double InputR { get; set; }
 
         public SpheraClass(double OutInputR)
         {

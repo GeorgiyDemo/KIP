@@ -8,7 +8,9 @@ namespace Project3
 {
     public class ConusClass
     {
-        double InputR1, InputH1, InputL1;
+        double InputR1 { get; set; }
+        double InputH1 { get; set; }
+        double InputL1 { get; set; }
 
         public ConusClass(string InputRString, string InputHString, string InputLString)
         {

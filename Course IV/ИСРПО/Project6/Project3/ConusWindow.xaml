@@ -8,7 +8,6 @@
         Title="ConusWindow" Height="347" Width="727">
     <Grid>
         <Button x:Name="ExitButton" Content="Назад" HorizontalAlignment="Left" Margin="241,226,0,0" VerticalAlignment="Top" Width="154" Height="48" Click="ExitButton_Click"/>
-        <Image Margin="0,0,517,29" Source="Без названия.jpeg" Stretch="Fill"/>
         <TextBox x:Name="InputRTextbox" HorizontalAlignment="Left" Height="24" Margin="299,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="InputRTextbox_TextChanged"/>
         <Label Content="R=" HorizontalAlignment="Left" Margin="255,71,0,0" VerticalAlignment="Top" Width="40" FontSize="16" Height="34"/>
         <Label Content="H=" HorizontalAlignment="Left" Margin="255,105,0,0" VerticalAlignment="Top" Width="40" FontSize="16" Height="34"/>
@@ -25,6 +24,7 @@
         <TextBox x:Name="Vmain" HorizontalAlignment="Left" Height="22" Margin="543,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" />
         <GroupBox x:Name="InputGroupBox" Header="Ввод" HorizontalAlignment="Left" Height="156" Margin="241,44,0,0" VerticalAlignment="Top" Width="197"/>
         <GroupBox x:Name="OutputGroupBox" Header="Вывод" HorizontalAlignment="Left" Height="161" Margin="457,44,0,0" VerticalAlignment="Top" Width="222"/>
+        <Image Margin="0,0,525,57" Source="conus.jpg" Stretch="Fill"/>
 
     </Grid>
 </Window>

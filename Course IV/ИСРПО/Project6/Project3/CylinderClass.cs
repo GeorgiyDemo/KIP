@@ -8,7 +8,8 @@ namespace Project3
 {
     class CylinderClass
     {
-        double InputR1, InputH1;
+        double InputR1 { get; set; }
+        double InputH1 { get; set; }
 
         public CylinderClass(double InputR, double InputH)
         {
