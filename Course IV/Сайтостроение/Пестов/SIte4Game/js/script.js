@@ -2,16 +2,14 @@ var s
 var scl = 20; // масштаб
 var food; //элемент еды
 
-function random_rgba() {
-  var o = Math.round, r = Math.random, s = 255;
-  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
+var randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
 
 //Функция настройки
 function setup(){
+  bg = loadImage("https://pp.userapi.com/c845523/v845523714/111b6c/HUIz6HGFEGg.jpg");
   var w = window.innerWidth-((window.innerWidth/100)*10);
   var h = window.innerHeight-((window.innerHeight/100)*10);
-  createCanvas(w,h);
+  createCanvas(w,h).style("border", "5px solid "+randomColor);
   s = new Snake();
   //Задержка во время работы
   frameRate(10);
@@ -29,7 +27,8 @@ function pickLocation() {
 
 //Функция отрисовки
 function draw() {
- background(bg, 88, 88);
+
+  background(bg);
   s.smertnost();
   s.update();
   s.show();
@@ -39,7 +38,7 @@ function draw() {
   }
   
   // То, что змея есть
-  fill(242,242,242);
+  fill(randomColor);
   rect(food.x, food.y, scl, scl);
 }
 
@@ -105,6 +104,7 @@ class Snake {
               .then(
                 result => {
                     setTimeout(function() {
+                          alert("Вы проиграли 🐍")
                           location.reload();
                     }, 2500);
                 },
@@ -130,7 +130,7 @@ class Snake {
     };
 
     this.show = function () {
-      fill(255, 0, 0);
+      fill(randomColor);
       for (var i = 0; i < this.total; i++) {
         rect(this.tail[i].x, this.tail[i].y, scl, scl);
       }
