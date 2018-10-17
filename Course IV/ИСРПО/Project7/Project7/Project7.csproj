@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88809936-51B2-4BAC-A65F-83AED421227B}</ProjectGuid>
+    <ProjectGuid>{187DDF9D-DA23-4174-BD91-11A76485FF4A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Project3</RootNamespace>
-    <AssemblyName>Project3</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Project7</RootNamespace>
+    <AssemblyName>Project7</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -54,26 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConusClass.cs" />
-    <Compile Include="ConusWindow.xaml.cs">
-      <DependentUpon>ConusWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CylinderClass.cs" />
-    <Compile Include="ShortConusClass.cs" />
-    <Compile Include="ShortConusWindow.xaml.cs">
-      <DependentUpon>ShortConusWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SpheraClass.cs" />
-    <Compile Include="SpheraWindow.xaml.cs">
-      <DependentUpon>SpheraWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="СylinderWindow.xaml.cs">
-      <DependentUpon>СylinderWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="ConusWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,22 +63,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ArrayClass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ShortConusWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SpheraWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="СylinderWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -124,18 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="conus.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="shortconus.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="sphera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="cylinder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
