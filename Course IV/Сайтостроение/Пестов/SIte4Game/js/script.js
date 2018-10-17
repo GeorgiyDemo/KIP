@@ -29,8 +29,8 @@ function pickLocation() {
 
 //Функция отрисовки
 function draw() {
- background(93, 88, 88);
-  s.death();
+ background(bg, 88, 88);
+  s.smertnost();
   s.update();
   s.show();
   
@@ -56,7 +56,6 @@ function keyPressed() {
   }
 }
 
-//Сама змея
 class Snake {
 
   constructor() {
@@ -72,8 +71,12 @@ class Snake {
     };
 
     this.eat = function (pos) {
+
       var d = dist(this.x, this.y, pos.x, pos.y);
       if (d < 4) {
+        var score_audio = new Audio();
+        score_audio.src = "./audio/score.mp3";
+        score_audio.play();
         this.total++;
         return true;
       }
@@ -82,13 +85,33 @@ class Snake {
       }
     };
 
-    this.death = function () {
+    this.smertnost = function () {
       for (var i = 0; i < this.tail.length; i++) {
         var pos = this.tail[i];
         var d = dist(this.x, this.y, pos.x, pos.y);
+
         if (d < 1) {
-          this.total = 0;
-          this.tail = [];
+          
+          let promise = new Promise((resolve, reject) => {
+                  var score_audio = new Audio();
+                  score_audio.src = "./audio/snake_death.wav";
+                  score_audio.play();
+
+                  this.total = 0;
+                  this.tail = [];
+                  resolve('result');
+                });
+          promise
+              .then(
+                result => {
+                    setTimeout(function() {
+                          location.reload();
+                    }, 2500);
+                },
+                error => {
+                  console.log("Промис не сработал, боль тлен")
+                }
+              );
         }
       }
     };
@@ -100,6 +123,7 @@ class Snake {
       this.tail[this.total - 1] = createVector(this.x, this.y);
       this.x = this.x + this.xspeed * scl;
       this.y = this.y + this.yspeed * scl;
+
       //Чтоб змея не вышла за пределы канваса-канзаса
       this.x = constrain(this.x, 0, width - scl);
       this.y = constrain(this.y, 0, height - scl);
