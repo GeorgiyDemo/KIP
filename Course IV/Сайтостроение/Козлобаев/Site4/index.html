@@ -41,10 +41,17 @@
 						<td class="DEMKALefttable"><label>Возраст</label></td><td class="DEMKARighttable"><input type="number" min="1" max="100" step="1" name="age" /></td>
 					</tr>
 					<tr> 
-						<td class="DEMKALefttable"><label>Любимая кухня</label></td><td class="DEMKARighttable"><option>Русская</option></td>
+						<td class="DEMKALefttable"><label>Любимая кухня</label></td><td class="DEMKARighttable">
+							<select name="food_kitchen">
+								<option value="1">Русская</option>
+								<option value="2">Армянская</option>
+								<option value="3">Грузинская</option>
+								<option value="4">Узбекская</option>
+							</select>
+						</td>
 					</tr>
 					<tr> 
-						<td class="DEMKALefttable"><label>Какие блюда вы бы хотели увидеть в меню?</label></td><td class="DEMKARighttable"><textarea></textarea></td>
+						<td class="DEMKALefttable"><label>Какие блюда вы бы хотели увидеть в меню?</label></td><td class="DEMKARighttable"><textarea id="food_list" name="food_list"></textarea></td>
 					</tr>
 				</table>
 			</dev>
