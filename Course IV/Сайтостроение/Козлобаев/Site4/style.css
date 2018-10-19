@@ -1,4 +1,4 @@
-form{
+.DEMKAStandartForm{
 	background: #fbf3ee;
 	border-color: #6ac6c5;
     border-style: solid;
@@ -6,6 +6,7 @@ form{
 	border-radius: 20px;
 	
 }
+
 legend{
 	color: #6ac6c5;
 }
