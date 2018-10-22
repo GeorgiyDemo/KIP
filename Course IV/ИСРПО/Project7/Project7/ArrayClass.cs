@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project7
 {
-    class ArrayClass
+    static class ArrayClass
     {
+        static int[,] MainArray;
         private static Random random = new Random();
-        public int[,] GetArray()
+
+        public static int[,] GetArray()
         {
             int[,] array = new int[10, 10];
             for (int i = 0; i < 10; i++)
@@ -21,9 +19,10 @@ namespace Project7
         }
 
 
-        public DataTable DataGridInput()
+        public static DataTable DataGridInput(bool flag)
         {
-            int[,] MainArray = GetArray();
+            MainArray = flag ? GetArray() : MainArray;
+            
             var rows = MainArray.GetLength(0);
             var columns = MainArray.GetLength(1);
 
@@ -41,6 +40,49 @@ namespace Project7
 
             return t;
         }
+
+
+        public static int MainDiagonalSum()
+        {
+
+            int sum = 0;
+            for (int i = 0; i < MainArray.GetLength(0); i++)
+                for (int j = 0; j < MainArray.GetLength(1); j++)
+                    if (i == j)
+                        sum += MainArray[i, j];
+            return sum;
+        }
+
+        public static int MainDiagonalMin()
+        {
+
+            int min = MainArray[0,0];
+            for (int i = 0; i < MainArray.GetLength(0); i++)
+                for (int j = 0; j < MainArray.GetLength(1); j++)
+                    if ((i == j) && (MainArray[i,j]< min))
+                        min = MainArray[i, j];
+
+            return min;
+        }
+
+
+        public static int MainDiagonalMax()
+        {
+
+            int max = MainArray[0, 0];
+            for (int i = 0; i < MainArray.GetLength(0); i++)
+                for (int j = 0; j < MainArray.GetLength(1); j++)
+                    if ((i == j) && (MainArray[i, j] > max))
+                        max = MainArray[i, j];
+
+            return max;
+        }
+
+        //
+        //Диагонали, раскрасить 
+        //Сумма элементов верхнего треугольника, левого, правого, нижнего
+        //Диагонали - главные побочные
+        //Sum/MIN/MAX
     }
 
 }

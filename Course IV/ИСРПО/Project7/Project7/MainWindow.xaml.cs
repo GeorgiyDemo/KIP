@@ -16,9 +16,22 @@ namespace Project7
 
         private void DataGrid_Initialized(object sender, EventArgs e)
         {
-            ArrayClass obj = new ArrayClass();
-            MainDataGrid.ItemsSource = obj.DataGridInput();
+            MainDataGrid.ItemsSource = ArrayClass.DataGridInput(true).DefaultView;
+        }
 
+        private void MainDiagonalSum_Initialized(object sender, EventArgs e)
+        {
+            MainDiagonalSum.Content = "Сумма элементов: " + ArrayClass.MainDiagonalSum().ToString();
+        }
+
+        private void MainDiagonaMin_Initialized(object sender, EventArgs e)
+        {
+            MainDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.MainDiagonalMin().ToString();
+        }
+
+        private void MainDiagonalMax_Initialized(object sender, EventArgs e)
+        {
+            MainDiagonalMax.Content = " Максимальный элемент:: " + ArrayClass.MainDiagonalMax().ToString();
         }
     }
 }
