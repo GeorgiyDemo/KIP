@@ -1,4 +1,4 @@
-﻿using System;
+﻿     using System;
 using System.Windows;
 
 namespace Project7
@@ -31,7 +31,30 @@ namespace Project7
 
         private void MainDiagonalMax_Initialized(object sender, EventArgs e)
         {
-            MainDiagonalMax.Content = " Максимальный элемент:: " + ArrayClass.MainDiagonalMax().ToString();
+            MainDiagonalMax.Content = "Максимальный элемент: " + ArrayClass.MainDiagonalMax().ToString();
         }
+
+        private void AlterDiagonalSum_Initialized(object sender, EventArgs e)
+        {
+            AlterDiagonalSum.Content = "Сумма элементов: " + ArrayClass.AlterDiagonalSum().ToString();
+        }
+
+        private void AlterDiagonaMin_Initialized(object sender, EventArgs e)
+        {
+            AlterDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.AlterDiagonalMin().ToString();
+        }
+
+        private void AlterDiagonalMax_Initialized(object sender, EventArgs e)
+        {
+            AlterDiagonalMax.Content = "Максимальный элемент: " + ArrayClass.AlterDiagonalMax().ToString();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpTriforceSum.Content = "Сумма элементов: " + ArrayClass.UpTriforceSum().ToString();
+        }
+
+       
+      
     }
 }
