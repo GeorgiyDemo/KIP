@@ -30,6 +30,10 @@ namespace Project7
             DownTriforceSum.Content = "Сумма элементов: " + ArrObj.DownTriforceSum().ToString();
             DownTriforceMin.Content = "Минимальный элемент: " + ArrObj.DownTriforceMin().ToString();
             DownTriforceMax.Content = "Максимальный элемент: " + ArrObj.DownTriforceMax().ToString();
+
+            LeftTriforceSum.Content = "Сумма элементов: " + ArrObj.LeftTriforceSum().ToString();
+            LeftTriforceMin.Content = "Минимальный элемент: " + ArrObj.LeftTriforceMin().ToString();
+            LeftTriforceMax.Content = "Максимальный элемент: " + ArrObj.LeftTriforceMax().ToString();
         }
     }
 }

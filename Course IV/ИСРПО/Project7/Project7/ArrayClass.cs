@@ -188,5 +188,53 @@ namespace Project7
             return sum;
         }
 
+        /*
+         * Методы для левого треугольника
+         */
+
+        public int LeftTriforceSum()
+        {
+            int sum = 0;
+            for (int i = 1; i < MainArray.GetLength(0) - 1; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == j)
+                        break;
+                    else
+                        sum += MainArray[i, j];
+                }
+            return sum;
+        }
+
+        public int LeftTriforceMin()
+        {
+            int min = MainArray[1, 0];
+
+            for (int i = 1; i < MainArray.GetLength(0) - 1; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == j)
+                        break;
+                    else if (MainArray[i, j] < min)
+                        min = MainArray[i, j];
+                }
+            return min;
+        }
+
+        public int LeftTriforceMax()
+        {
+            int max = MainArray[1, 0];
+
+            for (int i = 1; i < MainArray.GetLength(0) - 1; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == j)
+                        break;
+                    else if (MainArray[i, j] > max)
+                        max = MainArray[i, j];
+                }
+            return max;
+        }
+
     }
 }
