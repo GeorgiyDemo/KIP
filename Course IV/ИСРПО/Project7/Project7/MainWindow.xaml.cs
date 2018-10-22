@@ -11,50 +11,25 @@ namespace Project7
         public MainWindow()
         {
             InitializeComponent();
+
+            ArrayClass ArrObj = new ArrayClass();
+            MainDataGrid.ItemsSource = ArrObj.DataGridInput().DefaultView;
+
+            MainDiagonalSum.Content = "Сумма элементов: " + ArrObj.MainDiagonalSum().ToString();
+            MainDiagonaMin.Content = "Минимальный элемент: " + ArrObj.MainDiagonalMin().ToString();
+            MainDiagonalMax.Content = "Максимальный элемент: " + ArrObj.MainDiagonalMax().ToString();
+
+            AlterDiagonalSum.Content = "Сумма элементов: " + ArrObj.AlterDiagonalSum().ToString();
+            AlterDiagonaMin.Content = "Минимальный элемент: " + ArrObj.AlterDiagonalMin().ToString();
+            AlterDiagonalMax.Content = "Максимальный элемент: " + ArrObj.AlterDiagonalMax().ToString();
+
+            UpTriforceSum.Content = "Сумма элементов: " + ArrObj.UpTriforceSum().ToString();
+            UpTriforceMin.Content = "Минимальный элемент: " + ArrObj.UpTriforceMin().ToString();
+            UpTriforceMax.Content = "Максимальный элемент: " + ArrObj.UpTriforceMax().ToString();
+
+            DownTriforceSum.Content = "Сумма элементов: " + ArrObj.DownTriforceSum().ToString();
+            DownTriforceMin.Content = "Минимальный элемент: " + ArrObj.DownTriforceMin().ToString();
+            DownTriforceMax.Content = "Максимальный элемент: " + ArrObj.DownTriforceMax().ToString();
         }
-
-
-        private void DataGrid_Initialized(object sender, EventArgs e)
-        {
-            MainDataGrid.ItemsSource = ArrayClass.DataGridInput(true).DefaultView;
-        }
-
-        private void MainDiagonalSum_Initialized(object sender, EventArgs e)
-        {
-            MainDiagonalSum.Content = "Сумма элементов: " + ArrayClass.MainDiagonalSum().ToString();
-        }
-
-        private void MainDiagonaMin_Initialized(object sender, EventArgs e)
-        {
-            MainDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.MainDiagonalMin().ToString();
-        }
-
-        private void MainDiagonalMax_Initialized(object sender, EventArgs e)
-        {
-            MainDiagonalMax.Content = "Максимальный элемент: " + ArrayClass.MainDiagonalMax().ToString();
-        }
-
-        private void AlterDiagonalSum_Initialized(object sender, EventArgs e)
-        {
-            AlterDiagonalSum.Content = "Сумма элементов: " + ArrayClass.AlterDiagonalSum().ToString();
-        }
-
-        private void AlterDiagonaMin_Initialized(object sender, EventArgs e)
-        {
-            AlterDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.AlterDiagonalMin().ToString();
-        }
-
-        private void AlterDiagonalMax_Initialized(object sender, EventArgs e)
-        {
-            AlterDiagonalMax.Content = "Максимальный элемент: " + ArrayClass.AlterDiagonalMax().ToString();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            UpTriforceSum.Content = "Сумма элементов: " + ArrayClass.UpTriforceSum().ToString();
-        }
-
-       
-      
     }
 }

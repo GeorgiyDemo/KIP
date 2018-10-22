@@ -4,12 +4,12 @@ using System.Windows;
 
 namespace Project7
 {
-    static class ArrayClass
+     class ArrayClass
     {
-        static int[,] MainArray;
-        private static Random random = new Random();
+         int[,] MainArray;
+        private  Random random = new Random();
 
-        public static int[,] GetArray()
+        public int[,] GetArray()
         {
             int[,] array = new int[10, 10];
             for (int i = 0; i < 10; i++)
@@ -19,9 +19,9 @@ namespace Project7
             return array;
         }
 
-        public static DataTable DataGridInput(bool flag)
+        public DataTable DataGridInput()
         {
-            MainArray = flag ? GetArray() : MainArray;
+            MainArray = GetArray();
 
             var rows = MainArray.GetLength(0);
             var columns = MainArray.GetLength(1);
@@ -41,8 +41,11 @@ namespace Project7
             return t;
         }
 
+        /*
+         * Методы для главной диагонали
+         */
 
-        public static int MainDiagonalSum()
+        public int MainDiagonalSum()
         {
 
             int sum = 0;
@@ -54,7 +57,7 @@ namespace Project7
             return sum;
         }
 
-        public static int MainDiagonalMin()
+        public int MainDiagonalMin()
         {
 
             int min = MainArray[0, 0];
@@ -67,7 +70,7 @@ namespace Project7
         }
 
 
-        public static int MainDiagonalMax()
+        public int MainDiagonalMax()
         {
 
             int max = MainArray[0, 0];
@@ -79,7 +82,11 @@ namespace Project7
             return max;
         }
 
-        public static int AlterDiagonalSum()
+        /*
+         * Методы для побочной диагонали
+         */
+
+        public int AlterDiagonalSum()
         {
 
             int sum = 0;
@@ -90,7 +97,7 @@ namespace Project7
             return sum;
         }
 
-        public static int AlterDiagonalMin()
+        public int AlterDiagonalMin()
         {
 
             int min = MainArray[9,0];
@@ -101,7 +108,7 @@ namespace Project7
             return min;
         }
 
-        public static int AlterDiagonalMax()
+        public int AlterDiagonalMax()
         {
 
             int max = 0;
@@ -112,7 +119,10 @@ namespace Project7
             return max;
         }
 
-        public static int UpTriforceMin()
+        /*
+         * Методы для верхнего треугольника
+         */
+        public int UpTriforceMin()
         {
             int min = MainArray[0, 1];
             for (int i = 0; i < MainArray.GetLength(0); i++)
@@ -122,7 +132,7 @@ namespace Project7
             return min;
         }
 
-        public static int UpTriforceMax()
+        public int UpTriforceMax()
         {
             int max = MainArray[0, 1];
             for (int i = 0; i < MainArray.GetLength(0); i++)
@@ -132,7 +142,7 @@ namespace Project7
             return max;
         }
 
-        public static int UpTriforceSum()
+        public int UpTriforceSum()
         {
 
             int sum = 0;
@@ -143,7 +153,11 @@ namespace Project7
             return sum;
         }
 
-        public static int DownTriforceMin()
+        /*
+         * Методы для нижнего треугольника
+         */
+
+        public int DownTriforceMin()
         {
             int min = MainArray[0, 1];
             for (int i = 0; i < MainArray.GetLength(0); i++)
@@ -153,7 +167,7 @@ namespace Project7
             return min;
         }
 
-        public static int DownTriforceMax()
+        public int DownTriforceMax()
         {
             int max = MainArray[0, 1];
             for (int i = 0; i < MainArray.GetLength(0); i++)
@@ -163,7 +177,7 @@ namespace Project7
             return max;
         }
 
-        public static int DownTriforceSum()
+        public int DownTriforceSum()
         {
 
             int sum = 0;
