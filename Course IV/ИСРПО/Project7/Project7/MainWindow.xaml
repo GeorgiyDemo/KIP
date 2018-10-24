@@ -32,7 +32,7 @@
             <Label x:Name="LeftTriforceSum" Content="Сумма элементов:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
         </GroupBox>
         <GroupBox Header="Правый треугольник" HorizontalAlignment="Left" Height="124" Margin="557,285,0,0" VerticalAlignment="Top" Width="172">
-            <Label x:Name="MainDiagonalSum4" Content="Сумма элементов:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="RightTriforceSum" Content="Сумма элементов:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
         </GroupBox>
         <Label x:Name="UpTriforceMin" Content="Минимальный элемент:" HorizontalAlignment="Left" Margin="363,191,0,0" VerticalAlignment="Top"/>
         <Label x:Name="UpTriforceMax" Content="Максимальный элемент:" HorizontalAlignment="Left" Margin="363,217,0,0" VerticalAlignment="Top"/>
@@ -40,6 +40,8 @@
         <Label x:Name="DownTriforceMax" Content="Максимальный элемент:" HorizontalAlignment="Left" Margin="562,217,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LeftTriforceMin" Content="Минимальный элемент:" HorizontalAlignment="Left" Margin="363,338,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LeftTriforceMax" Content="Максимальный элемент:" HorizontalAlignment="Left" Margin="363,364,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="RightTriforceMin" Content="Минимальный элемент:" HorizontalAlignment="Left" Margin="562,338,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="RightTriforceMax" Content="Максимальный элемент:" HorizontalAlignment="Left" Margin="562,364,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
