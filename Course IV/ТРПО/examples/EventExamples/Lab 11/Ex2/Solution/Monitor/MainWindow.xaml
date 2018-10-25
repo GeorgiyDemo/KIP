@@ -1,0 +1,24 @@
+﻿<Window x:Class="Monitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="560" Width="500">
+    <Grid Height="515" Width="478">
+        <Button Content="Start Collecting" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="startCollecting" VerticalAlignment="Top" Width="222" Click="startCollecting_Click" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,128,12,0" Name="metricValueBox" VerticalAlignment="Top" Width="316" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="150,157,0,0" Name="imperialValueBox" VerticalAlignment="Top" Width="316" />
+        <ListBox Height="223" HorizontalAlignment="Left" Margin="150,187,0,0" Name="rawDataValues" VerticalAlignment="Top" Width="316" />
+        <Label Content="Metric:" Height="28" HorizontalAlignment="Left" Margin="12,126,0,0" Name="metricLabel" VerticalAlignment="Top" Width="120" />
+        <Label Content="Imperial:" Height="28" HorizontalAlignment="Left" Margin="12,155,0,0" Name="imperialLabel" VerticalAlignment="Top" Width="120" />
+        <Label Content="Raw Data:" Height="28" HorizontalAlignment="Left" Margin="12,187,0,0" Name="rawDataLabel" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,41,146,0" Name="loggingFileNameBox" VerticalAlignment="Top" Width="182" />
+        <Label Content="Logging File:" Height="28" HorizontalAlignment="Left" Margin="12,39,0,0" Name="loggingFileLabel" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="150,70,0,0" Name="unitsBox" VerticalAlignment="Top" Width="316" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="150,99,0,0" Name="mostRecentMeasureBox" VerticalAlignment="Top" Width="316" />
+        <Button Content="Update" Height="23" HorizontalAlignment="Left" Margin="347,41,0,0" Name="updateButton" VerticalAlignment="Top" Width="119" Click="updateButton_Click" />
+        <Label Content="Units:" Height="28" HorizontalAlignment="Left" Margin="12,68,0,0" Name="unitsLabel" VerticalAlignment="Top" Width="120" />
+        <Label Content="Most Recent Measure:" Height="28" HorizontalAlignment="Left" Margin="12,97,0,0" Name="mostRecentMeasureLabel" VerticalAlignment="Top" Width="132" />
+        <Button Content="Dispose Object" Height="23" HorizontalAlignment="Left" Margin="12,459,0,0" Name="dispose" VerticalAlignment="Top" Width="454" Click="dispose_Click" />
+        <Button Content="Stop Collecting" Height="23" HorizontalAlignment="Left" Margin="244,12,0,0" Name="stopCollecting" VerticalAlignment="Top" Width="222" Click="stopCollecting_Click" />
+        <Label Content="Heartbeat Timestamp: " Height="28" HorizontalAlignment="Left" Margin="12,425,0,0" Name="heartBeatTimeStamp" VerticalAlignment="Top" Width="454" />
+    </Grid>
+</Window>
