@@ -1,0 +1,139 @@
+.header
+{
+
+}
+
+.content
+{
+	width: 60%;
+	float:left;
+}
+
+.sidebar
+{
+
+	width: 20%;
+	float: left;
+}
+
+.con
+{
+	width: 100%;
+}
+
+.sidebarr
+{
+	background-color: white;
+	width: 20%;
+	float: left;
+}
+
+.footerr
+{
+background: red;
+width: 100%;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */  
+}
+
+body
+{
+	font-size: 30px;
+}
+
+
+.inner-header
+{
+	background: red;
+	height: 100px;	
+}
+
+.inner-content
+{
+	background: white;
+	min-height: 500px;
+}
+
+.inner-sidebarl
+{
+	margin-right: 2px;
+	background: slateblue;
+	min-height: 500px;
+}
+
+.inner-sidebarr
+{
+	margin-left: 2px;
+	background: white;
+	min-height: 460px;
+}
+
+.inner-sideber
+{
+	margin-left: 2px;
+	background-color: lightsalmon;
+	min-height: 40px;
+}
+
+.inner-footer
+{
+	margin-top: 10px;
+	background-color: gray;
+	height: 200px;
+	width: 100%;
+}
+
+ #left { text-align: left; }
+ #right { text-align: right; }
+ #center { text-align: center; }
+
+
+.bl1
+{
+	margin-top: 70px;
+	background-color: red;
+	min-height: 30px;
+}
+
+.bl2
+{
+	margin-top: 10px;
+	background-color: red;
+	min-height: 30px;
+}
+
+.bl3
+{
+	margin-top: 10px;
+	background-color: red;
+	min-height: 30px;
+}
+
+.bl4
+{
+	margin-top: 10px;
+	background-color: red;
+	min-height: 30px;
+}
+
+.textw
+{
+	color: white;
+}
+
+.textfix
+{
+	color: #4169E1;
+}
+
+.log
+{
+	margin-left: 20px;
+}
+
+.fix
+{
+	margin:30%;
+}
