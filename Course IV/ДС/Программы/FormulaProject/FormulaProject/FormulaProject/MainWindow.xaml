@@ -1,0 +1,18 @@
+﻿<Window x:Class="FormulaProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FormulaProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="187" Width="281">
+    <Grid>
+        <Label x:Name="ResultLabel" Content="" HorizontalAlignment="Left" Margin="180,13,0,0" VerticalAlignment="Top" Height="127" Width="83"/>
+        <TextBox x:Name="FirstInput" HorizontalAlignment="Left" Height="23" Margin="48,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="SecondInput" HorizontalAlignment="Left" Height="23" Margin="48,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="StartButton" Content="Запуск" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top" Width="132" Height="27" Click="StartButton_Click"/>
+        <Label x:Name="DLabel" Content="D = " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="DLabel_Copy" Content="K = " HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
