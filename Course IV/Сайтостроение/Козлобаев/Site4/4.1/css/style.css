@@ -1,0 +1,58 @@
+    body {
+        font-family: Verdana, Arial, sans-serif; /* Рубленый шрифт на странице */
+    }
+   #top { /* Верхняя часть с заголовком страницы */
+    background: blue;
+    border: solid 1px black;
+    padding: 15px 0 15px 10px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+   }
+   #news { /* Навигация по сайту */
+    font-size: 90%;
+    width: 200px;
+    background: #ced1ea;
+    border: solid 1px black;
+    float: right;
+    padding: 3px;
+   }
+
+   #menu { /* Навигация по сайту */
+    width: 130px;
+    float: left;
+    padding: 3px;
+   }
+   #menu p { /* Ссылки в меню */ 
+    background: #29349d;
+    color: white;
+   }
+   #content { /* Основное содержание страницы */
+    background: #dbdce2;
+    border: solid 1px black;
+    margin-left: 145px;
+    margin-right: 215px;
+    margin-bottom: 15px
+   }
+   #bottom { /* Нижняя часть */
+    background: blue;
+    border: solid 1px black;
+    font-size: 90%;
+    padding: 3px;
+   }
+   H1 { /* Заголовок страницы */
+    text-align: center;
+    font-size: 210%;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    color: black;
+    padding: 0;
+    margin: 0;
+   }
+   #content P { 
+    font-size: 90%;
+    text-align: justify;
+    padding: 10px;
+    margin: 0;
+   }
