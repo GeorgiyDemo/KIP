@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace StringApp
 {
@@ -12,6 +13,7 @@ namespace StringApp
         public StringClass(string FirstString, string SecondString)
         {
             LocalFirstString = FirstString;
+            LocalSecondString = SecondString;
         }
 
         public string ToUpperMethod()
@@ -48,12 +50,27 @@ namespace StringApp
 
             return outstr;
         }
-
         public string ReplaceMethod()
         {
             return LocalFirstString.Replace(LocalSecondString[0], '-');
         }
+        public string InsertMethod()
+        {
+            LocalFirstString = LocalFirstString.Insert(0, LocalSecondString);
+            return LocalFirstString.Insert(0, LocalSecondString);
+        }
 
+        public string IndexOfMethod()
+        {
+            return LocalFirstString.IndexOf(LocalSecondString[0]).ToString();
+        }
+
+        public string CopyToMethod()
+        {
+            char[] checkarr = LocalSecondString.ToCharArray();
+            LocalFirstString.CopyTo(2, checkarr, 4, 3);
+            return new string(checkarr);
+        }
 
     }
 }

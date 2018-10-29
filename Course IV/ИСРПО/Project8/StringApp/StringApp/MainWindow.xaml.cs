@@ -27,8 +27,9 @@ namespace StringApp
 
         private  void  RadioCheck()
         {
-            SecondStringTextBox.Text = ResultStringTextBox.Text = FirstStringTextBox.Text = "";
+
             StringClass obj = new StringClass(FirstStringTextBox.Text, SecondStringTextBox.Text);
+            SecondStringTextBox.Text = ResultStringTextBox.Text = FirstStringTextBox.Text = "";
             if (ToUpperRadiobutton.IsChecked == true)
                 ResultStringTextBox.Text = obj.ToUpperMethod();
             else if (ToLowerRadiobutton.IsChecked == true)
@@ -41,7 +42,12 @@ namespace StringApp
                 ResultStringTextBox.Text = obj.ReplaceMethod();
             else if (JoinRadiobutton.IsChecked == true)
                 ResultStringTextBox.Text = obj.JoidMethod();
-
+            else if (InsertRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.InsertMethod();
+            else if (IndexOfRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.IndexOfMethod();
+            else if (CopyToRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.CopyToMethod();
 
         }
         private void MainButton_Click(object sender, RoutedEventArgs e)

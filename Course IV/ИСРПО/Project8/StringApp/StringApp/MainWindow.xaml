@@ -8,8 +8,9 @@
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <GroupBox x:Name="OperationGroupBox" Header="Операции со строками" HorizontalAlignment="Left" Height="352" Margin="28,20,0,0" VerticalAlignment="Top" Width="412">
-            <RadioButton x:Name="CopyToRadiobutton" Content="копирует часть строки или всю строку в другую строку" HorizontalAlignment="Left" Margin="0,248,0,0" VerticalAlignment="Top"/>
+            
         </GroupBox>
+        <RadioButton x:Name="CopyToRadiobutton" Content="Копирует часть строки или всю строку в другую строку" HorizontalAlignment="Left" Margin="34,279,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FirstStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
         <RadioButton x:Name="ToUpperRadiobutton" Content="Все символы строки в верхний регистр" HorizontalAlignment="Left" Margin="34,46,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="ToLowerRadiobutton" Content="Переводит все символы строки в нижний регистр" HorizontalAlignment="Left" Margin="34,74,0,0" VerticalAlignment="Top"/>
@@ -22,10 +23,10 @@
         <Label Content="Строка №1" HorizontalAlignment="Left" Margin="461,30,0,0" VerticalAlignment="Top"/>
         <Label Content="Строка №2" HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
         <Label Content="Результат" HorizontalAlignment="Left" Margin="461,248,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="InsertRadiobutton" Content="вставляет в строку подстроку" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="IndexOfRadiobutton" Content="индекс первого вхождения символа или подстроки в строке" HorizontalAlignment="Left" Margin="34,251,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="CompareRadiobutton_Copy" Content="Сравнение строк с учетом локализации" HorizontalAlignment="Left" Margin="34,313,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="CompareRadiobutton_Copy1" Content="Сравнение строк без учета" HorizontalAlignment="Left" Margin="34,345,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="InsertRadiobutton" Content="Вставляет в строку подстроку" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="IndexOfRadiobutton" Content="Индекс первого вхождения символа или подстроки в строке" HorizontalAlignment="Left" Margin="34,251,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="CompareNotLocaleRadiobutton" Content="Сравнение строк с учетом локализации" HorizontalAlignment="Left" Margin="34,313,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="CompareLocaleRadiobutton" Content="Сравнение строк без учета локализации" HorizontalAlignment="Left" Margin="34,345,0,0" VerticalAlignment="Top"/>
         <Button x:Name="MainButton" Content="Запуск" HorizontalAlignment="Left" Margin="461,362,0,0" VerticalAlignment="Top" Width="159" Height="47" Click="MainButton_Click"/>
 
     </Grid>
