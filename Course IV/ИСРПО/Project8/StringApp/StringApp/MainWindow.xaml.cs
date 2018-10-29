@@ -24,5 +24,29 @@ namespace StringApp
         {
             InitializeComponent();
         }
+
+        private  void  RadioCheck()
+        {
+            SecondStringTextBox.Text = ResultStringTextBox.Text = FirstStringTextBox.Text = "";
+            StringClass obj = new StringClass(FirstStringTextBox.Text, SecondStringTextBox.Text);
+            if (ToUpperRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.ToUpperMethod();
+            else if (ToLowerRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.ToLowerMethod();
+            else if (SubstringTrimRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.SubstringTrimrMethod();
+            else if (SplitRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.SplitMethod();
+            else if (ReplaceRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.ReplaceMethod();
+            else if (JoinRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.JoidMethod();
+
+
+        }
+        private void MainButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadioCheck();
+        }
     }
 }
