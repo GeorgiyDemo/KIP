@@ -29,7 +29,7 @@ namespace StringApp
         {
 
             StringClass obj = new StringClass(FirstStringTextBox.Text, SecondStringTextBox.Text);
-            SecondStringTextBox.Text = ResultStringTextBox.Text = FirstStringTextBox.Text = "";
+            ResultStringTextBox.Text = "";
             if (ToUpperRadiobutton.IsChecked == true)
                 ResultStringTextBox.Text = obj.ToUpperMethod();
             else if (ToLowerRadiobutton.IsChecked == true)
@@ -53,6 +53,20 @@ namespace StringApp
         private void MainButton_Click(object sender, RoutedEventArgs e)
         {
             RadioCheck();
+        }
+
+        private void ToUpperRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstString.Content = "[Ввод] Строка";
+            SecondStringTextBox.Visibility = Visibility.Hidden;
+            Secondlabel.Visibility = Visibility.Hidden;
+        }
+
+        private void ToLowerRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstString.Content = "[Ввод] Строка";
+            SecondStringTextBox.Visibility = Visibility.Hidden;
+            Secondlabel.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -12,16 +12,16 @@
         </GroupBox>
         <RadioButton x:Name="CopyToRadiobutton" Content="Копирует часть строки или всю строку в другую строку" HorizontalAlignment="Left" Margin="34,279,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FirstStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
-        <RadioButton x:Name="ToUpperRadiobutton" Content="Все символы строки в верхний регистр" HorizontalAlignment="Left" Margin="34,46,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="ToLowerRadiobutton" Content="Переводит все символы строки в нижний регистр" HorizontalAlignment="Left" Margin="34,74,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ToUpperRadiobutton" Content="Все символы строки в верхний регистр" HorizontalAlignment="Left" Margin="34,46,0,0" VerticalAlignment="Top" Checked="ToUpperRadiobutton_Checked"/>
+        <RadioButton x:Name="ToLowerRadiobutton" Content="Переводит все символы строки в нижний регистр" HorizontalAlignment="Left" Margin="34,74,0,0" VerticalAlignment="Top" Checked="ToLowerRadiobutton_Checked"/>
         <RadioButton x:Name="JoinRadiobutton" Content="Соединяет элементы массива строк" HorizontalAlignment="Left" Margin="34,191,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="SubstringTrimRadiobutton" Content="Извлекает из строки подстроку, начиная с указанной позиции" HorizontalAlignment="Left" Margin="34,102,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="SplitRadiobutton" Content="Разделение одной строки на массив строк" HorizontalAlignment="Left" Margin="34,131,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="ReplaceRadiobutton" Content="Замещение в строке символ или подстроку " HorizontalAlignment="Left" Margin="34,161,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="SecondStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
         <TextBox x:Name="ResultStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
-        <Label Content="[Ввод] Строка №1" HorizontalAlignment="Left" Margin="461,30,0,0" VerticalAlignment="Top"/>
-        <Label Content="[Ввод] Строка №2" HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="FirstString" Content="[Ввод] Строка" HorizontalAlignment="Left" Margin="461,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Secondlabel" Content="[Ввод] Строка №2" HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
         <Label Content="[Вывод] Результат" HorizontalAlignment="Left" Margin="461,248,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="InsertRadiobutton" Content="Вставляет в строку подстроку" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="IndexOfRadiobutton" Content="Индекс первого вхождения символа или подстроки в строке" HorizontalAlignment="Left" Margin="34,251,0,0" VerticalAlignment="Top"/>
