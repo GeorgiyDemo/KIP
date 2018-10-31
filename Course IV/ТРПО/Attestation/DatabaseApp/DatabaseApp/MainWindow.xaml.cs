@@ -21,6 +21,7 @@ namespace DatabaseApp
     public partial class MainWindow : Window
     {
         bool ValidFirst, ValidSecond, ValidThird, ValidEmail, ValidPhone, ValidAge = false;
+        int result = 0;
         static string[] RegonStrings = {"Адыгея", "Алтай","Бурятия","Карелия","Москва","Марий Эл","Мордовия","Москва"};
         private void EmailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -73,6 +74,11 @@ namespace DatabaseApp
         {
             for (int i = 0; i < RegonStrings.Length - 1; i++)
                 RegionsComboBox.Items.Add(RegonStrings[i]);
+
+            int firstnum = Convert.ToInt32(ValidationClass.GetRandomNumber());
+            int secondnum = Convert.ToInt32(ValidationClass.GetRandomNumber());
+            result = secondnum + firstnum;
+            CaptchaLabel.Content = firstnum.ToString() + "+" + secondnum.ToString()+"=";
         }
 
         private void ThirdTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -116,10 +122,15 @@ namespace DatabaseApp
         {
             if ((RegionsComboBox.SelectedIndex != -1) && (CollegeNameTextBox.Text != "") && (FirstRadioButton.IsChecked==true || SecondRadioButton.IsChecked == true) && (CollegecourseTextBox.Text != ""))
             {
-                string CollegeProfession = (FirstRadioButton.IsChecked == true) ? "09.02.03" : "10.02.03";
-                StoreArrayClass.AddValues(FirstTextBox.Text, SecondTextBox.Text, ThirdTextBox.Text, EmailTextBox.Text, PhoneTextBox.Text, AgeTextBox.Text, RegionsComboBox.Text, CollegeNameTextBox.Text, CollegeProfession, CollegecourseTextBox.Text);
-                OtherWindow obj = new OtherWindow();
-                obj.Show();
+                if ((CaptchaTextBox.Text) == result.ToString())
+                {
+                    string CollegeProfession = (FirstRadioButton.IsChecked == true) ? "09.02.03" : "10.02.03";
+                    StoreArrayClass.AddValues(FirstTextBox.Text, SecondTextBox.Text, ThirdTextBox.Text, EmailTextBox.Text, PhoneTextBox.Text, AgeTextBox.Text, RegionsComboBox.Text, CollegeNameTextBox.Text, CollegeProfession, CollegecourseTextBox.Text);
+                    OtherWindow obj = new OtherWindow();
+                    obj.Show();
+                }
+                else
+                    MessageBox.Show("Неверная капча");
             }
             else
             {

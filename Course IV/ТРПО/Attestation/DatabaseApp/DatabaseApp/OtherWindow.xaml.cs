@@ -22,8 +22,6 @@ namespace DatabaseApp
         public OtherWindow()
         {
             InitializeComponent();
-
-            //StoreArrayClass.GetValues();
             MainDataGrid.ItemsSource = StoreArrayClass.DataGridInput().DefaultView;
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)

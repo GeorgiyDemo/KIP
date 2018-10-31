@@ -8,17 +8,17 @@
         Title="Регистрация участников олимпиады" Height="515.575" Width="800" Initialized="Window_Initialized" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="28,28,0,0" VerticalAlignment="Top"/>
-        <Label Content="Имя" HorizontalAlignment="Left" Margin="28,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="28,59,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="FirstTextBox" HorizontalAlignment="Left" Height="23" Margin="159,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="FirstTextBox_TextChanged"/>
-        <TextBox x:Name="SecondTextBox" HorizontalAlignment="Left" Height="23" Margin="159,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="SecondTextBox_TextChanged"/>
+        <TextBox x:Name="SecondTextBox" HorizontalAlignment="Left" Height="23" Margin="159,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="SecondTextBox_TextChanged"/>
         <Label Content="Отчество" HorizontalAlignment="Left" Margin="28,90,0,0" VerticalAlignment="Top"/>
-        <Label Content="E-mail" HorizontalAlignment="Left" Margin="28,117,0,0" VerticalAlignment="Top"/>
+        <Label Content="E-mail" HorizontalAlignment="Left" Margin="28,128,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="ThirdTextBox" HorizontalAlignment="Left" Height="23" Margin="159,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="ThirdTextBox_TextChanged"/>
-        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="159,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="EmailTextBox_TextChanged"/>
-        <Label Content="Мобильный телефон" HorizontalAlignment="Left" Margin="28,152,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Height="23" Margin="159,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="PhoneTextBox_TextChanged"/>
-        <Label Content="Возраст (полных лет)" HorizontalAlignment="Left" Margin="28,189,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="AgeTextBox" HorizontalAlignment="Left" Height="23" Margin="159,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="AgeTextBox_TextChanged"/>
+        <TextBox x:Name="EmailTextBox" HorizontalAlignment="Left" Height="23" Margin="159,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="EmailTextBox_TextChanged"/>
+        <Label Content="Мобильный телефон" HorizontalAlignment="Left" Margin="28,165,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PhoneTextBox" HorizontalAlignment="Left" Height="23" Margin="159,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="PhoneTextBox_TextChanged"/>
+        <Label Content="Возраст (полных лет)" HorizontalAlignment="Left" Margin="28,197,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AgeTextBox" HorizontalAlignment="Left" Height="23" Margin="159,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" TextChanged="AgeTextBox_TextChanged"/>
         <GroupBox Header="Данные об образовательных учреждениях" HorizontalAlignment="Left" Height="217" Margin="28,238,0,0" VerticalAlignment="Top" Width="315">
             <ComboBox x:Name="RegionsComboBox" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="120"/>
         </GroupBox>
@@ -31,8 +31,8 @@
         <Label Content="Курс" HorizontalAlignment="Left" Margin="50,404,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CollegecourseTextBox" HorizontalAlignment="Left" Height="26" Margin="149,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
         <Label Content="CAPTCHA" HorizontalAlignment="Left" Margin="515,215,0,0" VerticalAlignment="Top" Width="107"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="576,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="5+7-3=" HorizontalAlignment="Left" Margin="515,243,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CaptchaTextBox" HorizontalAlignment="Left" Height="23" Margin="576,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="CaptchaLabel" Content="55+10=" HorizontalAlignment="Left" Margin="515,243,0,0" VerticalAlignment="Top"/>
         <Button x:Name="EnterButton" Content="Регистрация" HorizontalAlignment="Left" Margin="402,373,0,0" VerticalAlignment="Top" Width="220" Height="71" Click="EnterButton_Click" IsEnabled="False"/>
 
     </Grid>

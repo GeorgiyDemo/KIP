@@ -59,5 +59,11 @@ namespace DatabaseApp
             return isValid;
 
         }
+
+        public static Random r = new Random();
+        public static string GetRandomNumber()
+        {
+            return r.Next(0, 10).ToString();
+        }
     }
 }

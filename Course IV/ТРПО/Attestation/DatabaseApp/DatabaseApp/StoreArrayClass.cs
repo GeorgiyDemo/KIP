@@ -41,8 +41,7 @@ namespace DatabaseApp
         {
             string[,] array = new string[10, 10];
             string[] FieldsArr = { "Firstname", "Secondname", "Thirdname", "Email", "Phone", "Age", "Region", "College", "CollegeProfession", "Course" };
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < 10; i++)
                 for (int s = 0; s < FieldsArr.Length; s++)
                 {
                     string bufstr = DatabaseLogicClass.SQLiteGet("SELECT "+ FieldsArr[s] + " from users WHERE id=" + (i + 1).ToString());
@@ -50,24 +49,10 @@ namespace DatabaseApp
                         break;
                     array[i, s] = bufstr;
                 }
-            }
             
             return array;
         }
-          
-        /*
-        array[globalarrayindex, 0] = FirstNameString;
-        array[globalarrayindex, 1] = SecondNameString;
-        array[globalarrayindex, 2] = ThirdNameString;
-        array[globalarrayindex, 3] = EmailString;
-        array[globalarrayindex, 4] = PhoneString;
-        array[globalarrayindex, 5] = AgeString;
-        array[globalarrayindex, 6] = RegionString;
-        array[globalarrayindex, 7] = CollegeString;
-        array[globalarrayindex, 8] = CollegeProfession;
-        array[globalarrayindex, 9] = CollegeCourse;
+       
 
-         */
-
-}
+    }
 }
