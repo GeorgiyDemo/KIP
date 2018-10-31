@@ -1,0 +1,158 @@
+<!DOCtype html>
+
+<html>
+    <head>
+        <meta charset=“utf-8”> <title>Приют "Котикус"</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="css/bootstrap.min.css" rel="stylesheet"> 
+        <!-- <script src="js/secred.js"></script> -->
+        <!-- <script src="js/pass.js"></script> -->
+        <style> [class*="col-"] { background-color: #eee; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; font-size: 2rem; }
+        </style> 
+
+    </head>
+    <body>
+
+        <script src="js/jquery.min.js"></script> 
+        <script src="js/bootstrap.min.js"></script> 
+        <style>
+            p {
+                font-size: 120%;
+            }           
+            
+            .col-lg-6:first-child {
+                background-color: white;
+            }
+
+            .table-responsive {
+                font-size: 120%;
+                background-color: #eee;
+            }
+
+            .label-default{
+              background-color: #337ab7;
+            }
+        </style>
+        
+        <ul class="nav nav-pills">
+          <li role="presentation"><a href="./index.html">Основное</a></li>
+          <li role="presentation"><a href="./history.html">История породы</a></li>
+          <li role="presentation"><a href="./veterinary.html">Уход</a></li>
+          <li role="presentation"><a href="#">Спонсоры</a></li>
+          <li role="presentation"><a href="./about.html">О нас</a></li>
+          <li role="presentation"><a href="./canvas.html">Canvas</a></li>
+          <li role="presentation"><a href="./js.html">Javascript</a></li>
+          <li role="presentation" class="active"><a href="./php.html">PHP</a></li>
+        </ul>
+
+        <div class="container">
+            <h2>Практики с docx</h2>          
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Задание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                    <td>
+                        <form action="./php/doc/1.php" method="POST">
+                            <input type="text" name="number"/>
+                            <input type="submit" name="send" value="Отправить">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>
+                <form action="./php/doc/2.php" method="POST">
+                Введите число
+                <input type="text" name="number"/>
+                Введите подстроку
+                <input type="text" name="count_number"/>
+                <input type="submit" name="send" value="Отправить">
+                </form>
+            </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                    <td>
+                        <form action="./php/doc/3.php" method="POST">
+                            <input type="submit" name="send" value="Отправить">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <form action="./php/doc/4.php" method="POST">
+                            <input type="submit" name="send" value="Отправить">
+                    </form>
+                </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <form action="./php/doc/5.php" method="POST">
+                            <input type="submit" name="send" value="Отправить">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                            <form action="./php/doc/6.php" method="POST">
+                                ФИО: <input type="text" name="name">
+                                <input type="submit" value = "Ввести">
+                            </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <form action="./php/doc/7.php" method="POST">
+                            Введите число: 
+                            <input type="text" name="number"/>
+                            <input type="submit" name="send" value="Отправить">
+                        </form>
+                    </td>
+                </tr>
+                    <tr>
+                    <td>9</td>
+                        <td>
+                                <form action="./php/doc/9.php" method="POST">
+                                    Введите число:
+                                    <input type="text" name="year"/>
+                                <input type="submit" name="send" value="Отправить">
+                                </form>
+                        </td>
+                    </tr>
+
+                    <tr>
+                            <td>10</td>
+                                <td>
+                                    <form action="./php/doc/10.php" method="POST">
+                                        Введите число:
+                                        <input type="text" name="karta"/>
+                                        <input type="submit" name="send" value="Отправить">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>11</td>
+                                        <td>
+                                                <form action="./php/doc/11.php" method="POST">
+                                                    Год: <input type="text" name="year">
+                                                    <input type="submit" value = "Ввести">
+                                                    </form>
+                                        </td>
+                                    </tr>
+              </tbody>
+            </table>
+          </div>
+
+        <small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
+</body>
+
+</html>
