@@ -1,0 +1,50 @@
+.DEMKAStandartForm{
+	background: #fbf3ee;
+	border-color: #6ac6c5;
+    border-style: solid;
+	padding: 5px;
+	border-radius: 20px;
+	
+}
+
+legend{
+	color: #6ac6c5;
+}
+label{
+	display: inline-block;
+	color: #7a2304;
+	line-height: 1.5;
+}
+input{
+	display: inline-block;
+}
+.DEMKAmaintable{
+	width:100%;
+	letter-spacing:0;
+	padding-top:5;
+}
+.DEMKALefttable{
+	width: 200px;
+	box-align: top;
+}
+
+.DEMKARighttable{
+	box-align: top;
+}
+
+.DEMKAsendbutton{
+	background: linear-gradient(to top, #5fc2c1, white);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+	font-size: 16px;
+	color: #7a2304;
+	border-color: #6ac6c5;
+    border-style: solid;
+	padding: 5px;
+}
+
+.DEMKAform{
+	line-height: 1.5;
+}
+

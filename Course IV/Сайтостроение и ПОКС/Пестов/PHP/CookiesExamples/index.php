@@ -14,7 +14,7 @@
 		
 	
 	<form action="action.php" method="post">
-		<div class="DEMKAStandartForm">
+		<dev class="DEMKAStandartForm">
 			<legend>Контактная информация</legend>
 
 			<table class="DEMKAmaintable">
@@ -31,10 +31,10 @@
 					<td class="DEMKALefttable"><label>Дата посещения</label></td><td class="DEMKARighttable"><input type="date" name="date" /></td>
 				</tr>
 			</table>
-		</div>
+		</dev>
 	<br>
 
-			<div class="DEMKAStandartForm">
+			<dev class="DEMKAStandartForm">
 				<legend>Персональная информация</legend>
 				<table class="DEMKAmaintable">
 					<tr> 
@@ -54,10 +54,10 @@
 						<td class="DEMKALefttable"><label>Какие блюда вы бы хотели увидеть в меню?</label></td><td class="DEMKARighttable"><textarea id="food_list" name="food_list"></textarea></td>
 					</tr>
 				</table>
-			</div>
+			</dev>
 		<br>
 
-				<div class="DEMKAStandartForm">
+				<dev class="DEMKAform">
 					<legend>Оценка нашего заведения</legend>
 					<label>Почему вы выбрали наше заведение?</label><br>
 						<input type="radio" name="radiochoise_type" value="1"/><label>Недалеко от дома/работы</label><br>
@@ -67,7 +67,7 @@
 					<label>Вы будете рекомендовать наше заведение своим знакомым?</label><br>
 						<input type="radio" name="radiochoise_advice" value="true"/><label>Да</label><br>
 						<input type="radio" name="radiochoise_advice" value="false"/><label>Нет</label><br>
-				</div>
+				</dev>
 				<input type="submit" value="Отправить" class="DEMKAsendbutton">
 		</form>
 		<br>
