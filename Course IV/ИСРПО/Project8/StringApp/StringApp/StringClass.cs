@@ -72,5 +72,20 @@ namespace StringApp
             return new string(checkarr);
         }
 
+        public string ContainsMethod()
+        {
+            return LocalFirstString.Contains(LocalSecondString).ToString();
+        }
+
+        public string EndsWithMethod()
+        {
+            return LocalFirstString.EndsWith(LocalSecondString).ToString();
+        }
+
+        public string LastIndexMethod()
+        {
+            return LocalFirstString.LastIndexOf(LocalSecondString).ToString();
+        }
+
     }
 }

@@ -48,6 +48,12 @@ namespace StringApp
                 ResultStringTextBox.Text = obj.IndexOfMethod();
             else if (CopyToRadiobutton.IsChecked == true)
                 ResultStringTextBox.Text = obj.CopyToMethod();
+            else if (ContainsRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.ContainsMethod();
+            else if (EndsWithRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.EndsWithMethod();
+            else if (LastIndexOfRadiobutton.IsChecked == true)
+                ResultStringTextBox.Text = obj.LastIndexMethod();
 
         }
         private void MainButton_Click(object sender, RoutedEventArgs e)
@@ -57,16 +63,104 @@ namespace StringApp
 
         private void ToUpperRadiobutton_Checked(object sender, RoutedEventArgs e)
         {
-            FirstString.Content = "[Ввод] Строка";
+            FirstLabel.Content = "[Ввод] Строка";
             SecondStringTextBox.Visibility = Visibility.Hidden;
-            Secondlabel.Visibility = Visibility.Hidden;
+            SecondLabel.Visibility = Visibility.Hidden;
         }
 
         private void ToLowerRadiobutton_Checked(object sender, RoutedEventArgs e)
         {
-            FirstString.Content = "[Ввод] Строка";
+            FirstLabel.Content = "[Ввод] Строка";
             SecondStringTextBox.Visibility = Visibility.Hidden;
-            Secondlabel.Visibility = Visibility.Hidden;
+            SecondLabel.Visibility = Visibility.Hidden;
+        }
+
+        private void SubstringTrimRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Подсторка";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void SplitRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Разделитель";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void JoinRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Разделитель";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void ReplaceRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Символ для замены";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void InsertRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка №1";
+            SecondLabel.Content = "[Ввод] Строка №2";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void IndexOfRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Подстрока";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void CopyToRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка №1";
+            SecondLabel.Content = "[Ввод] Строка №2";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void CompareNotLocaleRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка №1";
+            SecondLabel.Content = "[Ввод] Строка №2";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void ContainsRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Подстрока";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void EndsWithRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Подстрока";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
+        }
+
+        private void LastIndexOfRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            FirstLabel.Content = "[Ввод] Строка";
+            SecondLabel.Content = "[Ввод] Подстрока";
+            SecondStringTextBox.Visibility = Visibility.Visible;
+            SecondLabel.Visibility = Visibility.Visible;
         }
     }
 }
