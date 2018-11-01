@@ -25,7 +25,7 @@ namespace FormulaProject
             InitializeComponent();
         }
 
-        public  void OutResult(int D, int K)
+        public void OutResult(int D, int K)
         {
             ResultLabel.Content = "";
             int n = 4;
@@ -39,6 +39,11 @@ namespace FormulaProject
         {
             if ((FirstInput.Text != "") && (SecondInput.Text != ""))
                 OutResult(Convert.ToInt32(FirstInput.Text), Convert.ToInt32(SecondInput.Text));
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

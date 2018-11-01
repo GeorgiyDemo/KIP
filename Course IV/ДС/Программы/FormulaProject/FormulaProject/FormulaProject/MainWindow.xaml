@@ -13,6 +13,7 @@
         <Button x:Name="StartButton" Content="Запуск" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top" Width="132" Height="27" Click="StartButton_Click"/>
         <Label x:Name="DLabel" Content="D = " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="DLabel_Copy" Content="K = " HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ExitButton" Content="" HorizontalAlignment="Left" Margin="0,132,0,0" VerticalAlignment="Top" Width="24" Click="ExitButton_Click"/>
 
     </Grid>
 </Window>
