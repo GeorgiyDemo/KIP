@@ -1,6 +1,6 @@
 <img src="cat.jpg" align="right" />
 
-# Demka's KIP repo (ПКС)
+# Репозиторий КИП* (ПКС)
 [![CodeFactor](https://www.codefactor.io/repository/github/georgiydemo/kip/badge)](https://www.codefactor.io/repository/github/georgiydemo/kip)
 [![BCH compliance](https://bettercodehub.com/edge/badge/GeorgiyDemo/KIP?branch=master)](https://bettercodehub.com/)
 ### 1 Курс
@@ -52,9 +52,8 @@
 * [Инструментальные средства разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%98%D0%A1%D0%A0%D0%9F%D0%9E) - C#
 * [Компьютерная графика](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9A%D0%93) DOC/PSD
 * [Основы проектной деятельности](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9E%D0%9F%D0%94) - DOC
-* [Документирование и сертификация](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%94%D0%A1)
-* [Программное обеспечение компьютерных сетей](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9F%D0%9E%D0%9A%D0%A1)
-* [Сайтостроение](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%A1%D0%B0%D0%B9%D1%82%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5) - HTML/CSS/JS
+* [Документирование и сертификация](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%94%D0%A1) - DOC/C#
+* [Сайтостроение и Программное обеспечение компьютерных сетей](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%A1%D0%B0%D0%B9%D1%82%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%9F%D0%9E%D0%9A%D0%A1) - HTML/CSS/JS
 
 ### Сессия
 * [I курс (лето 2016)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20I%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202016)
@@ -63,4 +62,4 @@
 * [III курс (зима 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202018)
 * [III курс (лето 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202018)
 
->[Удобный shell для C++ под gcc](https://github.com/GeorgiyDemo/KIP/blob/master/Course%20II/%D0%9E%D0%9F/Pract%20C%2B%2B/alias.sh)
+*Колледж информатики и программирования Финансового университета при Правительстве РФ aka Колледж информатики и программирования (КИП Финуниверситета, бывш. Колледж информатики и электронной техники, МГКИЭТ, МГКИП) aka Кембридж на Кронштадтском
