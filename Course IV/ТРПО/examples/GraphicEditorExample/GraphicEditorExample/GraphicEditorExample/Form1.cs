@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GraphicEditorExample
@@ -56,6 +50,7 @@ namespace GraphicEditorExample
             };
         }
 
+
         private void picDrawingSurface_MouseMove(object sender, MouseEventArgs e)
         {
             if (drawing) {
@@ -83,6 +78,9 @@ namespace GraphicEditorExample
                 }
             }
             Bitmap pic = new Bitmap(614, 300);
+            picDrawingSurface.Image = pic;
+            Graphics grf = Graphics.FromImage(pic);
+            grf.Clear(Color.White);
             picDrawingSurface.Image = pic;
         }
 
@@ -121,6 +119,31 @@ namespace GraphicEditorExample
             if (OP.ShowDialog() != DialogResult.Cancel)
                 picDrawingSurface.Load(OP.FileName);
             picDrawingSurface.AutoSize = true;
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            новыйToolStripMenuItem_Click( sender, e);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            сохранитьToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            открытьToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     } 
 }
