@@ -49,6 +49,8 @@
             this.центрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.розовыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сбросToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.размерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.аАToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +112,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(159, 38);
             this.button8.TabIndex = 8;
-            this.button8.Text = "button8";
+            this.button8.Text = "Рисование";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -119,7 +121,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(159, 38);
             this.button7.TabIndex = 7;
-            this.button7.Text = "button7";
+            this.button7.Text = "Графики";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -128,7 +130,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(159, 38);
             this.button6.TabIndex = 6;
-            this.button6.Text = "button6";
+            this.button6.Text = "Списки";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -137,8 +139,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(159, 38);
             this.button5.TabIndex = 5;
-            this.button5.Text = "button5";
+            this.button5.Text = "ProgressBar";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainPictureBox
             // 
@@ -155,7 +158,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.цветФонаToolStripMenuItem,
-            this.стартовоеПоложениеToolStripMenuItem});
+            this.стартовоеПоложениеToolStripMenuItem,
+            this.размерToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -230,6 +234,21 @@
             this.сбросToolStripMenuItem.Text = "Сброс..";
             this.сбросToolStripMenuItem.Click += new System.EventHandler(this.сбросToolStripMenuItem_Click);
             // 
+            // размерToolStripMenuItem
+            // 
+            this.размерToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.аАToolStripMenuItem});
+            this.размерToolStripMenuItem.Name = "размерToolStripMenuItem";
+            this.размерToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.размерToolStripMenuItem.Text = "Размер";
+            // 
+            // аАToolStripMenuItem
+            // 
+            this.аАToolStripMenuItem.Name = "аАToolStripMenuItem";
+            this.аАToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.аАToolStripMenuItem.Text = "АА";
+            this.аАToolStripMenuItem.Click += new System.EventHandler(this.аАToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +300,8 @@
         private System.Windows.Forms.ToolStripMenuItem центрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem розовыйToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сбросToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem размерToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem аАToolStripMenuItem;
     }
 }
 

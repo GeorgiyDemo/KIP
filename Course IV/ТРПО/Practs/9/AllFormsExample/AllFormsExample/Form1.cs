@@ -30,7 +30,8 @@ namespace AllFormsExample
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Не работает");
+            DatabaseForm obj2 = new DatabaseForm(BackColor);
+            obj2.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -68,6 +69,17 @@ namespace AllFormsExample
         private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ProgressBarForm obj5 = new ProgressBarForm(BackColor);
+            obj5.Show();
+        }
+
+        private void аАToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(1000, 1000);
         }
     }
 }

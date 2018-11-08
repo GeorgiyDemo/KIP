@@ -7,7 +7,6 @@ namespace AllFormsExample
     public partial class UntraditionalForms : Form
     {
         Point moveStart;
-
         public UntraditionalForms(Color meow)
         {
             BackColor = meow;
