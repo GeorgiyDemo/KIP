@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseExample.Properties
+namespace AllFormsExample.Properties
 {
 
 
