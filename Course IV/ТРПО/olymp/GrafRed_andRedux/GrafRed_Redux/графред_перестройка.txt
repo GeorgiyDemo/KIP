@@ -1,0 +1,27 @@
+public void TSUF(ref Bitmap novpole, ref Bitmap sushpole, ref Boolean draw, ref Boolean provpole, ref Boolean pramlin, ref Int32 tol, ref PictureBox pictureBox1, ref ColorDialog colorDialog1, ref MouseEventArgs e1) // Центральная  Управляющая Функция 
+        {
+            if (draw)
+            {
+                if (pramlin == true)
+                {
+                    Draw_pramlin(ref novpole, ref sushpole, ref draw, ref provpole, ref pramlin, ref tol, ref pictureBox1, ref colorDialog1, ref e1);
+
+                }
+                else
+                {
+
+                    Draw1(ref novpole, ref sushpole, ref draw, ref provpole, ref pramlin, ref tol, ref pictureBox1, ref colorDialog1, ref e1);
+                }
+
+            }
+
+        }
+        public void Draw1(ref Bitmap novpole, ref Bitmap sushpole, ref Boolean draw, ref Boolean provpole, ref Boolean pramlin,ref Int32 tol, ref PictureBox pictureBox1,ref ColorDialog colorDialog1, ref MouseEventArgs e1 ) // Простое рисования
+        {
+
+        }
+        public void Draw_pramlin // Прямая линия
+        {
+           novpole.SetPixel(e1.X, e1.Y, Color.Red);
+           pictureBox1.Invalidate();
+        }
