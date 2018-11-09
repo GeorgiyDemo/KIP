@@ -24,25 +24,25 @@ namespace AllFormsExample
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SimpleGraphForm obj1 = new SimpleGraphForm(BackColor);
+            SimpleGraphForm obj1 = new SimpleGraphForm(BackColor, StartPosition);
             obj1.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DatabaseForm obj2 = new DatabaseForm(BackColor);
+            DatabaseForm obj2 = new DatabaseForm(BackColor, StartPosition);
             obj2.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SimpleGraphForm obj3 = new SimpleGraphForm(BackColor);
+            SimpleGraphForm obj3 = new SimpleGraphForm(BackColor, StartPosition);
             obj3.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            UntraditionalForms obj4 = new UntraditionalForms(BackColor);
+            UntraditionalForms obj4 = new UntraditionalForms(BackColor, StartPosition);
             obj4.Show();
         }
 
@@ -73,13 +73,29 @@ namespace AllFormsExample
 
         private void button5_Click(object sender, EventArgs e)
         {
-            ProgressBarForm obj5 = new ProgressBarForm(BackColor);
+            ProgressBarForm obj5 = new ProgressBarForm(BackColor, StartPosition);
             obj5.Show();
         }
 
         private void аАToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Size = new Size(1000, 1000);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ListExampleForm obj6 = new ListExampleForm(BackColor, StartPosition);
+            obj6.Show();
+        }
+
+        private void поУмолчанияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.WindowsDefaultLocation;
+        }
+
+        private void центрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

@@ -7,8 +7,9 @@ namespace AllFormsExample
     public partial class UntraditionalForms : Form
     {
         Point moveStart;
-        public UntraditionalForms(Color meow)
+        public UntraditionalForms(Color meow, FormStartPosition startscreen)
         {
+            StartPosition = startscreen;
             BackColor = meow;
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;

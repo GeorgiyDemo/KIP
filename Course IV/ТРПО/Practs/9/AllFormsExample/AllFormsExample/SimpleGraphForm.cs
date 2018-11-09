@@ -7,9 +7,10 @@ namespace AllFormsExample
 {
     public partial class SimpleGraphForm : Form
     {
-        public SimpleGraphForm(Color meow)
+        public SimpleGraphForm(Color meow, FormStartPosition startscreen)
         {
-            this.BackColor = meow;
+            StartPosition = startscreen;
+            BackColor = meow;
             InitializeComponent();
         }
 

@@ -7,8 +7,9 @@ namespace AllFormsExample
     public partial class ProgressBarForm : Form
     {
         Timer time = new Timer();
-        public ProgressBarForm(Color meow)
+        public ProgressBarForm(Color meow, FormStartPosition startscreen)
         {
+            StartPosition = startscreen;
             BackColor = meow;
             InitializeComponent();
         }
