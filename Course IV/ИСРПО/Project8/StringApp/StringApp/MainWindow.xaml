@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StringApp"
         mc:Ignorable="d"
-        Title="Работа со строками" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Работа со строками" Height="465" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <GroupBox x:Name="OperationGroupBox" Header="Операции со строками" HorizontalAlignment="Left" Height="389" Margin="28,20,0,0" VerticalAlignment="Top" Width="412">
             

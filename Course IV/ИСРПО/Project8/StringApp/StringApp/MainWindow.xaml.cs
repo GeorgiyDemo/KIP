@@ -58,7 +58,14 @@ namespace StringApp
         }
         private void MainButton_Click(object sender, RoutedEventArgs e)
         {
-            RadioCheck();
+            try
+            {
+                RadioCheck();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void ToUpperRadiobutton_Checked(object sender, RoutedEventArgs e)
