@@ -1,0 +1,69 @@
+Задание №1
+
+Создать БД user, добавить таблицу Table (id int auto increment, name varchar 30, phone varchar 10, address char). Добавить 6 записей. Написать запросы – INSERT INTO VALUES, UPDATE, SELECT, DROP, DELETE.
+
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Nov 13, 2018 at 10:02 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `Pract5`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Table`
+--
+
+CREATE TABLE `Table` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `address` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Table`
+--
+
+INSERT INTO `Table` (`id`, `name`, `phone`, `address`) VALUES
+(1, 'Кирилл', '9568367389', 'ул Ленина 25 к 1 кв 21'),
+(2, 'Геннадий', '9592367389', 'ул Набережной Мойки д 1/14'),
+(3, 'Маша', '9596205389', 'ул Софьи Ковалевской д 3 л 1');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Table`
+--
+ALTER TABLE `Table`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `phone_UNIQUE` (`phone`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Table`
+--
+ALTER TABLE `Table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+Запросы:
+INSERT INTO Pract5.Table (`name`, `phone`, `address`) VALUES ('Котик', 'нет номера', 'бездомный');
+SELECT name FROM Pract5.Table;
+UPDATE Pract5.Table SET phone = "9592369999" WHERE id=2;
+DELETE FROM Pract5.Table WHERE id=4;
+DROP Table Pract5.Table;
