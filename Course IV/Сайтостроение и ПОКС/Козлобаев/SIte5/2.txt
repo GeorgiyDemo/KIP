@@ -13,3 +13,8 @@ SELECT * FROM Pract5.SS_categories WHERE products_count BETWEEN 145 AND 200;
 
 SELECT * FROM Pract5.SS_products INNER JOIN Pract5.SS_product_pictures ON Pract5.SS_products.productID =  Pract5.SS_product_pictures.productID;
 
+SELECT MAX(categoryID) FROM Pract5.SS_products
+SELECT MIN(categoryID) FROM Pract5.SS_products
+SELECT AVG(categoryID) FROM Pract5.SS_products
+SELECT SUM(categoryID) FROM Pract5.SS_products
+SELECT COUNT(categoryID) FROM Pract5.SS_products
