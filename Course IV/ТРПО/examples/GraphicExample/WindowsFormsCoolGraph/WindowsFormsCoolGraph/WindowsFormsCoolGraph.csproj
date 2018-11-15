@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F098F1B-C280-411C-B21C-68BD7618E1FA}</ProjectGuid>
+    <ProjectGuid>{B6C2ACDF-1411-4292-AD75-2F96B148E9DB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GraphicExample</RootNamespace>
-    <AssemblyName>GraphicExample</AssemblyName>
+    <RootNamespace>WindowsFormsCoolGraph</RootNamespace>
+    <AssemblyName>WindowsFormsCoolGraph</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
