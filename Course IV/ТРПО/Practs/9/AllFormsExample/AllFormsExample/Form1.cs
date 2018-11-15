@@ -77,17 +77,21 @@ namespace AllFormsExample
             obj5.Show();
         }
 
-        private void аАToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(1000, 1000);
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             ListExampleForm obj6 = new ListExampleForm(BackColor, StartPosition);
             obj6.Show();
         }
-
+        private void button7_Click(object sender, EventArgs e)
+        {
+            PaintForm obj7 = new PaintForm(BackColor, StartPosition);
+            obj7.Show();
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            GraphForm obj8 = new GraphForm(BackColor, StartPosition);
+            obj8.Show();
+        }
         private void поУмолчанияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.WindowsDefaultLocation;
@@ -96,6 +100,11 @@ namespace AllFormsExample
         private void центрToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void аАToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Size = new Size(1000, 1000);
         }
     }
 }

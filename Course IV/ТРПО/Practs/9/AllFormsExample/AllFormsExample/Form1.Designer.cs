@@ -113,6 +113,7 @@
             this.button8.TabIndex = 8;
             this.button8.Text = "Рисование";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -122,6 +123,7 @@
             this.button7.TabIndex = 7;
             this.button7.Text = "Графики";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -231,14 +233,14 @@
             // центрToolStripMenuItem
             // 
             this.центрToolStripMenuItem.Name = "центрToolStripMenuItem";
-            this.центрToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.центрToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.центрToolStripMenuItem.Text = "Центр";
             this.центрToolStripMenuItem.Click += new System.EventHandler(this.центрToolStripMenuItem_Click);
             // 
             // поУмолчанияToolStripMenuItem
             // 
             this.поУмолчанияToolStripMenuItem.Name = "поУмолчанияToolStripMenuItem";
-            this.поУмолчанияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.поУмолчанияToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.поУмолчанияToolStripMenuItem.Text = "По умолчания";
             this.поУмолчанияToolStripMenuItem.Click += new System.EventHandler(this.поУмолчанияToolStripMenuItem_Click);
             // 
