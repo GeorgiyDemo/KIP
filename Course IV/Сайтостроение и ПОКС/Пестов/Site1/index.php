@@ -31,18 +31,59 @@
 		</style>
 		<script src="js/jquery.min.js"></script> 
 		<script src="js/bootstrap.min.js"></script> 
+			
+		<?php
+		if (isset($_COOKIE['logined']))
+		{
+			print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="#"><b>Добро пожаловать, '.base64_decode($_COOKIE['logined']).'</b></a></li>
+					<li role="presentation" class="active"><a href="#">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
 
-		<ul class="nav nav-pills">
-		  <li role="presentation" class="active"><a href="#">Основное</a></li>
-		  <li role="presentation"><a href="./history.html">История породы</a></li>
-		  <li role="presentation"><a href="./veterinary.html">Уход</a></li>
-		  <li role="presentation"><a href="./other.html">Спонсоры</a></li>
-		  <li role="presentation"><a href="./about.html">О нас</a></li>
-		  <li role="presentation"><a href="./canvas.html">Canvas</a></li>
-			<li role="presentation"><a href="./js.html">Javascript</a></li>
-			<li role="presentation"><a href="./php.html">PHP</a></li>
+		else if (isset($_COOKIE['registrated']))
+			{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Вход</a></li>
+					<li role="presentation" class="active"><a href="#">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+			}
 
-		</ul>
+		else
+		{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Регистрация</a></li>
+					<li role="presentation" class="active"><a href="#">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
+		?>
 
 		<div class="jumbotron">
   			<h1>Сиамская кошка</h1>
@@ -169,6 +210,17 @@
 		<p>Современная сиамская кошка имеет весьма характерную внешность, отличительными чертами которой являются тонкое, длинное, трубообразное гибкое тело, голова в виде длинного клина, большие миндалевидные косо поставленные глаза ярко-синего цвета, очень большие уши, широкие в основании и заостренные на концах, поставленные таким образом, чтобы между мочкой носа и кончиками ушей образовывался равносторонний треугольник. Шерсть короткая, плотно прилегающая к телу, без подшерстка. Очень длинный хлыстообразный хвост, тонкий от самого основания с заостренным длинным кончиком.</p>
 		<p>Для сиамских кошек характерен окрас колор-поинт (светлая шерсть с более тёмным окрасом на лапах, морде, ушах и хвосте). Такой окрас — это проявление неполного альбинизма, называемого акромеланизм. Действие акромеланизма связано с температурными особенностями живого организма: в теплых частях тела вырабатывается меньше пигмента, чем в холодных, поэтому уши, лапы, хвост и морда окрашены в более тёмный по сравнению с остальным телом цвет. С возрастом контраст поинтов по сравнению с телом может стать меньше. После года большинство кошек поинтового окраса имеют затемнение по корпусу. Сиамские котята рождаются абсолютно белыми, через несколько дней после рождения начинают темнеть поинты, окончательно окрас устанавливается в 6—10 месяцев.</p>
 <small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
+
+	<?php
+	if (isset($_COOKIE['logined']))
+			{
+				print("
+				<form action='./php/loginlogic/exitbutton.php' method='POST'>
+				<button type='submit' class='btn btn-primary btn-lg'>Выход</button><br>
+				</form>");
+			}
+	?>
+
 </body>
 
 </html>

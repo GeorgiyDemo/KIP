@@ -1,5 +1,4 @@
 <!DOCtype html>
-
 <html>
 	<head>
 		<meta charset=“utf-8”> <title>Приют "Котикус"</title> 
@@ -30,16 +29,59 @@
 			  background-color: #337ab7;
 			}
 		</style>
-		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="./index.html">Основное</a></li>
-		  <li role="presentation"><a href="./history.html">История породы</a></li>
-		  <li role="presentation" class="active"><a href="#">Уход</a></li>
-		  <li role="presentation"><a href="./other.html">Спонсоры</a></li>
-		  <li role="presentation"><a href="./about.html">О нас</a></li>
-		  <li role="presentation"><a href="./canvas.html">Canvas</a></li>
-		  <li role="presentation"><a href="./js.html">Javascript</a></li>
-		  <li role="presentation"><a href="./php.html">PHP</a></li>
-		</ul>
+		<?php
+		if (isset($_COOKIE['logined']))
+		{
+			print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="#"><b>Добро пожаловать, '.base64_decode($_COOKIE['logined']).'</b></a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation" class="active"><a href="#">Уход</a></li>
+				  	<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+				  	<li role="presentation"><a href="./about.php">О нас</a></li>
+				  	<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+				  	<li role="presentation"><a href="./js.php">Javascript</a></li>
+				  	<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
+
+		else if (isset($_COOKIE['registrated']))
+			{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Вход</a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+			  		<li role="presentation"><a href="./history.php">История породы</a></li>
+				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+			}
+
+		else
+		{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Регистрация</a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+			  		<li role="presentation"><a href="./history.php">История породы</a></li>
+				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
+			
+		?>
 
 		<h1>Уход<small> за сиамской кошкой</small></h1>
 		<p>Сиамские кошки отличаются независимостью и высоким интеллектом, идеально подходят в качестве котов-партнеров. При содержании питомца этой породы в квартире или частном доме нужно помнить о том, что кот больше всего ценит уважение и внимание, поэтому ни в коем случае нельзя его бить, кричать на него. Сиамские кошки не требуют особого комфорта, им главное – внимание того человека, которого они выбрали хозяином (это не обязательно должен быть тот, кто купил котенка и кормит его).</p>
@@ -53,7 +95,16 @@
 		<h2>Примечание</h2>
 		<p>Кошки сиамские очень чувствительны к анестезии.
 		Стоит иметь в виду, что каждая кошка индивидуальна. Данное описание характерно для породы в целом и не всегда полностью совпадает с характеристиками конкретной кошки этой породы!</p>
+<?php
 
+if (isset($_COOKIE['logined']))
+		{
+			print("
+			<form action='./php/loginlogic/exitbutton.php' method='POST'>
+			<button type='submit' class='btn btn-primary btn-lg'>Выход</button><br>
+			</form>");
+		}
+?>
 <small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
 </body>
 

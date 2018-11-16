@@ -34,18 +34,61 @@
 			}
 		</style>
 		
-		<ul class="nav nav-pills">
-		  <li role="presentation"><a href="./index.html">Основное</a></li>
-		  <li role="presentation"><a href="./history.html">История породы</a></li>
-		  <li role="presentation"><a href="./veterinary.html">Уход</a></li>
-		  <li role="presentation"><a href="./other.html">Спонсоры</a></li>
-		  <li role="presentation"><a href="./about.html">О нас</a></li>
-		  <li role="presentation"><a href="./canvas.html">Canvas</a></li>
-		  <li role="presentation" class="active"><a href="#">Javascript</a></li>
-		  <li role="presentation"><a href="./php.html">PHP</a></li>
-		</ul>
+			
+		<?php
+		if (isset($_COOKIE['logined']))
+		{
+			print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="#"><b>Добро пожаловать, '.base64_decode($_COOKIE['logined']).'</b></a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
 
-		
+		else if (isset($_COOKIE['registrated']))
+			{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Вход</a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+			}
+
+		else
+		{
+				print('
+					<ul class="nav nav-pills">
+					<li role="presentation"><a href="./login.php">Регистрация</a></li>
+					<li role="presentation"><a href="./index.php">Основное</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					</ul>'
+				);
+		}
+			
+		?>
+
 		<div class="alert alert-info" role="alert">В данном разделе представлены примеры работ на JavaScript</div>
 		
 		<h2 class="w3-center">Слайдшоу</h2>
@@ -157,6 +200,15 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
 
+<?php
+if (isset($_COOKIE['logined']))
+		{
+			print("
+			<form action='./php/loginlogic/exitbutton.php' method='POST'>
+			<button type='submit' class='btn btn-primary btn-lg'>Выход</button><br>
+			</form>");
+		}
+?>
 		
 </body>
 
