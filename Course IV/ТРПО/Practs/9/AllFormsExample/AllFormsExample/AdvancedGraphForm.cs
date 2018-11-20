@@ -16,11 +16,14 @@ namespace AllFormsExample
     {
         bool drawing; GraphicsPath currentPath; Point oldLocation; Pen currentPen;
 
-        public AdvancedGraphForm()
+        public AdvancedGraphForm(Color meow, FormStartPosition startscreen)
         {
             InitializeComponent();
             drawing = false;
             currentPen = new Pen(Color.Black);
+            StartPosition = startscreen;
+            BackColor = meow;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -211,8 +211,9 @@
             // розовыйToolStripMenuItem
             // 
             this.розовыйToolStripMenuItem.Name = "розовыйToolStripMenuItem";
-            this.розовыйToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.розовыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.розовыйToolStripMenuItem.Text = "Розовый";
+            this.розовыйToolStripMenuItem.Click += new System.EventHandler(this.розовыйToolStripMenuItem_Click);
             // 
             // сбросToolStripMenuItem
             // 
@@ -264,7 +265,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Главная форма";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);

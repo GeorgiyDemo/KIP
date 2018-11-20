@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AllFormsExample
@@ -36,7 +30,7 @@ namespace AllFormsExample
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SimpleGraphForm obj3 = new SimpleGraphForm(BackColor, StartPosition);
+            AdvancedGraphForm obj3 = new AdvancedGraphForm(BackColor, StartPosition);
             obj3.Show();
         }
 
@@ -105,6 +99,11 @@ namespace AllFormsExample
         private void аАToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Size = new Size(1000, 1000);
+        }
+
+        private void розовыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Pink;
         }
     }
 }
