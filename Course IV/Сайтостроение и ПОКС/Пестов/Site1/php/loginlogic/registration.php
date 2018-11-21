@@ -21,7 +21,12 @@
 
   else
   {
-    echo "Ошибка: " . $sql . "<br>" . $mysqli->error;
+    print(
+      "<script>
+        if(!alert('Пользователь с таким логином уже зарегистрирован'))
+          document.location = 'http://127.0.0.1:8888/SITE/login.php';
+      </script>"
+    );
   }
 
   $mysqli->close();

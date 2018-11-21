@@ -18,10 +18,13 @@ if ($result->num_rows != 0)
 }
 else
 {
-  header("Location: http://127.0.0.1:8888/SITE/login.php");
-  exit;
+  print(
+    "<script>
+      if(!alert('Неверная пара логин/пароль'))
+        document.location = 'http://127.0.0.1:8888/SITE/login.php';
+    </script>"
+  );
 }
-/* очищаем результирующий набор */
 mysqli_free_result($result);
 mysqli_close($link);
 ?>
