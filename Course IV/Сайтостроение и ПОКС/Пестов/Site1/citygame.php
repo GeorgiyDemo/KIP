@@ -98,7 +98,7 @@
 				city character varying(128) NOT NULL UNIQUE
 			)";
 		mysqli_query($link, $secondsql);
-
+		setcookie('questionnumber', "1", time() + 60*60*24*30, '/');
 		setcookie('gamestarted', "true", time() + 60*60*24*30, '/');
 		header("Location: http://127.0.0.1:8888/SITE/citygame.php");
 		exit;
@@ -113,6 +113,10 @@
 		if (isset($_COOKIE['computersword'])) {
 			unset($_COOKIE['computersword']);
 			setcookie('computersword', null, -1, '/');
+		}
+		if (isset($_COOKIE['questionnumber'])) {
+			unset($_COOKIE['questionnumber']);
+			setcookie('questionnumber', null, -1, '/');
 		}
 	}
 
@@ -129,7 +133,6 @@
 				if ($getname->num_rows == 0)
 					print("Не существует города '".$_POST["answer"]."' 😢");
 				else{
-					//Добавляем даные в таблицу buftable
 					mysqli_query($link, "INSERT INTO buftable(city) VALUES ('".$_POST["answer"]."')");
 
 					if (mysqli_connect_errno()) {
@@ -137,20 +140,22 @@
 						exit();
 					}
 					
-					$finalresult = mysqli_query($link, "SELECT name FROM city WHERE (name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
+					//ПЕРЕПИСАТЬ SQL-ЗАПРОС, ЧТОБ НЕ ВЫБИРАЛ ТО, ЧТО СОДЕРЖИТСЯ В buftable.city
+					$finalresult = mysqli_query($link, "SELECT name FROM buftable FULL JOIN city ON city != name WHERE (name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
 					if (($finalresult->num_rows != 0) && ($finalresult->fetch_assoc()["name"] != $_POST["answer"]))
 					{
 						//Добавляем данные в таблицу
 						$thiscomputerresult = $finalresult->fetch_assoc()["name"];
-						mysqli_query($link, "INSERT INTO buftable(city) VALUES (".$_POST["answer"].") ");
-						mysqli_query($link, "INSERT INTO buftable(city) VALUES (".$thiscomputerresult.") ");
-						print($_POST["answer"]." -> ". $thiscomputerresult);
+						mysqli_query($link, "INSERT INTO buftable(city) VALUES ('".$thiscomputerresult."');");
+						print("Количество пар слов: <b>".$_COOKIE["questionnumber"]."</b><br>");
+						print("Текущая пара: <b>".$_POST["answer"]."</b> -> <b>". $thiscomputerresult."</b>");
 						setcookie('computersword', $thiscomputerresult, time() + 60*60*24*30, '/');
+						setcookie('questionnumber', $_COOKIE["questionnumber"]+1, time() + 60*60*24*30, '/');
 						
 					}
 					else
 					{
-						print("Что-то пошло не так");
+						print("Что-то пошло не так :c");
 					}
 					
 					mysqli_free_result($finalresult);
@@ -175,7 +180,7 @@
 	}
 	if (isset($_COOKIE['gamestarted']))
 	{
-		print("<form action='citygame.php' method='POST'>
+		print("<br><form action='citygame.php' method='POST'>
 		<input type='submit' name='stopgame' value = 'Закончить игру'>
 		</form>");
 	}
