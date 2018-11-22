@@ -84,7 +84,21 @@
 	
 	if ($_POST["startgame"] != "")
 	{
-		//Удаляем таблицу если есть и создаем новую;
+		$link = mysqli_connect("localhost", "root", "root", "GorodaGame");
+		if($link === false){
+			die("Ошибка: невозможно подключиться к БД. " . mysqli_connect_error());
+		}
+		
+		
+		$firstsql = "DROP TABLE IF EXISTS buftable";
+		mysqli_query($link, $firstsql);
+		
+		$secondsql = "CREATE TABLE buftable(
+				id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+				city character varying(128) NOT NULL UNIQUE
+			)";
+		mysqli_query($link, $secondsql);
+
 		setcookie('gamestarted', "true", time() + 60*60*24*30, '/');
 		header("Location: http://127.0.0.1:8888/SITE/citygame.php");
 		exit;
@@ -96,34 +110,61 @@
 			unset($_COOKIE['gamestarted']);
 			setcookie('gamestarted', null, -1, '/');
 		}
+		if (isset($_COOKIE['computersword'])) {
+			unset($_COOKIE['computersword']);
+			setcookie('computersword', null, -1, '/');
+		}
 	}
 
 	if (isset($_COOKIE['gamestarted']))
 	{
-		if ($_POST["answer"] != "")
+		$booleanfirstflag = (isset($_COOKIE['computersword'])) ? true : false;
+		if (($_POST["answer"] != "") && (($booleanfirstflag == false) || ((mb_strtoupper(mb_substr($_COOKIE["computersword"], -1))) == (mb_strtoupper(mb_substr($_POST["answer"], 0, 1))))))
 		{
 			$link = mysqli_connect("localhost", "root", "root", "GorodaGame");
-			$getname = mysqli_query($link, "SELECT name FROM city WHERE (name='".$_POST["answer"]."')");
-			if ($getname->num_rows == 0)
-				print("Не существует такого города '".$_POST["answer"]."'");
-			else{
-	
-				if (mysqli_connect_errno()) {
-					printf("Не удалось подключиться: %s\n", mysqli_connect_error());
-					exit();
+			$checkdublicate = mysqli_query($link, "SELECT city FROM buftable WHERE city='".$_POST["answer"]."';");
+			if ($checkdublicate->num_rows == 0)
+			{
+				$getname = mysqli_query($link, "SELECT name FROM city WHERE (name='".$_POST["answer"]."')");
+				if ($getname->num_rows == 0)
+					print("Не существует города '".$_POST["answer"]."' 😢");
+				else{
+					//Добавляем даные в таблицу buftable
+					mysqli_query($link, "INSERT INTO buftable(city) VALUES ('".$_POST["answer"]."')");
+
+					if (mysqli_connect_errno()) {
+						printf("Не удалось подключиться: %s\n", mysqli_connect_error());
+						exit();
+					}
+					
+					$finalresult = mysqli_query($link, "SELECT name FROM city WHERE (name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
+					if (($finalresult->num_rows != 0) && ($finalresult->fetch_assoc()["name"] != $_POST["answer"]))
+					{
+						//Добавляем данные в таблицу
+						$thiscomputerresult = $finalresult->fetch_assoc()["name"];
+						mysqli_query($link, "INSERT INTO buftable(city) VALUES (".$_POST["answer"].") ");
+						mysqli_query($link, "INSERT INTO buftable(city) VALUES (".$thiscomputerresult.") ");
+						print($_POST["answer"]." -> ". $thiscomputerresult);
+						setcookie('computersword', $thiscomputerresult, time() + 60*60*24*30, '/');
+						
+					}
+					else
+					{
+						print("Что-то пошло не так");
+					}
+					
+					mysqli_free_result($finalresult);
+					mysqli_free_result($getname);
+					mysqli_close($link);
 				}
-				
-				$result = mysqli_query($link, "SELECT name FROM city WHERE (name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
-				if ($result->num_rows != 0)
-				{
-					print($_POST["answer"]." -> ". $result->fetch_assoc()["name"]);
-				}
-				
-				mysqli_free_result($result);
-				mysqli_free_result($getname);
-				mysqli_close($link);
 			}
+			else
+				print("Повторение слова!");
 		}
+		else if ($booleanfirstflag == true)
+			print("Неверная буква");
+		else
+			print("Хорошо, ты начинаешь первым 😏");
 	
 		print("
 		<form action='citygame.php' method='POST'>
