@@ -38,12 +38,13 @@
 					<li role="presentation"><a href="#"><b>Добро пожаловать, '.base64_decode($_COOKIE['logined']).'</b></a></li>
 					<li role="presentation"><a href="./index.php">Основное</a></li>
 					<li role="presentation"><a href="./history.php">История породы</a></li>
-					<li role="presentation" class="active"><a href="#">Уход</a></li>
+					<li role="presentation"><a href="./veterinary.php">Уход</a></li>
 				  	<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 				  	<li role="presentation"><a href="./about.php">О нас</a></li>
 				  	<li role="presentation"><a href="./canvas.php">Canvas</a></li>
 				  	<li role="presentation"><a href="./js.php">Javascript</a></li>
-				  	<li role="presentation"><a href="./php.php">PHP</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
+					<li role="presentation" class="active"><a href="./citygame.php">Игра "Города"</a></li>
 					</ul>'
 				);
 		}
@@ -55,12 +56,13 @@
 					<li role="presentation"><a href="./login.php">Вход</a></li>
 					<li role="presentation"><a href="./index.php">Основное</a></li>
 			  		<li role="presentation"><a href="./history.php">История породы</a></li>
-				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+				  	<li role="presentation"><a href="./veterinary.php">Уход</a></li>
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
+					<li role="presentation" class="active"><a href="./citygame.php">Игра "Города"</a></li>
 					</ul>'
 				);
 			}
@@ -72,12 +74,13 @@
 					<li role="presentation"><a href="./login.php">Регистрация</a></li>
 					<li role="presentation"><a href="./index.php">Основное</a></li>
 			  		<li role="presentation"><a href="./history.php">История породы</a></li>
-				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+				  	<li role="presentation"><a href="./veterinary.php">Уход</a></li>
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
+					<li role="presentation" class="active"><a href="./citygame.php">Игра "Города"</a></li>
 					</ul>'
 				);
 		}
