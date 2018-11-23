@@ -21,10 +21,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Table`
+-- Table structure for table `ThisTable`
 --
 
-CREATE TABLE `Table` (
+CREATE TABLE `ThisTable` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `phone` varchar(10) NOT NULL,
@@ -32,10 +32,10 @@ CREATE TABLE `Table` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Table`
+-- Dumping data for table `ThisTable`
 --
 
-INSERT INTO `Table` (`id`, `name`, `phone`, `address`) VALUES
+INSERT INTO `ThisTable` (`id`, `name`, `phone`, `address`) VALUES
 (1, 'Кирилл', '9568367389', 'ул Ленина 25 к 1 кв 21'),
 (2, 'Геннадий', '9592367389', 'ул Набережной Мойки д 1/14'),
 (3, 'Маша', '9596205389', 'ул Софьи Ковалевской д 3 л 1');
@@ -45,9 +45,9 @@ INSERT INTO `Table` (`id`, `name`, `phone`, `address`) VALUES
 --
 
 --
--- Indexes for table `Table`
+-- Indexes for table `ThisTable`
 --
-ALTER TABLE `Table`
+ALTER TABLE `ThisTable`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `phone_UNIQUE` (`phone`);
 
@@ -56,14 +56,14 @@ ALTER TABLE `Table`
 --
 
 --
--- AUTO_INCREMENT for table `Table`
+-- AUTO_INCREMENT for table `ThisTable`
 --
-ALTER TABLE `Table`
+ALTER TABLE `ThisTable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 Запросы:
-INSERT INTO Pract5.Table (`name`, `phone`, `address`) VALUES ('Котик', 'нет номера', 'бездомный');
-SELECT name FROM Pract5.Table;
-UPDATE Pract5.Table SET phone = "9592369999" WHERE id=2;
-DELETE FROM Pract5.Table WHERE id=4;
-DROP Table Pract5.Table;
+INSERT INTO Pract5.ThisTable (`name`, `phone`, `address`) VALUES ('Котик', 'нет номера', 'бездомный');
+SELECT name FROM Pract5.ThisTable;
+UPDATE Pract5.ThisTable SET phone = "9592369999" WHERE id=2;
+DELETE FROM Pract5.ThisTable WHERE id=4;
+DROP Table Pract5.ThisTable;

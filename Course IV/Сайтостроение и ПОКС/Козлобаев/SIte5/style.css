@@ -1,0 +1,41 @@
+
+  .main_image:hover {
+	transform: rotate(-20deg)
+  }
+
+  table tr:nth-child(odd) {
+    background-color: rgb(0, 255, 255);
+}
+
+
+table tr:nth-child(even) {
+    background-color: rgb(255, 0, 76);
+}
+
+
+table {
+    border: 2px solid black;
+    width: 400px;
+    height: 250px;
+}
+
+table tr#header{
+	background-color: darkkhaki;
+}
+table tr:nth-child(2n+1):hover {
+    background-color: rgb(255, 166, 0);
+}
+
+
+table tr:nth-child(2n):hover {
+    background-color: rgb(21, 255, 0);
+}
+
+
+   .gradient {
+    background: linear-gradient(to top, #ff3c00, #ffe100);
+   }
+
+   .radial_gradient {
+    background: radial-gradient(#00ff73, #8c00ff);
+   }
