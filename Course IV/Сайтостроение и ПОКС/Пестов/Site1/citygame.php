@@ -140,8 +140,7 @@
 						exit();
 					}
 					
-					//ПЕРЕПИСАТЬ SQL-ЗАПРОС, ЧТОБ НЕ ВЫБИРАЛ ТО, ЧТО СОДЕРЖИТСЯ В buftable.city
-					$finalresult = mysqli_query($link, "SELECT name FROM buftable FULL JOIN city ON city != name WHERE (name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
+					$finalresult = mysqli_query($link, "SELECT name FROM city LEFT JOIN buftable ON name = city WHERE (city IS NULL AND name LIKE '".strtoupper(mb_substr($_POST["answer"], -1))."%')");
 					if (($finalresult->num_rows != 0) && ($finalresult->fetch_assoc()["name"] != $_POST["answer"]))
 					{
 						//Добавляем данные в таблицу
