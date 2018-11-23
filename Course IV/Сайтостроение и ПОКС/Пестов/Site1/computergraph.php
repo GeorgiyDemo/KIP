@@ -101,50 +101,72 @@
             </tr>
             <tr>
                 <td><h4>Пример анимации в CorelDRAW</h4></td>
-                <td><img src="./img/КГ/corel/ULITKA.gif" width="189" height="255" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/ULITKA.gif" width="189" height="255" ></td> 
             </tr>
             <tr>
                 <td><h4>Пример логотипа колледжа №1</h4></td>
-                <td><img src="./img/КГ/corel/collegelogo1.png" width="218" height="149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/collegelogo1.png" width="218" height="149"></td> 
             </tr>
             <tr>
                 <td><h4>Пример логотипа колледжа №2</h4></td>
-                <td><img src="./img/КГ/corel/collegelogo2.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/collegelogo2.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Построение рисунка с использованием прямоугольников, эллипсов и многоугольников</h4></td>
-                <td><img src="./img/КГ/corel/5.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/5.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Создание логотипа</h4></td>
-                <td><img src="./img/КГ/corel/4.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/4.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Клоны и клонирование эффектов</h4></td>
-                <td><img src="./img/КГ/corel/3.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/3.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Клоны и клонирование эффектов (альтернатива)</h4></td>
-                <td><img src="./img/КГ/corel/7.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/7.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Фигурная обрезка</h4></td>
-                <td><img src="./img/КГ/corel/1.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/1.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Построение фигурной обрезки</h4></td>
-                <td><img src="./img/КГ/corel/6.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/6.png" width="218" height=" 149" ></td> 
             </tr>
             <tr>
                 <td><h4>Редактирование контейнера фигурной обрезки</h4></td>
-                <td><img src="./img/КГ/corel/2.png" width="218" height=" 149" alt="Анимация в CorelDRAW"></td> 
+                <td><img src="./img/КГ/corel/2.png" width="218" height=" 149" ></td> 
             </tr>
             
             </table>
 
-            <h2>Примеры работы в Photoshop</h2>   
-
+            <h2>Примеры работы в Photoshop</h2>      
+            <table style="width:100%">
+            <tr>
+                <th>Название</th>
+                <th>Изображение</th> 
+            </tr>
+            <tr>
+                <td><h4>Пример баннеров-анимации в Photoshop</h4></td>
+                <td><img src="./img/КГ/photoshop/banners.gif" width="514" height="147" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Пример логотипа колледжа №1</h4></td>
+                <td><img src="./img/КГ/photoshop/collegelogo1.png" width="300" height="300" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Пример логотипа колледжа №2</h4></td>
+                <td><img src="./img/КГ/photoshop/collegelogo2.png" width="300" height="300" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Разработка шаблона сайта</h4></td>
+                <td><img src="./img/КГ/photoshop/sitemarkdown.png" width="500" height="500" ></td> 
+            </tr>
+           
             
+            </table>
 
         </div>
     <?php
