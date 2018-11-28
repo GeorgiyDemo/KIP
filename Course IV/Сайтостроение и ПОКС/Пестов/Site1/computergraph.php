@@ -46,8 +46,9 @@
                     <li role="presentation"><a href="./about.php">О нас</a></li>
                     <li role="presentation"><a href="./canvas.php">Canvas</a></li>
                     <li role="presentation"><a href="./js.php">Javascript</a></li>
-                    <li role="presentation" class="active"><a href="#">PHP</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
                     <li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+                    <li role="presentation" class="active"><a href="#">Графика</a></li>
 					</ul>'
 				);
 		}
@@ -64,8 +65,9 @@
                     <li role="presentation"><a href="./about.php">О нас</a></li>
                     <li role="presentation"><a href="./canvas.php">Canvas</a></li>
                     <li role="presentation"><a href="./js.php">Javascript</a></li>
-                    <li role="presentation" class="active"><a href="#">PHP</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
                     <li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+                    <li role="presentation" class="active"><a href="#">Графика</a></li>
 					</ul>'
 				);
 			}
@@ -82,8 +84,9 @@
                     <li role="presentation"><a href="./about.php">О нас</a></li>
                     <li role="presentation"><a href="./canvas.php">Canvas</a></li>
                     <li role="presentation"><a href="./js.php">Javascript</a></li>
-                    <li role="presentation" class="active"><a href="#">PHP</a></li>
+					<li role="presentation"><a href="./php.php">PHP</a></li>
                     <li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+                    <li role="presentation" class="active"><a href="#">Графика</a></li>
 					</ul>'
 				);
 		}

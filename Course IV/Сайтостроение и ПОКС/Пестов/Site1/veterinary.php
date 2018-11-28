@@ -44,6 +44,7 @@
 				  	<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
 					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
 					</ul>'
 				);
 		}
@@ -62,6 +63,7 @@
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
 					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
 					</ul>'
 				);
 			}
@@ -80,6 +82,7 @@
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
 					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
+					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
 					</ul>'
 				);
 		}

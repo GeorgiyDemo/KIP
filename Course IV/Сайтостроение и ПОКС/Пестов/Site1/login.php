@@ -46,6 +46,7 @@
 						<li role='presentation'><a href='./js.php'>Javascript</a></li>
 						<li role='presentation'><a href='./php.php'>PHP</a></li>
 						<li role='presentation'><a href='./citygame.php'>Игра \"Города\"</a></li>
+						<li role='presentation'><a href='./computergraph.php'>Графика</a></li>
 				  	</ul>
 					<div class='container'>
 					<form class='form-signin' action='./php/loginlogic/authorisation.php' method='POST'>
@@ -79,6 +80,7 @@
 					<li role='presentation'><a href='./js.php'>Javascript</a></li>
 					<li role='presentation'><a href='./php.php'>PHP</a></li>
 					<li role='presentation'><a href='./citygame.php'>Игра \"Города\"</a></li>
+					<li role='presentation'><a href='./computergraph.php'>Графика</a></li>
 				  </ul>
 					<div class='container'>
 					<form class='form-signin' action='./php/loginlogic/registration.php' method='POST'>
