@@ -112,35 +112,43 @@
             </tr>
             <tr>
                 <td><h4>Пример логотипа колледжа №2</h4></td>
-                <td><img src="./img/КГ/corel/collegelogo2.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/collegelogo2.png" width="218" height="149" ></td> 
             </tr>
             <tr>
                 <td><h4>Построение рисунка с использованием прямоугольников, эллипсов и многоугольников</h4></td>
-                <td><img src="./img/КГ/corel/5.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/5.png" width="284" height="368" ></td> 
             </tr>
             <tr>
                 <td><h4>Создание логотипа</h4></td>
-                <td><img src="./img/КГ/corel/4.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/4.png" width="185" height="207" ></td> 
             </tr>
             <tr>
                 <td><h4>Клоны и клонирование эффектов</h4></td>
-                <td><img src="./img/КГ/corel/3.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/3.png" width="218" height="149" ></td> 
             </tr>
             <tr>
                 <td><h4>Клоны и клонирование эффектов (альтернатива)</h4></td>
-                <td><img src="./img/КГ/corel/7.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/7.png" width="224" height="224" ></td> 
             </tr>
             <tr>
                 <td><h4>Фигурная обрезка</h4></td>
-                <td><img src="./img/КГ/corel/1.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/1.png" width="218" height="149" ></td> 
             </tr>
             <tr>
                 <td><h4>Построение фигурной обрезки</h4></td>
-                <td><img src="./img/КГ/corel/6.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/6.png" width="249" height="249" ></td> 
             </tr>
             <tr>
                 <td><h4>Редактирование контейнера фигурной обрезки</h4></td>
-                <td><img src="./img/КГ/corel/2.png" width="218" height=" 149" ></td> 
+                <td><img src="./img/КГ/corel/2.png" width="212" height="263" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Пошаговые переходы вдоль траектории</h4></td>
+                <td><img src="./img/КГ/corel/8.png" width="206" height="292" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Портрет под стеклом</h4></td>
+                <td><img src="./img/КГ/corel/9.png" width="253" height="279" ></td> 
             </tr>
             
             </table>
