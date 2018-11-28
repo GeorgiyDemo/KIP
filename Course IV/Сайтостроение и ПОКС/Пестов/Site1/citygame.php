@@ -87,6 +87,10 @@
 	
 	if ($_POST["startgame"] != "")
 	{
+		$fd = fopen("cities.txt", 'w') or die("не удалось создать файл");
+		fwrite($fd, "");
+		fclose($fd);
+
 		$link = mysqli_connect("localhost", "root", "root", "GorodaGame");
 		if($link === false){
 			die("Ошибка: невозможно подключиться к БД. " . mysqli_connect_error());
@@ -109,6 +113,7 @@
 	
 	if ($_POST["stopgame"] != "")
 	{
+		
 		if (isset($_COOKIE['gamestarted'])) {
 			unset($_COOKIE['gamestarted']);
 			setcookie('gamestarted', null, -1, '/');
@@ -151,6 +156,11 @@
 						mysqli_query($link, "INSERT INTO buftable(city) VALUES ('".$thiscomputerresult."');");
 						print("Количество пар слов: <b>".$_COOKIE["questionnumber"]."</b><br>");
 						print("Текущая пара: <b>".$_POST["answer"]."</b> -> <b>". $thiscomputerresult."</b>");
+						
+						$fd = fopen("cities.txt", 'a+') or die("не удалось создать файл");
+						fwrite($fd, $_COOKIE["questionnumber"].". ".$_POST["answer"]." -> ". $thiscomputerresult."\n");
+						fclose($fd);
+						
 						setcookie('computersword', $thiscomputerresult, time() + 60*60*24*30, '/');
 						setcookie('questionnumber', $_COOKIE["questionnumber"]+1, time() + 60*60*24*30, '/');
 						
