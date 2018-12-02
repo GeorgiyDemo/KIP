@@ -1,86 +1,50 @@
-<?php
+<?php 
 
-	print("
-		<style>
-			[class*='col-'] { background-color: #eee; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; font-size: 2rem; }
-		</style> 
-		<style>
-		p {
-			font-size: 120%;
-		}           
-		
-		.col-lg-6:first-child {
-			background-color: white;
-		}
+    if ($_POST['send'] != "")
+    {
+        setcookie('firstname', $_POST['firstname']);
+        setcookie('lastname', $_POST['lastname']);
+        setcookie('datebirth', $_POST['datebirth']);
+        header("Location: http://127.0.0.1:8888/SITE/php/cookies/7/test.php");
+        exit;
+    }
 
-		.table-responsive {
-			font-size: 120%;
-			background-color: #eee;
-		}
+    else{
 
-		.label-default{
-		background-color: #337ab7;
-		}
-	</style>
+        if (isset($_COOKIE['firstname'])) {
+            unset($_COOKIE['firstname']);
+            setcookie('firstname', null, -1, '/');
+        }
+        if (isset($_COOKIE['lastname'])) {
+            unset($_COOKIE['lastname']);
+            setcookie('lastname', null, -1, '/');
+        }
+        if (isset($_COOKIE['datebirth'])) {
+            unset($_COOKIE['datebirth']);
+            setcookie('datebirth', null, -1, '/');
+        }
 
-	<form action='setcookie.php' method='post'>
-	<div class='DEMKAStandartForm'>
-		<legend>Контактная информация</legend>
+        print("
+            <h1>Форма информации</h1>
+            <form method='post' action='index.php'>
+                <table>
+                    <tr>
+                        <td><label for='firstname'>Фамилия</label></td>
+                        <td><input type='text' name='firstname'></td>
+                    </tr>
 
-		<table class='DEMKAmaintable'>
-			<tr> 
-				<td class='DEMKALefttable'><label>Имя</label></td><td class='DEMKARighttable'><input type='text' name='name' /></td>
-			</tr>
-			<tr>
-				<td class='DEMKALefttable'><label>Телефон</label></td><td class='DEMKARighttable'><input type='text' name='phone' /></td>
-			</tr>
-			<tr>
-				<td class='DEMKALefttable'><label>Email</label></td><td class='DEMKARighttable'><input type='email' name='email'></td>
-			</tr>
-			<tr>
-				<td class='DEMKALefttable'><label>Дата посещения</label></td><td class='DEMKARighttable'><input type='date' name='date' /></td>
-			</tr>
-		</table>
-	</div>
-	<br>
+                    <tr>
+                        <td><label for='lastname'>Имя</label></td>
+                        <td><input type='text' name='lastname'></td>
+                    </tr>
 
-		<div class='DEMKAStandartForm'>
-			<legend>Персональная информация</legend>
-			<table class='DEMKAmaintable'>
-				<tr> 
-					<td class='DEMKALefttable'><label>Возраст</label></td><td class='DEMKARighttable'><input type='number' min='1' max='100' step='1' name='age' /></td>
-				</tr>
-				<tr> 
-					<td class='DEMKALefttable'><label>Любимая кухня</label></td><td class='DEMKARighttable'>
-						<select name='food_kitchen'>
-							<option value='1'>Русская</option>
-							<option value='2'>Армянская</option>
-							<option value='3'>Грузинская</option>
-							<option value='4'>Узбекская</option>
-						</select>
-					</td>
-				</tr>
-				<tr> 
-					<td class='DEMKALefttable'><label>Какие блюда вы бы хотели увидеть в меню?</label></td><td class='DEMKARighttable'><textarea id='food_list' name='food_list'></textarea></td>
-				</tr>
-			</table>
-		</div>
-	<br>
-
-			<div class='DEMKAStandartForm'>
-				<legend>Оценка нашего заведения</legend>
-				<label>Почему вы выбрали наше заведение?</label><br>
-					<input type='radio' name='radiochoise_type' value='1'/><label>Недалеко от дома/работы</label><br>
-					<input type='radio' name='radiochoise_type' value='2'/><label>Увидел рекламу</label><br>
-					<input type='radio' name='radiochoise_type' value='3'/><label>Посоветовали</label><br>
-					<input type='radio' name='radiochoise_type' value='4'/><label>Оптимальное соотношение цены и качества</label><br>
-				<label>Вы будете рекомендовать наше заведение своим знакомым?</label><br>
-					<input type='radio' name='radiochoise_advice' value='true'/><label>Да</label><br>
-					<input type='radio' name='radiochoise_advice' value='false'/><label>Нет</label><br>
-			</div>
-			<input type='submit' value='Отправить' class='DEMKAsendbutton'>
-	</form>
-			<br>
-	");
-		
+                    <tr>
+                        <td><label for='datebirth'>Дата рождения</label></td>
+                        <td><input type='date' name='datebirth'></td>
+                    </tr>
+                </table>
+                <input type='submit' value='Отправить' name='send'>
+            </form>
+        ");
+    }
 ?>

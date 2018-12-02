@@ -369,7 +369,7 @@
                     <td>8</td>
                     <td>Создайте вариант игры "Спортлото 6 из 36". В index.php пользователь выбирает 6 номеров из 36. В test.php показывается количество угаданных.</td>
                     <td>
-                        <form action="./php/cookies/8/" method="POST">
+                        <form action="./php/cookies/8/index.php" method="POST">
                             <input type="submit" name="send" value="Отправить">
                         </form>
                     </td>
