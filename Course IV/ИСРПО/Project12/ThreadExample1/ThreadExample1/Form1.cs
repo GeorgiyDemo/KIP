@@ -23,7 +23,7 @@ namespace ThreadExample1
             buttonl.TabIndex = 0;
             button2.Text = "Сохранить";
             this.Text = "Здесь кодировка Unicode";
-            ИмяФайла = "../../../input.txt";
+            ИмяФайла = "input.txt";
         }
 
         private void buttonl_Click(object sender, EventArgs e)
