@@ -48,7 +48,7 @@ namespace ThreadExample1
         {
             try
             {
-                var Писатель = new StreamWriter(ИмяФайла, false);
+                var Писатель = new StreamWriter(ИмяФайла, true);
                 Писатель.Write(textBoxl.Text);
                 Писатель.Close();
                 File.WriteAllText("output.txt", textBoxl.Text);
