@@ -1,0 +1,34 @@
+﻿<Window x:Class="StringApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StringApp"
+        mc:Ignorable="d"
+        Title="Работа со строками" Height="465" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox x:Name="OperationGroupBox" Header="Операции со строками" HorizontalAlignment="Left" Height="389" Margin="28,20,0,0" VerticalAlignment="Top" Width="412">
+            
+        </GroupBox>
+        <RadioButton x:Name="CopyToRadiobutton" Content="Копирует часть строки или всю строку в другую строку" HorizontalAlignment="Left" Margin="34,279,0,0" VerticalAlignment="Top" Checked="CopyToRadiobutton_Checked"/>
+        <TextBox x:Name="FirstStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
+        <RadioButton x:Name="ToUpperRadiobutton" Content="Все символы строки в верхний регистр" HorizontalAlignment="Left" Margin="34,46,0,0" VerticalAlignment="Top" Checked="ToUpperRadiobutton_Checked"/>
+        <RadioButton x:Name="ToLowerRadiobutton" Content="Переводит все символы строки в нижний регистр" HorizontalAlignment="Left" Margin="34,74,0,0" VerticalAlignment="Top" Checked="ToLowerRadiobutton_Checked"/>
+        <RadioButton x:Name="JoinRadiobutton" Content="Соединяет элементы массива строк" HorizontalAlignment="Left" Margin="34,191,0,0" VerticalAlignment="Top" Checked="JoinRadiobutton_Checked"/>
+        <RadioButton x:Name="SubstringTrimRadiobutton" Content="Извлекает из строки подстроку, начиная с указанной позиции" HorizontalAlignment="Left" Margin="34,102,0,0" VerticalAlignment="Top" Checked="SubstringTrimRadiobutton_Checked"/>
+        <RadioButton x:Name="SplitRadiobutton" Content="Разделение одной строки на массив строк" HorizontalAlignment="Left" Margin="34,131,0,0" VerticalAlignment="Top" Checked="SplitRadiobutton_Checked"/>
+        <RadioButton x:Name="ReplaceRadiobutton" Content="Замещение в строке символ или подстроку " HorizontalAlignment="Left" Margin="34,161,0,0" VerticalAlignment="Top" Checked="ReplaceRadiobutton_Checked"/>
+        <TextBox x:Name="SecondStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
+        <TextBox x:Name="ResultStringTextBox" HorizontalAlignment="Left" Height="69" Margin="461,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="303"/>
+        <Label x:Name="FirstLabel" Content="[Ввод] Строка" HorizontalAlignment="Left" Margin="461,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="SecondLabel" Content="[Ввод] Строка №2" HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ResultLabel" Content="[Вывод] Результат" HorizontalAlignment="Left" Margin="461,248,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="InsertRadiobutton" Content="Вставляет в строку подстроку" HorizontalAlignment="Left" Margin="34,220,0,0" VerticalAlignment="Top" Checked="InsertRadiobutton_Checked"/>
+        <RadioButton x:Name="IndexOfRadiobutton" Content="Индекс первого вхождения символа или подстроки в строке" HorizontalAlignment="Left" Margin="34,251,0,0" VerticalAlignment="Top" Checked="IndexOfRadiobutton_Checked"/>
+        <RadioButton x:Name="ContainsRadiobutton" Content="Определить, содержится ли подстрока в строке" HorizontalAlignment="Left" Margin="34,313,0,0" VerticalAlignment="Top" Checked="ContainsRadiobutton_Checked"/>
+        <RadioButton x:Name="EndsWithRadiobutton" Content="Определить, совпадает ли конец строки с подстрокой" HorizontalAlignment="Left" Margin="34,345,0,0" VerticalAlignment="Top" Checked="EndsWithRadiobutton_Checked"/>
+        <Button x:Name="MainButton" Content="Запуск" HorizontalAlignment="Left" Margin="461,362,0,0" VerticalAlignment="Top" Width="159" Height="47" Click="MainButton_Click"/>
+        <RadioButton x:Name="LastIndexOfRadiobutton" Content="Индекс последнего вхождения символа " HorizontalAlignment="Left" Margin="34,379,0,0" VerticalAlignment="Top" Checked="LastIndexOfRadiobutton_Checked"/>
+
+    </Grid>
+</Window>

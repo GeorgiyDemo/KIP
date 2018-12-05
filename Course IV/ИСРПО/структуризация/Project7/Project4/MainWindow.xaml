@@ -1,0 +1,24 @@
+﻿<Window x:Class="Project4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Initialized="Window_Initialized">
+    <Grid>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="574,47,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="AddButton_Click"/>
+        <Button x:Name="ChangeButton" Content="Редактировать" HorizontalAlignment="Left" Margin="574,95,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ChangeButton_Click"/>
+        <Button x:Name="RemoveButton" Content="Удалить" HorizontalAlignment="Left" Margin="574,143,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="RemoveButton_Click"/>
+        <ListBox x:Name="MainListBox" HorizontalAlignment="Left" Height="134" Margin="30,37,0,0" VerticalAlignment="Top" Width="350" SelectionChanged="MainListBox_SelectionChanged"/>
+        <Label Content="Введите название страны" HorizontalAlignment="Left" Margin="126,259,0,0" VerticalAlignment="Top" Width="158"/>
+        <TextBox x:Name="CounterNameTextBox" HorizontalAlignment="Left" Height="23" Margin="300,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Кол-во элементов в списке" HorizontalAlignment="Left" Margin="126,289,0,0" VerticalAlignment="Top" Width="169"/>
+        <TextBox x:Name="CountTextBox" HorizontalAlignment="Left" Height="23" Margin="300,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="ClearButton" Content="Отчистить список" HorizontalAlignment="Left" Margin="574,212,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ClearButton_Click"/>
+        <Button x:Name="SortButton" Content="Сортировать" HorizontalAlignment="Left" Margin="574,260,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="SortButton_Click"/>
+        <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Left" Margin="574,308,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ExitButton_Click"/>
+        <GroupBox Header="Работа со списком" HorizontalAlignment="Left" Height="176" Margin="10,10,0,0" VerticalAlignment="Top" Width="386"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="Project3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="302" Width="266" Initialized="Window_Initialized">
+    <Grid>
+        <ComboBox x:Name="MaincomboBox" HorizontalAlignment="Left" Margin="58,104,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Выберите фигуру:" HorizontalAlignment="Left" Margin="36,44,0,0" VerticalAlignment="Top" Width="174" FontSize="18" Height="38"/>
+        <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="58,163,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="Button_Click"/>
+
+    </Grid>
+</Window>
