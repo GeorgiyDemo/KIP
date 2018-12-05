@@ -4,8 +4,6 @@
     <head>
         <meta charset=“utf-8”> <title>Приют "Котикус"</title> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="css/bootstrap.min.css" rel="stylesheet"> 
-        <!-- <script src="js/secred.js"></script> -->
-        <!-- <script src="js/pass.js"></script> -->
         <style> [class*="col-"] { background-color: #eee; text-align: center; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px; font-size: 2rem; }
         </style> 
 
@@ -31,6 +29,33 @@
             .label-default{
               background-color: #337ab7;
             }
+
+            #table
+            {
+                font-size: 115%;
+                background-color: #d6edf8;
+                border: 1px solid black;
+            }
+            #table th
+            {
+                border-bottom: 1px solid black;
+                padding: 0;
+            }
+            #table td
+            {
+                border: 1px solid black;
+                padding: 0;
+            }
+            #table tr
+            {
+                border: 1px solid black;
+            }
+
+            select
+            {
+                margin-left: 1cm;
+                margin-bottom: 0.5cm;
+            }   
         </style>
         
         <?php
@@ -95,6 +120,117 @@
         <div class="alert alert-info" role="alert">В данном разделе представлены все работы, связанные с PHP</div>
 
         <div class="container">
+        <h2>Практика с сортировкой массива</h2>
+            <div>
+            <?php
+                $link = mysqli_connect("localhost", "root", "root", "SortDatabaseExample");
+                $array = [];
+                if ($result = mysqli_query($link, "SELECT * FROM Datatable"))
+                {
+                    while($stringresult = $result->fetch_array())
+                    array_push($array,array(
+                        'id'=>$stringresult["id"],
+                        'age'=>$stringresult["age"],
+                        'gender'=>$stringresult["gender"],
+                        'login'=>$stringresult["login"])
+                        );
+                    mysqli_free_result($result);
+                }
+
+                print
+                ("
+                    <form method = 'POST'>
+                    Параметры сортировки:
+                    <br>
+                    
+                    <select name='firstkey'>
+                        <option value='id'>id</option>
+                        <option value='age'>age</option>
+                        <option value='gender'>gender</option>
+                        <option value='login'>login</option>
+                    </select>
+
+                    <select name='secondkey'>
+                        <option value='id'>id</option>
+                        <option value='age'>age</option>
+                        <option value='gender'>gender</option>
+                        <option value='login'>login </option>
+                    
+                        </select>
+                    
+                    <br>
+                    
+                    <table id = 'tableselect1'>
+                    
+                    <tr>
+                    <td><input type='radio' name='firstsortparam' value='true' checked>По возрастанию</td>
+                    <td><input type='radio' name='secondsortparam' value='true' checked>По возрастанию</td>
+                    </tr>
+
+                    <tr>
+                    <td><input type='radio' name='firstsortparam' value='false'>По убыванию</td>       
+                    <td><input type='radio' name='secondsortparam' value='false'>По убыванию</td>
+                    </tr>
+                    </table>
+                    <br>
+                    <input type='submit' name='ex9' value='Сортировать' />
+                </form>
+                <br>
+                Результат:
+                ");
+            
+                $firstparam = $_POST['firstsortparam'];
+                $secondparam = $_POST['secondsortparam'];
+
+                $firstkey = $_POST['firstkey'];
+                $secondkey = $_POST['secondkey'];
+        
+                for($i = 0; $i < count($array); $i++)
+                    for($j = $i + 1; $j < count($array); $j++)
+                    {
+                        if (($array[$i][$firstkey] > $array[$j][$firstkey] && $firstparam == "true") || ($array[$i][$firstkey] < $array[$j][$firstkey] && $firstparam == "false"))
+                        {
+                            $bufkey1 = $array[$i];
+                            $array[$i] = $array[$j];
+                            $array[$j] = $bufkey1;
+                        }
+                    }
+        
+                for($i = 0; $i < count($array); $i++)
+                    for($j = $i + 1; $j < count($array); $j++)
+                    {
+                        if ($array[$i][$firstkey] == $array[$j][$firstkey] && (($array[$i][$secondkey] > $array[$j][$secondkey] && $secondparam == "true") || ($array[$i][$secondkey] < $array[$j][$secondkey] && $secondparam == "false")))
+                        {
+                            $bufkey2 = $array[$i];
+                            $array[$i] = $array[$j];
+                            $array[$j] = $bufkey2;
+                        }
+                    }
+
+            print(
+                "
+                <br>
+                <table id = 'table'>
+                <tr>
+                    <td><b>id&#8195;</b></td>
+                    <td><b>age&#8195;</b></td>
+                    <td><b>gender&#8195;</b></td>
+                    <td><b>login&#8195;</b></td>
+                </tr>"
+            );
+                
+                foreach ($array as $element)
+                {
+                    print("<tr>");
+                    foreach ($element as $value)
+                        print("<td>".$value."</td>");
+                    print("</tr>");     
+                }
+                print("</table>");
+
+            ?>
+
+          </div>
             <h2>Практики с документа Word</h2>          
             <table class="table table-hover">
               <thead>
@@ -394,19 +530,18 @@
                 </tr>
               </tbody>
             </table>
-
-          </div>
+            
     <?php
-    if (isset($_COOKIE['logined']))
-            {
-                print("
-                <form action='./php/loginlogic/exitbutton.php' method='POST'>
-                <button type='submit' class='btn btn-primary btn-lg'>Выход</button><br>
-                </form>");
-            }
+        if (isset($_COOKIE['logined']))
+        {
+                    print("
+                    <form action='./php/loginlogic/exitbutton.php' method='POST'>
+                    <button type='submit' class='btn btn-primary btn-lg'>Выход</button><br>
+                    </form>");
+        }
     ?>
 
-        <small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
+    <small>Данная организация работает исключительно на деньги с ВАШИХ пожертвований</small>
 </body>
 
 </html>
