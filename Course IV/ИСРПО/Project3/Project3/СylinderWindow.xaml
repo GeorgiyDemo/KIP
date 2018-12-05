@@ -8,7 +8,6 @@
         Title="СylinderWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="ExitButton" Content="Назад" HorizontalAlignment="Left" Margin="442,321,0,0" VerticalAlignment="Top" Width="154" Height="48" Click="ExitButton_Click"/>
-        <Image Margin="0,0,611,50" Source="162px-Cylinder_geometry.svg.png" Stretch="Fill"/>
         <TextBox x:Name="InputRaduisTextbox" HorizontalAlignment="Left" Height="23" Margin="455,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="InoutRaduisTextbox_TextChanged"/>
         <Label Content="R=" HorizontalAlignment="Left" Margin="411,66,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
         <Label Content="H=" HorizontalAlignment="Left" Margin="411,100,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Height="34"/>
@@ -19,6 +18,7 @@
         <Label Content="Sбок" HorizontalAlignment="Left" Margin="391,168,0,0" VerticalAlignment="Top" Width="59" FontSize="16" Height="34"/>
         <TextBox x:Name="VTextBox" HorizontalAlignment="Left" Height="23" Margin="455,213,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="V" HorizontalAlignment="Left" Margin="391,202,0,0" VerticalAlignment="Top" Width="43" FontSize="16" Height="34"/>
+        <Image Margin="0,0,548,40" Source="cylinder.png" Stretch="Fill"/>
 
     </Grid>
 </Window>

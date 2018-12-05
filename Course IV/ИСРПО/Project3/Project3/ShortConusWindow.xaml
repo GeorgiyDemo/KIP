@@ -8,7 +8,6 @@
         Title="ShortConusWindow" Height="522" Width="1148.5">
     <Grid>
         <Button x:Name="ExitButton" Content="Назад" HorizontalAlignment="Left" Margin="408,338,0,0" VerticalAlignment="Top" Width="154" Height="48" Click="ExitButton_Click"/>
-        <Image Margin="0,0,804,180" Source="Без названия (1).jpeg" Stretch="Fill"/>
         <Label Content="R&#xA;" HorizontalAlignment="Left" Margin="652,70,0,0" VerticalAlignment="Top" Width="28" Height="33" FontFamily="Times New Roman" FontSize="16"/>
         <TextBox x:Name="InputRTextbox" HorizontalAlignment="Left" Height="22" Margin="692,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14" MaxLength="15" TextChanged="InputRTextbox_TextChanged"/>
         <Label Content="H" HorizontalAlignment="Left" Margin="652,142,0,0" VerticalAlignment="Top" Width="28" Height="34" FontFamily="Times New Roman" FontSize="16"/>
@@ -29,6 +28,7 @@
         <TextBox x:Name="Soutput2" HorizontalAlignment="Left" Height="22" Margin="980,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Times New Roman" FontSize="14"   RenderTransformOrigin="-0.138,0.69"/>
         <GroupBox x:Name="InputGroupBox" Header="Ввод" HorizontalAlignment="Left" Height="239" Margin="632,10,0,0" VerticalAlignment="Top" Width="213"/>
         <GroupBox x:Name="OutputGroupBox" Header="Ввод" HorizontalAlignment="Left" Height="239" Margin="887,10,0,0" VerticalAlignment="Top" Width="228"/>
+        <Image Margin="0,0,786,137" Source="shortconus.jpg" Stretch="Fill"/>
 
     </Grid>
 </Window>

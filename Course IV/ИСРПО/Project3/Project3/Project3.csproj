@@ -122,5 +122,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="conus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="shortconus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sphera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cylinder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
