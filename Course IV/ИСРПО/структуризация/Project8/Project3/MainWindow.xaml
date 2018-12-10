@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="302" Width="266" Initialized="Window_Initialized">
-    <Grid>
-        <ComboBox x:Name="MaincomboBox" HorizontalAlignment="Left" Margin="58,104,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Выберите фигуру:" HorizontalAlignment="Left" Margin="36,44,0,0" VerticalAlignment="Top" Width="174" FontSize="18" Height="38"/>
-        <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="58,163,0,0" VerticalAlignment="Top" Width="120" Height="37" Click="Button_Click"/>
+        Title="MainWindow" Height="519.665" Width="922.385">
+    <Grid Margin="0,0,0,-181">
+        <DataGrid x:Name="MainDataGrid" HorizontalAlignment="Left" Height="188" Margin="34,141,0,0" VerticalAlignment="Top" Width="265"/>
+        <TextBox x:Name="MainTextbox" HorizontalAlignment="Left" Height="188" Margin="590,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <Button x:Name="SecondToFirstButton" Content="&lt;=" HorizontalAlignment="Left" Margin="359,259,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="SecondToFirstButton_Click"/>
+        <Button x:Name="FirstToSecondButton" Content="=&gt;" HorizontalAlignment="Left" Margin="359,185,0,0" VerticalAlignment="Top" Width="105" Height="32" Click="FirstToSecondButton_Click"/>
+        <TextBox x:Name="VerticalTextBox" HorizontalAlignment="Left" Height="188" Margin="590,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
 
     </Grid>
 </Window>
