@@ -23,14 +23,14 @@ namespace Project3
         {
             InitializeComponent();
         }
-
+         
         //Проверка ввода
         private void CheckData()
         {
-            Double InputR, InputH, InputL;
-            if (Double.TryParse(InputRTextbox.Text, out InputR) && Double.TryParse(InputHTextBox.Text, out InputH) && Double.TryParse(InputLTextBox.Text, out InputL))
+            double InputR, InputH, InputL;
+            if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
             {
-
+                InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
                 Vmain.Text = Convert.ToString(Math.Round(InputH * 1 / 3 * Math.PI * Math.Pow(InputR, 2), 3));
                 Smain1.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputR, 3));
                 Smain2.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputL, 3));

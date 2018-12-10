@@ -27,10 +27,11 @@ namespace Project3
         //Проверка ввода
         private void CheckData()
         {
-            Double InputR, InputH, InputL;
-            if (Double.TryParse(InputRTextbox.Text, out InputR) && Double.TryParse(InputHTextBox.Text, out InputH) && Double.TryParse(InputLTextBox.Text, out InputL))
+            double InputR, InputH, InputL;
+            if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
             {
-                ConusClass conus_obj = new ConusClass(InputRTextbox.Text, InputHTextBox.Text, InputLTextBox.Text);
+                InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
+                ConusClass conus_obj = new ConusClass(InputRTextbox.Text, InputHTextBox.Text, InputL.ToString());
                 Vmain.Text = conus_obj.Get1Value();
                 Smain1.Text = conus_obj.Get2Value();
                 Smain2.Text = conus_obj.Get3Value();
