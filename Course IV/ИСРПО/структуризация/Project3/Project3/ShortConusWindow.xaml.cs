@@ -27,15 +27,22 @@ namespace Project3
         private void CheckData()
         {
             Double InputR, Inputr, InputH, InputL;
-            if (Double.TryParse(InputRTextbox.Text, out InputR) && Double.TryParse(InputrTextBox.Text, out Inputr) && Double.TryParse(InputHTextBox.Text, out InputH) && Double.TryParse(InputLTextBox.Text, out InputL))
+            try
             {
-                ShortConusClass ShortConus_obj = new ShortConusClass(InputR, Inputr, InputH, InputL);
+                if (Double.TryParse(InputRTextbox.Text, out InputR) && Double.TryParse(InputrTextBox.Text, out Inputr) && Double.TryParse(InputHTextBox.Text, out InputH) && Double.TryParse(InputLTextBox.Text, out InputL))
+                {
+                    ShortConusClass ShortConus_obj = new ShortConusClass(InputR, Inputr, InputH, InputL);
 
-                Soutput1.Text = ShortConus_obj.Get1Value();
-                Soutput2.Text = ShortConus_obj.Get2Value();
-                Soutput3.Text = ShortConus_obj.Get3Value();
-                Soutput4.Text = ShortConus_obj.Get4Value();
-                Voutput.Text = ShortConus_obj.GetVValue();
+                    Soutput1.Text = ShortConus_obj.Get1Value();
+                    Soutput2.Text = ShortConus_obj.Get2Value();
+                    Soutput3.Text = ShortConus_obj.Get3Value();
+                    Soutput4.Text = ShortConus_obj.Get4Value();
+                    Voutput.Text = ShortConus_obj.GetVValue();
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
         }

@@ -28,13 +28,20 @@ namespace Project3
         private void CheckData()
         {
             double InputR, InputH, InputL;
-            if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
+            try
             {
-                InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
-                Vmain.Text = Convert.ToString(Math.Round(InputH * 1 / 3 * Math.PI * Math.Pow(InputR, 2), 3));
-                Smain1.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputR, 3));
-                Smain2.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputL, 3));
-                Smain3.Text = Convert.ToString(Math.Round(Math.PI * InputR * (InputR + InputL), 3));
+                if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
+                {
+                    InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
+                    Vmain.Text = Convert.ToString(Math.Round(InputH * 1 / 3 * Math.PI * Math.Pow(InputR, 2), 3));
+                    Smain1.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputR, 3));
+                    Smain2.Text = Convert.ToString(Math.Round(Math.PI * InputR * InputL, 3));
+                    Smain3.Text = Convert.ToString(Math.Round(Math.PI * InputR * (InputR + InputL), 3));
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
         }

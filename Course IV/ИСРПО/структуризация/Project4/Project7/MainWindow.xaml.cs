@@ -128,26 +128,33 @@ namespace Project7
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainDataGrid.ItemsSource=null;
-            MainDataGrid.ItemsSource = ArrayClass.DataGridInput(true).DefaultView;
-            MainDiagonalSum.Content = "Сумма элементов: " + ArrayClass.MainDiagonalSum().ToString();
-            MainDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.MainDiagonalMin().ToString();
-            MainDiagonalMax.Content = " Максимальный элемент: " + ArrayClass.MainDiagonalMax().ToString();
-            SecondaryDiagonalSum.Content = "Сумма элементов: " + ArrayClass.SecondaryDiagonalSum().ToString();
-            SecondaryDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.SecondaryDiagonalMin().ToString();
-            SecondaryDiagonalMax.Content = " Максимальный элемент: " + ArrayClass.SecondaryDiagonalMax().ToString();
-            LeftTriangleSum.Content = "Сумма элементов: " + ArrayClass.LeftTriangleSum().ToString();
-            LeftTriangleMin.Content = "Минимальный элемент: " + ArrayClass.LeftTriangleMin().ToString();
-            LeftTriangleMax.Content = " Максимальный элемент: " + ArrayClass.LeftTriangleMax().ToString();
-            RightTriangleSum.Content = "Сумма элементов: " + ArrayClass.RightTriangleSum().ToString();
-            RightTriangleMin.Content = "Минимальный элемент: " + ArrayClass.RightTriangleMin().ToString();
-            RightTriangleMax.Content = " Максимальный элемент: " + ArrayClass.RightTriangleMax().ToString();
-            UpTriangleSum.Content = "Сумма элементов: " + ArrayClass.UpTriangleSum().ToString();
-            UpTriangleMin.Content = "Минимальный элемент: " + ArrayClass.UpTriangleMin().ToString();
-            UpTriangleMax.Content = " Максимальный элемент: " + ArrayClass.UpTriangleMax().ToString();
-            DownTriangleSum.Content = "Сумма элементов: " + ArrayClass.DownTriangleSum().ToString();
-            DownTriangleMin.Content = "Минимальный элемент: " + ArrayClass.DownTriangleMin().ToString();
-            DownTriangleMax.Content = " Максимальный элемент: " + ArrayClass.DownTriangleMax().ToString();
+            try
+            {
+                MainDataGrid.ItemsSource = null;
+                MainDataGrid.ItemsSource = ArrayClass.DataGridInput(true).DefaultView;
+                MainDiagonalSum.Content = "Сумма элементов: " + ArrayClass.MainDiagonalSum().ToString();
+                MainDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.MainDiagonalMin().ToString();
+                MainDiagonalMax.Content = " Максимальный элемент: " + ArrayClass.MainDiagonalMax().ToString();
+                SecondaryDiagonalSum.Content = "Сумма элементов: " + ArrayClass.SecondaryDiagonalSum().ToString();
+                SecondaryDiagonaMin.Content = "Минимальный элемент: " + ArrayClass.SecondaryDiagonalMin().ToString();
+                SecondaryDiagonalMax.Content = " Максимальный элемент: " + ArrayClass.SecondaryDiagonalMax().ToString();
+                LeftTriangleSum.Content = "Сумма элементов: " + ArrayClass.LeftTriangleSum().ToString();
+                LeftTriangleMin.Content = "Минимальный элемент: " + ArrayClass.LeftTriangleMin().ToString();
+                LeftTriangleMax.Content = " Максимальный элемент: " + ArrayClass.LeftTriangleMax().ToString();
+                RightTriangleSum.Content = "Сумма элементов: " + ArrayClass.RightTriangleSum().ToString();
+                RightTriangleMin.Content = "Минимальный элемент: " + ArrayClass.RightTriangleMin().ToString();
+                RightTriangleMax.Content = " Максимальный элемент: " + ArrayClass.RightTriangleMax().ToString();
+                UpTriangleSum.Content = "Сумма элементов: " + ArrayClass.UpTriangleSum().ToString();
+                UpTriangleMin.Content = "Минимальный элемент: " + ArrayClass.UpTriangleMin().ToString();
+                UpTriangleMax.Content = " Максимальный элемент: " + ArrayClass.UpTriangleMax().ToString();
+                DownTriangleSum.Content = "Сумма элементов: " + ArrayClass.DownTriangleSum().ToString();
+                DownTriangleMin.Content = "Минимальный элемент: " + ArrayClass.DownTriangleMin().ToString();
+                DownTriangleMax.Content = " Максимальный элемент: " + ArrayClass.DownTriangleMax().ToString();
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
     }

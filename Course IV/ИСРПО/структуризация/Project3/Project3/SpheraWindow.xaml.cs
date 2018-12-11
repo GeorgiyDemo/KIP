@@ -22,11 +22,18 @@ namespace Project3
         private void InoutRaduisTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             double R;
-            if (Double.TryParse(InputRaduisTextbox.Text, out R))
+            try
             {
-                SpheraClass sphera_obj = new SpheraClass(R);
-                VTextBox.Text = sphera_obj.Get1Value();
-                STextBox.Text = sphera_obj.Get2Value();
+                if (Double.TryParse(InputRaduisTextbox.Text, out R))
+                {
+                    SpheraClass sphera_obj = new SpheraClass(R);
+                    VTextBox.Text = sphera_obj.Get1Value();
+                    STextBox.Text = sphera_obj.Get2Value();
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 

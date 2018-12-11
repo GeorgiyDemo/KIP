@@ -47,8 +47,12 @@ namespace Project4
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Adder(CounterNameTextBox.Text);
-            CounterNameTextBox.Text = "";
+            try
+            {
+                Adder(CounterNameTextBox.Text);
+                CounterNameTextBox.Text = "";
+            }
+            catch (Exception) {}
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -58,22 +62,34 @@ namespace Project4
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            MainListBox.Items.Clear();
-            CounterNameTextBox.Text = "";
+            try
+            {
+                MainListBox.Items.Clear();
+                CounterNameTextBox.Text = "";
+            }
+            catch (Exception) { }
         }
 
         private void RemoveButton_Click(object sender, RoutedEventArgs e)
         {
-            Remover(CounterNameTextBox.Text);
-            CounterNameTextBox.Text = "";
+            try
+            {
+                Remover(CounterNameTextBox.Text);
+                CounterNameTextBox.Text = "";
+            }
+            catch (Exception) { }
         }
 
         private void ChangeButton_Click(object sender, RoutedEventArgs e)
         {
-            int checker = MainListBox.Items.IndexOf(MainListBox.SelectedItem.ToString());
-            MainListBox.Items.RemoveAt(checker);
-            MainListBox.Items.Insert(checker, CounterNameTextBox.Text);
-            CounterNameTextBox.Text = "";
+            try
+            {
+                int checker = MainListBox.Items.IndexOf(MainListBox.SelectedItem.ToString());
+                MainListBox.Items.RemoveAt(checker);
+                MainListBox.Items.Insert(checker, CounterNameTextBox.Text);
+                CounterNameTextBox.Text = "";
+            }
+            catch (Exception) { }
         }
 
         private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -91,13 +107,17 @@ namespace Project4
 
         private void SortButton_Click(object sender, RoutedEventArgs e)
         {
-            ArrayList MainArrayList = new ArrayList();
-            foreach (object ListBox_object in MainListBox.Items)
-                MainArrayList.Add(ListBox_object);
-            MainArrayList.Sort();
-            MainListBox.Items.Clear();
-            foreach(object ListBox_object in MainArrayList)
-                MainListBox.Items.Add(ListBox_object); 
+            try
+            {
+                ArrayList MainArrayList = new ArrayList();
+                foreach (object ListBox_object in MainListBox.Items)
+                    MainArrayList.Add(ListBox_object);
+                MainArrayList.Sort();
+                MainListBox.Items.Clear();
+                foreach (object ListBox_object in MainArrayList)
+                    MainListBox.Items.Add(ListBox_object);
+            }
+            catch (Exception) { }
         }
 
         private void Window_Initialized(object sender, EventArgs e)

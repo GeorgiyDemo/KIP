@@ -32,13 +32,20 @@ namespace Project3
         private void CheckData()
         {
             double InputR, InputH;
-            if ((double.TryParse(InputRaduisTextbox.Text, out InputR)) && (double.TryParse(HTextBox.Text, out InputH)))
+            try
             {
+                if ((double.TryParse(InputRaduisTextbox.Text, out InputR)) && (double.TryParse(HTextBox.Text, out InputH)))
+                {
 
-                S1TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI * InputR * InputH, 3));
-                S2TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI + 2 * Math.PI * Math.Round(InputR, 2), 3));
-                VTextBox.Text = Convert.ToString(Math.Round(InputH * Math.PI * Math.Round(InputR, 2), 3));
+                    S1TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI * InputR * InputH, 3));
+                    S2TextBox.Text = Convert.ToString(Math.Round(2 * Math.PI + 2 * Math.PI * Math.Round(InputR, 2), 3));
+                    VTextBox.Text = Convert.ToString(Math.Round(InputH * Math.PI * Math.Round(InputR, 2), 3));
 
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
         }

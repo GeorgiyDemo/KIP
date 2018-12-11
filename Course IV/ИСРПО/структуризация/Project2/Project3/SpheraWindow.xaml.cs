@@ -21,8 +21,14 @@ namespace Project3
 
         private void InoutRaduisTextbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            VTextBox.Text = System.Convert.ToString((4 / 3) * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 3));
-            STextBox.Text = System.Convert.ToString(4 * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 2));
+            try
+            {
+                VTextBox.Text = System.Convert.ToString((4 / 3) * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 3));
+                STextBox.Text = System.Convert.ToString(4 * Math.PI * Math.Pow(System.Convert.ToDouble(InputRaduisTextbox.Text), 2));
+            }
+            catch (Exception)
+            {
+            }
         }
 
     }

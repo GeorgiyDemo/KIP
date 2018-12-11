@@ -51,6 +51,5 @@ namespace WpfApplication2
             control.positiveNegativeButtonClick();
         }
 
-     
     }
 }

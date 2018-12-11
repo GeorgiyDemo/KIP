@@ -28,14 +28,21 @@ namespace Project3
         private void CheckData()
         {
             double InputR, InputH, InputL;
-            if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
+            try
             {
-                InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
-                ConusClass conus_obj = new ConusClass(InputRTextbox.Text, InputHTextBox.Text, InputL.ToString());
-                Vmain.Text = conus_obj.Get1Value();
-                Smain1.Text = conus_obj.Get2Value();
-                Smain2.Text = conus_obj.Get3Value();
-                Smain3.Text = conus_obj.Get4Value();
+                if (double.TryParse(InputRTextbox.Text, out InputR) && double.TryParse(InputHTextBox.Text, out InputH))
+                {
+                    InputL = Math.Sqrt(Math.Pow(InputR, 2) * Math.Pow(InputH, 2));
+                    ConusClass conus_obj = new ConusClass(InputRTextbox.Text, InputHTextBox.Text, InputL.ToString());
+                    Vmain.Text = conus_obj.Get1Value();
+                    Smain1.Text = conus_obj.Get2Value();
+                    Smain2.Text = conus_obj.Get3Value();
+                    Smain3.Text = conus_obj.Get4Value();
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
 

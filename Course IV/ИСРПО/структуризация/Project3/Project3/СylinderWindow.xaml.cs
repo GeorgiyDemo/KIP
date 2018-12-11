@@ -32,13 +32,20 @@ namespace Project3
         private void CheckData()
         {
             double InputR, InputH;
-            if ((double.TryParse(InputRaduisTextbox.Text, out InputR)) && (double.TryParse(HTextBox.Text, out InputH)))
+            try
             {
-                CylinderClass Cylinder_obj = new CylinderClass(InputR, InputR);
+                if ((double.TryParse(InputRaduisTextbox.Text, out InputR)) && (double.TryParse(HTextBox.Text, out InputH)))
+                {
+                    CylinderClass Cylinder_obj = new CylinderClass(InputR, InputR);
 
-                S1TextBox.Text = Cylinder_obj.Get1Value();
-                S2TextBox.Text = Cylinder_obj.Get2Value();
-                VTextBox.Text = Cylinder_obj.Get3Value();
+                    S1TextBox.Text = Cylinder_obj.Get1Value();
+                    S2TextBox.Text = Cylinder_obj.Get2Value();
+                    VTextBox.Text = Cylinder_obj.Get3Value();
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
         }
