@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DataGridToTextBox
 {
@@ -43,10 +32,7 @@ namespace DataGridToTextBox
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите выйти из программы", "Малкеров Геннадий", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-            {
-                Application.Current.Shutdown();
-            }
+            Close();
         }
 
         private void outData_Click_1(object sender, RoutedEventArgs e)
@@ -130,7 +116,6 @@ namespace DataGridToTextBox
                     txt.Text = "";
                     DataGrid.ItemsSource = dt.DefaultView;
                     NapravlRow = false;
-                    outData.Content = "------->";
                 }
                 else
                 {
@@ -158,12 +143,11 @@ namespace DataGridToTextBox
                         dt.Columns.Add((i + 1).ToString());
                     }
                     DataGrid.ItemsSource = dt.DefaultView;
-                    outData.Content = "<-------";
                 }
             }
             else
             {
-                MessageBox.Show("dataGrid пустой, его необходимо его заполнить", "Малкеров Геннадий");
+                MessageBox.Show("DataGrid пустой, его необходимо его заполнить");
             }
 
         }
@@ -202,24 +186,16 @@ namespace DataGridToTextBox
         }
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите обновить", "Малкеров Геннадий", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-            {
-                txt.Text = null;
-                txtVertical.Text = null;
-                Refr();
-                NapravlRow = false;
-                NapravlColomn = false;
-                outDataVertical.Content = "------->";
-                outData.Content = "------->";
-            }
+           txt.Text = null;
+           txtVertical.Text = null;
+           Refr();
+           NapravlRow = false;
+           NapravlColomn = false;
         }
 
         private void AddRow_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите добавить строку в TextBox?", "Малкеров Геннадий", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-            {
-                txt.Text = txt.Text + "\n";
-            }
+           txt.Text = txt.Text + "\n";
         }
 
         private void outDataVertical_Click(object sender, RoutedEventArgs e)
@@ -229,7 +205,6 @@ namespace DataGridToTextBox
                 if (NapravlColomn)
                 {
                     NapravlColomn = false;
-                    outDataVertical.Content = "------->";
                     string StringFromTXT = txtVertical.Text;
                     int ColEnter = 0;
                     for (int i = 0; i < StringFromTXT.Length; i++)
@@ -350,12 +325,11 @@ namespace DataGridToTextBox
                     }
                     DataGrid.ItemsSource = dt.DefaultView;
                     NapravlColomn = true;
-                    outDataVertical.Content = "<------";
                 }
             }
             else
             {
-                MessageBox.Show("dataGrid пустой, его необходимо его заполнить", "Малкеров Геннадий");
+                MessageBox.Show("Необходимо заполнить datagrid");
             }
         }
     }

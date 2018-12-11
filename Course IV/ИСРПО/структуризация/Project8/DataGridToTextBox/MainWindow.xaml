@@ -7,14 +7,13 @@
         mc:Ignorable="d"
         Title="Пример переносов" Height="835.5" Width="844.077" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="322" Margin="31,10,0,0" VerticalAlignment="Top" Width="361" FontFamily="Times New Roman" FontSize="20" Style="{Binding ElementName=DataGrid, Path=SelectedValue.DESCRIPTION}">
-        </DataGrid>
-        <TextBox  x:Name="txt" HorizontalAlignment="Left" Height="322" Margin="538,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontFamily="Times New Roman" FontSize="20" />
-        <Button x:Name="Refresh" Content="Обновить" HorizontalAlignment="Left" Margin="412,136,0,0" VerticalAlignment="Top" Width="100" FontFamily="Times New Roman" FontSize="15" Click="Refresh_Click" Height="33" />
-        <Button x:Name="outData" Content="Перенос" HorizontalAlignment="Left" Margin="412,194,0,0" VerticalAlignment="Top" Width="100" FontFamily="Times New Roman" FontSize="15" Click="outData_Click_1" Height="35" />
-        <Button x:Name="AddRow" Content="Добавить строку" HorizontalAlignment="Left" Margin="538,354,0,0" VerticalAlignment="Top" Width="266" FontFamily="Times New Roman" FontSize="15"  Height="33" Click="AddRow_Click" />
-        <TextBox  x:Name="txtVertical" HorizontalAlignment="Left" Height="335" Margin="31,455,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" FontFamily="Times New Roman" FontSize="20" />
-        <Button x:Name="outDataVertical" Content="Перенос" HorizontalAlignment="Left" Margin="120,354,0,0" VerticalAlignment="Top" Width="172" FontFamily="Times New Roman" FontSize="15" Height="33" RenderTransformOrigin="0.5,0.5" Click="outDataVertical_Click" />
+        <DataGrid x:Name="DataGrid" HorizontalAlignment="Left" Height="322" Margin="31,10,0,0" VerticalAlignment="Top" Width="361" FontFamily="Times New Roman" Style="{Binding ElementName=DataGrid, Path=SelectedValue.DESCRIPTION}"/>
+        <TextBox  x:Name="txt" HorizontalAlignment="Left" Height="322" Margin="538,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontFamily="Times New Roman" />
+        <Button x:Name="Refresh" Content="Обновить" HorizontalAlignment="Left" Margin="412,136,0,0" VerticalAlignment="Top" Width="100" FontFamily="Times New Roman" Click="Refresh_Click" Height="33" />
+        <Button x:Name="outData" Content="Перенос" HorizontalAlignment="Left" Margin="412,194,0,0" VerticalAlignment="Top" Width="100" FontFamily="Times New Roman" Click="outData_Click_1" Height="35" />
+        <Button x:Name="AddRow" Content="Добавить строку" HorizontalAlignment="Left" Margin="538,354,0,0" VerticalAlignment="Top" Width="266" FontFamily="Times New Roman"  Height="33" Click="AddRow_Click" />
+        <TextBox  x:Name="txtVertical" HorizontalAlignment="Left" Height="335" Margin="31,455,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" FontFamily="Times New Roman" />
+        <Button x:Name="outDataVertical" Content="Перенос" HorizontalAlignment="Left" Margin="120,354,0,0" VerticalAlignment="Top" Width="172" FontFamily="Times New Roman" Height="33" RenderTransformOrigin="0.5,0.5" Click="outDataVertical_Click" />
 
     </Grid>
 </Window>
