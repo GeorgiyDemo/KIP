@@ -9,6 +9,7 @@ namespace WpfApplication2
 {
     class Controller
     {
+
         private MainWindow view { set; get; }
         private long number1;
         private long number2;
@@ -24,7 +25,7 @@ namespace WpfApplication2
         public void numberButtonClick(object sender, EventArgs e)
         {
             string buttonText = ((Button)sender).Content.ToString();
-            long numberClicked = Convert.ToInt64(buttonText); //parse string to long
+            long numberClicked = Convert.ToInt64(buttonText);
             if (operation == "")
             {
                 number1 = number1 * 10 + numberClicked;

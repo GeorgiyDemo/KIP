@@ -34,7 +34,7 @@ namespace Project2
             double u = 0;
             if (x < 0)
             {
-                y = x * x * Math.Sin(x + a);
+                y = Math.Round(x * x * Math.Sin(x + a),3);
             }
             else if (x >= 0)
             {

@@ -15,7 +15,7 @@
         <TextBox x:Name="CounterNameTextBox" HorizontalAlignment="Left" Height="23" Margin="300,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Кол-во элементов в списке" HorizontalAlignment="Left" Margin="126,289,0,0" VerticalAlignment="Top" Width="169"/>
         <TextBox x:Name="CountTextBox" HorizontalAlignment="Left" Height="23" Margin="300,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="ClearButton" Content="Отчистить список" HorizontalAlignment="Left" Margin="574,212,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ClearButton_Click"/>
+        <Button x:Name="ClearButton" Content="Очистить список" HorizontalAlignment="Left" Margin="574,212,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ClearButton_Click"/>
         <Button x:Name="SortButton" Content="Сортировать" HorizontalAlignment="Left" Margin="574,260,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="SortButton_Click"/>
         <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Left" Margin="574,308,0,0" VerticalAlignment="Top" Width="133" Height="43" Click="ExitButton_Click"/>
         <GroupBox Header="Работа со списком" HorizontalAlignment="Left" Height="176" Margin="10,10,0,0" VerticalAlignment="Top" Width="386"/>
