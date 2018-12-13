@@ -61,5 +61,6 @@
 * [II курс (лето 2017)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20II%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202017)
 * [III курс (зима 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202018)
 * [III курс (лето 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20III%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202018)
+* [IV курс (зима 2018)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20IV%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202018)
 
 *Колледж информатики и программирования Финансового университета при Правительстве РФ aka Колледж информатики и программирования (КИП Финуниверситета, бывш. Колледж информатики и электронной техники, МГКИЭТ, МГКИП) aka Кембридж на Кронштадтском
