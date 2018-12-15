@@ -92,7 +92,7 @@
 		}
         ?>
 
-        <div class="alert alert-info" role="alert">В данном разделе представлены все работы, связанные с PHP</div>
+        <div class="alert alert-info" role="alert">В данном разделе представлены все работы, связанные с дисциплиной "Компьютерная графика"</div>
 
         <div class="container">
         
@@ -105,6 +105,10 @@
             <tr>
                 <td><h4>Пример анимации в CorelDRAW</h4></td>
                 <td><img src="./img/КГ/corel/ULITKA.gif" width="189" height="255" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Пример анимации в CorelDRAW (альтернатива)</h4></td>
+                <td><img src="./img/КГ/corel/CAR.gif" width="295" height="261" ></td> 
             </tr>
             <tr>
                 <td><h4>Пример логотипа колледжа №1</h4></td>
@@ -149,6 +153,10 @@
             <tr>
                 <td><h4>Портрет под стеклом</h4></td>
                 <td><img src="./img/КГ/corel/9.png" width="253" height="279" ></td> 
+            </tr>
+            <tr>
+                <td><h4>Фрукты</h4></td>
+                <td><img src="./img/КГ/corel/fruits.png" width="290" height="109" ></td> 
             </tr>
             
             </table>
