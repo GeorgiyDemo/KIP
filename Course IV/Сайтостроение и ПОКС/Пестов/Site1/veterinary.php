@@ -38,13 +38,22 @@
 					<li role="presentation"><a href="./index.php">Основное</a></li>
 					<li role="presentation"><a href="./history.php">История породы</a></li>
 					<li role="presentation" class="active"><a href="#">Уход</a></li>
-				  	<li role="presentation"><a href="./other.php">Спонсоры</a></li>
-				  	<li role="presentation"><a href="./about.php">О нас</a></li>
-				  	<li role="presentation"><a href="./canvas.php">Canvas</a></li>
-				  	<li role="presentation"><a href="./js.php">Javascript</a></li>
+					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
+					<li role="presentation"><a href="./about.php">О нас</a></li>
+					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
+					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 		}
@@ -55,15 +64,24 @@
 					<ul class="nav nav-pills">
 					<li role="presentation"><a href="./login.php">Вход</a></li>
 					<li role="presentation"><a href="./index.php">Основное</a></li>
-			  		<li role="presentation"><a href="./history.php">История породы</a></li>
-				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation" class="active"><a href="#">Уход</a></li>
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 			}
@@ -74,15 +92,24 @@
 					<ul class="nav nav-pills">
 					<li role="presentation"><a href="./login.php">Регистрация</a></li>
 					<li role="presentation"><a href="./index.php">Основное</a></li>
-			  		<li role="presentation"><a href="./history.php">История породы</a></li>
-				  	<li role="presentation" class="active"><a href="#">Уход</a></li>
+					<li role="presentation"><a href="./history.php">История породы</a></li>
+					<li role="presentation" class="active"><a href="#">Уход</a></li>
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
 					<li role="presentation"><a href="./js.php">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 		}

@@ -47,10 +47,19 @@
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
-					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"class="active"><a href="#">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 		}
@@ -66,10 +75,19 @@
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
-					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"class="active"><a href="#">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 			}
@@ -85,10 +103,19 @@
 					<li role="presentation"><a href="./other.php">Спонсоры</a></li>
 					<li role="presentation"><a href="./about.php">О нас</a></li>
 					<li role="presentation"><a href="./canvas.php">Canvas</a></li>
-					<li role="presentation" class="active"><a href="#">Javascript</a></li>
+					<li role="presentation"class="active"><a href="#">Javascript</a></li>
 					<li role="presentation"><a href="./php.php">PHP</a></li>
-					<li role="presentation"><a href="./citygame.php">Игра "Города"</a></li>
 					<li role="presentation"><a href="./computergraph.php">Графика</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">
+						Игры 
+						<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="./citygame.php">Игра "Города" на PHP</a></li>
+							<li><a href="./snakegame.php">Игра "Змейка" на JS</a></li>
+						</ul>
+					</li>
 					</ul>'
 				);
 		}
@@ -147,21 +174,6 @@
 		</script> 
 
 		<script type="text/javascript">
-			//var checkname = prompt("Запрос имени");
-			//if (checkname != null) {
-			//	alert("Добро пожаловать, "+checkname+"!");
-			//}
-
-			//var password_check = prompt("Введите пароль");
-			//if (password_check == SUPER_SECURE_PASSWORD)
-			//	alert("ПАРОЛЬ ПРАВИЛЬНЫЙ");
-			//else
-			//	alert("ПАРОЛЬ НЕПРАВИЛЬНЫЙ");
-
-			//alert([ "a", "в", "б" ].sort());
-
-			//arr = [2,1,3,500]
-
 
 			for (var ch1=0; ch1 < arr.length; ch1++){
 
@@ -200,11 +212,6 @@
 		x[slideIndex-1].style.display = "block";  
 		}
 		</script>
-		<h2 class="w3-center">Игра на JavaScript</h2>
-		<script type="text/javascript" src="./js/snakescript.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
 
 <?php
 if (isset($_COOKIE['logined']))
