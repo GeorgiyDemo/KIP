@@ -1,4 +1,5 @@
 <?php
+    
   $hp_serv=0;
   $hp_user=0;
   $error_wr=0;

@@ -1,4 +1,5 @@
-  <?php 
+<?php
+    
     session_start();
     $hp_serv = (int)$_SESSION['hp_serv'] ;
     $hp_user = (int)$_SESSION['hp_user']; 
