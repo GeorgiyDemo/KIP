@@ -1,0 +1,146 @@
+body {
+  font-family: 'Tahoma';
+  font-size: 14px;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 25px;
+}
+
+.header-title {
+  background: url(http://googleb.ru/wp-content/uploads/2017/05/402342-svetik-1039x702.jpg);
+  width: 100%;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+.header-title {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-menu {
+  border: 4px solid gray;
+}
+
+.top-menu ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.top-menu ul li {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  width: 77%;
+}
+
+aside {
+  width: 20%;
+  border: 4px solid gray;
+}
+
+.side-menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+aside ul {
+  padding: 0;
+  margin: 0 auto;
+}
+
+section {
+  border: 4px solid gray;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+ h2 {
+  margin-top: 0!important;
+  padding: 0;
+}
+
+li.title {
+  text-align: center;
+  margin-top: 15px;
+  text-transform: uppercase;
+  font-size: 17px;
+  display: block;
+}
+
+.clear {
+  clear: both;
+}
+
+.side-menu {
+  display: flex;
+}
+
+.side-menu ul {
+  list-style: none;
+}
+
+.side-menu li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.side-menu ul li li {
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 15px;
+  border: 4px solid gray;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1035px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  aside, main {
+    width: 100%;
+  }
+
+  aside {
+    margin-top: 15px;
+    box-sizing: border-box;
+  }
+}
