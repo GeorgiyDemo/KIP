@@ -47,12 +47,12 @@
 
 ### 4 Курс
 #### Вариант №6
-* [Курсовой проект (1-е полугодие)](https://github.com/GeorgiyDemo/SMSSender) - С# + MySQL
+* [Курсовой проект](https://github.com/GeorgiyDemo/SMSSender) - С# + MySQL
 * [Технология разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%A2%D0%A0%D0%9F%D0%9E) - C#
 * [Инструментальные средства разработки программного обеспечения](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%98%D0%A1%D0%A0%D0%9F%D0%9E) - C#
 * [Сайтостроение](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%A1%D0%B0%D0%B9%D1%82%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5) - HTML/CSS/JS/PHP
 * [Программное обеспечение компьютерных сетей](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9F%D0%9E%D0%9A%D0%A1) - HTML/CSS/JS/PHP
-* [Компьютерная графика](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9A%D0%93) DOC/PSD
+* [Компьютерная графика](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9A%D0%93) DOC/PSD/CDR
 * [Основы проектной деятельности](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%9E%D0%9F%D0%94) - DOC
 * [Документирование и сертификация](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%94%D0%A1) - DOC/C#
 
