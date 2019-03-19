@@ -31,5 +31,11 @@ namespace WindowsFormsApp1
             this.фИОTableAdapter.Fill(this.aNDREY.ФИО);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginForm meow = new LoginForm();
+            meow.Show();
+        }
     }
 }
