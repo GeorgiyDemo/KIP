@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public static string connectString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=../../../База данных1.mdb;";
    
         private OleDbConnection myConnection;
+
         public LoginForm()
         {
             InitializeComponent();
