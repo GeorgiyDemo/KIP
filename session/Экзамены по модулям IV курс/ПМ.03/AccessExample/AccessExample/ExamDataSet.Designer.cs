@@ -902,7 +902,7 @@ namespace AccessExample.ExamDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT active, passive, [user], Код FROM data";
+            this._commandCollection[0].CommandText = "SELECT active, passive, [user], Код FROM data WHERE user="+GlobalStaticClass.usernameid;
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

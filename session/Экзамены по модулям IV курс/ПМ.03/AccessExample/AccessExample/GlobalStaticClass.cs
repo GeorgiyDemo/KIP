@@ -9,6 +9,6 @@ namespace AccessExample
     public static class GlobalStaticClass
     {
 
-        public static string username;
+        public static string usernameid;
     }
 }

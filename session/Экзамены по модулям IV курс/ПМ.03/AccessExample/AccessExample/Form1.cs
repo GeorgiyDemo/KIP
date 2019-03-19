@@ -17,11 +17,14 @@ namespace AccessExample
 
         private OleDbConnection myConnection;
 
-        public bool CheckLogin(string login, string passwd)
+        public string CheckLogin(string login, string passwd)
         {
             string query = "SELECT Код FROM users WHERE login='"+login+"' AND password='"+passwd+"'";
             OleDbCommand command = new OleDbCommand(query, myConnection);
-            return (command.ExecuteScalar() == null) ? false : true;
+            if (command.ExecuteScalar() == null)
+                return "";
+            else
+                return command.ExecuteScalar().ToString();
 
         }
 
@@ -34,9 +37,11 @@ namespace AccessExample
 
         private void EnterButton_Click(object sender, EventArgs e)
         {
-            if (CheckLogin(LoginTextBox.Text, PasswordTextBox.Text) == true)
+            string bufresult = CheckLogin(LoginTextBox.Text, PasswordTextBox.Text);
+            
+            if (bufresult != "")
             {
-                GlobalStaticClass.username = LoginTextBox.Text;
+                GlobalStaticClass.usernameid = bufresult;
                 MainForm obj = new MainForm();
                 obj.Show();
             }
