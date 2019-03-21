@@ -899,10 +899,21 @@ namespace AccessExample.ExamDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
+
+      
+
+                 
+
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT active, passive, [user], Код FROM data WHERE user="+GlobalStaticClass.usernameid;
+
+            if (GlobalStaticClass.usernameid == "3")
+                this._commandCollection[0].CommandText = "SELECT active, passive, [user], Код FROM data";
+            else
+                this._commandCollection[0].CommandText = "SELECT active, passive, [user], Код FROM data WHERE user=" + GlobalStaticClass.usernameid;
+
+          
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

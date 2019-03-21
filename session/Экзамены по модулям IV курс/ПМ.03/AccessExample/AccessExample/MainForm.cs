@@ -66,5 +66,18 @@ namespace AccessExample
             OleDbCommand command = new OleDbCommand(query, myConnection);
             command.ExecuteNonQuery();
         }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SelectForm obj1 = new SelectForm(dateTimePicker1.Value.ToString("yyyy-MM-dd"), dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+            obj1.Show();
+
+        }
+
     }
 }

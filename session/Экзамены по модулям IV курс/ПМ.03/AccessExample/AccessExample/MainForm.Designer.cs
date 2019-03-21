@@ -45,17 +45,17 @@
             this.dataBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dataDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.OneElementButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.MultiElementsButton = new System.Windows.Forms.Button();
-            this.InsertElementButton = new System.Windows.Forms.Button();
-            this.UserTextBox = new System.Windows.Forms.TextBox();
-            this.ActiveTextBox = new System.Windows.Forms.TextBox();
-            this.PassiveTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PassiveTextBox = new System.Windows.Forms.TextBox();
+            this.ActiveTextBox = new System.Windows.Forms.TextBox();
+            this.UserTextBox = new System.Windows.Forms.TextBox();
+            this.InsertElementButton = new System.Windows.Forms.Button();
+            this.MultiElementsButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.OneElementButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,12 +64,19 @@
             this.examDataSet = new AccessExample.ExamDataSet();
             this.dataTableAdapter = new AccessExample.ExamDataSetTableAdapters.dataTableAdapter();
             this.tableAdapterManager = new AccessExample.ExamDataSetTableAdapters.TableAdapterManager();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingNavigator)).BeginInit();
             this.dataBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataBindingNavigator
@@ -224,19 +231,88 @@
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.OneElementButton);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(481, 56);
+            this.groupBox1.Location = new System.Drawing.Point(499, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(402, 284);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Методы для работы с БД";
             // 
-            // textBox1
+            // label3
             // 
-            this.textBox1.Location = new System.Drawing.Point(186, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(216, 251);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Passive";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(216, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Active";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(216, 196);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "User";
+            // 
+            // PassiveTextBox
+            // 
+            this.PassiveTextBox.Location = new System.Drawing.Point(282, 248);
+            this.PassiveTextBox.Name = "PassiveTextBox";
+            this.PassiveTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PassiveTextBox.TabIndex = 7;
+            // 
+            // ActiveTextBox
+            // 
+            this.ActiveTextBox.Location = new System.Drawing.Point(282, 222);
+            this.ActiveTextBox.Name = "ActiveTextBox";
+            this.ActiveTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ActiveTextBox.TabIndex = 6;
+            // 
+            // UserTextBox
+            // 
+            this.UserTextBox.Location = new System.Drawing.Point(282, 196);
+            this.UserTextBox.Name = "UserTextBox";
+            this.UserTextBox.Size = new System.Drawing.Size(100, 20);
+            this.UserTextBox.TabIndex = 5;
+            // 
+            // InsertElementButton
+            // 
+            this.InsertElementButton.Location = new System.Drawing.Point(19, 191);
+            this.InsertElementButton.Name = "InsertElementButton";
+            this.InsertElementButton.Size = new System.Drawing.Size(119, 44);
+            this.InsertElementButton.TabIndex = 4;
+            this.InsertElementButton.Text = "Добавление элементов";
+            this.InsertElementButton.UseVisualStyleBackColor = true;
+            this.InsertElementButton.Click += new System.EventHandler(this.InsertElementButton_Click);
+            // 
+            // MultiElementsButton
+            // 
+            this.MultiElementsButton.Location = new System.Drawing.Point(19, 100);
+            this.MultiElementsButton.Name = "MultiElementsButton";
+            this.MultiElementsButton.Size = new System.Drawing.Size(119, 44);
+            this.MultiElementsButton.TabIndex = 3;
+            this.MultiElementsButton.Text = "Несколько элементов";
+            this.MultiElementsButton.UseVisualStyleBackColor = true;
+            this.MultiElementsButton.Click += new System.EventHandler(this.MultiElementsButton_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(175, 72);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 2;
             // 
             // OneElementButton
             // 
@@ -248,81 +324,12 @@
             this.OneElementButton.UseVisualStyleBackColor = true;
             this.OneElementButton.Click += new System.EventHandler(this.OneElementButton_Click);
             // 
-            // listBox1
+            // textBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(175, 72);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 2;
-            // 
-            // MultiElementsButton
-            // 
-            this.MultiElementsButton.Location = new System.Drawing.Point(19, 99);
-            this.MultiElementsButton.Name = "MultiElementsButton";
-            this.MultiElementsButton.Size = new System.Drawing.Size(119, 44);
-            this.MultiElementsButton.TabIndex = 3;
-            this.MultiElementsButton.Text = "Несколько элементов";
-            this.MultiElementsButton.UseVisualStyleBackColor = true;
-            this.MultiElementsButton.Click += new System.EventHandler(this.MultiElementsButton_Click);
-            // 
-            // InsertElementButton
-            // 
-            this.InsertElementButton.Location = new System.Drawing.Point(19, 196);
-            this.InsertElementButton.Name = "InsertElementButton";
-            this.InsertElementButton.Size = new System.Drawing.Size(119, 44);
-            this.InsertElementButton.TabIndex = 4;
-            this.InsertElementButton.Text = "Добавление элементов";
-            this.InsertElementButton.UseVisualStyleBackColor = true;
-            this.InsertElementButton.Click += new System.EventHandler(this.InsertElementButton_Click);
-            // 
-            // UserTextBox
-            // 
-            this.UserTextBox.Location = new System.Drawing.Point(282, 196);
-            this.UserTextBox.Name = "UserTextBox";
-            this.UserTextBox.Size = new System.Drawing.Size(100, 20);
-            this.UserTextBox.TabIndex = 5;
-            // 
-            // ActiveTextBox
-            // 
-            this.ActiveTextBox.Location = new System.Drawing.Point(282, 222);
-            this.ActiveTextBox.Name = "ActiveTextBox";
-            this.ActiveTextBox.Size = new System.Drawing.Size(100, 20);
-            this.ActiveTextBox.TabIndex = 6;
-            // 
-            // PassiveTextBox
-            // 
-            this.PassiveTextBox.Location = new System.Drawing.Point(282, 248);
-            this.PassiveTextBox.Name = "PassiveTextBox";
-            this.PassiveTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PassiveTextBox.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 196);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "User";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Active";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(216, 251);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Passive";
+            this.textBox1.Location = new System.Drawing.Point(186, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -368,16 +375,74 @@
             this.tableAdapterManager.dataTableAdapter = this.dataTableAdapter;
             this.tableAdapterManager.UpdateOrder = AccessExample.ExamDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Location = new System.Drawing.Point(499, 341);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(402, 131);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(266, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Выбрать даты";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(152, 19);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(152, 45);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(68, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Время начала";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(68, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Время конца";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 441);
+            this.ClientSize = new System.Drawing.Size(988, 484);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataDataGridView);
             this.Controls.Add(this.dataBindingNavigator);
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingNavigator)).EndInit();
             this.dataBindingNavigator.ResumeLayout(false);
@@ -387,6 +452,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.examDataSet)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +495,11 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button OneElementButton;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button button1;
     }
 }

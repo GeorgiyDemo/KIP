@@ -44,8 +44,9 @@ namespace AccessExample
                 GlobalStaticClass.usernameid = bufresult;
                 MainForm obj = new MainForm();
                 myConnection.Close();
+                this.Hide();
                 obj.Show();
-                Hide();
+                
             }
             else
                 MessageBox.Show("Неправильный логин или пароль");
