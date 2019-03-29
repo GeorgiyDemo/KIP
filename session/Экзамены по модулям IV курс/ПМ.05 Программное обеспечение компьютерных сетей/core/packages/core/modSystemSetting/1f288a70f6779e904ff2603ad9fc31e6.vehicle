@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'e15e651fa9aa4c4963acb8ddac2e7ea0',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => '1f288a70f6779e904ff2603ad9fc31e6',
+  'native_key' => 'parser_recurse_uncacheable',
+  'object' => '{"key":"parser_recurse_uncacheable","value":true,"xtype":"combo-boolean","namespace":"core","area":"system","editedon":null}',
+);

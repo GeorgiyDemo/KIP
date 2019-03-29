@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '59c15e75e43d558166f9c47d29bfb750',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'bfedb6c3330e1f42e23acb4aa56499e3',
+  'native_key' => 'richtext_default',
+  'object' => '{"key":"richtext_default","value":"1","xtype":"combo-boolean","namespace":"core","area":"manager","editedon":null}',
+);

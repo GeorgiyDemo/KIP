@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'ea53761ef98d5dbe4ac9850e1c269bcb',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'a26b73e00404bfe2cb4ff25971f748a3',
+  'native_key' => 'set_header',
+  'object' => '{"key":"set_header","value":"1","xtype":"combo-boolean","namespace":"core","area":"system","editedon":null}',
+);

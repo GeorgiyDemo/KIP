@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => '351897b9d9ef0a558d8f342cb8c0e99d',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'f3244427421b937be2f742c08e2db1b2',
+  'native_key' => 'upload_flash',
+  'object' => '{"key":"upload_flash","value":"swf,fla","xtype":"textfield","namespace":"core","area":"file","editedon":null}',
+);

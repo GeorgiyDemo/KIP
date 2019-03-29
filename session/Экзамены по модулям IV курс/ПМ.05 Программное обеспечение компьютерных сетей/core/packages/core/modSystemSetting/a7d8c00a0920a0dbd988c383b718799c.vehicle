@@ -1,0 +1,12 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => false,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a77c07e9e030c3feee7fd01e628c5a5f',
+  'package' => 'modx',
+  'class' => 'modSystemSetting',
+  'signature' => 'a7d8c00a0920a0dbd988c383b718799c',
+  'native_key' => 'static_elements_basepath',
+  'object' => '{"key":"static_elements_basepath","value":"","xtype":"textfield","namespace":"core","area":"static_elements","editedon":null}',
+);
