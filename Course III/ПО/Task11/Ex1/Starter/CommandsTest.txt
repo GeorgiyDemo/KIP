@@ -1,4 +1,0 @@
-Move(9.23,78)
-Rotate(65.3)
-Wait(10)
-Move(1,1)

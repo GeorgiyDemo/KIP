@@ -1,3 +1,0 @@
-<IfModule dir_module>
-    DirectoryIndex index.php
-</IfModule>

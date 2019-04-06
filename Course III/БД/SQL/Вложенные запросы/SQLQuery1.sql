@@ -1,1 +1,0 @@
-SELECT * FROM dbo.Сделки WHERE Дата = (SELECT MAX(Дата) FROM dbo.Сделки)
