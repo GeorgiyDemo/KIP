@@ -1,5 +1,5 @@
-<img src="./img/FA.png" /> <img src="./img/KIP.png"  />
-<img src="./img/CAT.jpg" align="right" />
+<img src="https://github.com/GeorgiyDemo/KIP/blob/img/img/FA.png" /> <img src="https://github.com/GeorgiyDemo/KIP/blob/img/img/KIP.png"  />
+<img src="https://github.com/GeorgiyDemo/KIP/blob/img/img/CAT.jpg" align="right" />
 
 # Репозиторий КИП* (ПКС)
 [![CodeFactor](https://www.codefactor.io/repository/github/georgiydemo/kip/badge)](https://www.codefactor.io/repository/github/georgiydemo/kip)
