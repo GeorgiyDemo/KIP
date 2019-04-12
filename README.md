@@ -69,7 +69,7 @@
 ### Дополнительно
 * [Курсы по подготовке к сдаче экзаменов по СПО ФУ РФ](https://github.com/GeorgiyDemo/KIP/blob/master/Course%20IV/%D0%9A%D1%83%D1%80%D1%81%D1%8B/) - DOCX/PPTX
 
-### Альтернативные репо КИП*
+### Альтернативные репо
 * [AlexeyChernikov/KIP](https://github.com/AlexeyChernikov/KIP)
 * [TheZaychik/KIP](https://github.com/TheZaychik/KIP)
 
