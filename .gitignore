@@ -261,6 +261,6 @@ paket-files/
 __pycache__/
 *.pyc
 
-#Фикс для g++
+#Прочие фиксы
 *.out
-session/Экзамены по модулям IV курс/Преддипломная практика/Titulny_List_Otchyota_Po_Preddiplomnoy_Praktike.docx
+*.DS_Store
