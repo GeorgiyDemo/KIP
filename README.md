@@ -58,6 +58,12 @@
 * [Документирование и сертификация](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20IV/%D0%94%D0%A1) - DOCX/C#
 * [Производственная практика](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%AD%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%8B%20%D0%BF%D0%BE%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8F%D0%BC%20IV%20%D0%BA%D1%83%D1%80%D1%81) - C#/DOCX/PPTX
 
+### Курсовые/диплом
+* [Разработка АИС «Абитуриент Колледжа» на C++/CLI](https://github.com/GeorgiyDemo/Cursach_3)
+* [Информационная база приемной комиссии колледжа на платформе 1С:Предприятие 8.3](https://github.com/GeorgiyDemo/KIP/tree/master/Course%20III/%D0%91%D0%94/1C/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%BE%D0%B9)
+* [ПО для рассылки расписания студентам колледжа с использованием технологий OpenCV и Tesseract OCR](https://github.com/GeorgiyDemo/SMSSender)
+* [Разработка автоматизированной системы обработки финансовой отчётности с использованием библиотеки компьютерного зрения OpenCV для АО КБ Руснарбанк](https://github.com/GeorgiyDemo/KIP/tree/master/diploma)
+
 ### Сессия
 * [I курс (лето 2016)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20I%20%D0%BA%D1%83%D1%80%D1%81%20%D0%BB%D0%B5%D1%82%D0%BE%202016)
 * [II курс (зима 2017)](https://github.com/GeorgiyDemo/KIP/tree/master/session/%D0%A1%D0%B5%D1%81%D1%81%D0%B8%D1%8F%20II%20%D0%BA%D1%83%D1%80%D1%81%20%D0%B7%D0%B8%D0%BC%D0%B0%202017)
